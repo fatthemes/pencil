@@ -1,0 +1,59 @@
+h1, h2, h3, h4, h5, h6 {
+    clear: both;
+}
+
+.site-title {
+    @extend h1;
+    text-transform: uppercase;
+}
+
+.site-title a{
+    color: #000;
+}
+
+.single .post .entry-title, .page .page .entry-title, .site-title {
+    //text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+.site-branding {
+    text-align: center;
+    padding: 3em 0;
+}
+
+.site-description, .site-title {
+    margin:0;
+}
+
+.home, .archive, .search {
+    .entry-title {
+        margin-bottom: 0;
+    }
+}
+
+.home, .archive, .search {
+    .content-area .entry-title{
+        //font-size: 1.75rem;
+        line-height: 1.125;
+        margin-top: .375em;
+        margin-bottom: .125em;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+    }
+}
+
+@include media-breakpoint-up(md){
+    .home, .archive, .search {
+        .content-area .entry-title{
+            font-size: 1.75rem;
+            letter-spacing: -0.025em;
+        }
+    }
+}
+
+.home, .archive, .search {
+    .content-area .entry-title a{
+        color: #363738;
+    }
+}

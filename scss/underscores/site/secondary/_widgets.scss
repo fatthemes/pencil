@@ -1,0 +1,41 @@
+.widget {
+	margin: 0 0 ( $grid-gutter-width );
+        font-family: $headings-font-family;
+        font-weight: $headings-font-weight;
+
+        ul {
+            @extend .list-unstyled;
+            margin-left: 0;
+        }
+        
+        li {
+            margin-bottom: .75em;
+        }
+        
+	/* Make sure select elements fit in widgets. */
+	select {
+		max-width: 100%;
+	}
+}
+
+.widget-title{
+    border-bottom: solid 1px #000;
+    font-weight: 700;
+    font-size: .75rem;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    margin-bottom: ( $grid-gutter-width / 2 );
+}
+
+/* Search widget. */
+.widget_search .search-submit {
+	display: none;
+}
+
+.widget_recent_entries, .widget_recent_comments, .widget_archive, .widget_categories, .widget_search, .widget_meta {
+    line-height: 1.25;
+}
+
+.widget_recent_entries a {
+    border: 0 transparent;
+}

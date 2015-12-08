@@ -1,0 +1,40 @@
+/*--------------------------------------------------------------
+## Links
+--------------------------------------------------------------*/
+@import "links";
+
+/*--------------------------------------------------------------
+## Menus
+--------------------------------------------------------------*/
+@import "menus";
+
+.pencil-next-article, .pencil-previous-article {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: .75em;
+    letter-spacing: .05em;
+}
+
+//.nav-previous a, .nav-next a,
+.pencil-next-article-title, .pencil-previous-article-title {
+    //display:block;
+    border-top: 1px solid #000;
+    padding: 1em 0;
+}
+
+.nav-previous {
+    padding-right: ( $grid-gutter-width / 2 );
+}
+
+.nav-next {
+    padding-left: ( $grid-gutter-width / 2 );
+}
+
+.post-navigation {
+    @extend .col-md-12;
+}
+
+.page-links {
+    text-align: center;
+    @extend .h5;
+}
