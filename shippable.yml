@@ -11,6 +11,12 @@ language: php
 # Declare versions of PHP to use. Use one decimal max.
 php:
   # aliased to a recent 5.5.x version
+  - "7.1"
+  # aliased to a recent 5.5.x version
+  - "7.0"
+  # aliased to a recent 5.5.x version
+  - "5.6"
+  # aliased to a recent 5.5.x version
   - "5.5"
   # aliased to a recent 5.4.x version
   - "5.4"
@@ -27,23 +33,30 @@ env:
   - WP_VERSION=master WP_MULTISITE=0
   - WP_VERSION=master WP_MULTISITE=1
   # WordPress 4.2
-  # @link https://github.com/WordPress/WordPress/tree/4.2-branch
-  - WP_VERSION=4.2 WP_MULTISITE=0
-  - WP_VERSION=4.2 WP_MULTISITE=1
+  # @link https://github.com/WordPress/WordPress/tree/4.4-branch
+  - WP_VERSION=4.4 WP_MULTISITE=0
+  - WP_VERSION=4.4 WP_MULTISITE=1
   # WordPress 4.1
   # @link https://github.com/WordPress/WordPress/tree/4.1-branch
-  - WP_VERSION=4.1 WP_MULTISITE=0
-  - WP_VERSION=4.1 WP_MULTISITE=1
+  #- WP_VERSION=4.1 WP_MULTISITE=0
+  #- WP_VERSION=4.1 WP_MULTISITE=1
 
 # Declare 5.6 beta in test matrix.
 # @link https://buddypress.trac.wordpress.org/ticket/5620
 # @link http://docs.travis-ci.com/user/build-configuration/
 matrix:
   include:
+    - php: 5.2
+    - php: 5.3
+    - php: 5.4
+    - php: 5.5
     - php: 5.6
+    - php: 7.0
+    - php: 7.1
       env: WP_VERSION=master
+      env: WP_VERSION=4.4
   allow_failures:
-    - php: 5.6
+    - php: 7.1
   fast_finish: true
 
 # Use this to prepare the system to install prerequisites or dependencies.
@@ -103,7 +116,7 @@ script:
   # -n flag: Do not print warnings. (shortcut for --warning-severity=0)
   # --standard: Use WordPress as the standard.
   # --extensions: Only sniff PHP files.
-  - $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php
+  - $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./WordPress/ruleset.xml --extensions=php
 
 # Receive notifications for build results.
 # @link http://docs.travis-ci.com/user/notifications/#Email-notifications
