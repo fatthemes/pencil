@@ -191,6 +191,6 @@ after_success:
   - rm -f codesniffer.ruleset.xml
   - rm -f shippable.yml
   - ls -la
-  - git remote set-url origin https://limestreet:patrol11@https://bitbucket.org/fatthemes/pencil/branch/beta
-  - git push pencil beta
+  - git remote set-url origin git@bitbucket.com:$REPO_NAME.git
+  - git push $REPO_NAME beta
   
