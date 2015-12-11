@@ -178,7 +178,6 @@ notifications:
   email: false
 
 after_success:
-  - git remote set-url origin git@bitbucket.org:$REPO_NAME.git
   - git checkout alpha
   #Install grunt, run some tasks and delete unneeded files and folders
   #- ls -la
@@ -194,7 +193,11 @@ after_success:
   - rm -f codesniffer.ruleset.xml
   - rm -f shippable.yml
   - ls -la
+  - git status
+  - git add --all
+  - git status
   - git commit -m "Shippable beta build"
   - git checkout beta
   - git rebase beta
+  - git remote set-url origin git@bitbucket.org:$REPO_NAME.git
   - git push origin beta
