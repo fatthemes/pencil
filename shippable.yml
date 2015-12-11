@@ -138,7 +138,7 @@ before_script:
   # Set install path for WordPress Coding Standards.
   # @link https://github.com/squizlabs/PHP_CodeSniffer/blob/4237c2fc98cc838730b76ee9cee316f99286a2a7/CodeSniffer.php#L1941
   #- scripts/phpcs --config-set installed_paths ../wordpress-coding-standards
-  - scripts/phpcs --config-set installed_paths ../wordpress-coding-standards/WordPress-Core,../wordpress-coding-standards/WordPress-WordPress-Extra,../wordpress-coding-standards/WordPress
+  - scripts/phpcs --config-set installed_paths ../wordpress-coding-standards/WordPress
   # Hop into themes directory.
   - cd $theme_dir
   #delete unneded files and folders
