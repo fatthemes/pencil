@@ -92,7 +92,7 @@ before_script:
   - ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
   #- sudo cp -f config/site-nginx.conf /etc/nginx/sites-enabled/site-nginx.conf
   #- sudo sed -e "s?%$WP_DEVELOP_DIR%?$(pwd)?g" --in-place /etc/nginx/sites-enabled/site-nginx.conf
-  - sudo echo "server {
+  - echo "server {
     server_name wp_dev;
     listen 8080;
     root $WP_DEVELOP_DIR;
