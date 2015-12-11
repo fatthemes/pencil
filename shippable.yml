@@ -17,11 +17,11 @@ php:
   # aliased to a recent 5.5.x version
   - "5.6"
   # aliased to a recent 5.5.x version
-  - "5.5"
+  #- "5.5"
   # aliased to a recent 5.4.x version
-  - "5.4"
+  #- "5.4"
   # aliased to a recent 5.3.x version
-  - "5.3"
+  #- "5.3"
   # Current $required_php_version for WordPress: 5.2.4 - not supported out of the box on Shippable
   #- "5.2"
 
@@ -34,8 +34,8 @@ env:
   - WP_VERSION=master WP_MULTISITE=1
   # WordPress 4.4
   # @link https://github.com/WordPress/WordPress/tree/4.4-branch
-  - WP_VERSION=4.4 WP_MULTISITE=0
-  - WP_VERSION=4.4 WP_MULTISITE=1
+  #- WP_VERSION=4.4 WP_MULTISITE=0
+  #- WP_VERSION=4.4 WP_MULTISITE=1
   # WordPress 4.1
   # @link https://github.com/WordPress/WordPress/tree/4.1-branch
   #- WP_VERSION=4.1 WP_MULTISITE=0
@@ -44,20 +44,20 @@ env:
 # Declare 5.6 beta in test matrix.
 # @link https://buddypress.trac.wordpress.org/ticket/5620
 # @link http://docs.travis-ci.com/user/build-configuration/
-matrix:
-  include:
+#matrix:
+  #include:
     #- php: 5.2
     #- php: 5.3
     #- php: 5.4
     #- php: 5.5
-    - php: 5.6
+    #- php: 5.6
     #- php: 7.0
     #- php: 7.1
-      env: WP_VERSION=master
+      #env: WP_VERSION=master
       #env: WP_VERSION=4.4
   #allow_failures:
     #- php: 7.1
-  fast_finish: true
+  #fast_finish: true
 
 # Use this to prepare the system to install prerequisites or dependencies.
 # e.g. sudo apt-get update.
@@ -98,6 +98,14 @@ before_script:
   - sed -i "s/yourpasswordhere//" wp-tests-config.php
   # Create WordPress database.
   - mysql -e 'CREATE DATABASE wordpress_test;' -uroot
+  #Install vip-scanner plugin
+  - git  git clone --recursive  https://github.com/Automattic/vip-scanner.git $WP_DEVELOP_DIR/src/wp-content/plugins/vip-scanner
+  #Install WP-CLI
+  - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+  - php wp-cli.phar --info
+  - chmod +x wp-cli.phar
+  - sudo mv wp-cli.phar /usr/local/bin/wp
+  - wp --info
   # Install CodeSniffer for WordPress Coding Standards checks.
   - git clone https://github.com/squizlabs/PHP_CodeSniffer.git php-codesniffer
   # Install WordPress Coding Standards.
@@ -120,6 +128,8 @@ before_script:
 script:
   # Search for PHP syntax errors.
   - find . \( -name '*.php' \) -exec php -lf {} \;
+  # Check with vip-scanner
+  - wp vip-scanner scan-theme --theme=pencil --scan_type="Undefined Function Check"
   # WordPress Coding Standards
   # @link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards
   # @link http://pear.php.net/package/PHP_CodeSniffer/
