@@ -111,6 +111,8 @@ before_script:
   - cd $theme_dir
   # After CodeSniffer install you should refresh your path.
   - phpenv rehash
+  # check which php version is used
+  - php --version
 
 # Run test script commands.
 # Default is specific to project language.
