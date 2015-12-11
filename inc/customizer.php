@@ -1,6 +1,6 @@
 <?php
 /**
- * pencil Theme Customizer.
+ * Pencil Theme Customizer.
  *
  * @package pencil
  */
@@ -37,7 +37,7 @@ function pencil_customize_register( $wp_customize ) {
 				'sanitize_callback' => 'pencil_sanitize_select_home_page_layout',
 		) );
 
-		// Section Blog Home Page
+		// Section Blog Home Page.
 	$wp_customize->add_control( 'home_page_layout', array(
 		'label'   => esc_html__( 'Blog Home Page Layout', 'pencil' ),
 		'section' => 'home_page',
@@ -102,7 +102,7 @@ function pencil_customize_register( $wp_customize ) {
 			),
 		) );
 
-		// section Single Page
+		//Section Single Page.
 		$wp_customize->add_section( 'single_page', array(
 			'title'          => esc_html__( 'Single Post', 'pencil' ),
 				'priority'       => 1010,
@@ -131,7 +131,7 @@ function pencil_customize_register( $wp_customize ) {
 		'type'    => 'checkbox',
 		) );
 
-		// social icons
+		//Social icons.
 		$wp_customize->add_section( 'social_icons', array(
 			'title'          => esc_html__( 'Social Icons', 'pencil' ),
 				'priority'       => 1020,
@@ -193,7 +193,7 @@ function pencil_customize_register( $wp_customize ) {
 		'type'    => 'text',
 		) );
 
-		// footer text
+		//Footer text.
 		$wp_customize->add_section( 'footer', array(
 			'title'          => esc_html__( 'Footer', 'pencil' ),
 				'priority'       => 1030,
@@ -211,7 +211,7 @@ function pencil_customize_register( $wp_customize ) {
 		'type'    => 'textarea',
 		) );
 
-		// section - "other settings"
+		//Section - "other settings".
 		$wp_customize->add_section( 'other_settings', array(
 			'title'          => esc_html__( 'Advanced', 'pencil' ),
 				'priority'       => 1040,
@@ -261,21 +261,36 @@ function pencil_customize_preview_js() {
 }
 add_action( 'customize_preview_init', 'pencil_customize_preview_js' );
 
-// sanitize checkbox
+/**
+ * sanitize checkbox
+ * 
+ * @param type $value
+ * @return boolean
+ */
 function pencil_sanitize_checkbox( $value ) {
 	if ( in_array( $value, array( true, false ), true ) ) {
 		return $value;
 	}
 }
 
-// Sanitize select home_page_layout
+/**
+ * Sanitize select home_page_layout.
+ * 
+ * @param type $value
+ * @return string
+ */
 function pencil_sanitize_select_home_page_layout( $value ) {
 	if ( in_array( $value, array( '', 'list', 'masonry' ), true ) ) {
 		return $value;
 	}
 }
 
-// Sanitize select
+ /**
+ * Sanitize select.
+ * 
+ * @param type $value
+ * @return string
+ */
 function pencil_sanitize_select_home_page_slider_img_size( $value ) {
 	if ( in_array( $value, array( 'thumbnail', 'medium', 'large', 'full' ), true ) ) {
 		return $value;
