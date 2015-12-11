@@ -122,8 +122,6 @@ before_script:
   - chmod +x wp-cli.phar
   - sudo mv wp-cli.phar /usr/local/bin/wp
   - wp --info
-  # Install grunt
-  - npm install grunt-cli
   #create config file
   - wp core config --dbname=wordpress_test --dbuser=root
   #install wp
@@ -143,6 +141,8 @@ before_script:
   #- scripts/phpcs --config-set installed_paths ../wordpress-coding-standards/WordPress
   # Hop into themes directory.
   - cd $theme_dir
+  # Install grunt and others
+  - npm install
   #delete unneded files and folders
   #- rm -Rf scss
   #- rm -f .gitignore
