@@ -197,3 +197,4 @@ after_success:
   - git merge alpha
   - git remote set-url origin git@bitbucket.org:$REPO_NAME.git
   - git push origin beta
+  
