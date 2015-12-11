@@ -121,7 +121,7 @@ before_script:
   #- php wp-cli.phar --info
   - chmod +x wp-cli.phar
   - sudo mv wp-cli.phar /usr/local/bin/wp
-  - wp --info
+  #- wp --info
   #create config file
   - wp core config --dbname=wordpress_test --dbuser=root
   #install wp
@@ -132,26 +132,21 @@ before_script:
   # Install CodeSniffer for WordPress Coding Standards checks.
   - git clone https://github.com/squizlabs/PHP_CodeSniffer.git php-codesniffer
   # Install WordPress Coding Standards.
-  #- git clone https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git wordpress-coding-standards
+  - git clone https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git wordpress-coding-standards
+  # Remove some phpcs rules
+  - rm -Rf wordpress-coding-standards/WordPress-Docs
+  - rm -Rf wordpress-coding-standards/WordPress-VIP
   # Hop into CodeSniffer directory.
-  #- cd php-codesniffer
+  - cd php-codesniffer
   # Set install path for WordPress Coding Standards.
   # @link https://github.com/squizlabs/PHP_CodeSniffer/blob/4237c2fc98cc838730b76ee9cee316f99286a2a7/CodeSniffer.php#L1941
-  #- scripts/phpcs --config-set installed_paths ../wordpress-coding-standards
+  - scripts/phpcs --config-set installed_paths ../wordpress-coding-standards
   #- scripts/phpcs --config-set installed_paths ../wordpress-coding-standards/WordPress
   # Hop into themes directory.
   - cd $theme_dir
-  #delete unneded files and folders
-  #- rm -Rf scss
-  #- rm -f .gitignore
-  #- rm -f Gruntfile.js
-  #- rm -f composer.*
-  #- rm -f shippable.yml
-  #- ls -la
   # After CodeSniffer install you should refresh your path.
   - phpenv rehash
   # check which php version is used
-  #- php --version
 
 # Run test script commands.
 # Default is specific to project language.
@@ -170,7 +165,7 @@ script:
   # -n flag: Do not print warnings. (shortcut for --warning-severity=0)
   # --standard: Use WordPress as the standard.
   # --extensions: Only sniff PHP files.
-  #- $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php
+  - $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php
 
 # Receive notifications for build results.
 # @link http://docs.travis-ci.com/user/notifications/#Email-notifications
@@ -178,25 +173,26 @@ notifications:
   email: false
 
 after_success:
+  - git config --global user.email "patryk.kachel@limestreet.pl"
   - git checkout alpha
   #Install grunt, run some tasks and delete unneeded files and folders
   #- ls -la
   - npm install
   - grunt
   - rm -Rf scss
-  #- rm -f .gitignore
+  - rm -f .gitignore
   #- rm -Rf .git
   - rm -Rf node_modules
   - rm -f Gruntfile.js
   - rm -f composer.*
   - rm -f package.*
   - rm -f codesniffer.ruleset.xml
-  - rm -f shippable.yml
+  - rm -f .travis.yml
   - ls -la
-  - git status
+  #- git status
   - git add --all
-  - git status
-  - git commit -m "Shippable beta - build number $BUILD_NUMBER, job id $JOB_ID"
+  #- git status
+  - git commit -m "Build number $BUILD_NUMBER, build url $BUILD_URL"
   - git checkout beta
   - git merge alpha
   - git remote set-url origin git@bitbucket.org:$REPO_NAME.git
