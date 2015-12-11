@@ -191,6 +191,6 @@ after_success:
   - rm -f codesniffer.ruleset.xml
   - rm -f shippable.yml
   - ls -la
-  - git remote set-url origin git@bitbucket.org:$REPO_NAME.git/branch/beta
-  - git push
+  #- git remote set-url origin git@bitbucket.org:$REPO_NAME.git
+  - git push git@bitbucket.org:$REPO_NAME.git beta
   
