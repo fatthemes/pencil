@@ -175,4 +175,3 @@ script:
 # @link http://docs.travis-ci.com/user/notifications/#Email-notifications
 notifications:
   email: false
-  
