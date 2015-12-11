@@ -192,6 +192,7 @@ after_success:
   - rm -f codesniffer.ruleset.xml
   - rm -f shippable.yml
   - ls -la
-  - git commit -m "Shippable beta build"
   - git remote set-url origin git@bitbucket.org:$REPO_NAME.git
+  - git checkout beta
+  - git commit -m "Shippable beta build"
   - git push origin beta
