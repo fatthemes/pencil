@@ -179,7 +179,7 @@ notifications:
 
 after_success:
   #Install grunt, run some tasks and delete unneeded files and folders
-  - ls -la
+  #- ls -la
   - npm install
   - grunt
   - rm -Rf scss
@@ -191,6 +191,6 @@ after_success:
   - rm -f codesniffer.ruleset.xml
   - rm -f shippable.yml
   - ls -la
-  #- git remote set-url origin git@bitbucket.org:$REPO_NAME.git
-  - git push origin:git@bitbucket.org:$REPO_NAME.git beta
+  - git remote set-url origin git@bitbucket.org:$REPO_NAME.git
+  - git push origin beta
   
