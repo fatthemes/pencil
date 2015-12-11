@@ -74,6 +74,8 @@ matrix:
 # e.g. copy database configurations, environment variables, etc.
 # Failures in this section will result in build status 'errored'.
 before_script:
+  - mkdir -p shippable/codecoverage
+  - mkdir -p shippable/testresults
   # Prepare for using Selenium
   #- "export DISPLAY=:99.0"
   #- "/etc/init.d/xvfb start"
