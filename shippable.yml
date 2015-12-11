@@ -140,12 +140,12 @@ before_script:
   # Hop into themes directory.
   - cd $theme_dir
   #delete unneded files and folders
-  - rm -Rf scss
-  - rm -f .gitignore
-  - rm -f Gruntfile.js
-  - rm -f composer.*
-  - rm -f shippable.yml
-  - ls -la
+  #- rm -Rf scss
+  #- rm -f .gitignore
+  #- rm -f Gruntfile.js
+  #- rm -f composer.*
+  #- rm -f shippable.yml
+  #- ls -la
   # After CodeSniffer install you should refresh your path.
   - phpenv rehash
   # check which php version is used
@@ -155,13 +155,10 @@ before_script:
 # Default is specific to project language.
 # All commands must exit with code 0 on success. Anything else is considered failure.
 script:
+  # Check with vip-scanner (only informational)
+  - wp vip-scanner scan-theme --theme=pencil --scan_type="Undefined Function Check"
   # Search for PHP syntax errors.
   - find . \( -name '*.php' \) -exec php -lf {} \;
-  # Prepare for check with vip-scanner
-  #- ls -la
-  #- rm -f codesniffer.ruleset.xml
-  # Check with vip-scanner
-  - wp vip-scanner scan-theme --theme=pencil --scan_type="Undefined Function Check"
   # WordPress Coding Standards
   # @link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards
   # @link http://pear.php.net/package/PHP_CodeSniffer/
@@ -171,7 +168,7 @@ script:
   # -n flag: Do not print warnings. (shortcut for --warning-severity=0)
   # --standard: Use WordPress as the standard.
   # --extensions: Only sniff PHP files.
-  #- $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php
+  - $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php
 
 # Receive notifications for build results.
 # @link http://docs.travis-ci.com/user/notifications/#Email-notifications
