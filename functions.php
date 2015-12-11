@@ -1,6 +1,6 @@
 <?php
 /**
- * pencil functions and definitions.
+ * Pencil functions and definitions.
  *
  * @link https://codex.wordpress.org/Functions_File_Explained
  *
@@ -76,7 +76,7 @@ function pencil_setup() {
 	) ) );
 
 }
-endif; // pencil_setup
+endif; // End of pencil_setup.
 add_action( 'after_setup_theme', 'pencil_setup' );
 
 /**
@@ -171,13 +171,12 @@ endif;
 function pencil_scripts() {
 
 		// Add custom fonts, used in the main stylesheet.
-	wp_enqueue_style( 'pencil-fonts', pencil_fonts_url(), array(), null );
+                wp_enqueue_style( 'pencil-fonts', pencil_fonts_url(), array(), null );
 
 		wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/font-awesome/css/font-awesome.min.css', array(), '4.4.0' );
 
-	wp_enqueue_style( 'pencil-style', get_stylesheet_uri() );
+                wp_enqueue_style( 'pencil-style', get_stylesheet_uri() );
 
-	// wp_enqueue_script( 'pencil-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 		wp_enqueue_script( 'slick', get_template_directory_uri() . '/slick/slick.min.js', array( 'jquery' ), '20150828', true );
 
 		if ( ! is_404() && ! is_singular() && have_posts() ) { wp_enqueue_script( 'masonry' ); }
@@ -192,12 +191,12 @@ function pencil_scripts() {
 
 		wp_enqueue_script( 'pencil-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.min.js', array(), '20130115', true );
 
-		// Preparing to pass variables to js -> used for loading more posts
+		// Preparing to pass variables to js -> used for loading more posts.
 		global $wp_query;
 		$pencil_ajax_max_pages = $wp_query->max_num_pages;
 		$pencil_ajax_paged = ( get_query_var( 'paged' ) > 1 ) ? get_query_var( 'paged' ) : 1;
 
-		// Passing theme options to pencil.js
+		// Passing theme options to pencil.js.
 		wp_localize_script( 'pencil-scripts', 'pencil', array(
 			'home_page_slider_img_number' => get_theme_mod( 'home_page_slider_img_number', 1 ),
 			'loadMoreText' => esc_html__( 'Load more posts', 'pencil' ),
@@ -215,17 +214,10 @@ function pencil_scripts() {
 add_action( 'wp_enqueue_scripts', 'pencil_scripts' );
 
 /**
- * Implement the Custom Header feature.
- */
-// require get_template_directory() . '/inc/custom-header.php';
-/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
 
-// Launch the Hybrid Core framework.
-// require_once get_template_directory() . '/hybrid-core/hybrid.php';
-// new Hybrid();
 /**
  * Hybrid Media Grabber for getting media from posts.
  */
@@ -236,18 +228,6 @@ require get_template_directory() . '/inc/class-media-grabber.php';
  */
 require get_template_directory() . '/inc/extras.php';
 
-/**
- * Load Titan Framework embedder.
- */
-// require_once get_template_directory() . '/inc/titan-framework/titan-framework-embedder.php';
-/**
- * Load Titan Framework options.
- */
-// require_once get_template_directory() . '/inc/titan-options.php';
-/**
- * Load Jetpack compatibility file.
- */
-// require get_template_directory() . '/inc/jetpack.php';
 /**
  * Customizer additions.
  */

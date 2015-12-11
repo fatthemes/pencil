@@ -11,5 +11,7 @@
 		<exclude name="Generic.WhiteSpace.ScopeIndent.IncorrectExact" />
 		<exclude name="Generic.WhiteSpace.ScopeIndent.Incorrect" />
 		<exclude name="PEAR.Functions.FunctionCallSignature.Indent" />
+                <exclude name="WordPress Docs" />
+                <exclude name="WordPress VIP" />
 	</rule>
 </ruleset>

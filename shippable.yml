@@ -97,6 +97,7 @@ before_script:
     root $WP_DEVELOP_DIR;
     }" > site-nginx.conf
   - sudo cp -f site-nginx.conf /etc/nginx/sites-enabled/site-nginx.conf
+  - rm -f site-nginx.conf
   #- sudo sed -e "s?%$WP_DEVELOP_DIR%?$(pwd)?g" --in-place /etc/nginx/sites-enabled/site-nginx.conf
   - sudo service nginx start
   # Use the Git mirror of WordPress.
