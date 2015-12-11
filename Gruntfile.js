@@ -66,25 +66,13 @@ module.exports = function (grunt) {
                 files: {'style.css' : 'style.css'}
                 //files: {'rtl.css' : 'rtl.css'}
             }
-        },
-        
-        phpunit: {
-            classes: {
-                    dir: 'tests/php/'
-            },
-            options: {
-                    bin: 'vendor/bin/phpunit',
-                    bootstrap: 'tests/php/phpunit.php',
-                    colors: true
-            }
         }
     });
     
     grunt.loadNpmTasks( 'grunt-wp-i18n' );
     grunt.loadNpmTasks( 'grunt-postcss' );
     grunt.loadNpmTasks( 'grunt-wp-css' );
-    grunt.loadNpmTasks('grunt-phpunit');
     
-    grunt.registerTask('default', ['addtextdomain', 'makepot', 'postcss', 'wpcss', 'phpunit']);
+    grunt.registerTask('default', ['addtextdomain', 'makepot', 'postcss', 'wpcss']);
     
 };

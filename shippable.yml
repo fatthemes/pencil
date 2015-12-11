@@ -122,6 +122,8 @@ before_script:
   - chmod +x wp-cli.phar
   - sudo mv wp-cli.phar /usr/local/bin/wp
   - wp --info
+  # Install grunt
+  - npm install grunt-cli
   #create config file
   - wp core config --dbname=wordpress_test --dbuser=root
   #install wp
