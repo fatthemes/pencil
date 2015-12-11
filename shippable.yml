@@ -47,14 +47,14 @@ env:
 matrix:
   include:
     #- php: 5.2
-    - php: 5.3
-    - php: 5.4
-    - php: 5.5
+    #- php: 5.3
+    #- php: 5.4
+    #- php: 5.5
     - php: 5.6
     #- php: 7.0
     #- php: 7.1
       env: WP_VERSION=master
-      env: WP_VERSION=4.4
+      #env: WP_VERSION=4.4
   #allow_failures:
     #- php: 7.1
   fast_finish: true
@@ -129,7 +129,7 @@ script:
   # -n flag: Do not print warnings. (shortcut for --warning-severity=0)
   # --standard: Use WordPress as the standard.
   # --extensions: Only sniff PHP files.
-  #- $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=WordPress --extensions=php
+  - $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php
 
 # Receive notifications for build results.
 # @link http://docs.travis-ci.com/user/notifications/#Email-notifications
