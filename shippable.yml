@@ -77,8 +77,8 @@ addons:
 # e.g. copy database configurations, environment variables, etc.
 # Failures in this section will result in build status 'errored'.
 before_script:
-  - mkdir -p shippable/codecoverage
-  - mkdir -p shippable/testresults
+  #- mkdir -p shippable/codecoverage
+  #- mkdir -p shippable/testresults
   # Prepare for using Selenium
   #- "export DISPLAY=:99.0"
   #- "/etc/init.d/xvfb start"
@@ -183,14 +183,15 @@ after_success:
   - npm install
   - grunt
   - rm -Rf scss
-  - rm -f .gitignore
-  - rm -Rf .git
+  #- rm -f .gitignore
+  #- rm -Rf .git
+  - rm -Rf node_modules
   - rm -f Gruntfile.js
   - rm -f composer.*
   - rm -f package.*
   - rm -f codesniffer.ruleset.xml
   - rm -f shippable.yml
   - ls -la
+  - git commit -m "Shippable beta build"
   - git remote set-url origin git@bitbucket.org:$REPO_NAME.git
   - git push origin beta
-  
