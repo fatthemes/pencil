@@ -157,6 +157,11 @@ before_script:
 script:
   # Search for PHP syntax errors.
   - find . \( -name '*.php' \) -exec php -lf {} \;
+  # Prepare for check with vip-scanner
+  #- ls -la
+  #- rm -f codesniffer.ruleset.xml
+  # Check with vip-scanner
+  - wp vip-scanner scan-theme --theme=pencil --scan_type="Undefined Function Check"
   # WordPress Coding Standards
   # @link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards
   # @link http://pear.php.net/package/PHP_CodeSniffer/
@@ -167,11 +172,6 @@ script:
   # --standard: Use WordPress as the standard.
   # --extensions: Only sniff PHP files.
   - $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php
-  # Prepare for check with vip-scanner
-  #- ls -la
-  #- rm -f codesniffer.ruleset.xml
-  # Check with vip-scanner
-  - wp vip-scanner scan-theme --theme=pencil --scan_type="Undefined Function Check"
 
 # Receive notifications for build results.
 # @link http://docs.travis-ci.com/user/notifications/#Email-notifications
