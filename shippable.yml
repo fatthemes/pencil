@@ -64,7 +64,10 @@ env:
 # Failures in this section will result in build status 'errored'.
 # before_install:
 
-#addons:
+addons:
+  hosts:
+    - wp.dev
+
   #firefox: "27.0"
 
 #services:
@@ -87,8 +90,14 @@ before_script:
   - sudo apt-get install nginx
   - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
   - ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
-  - sudo cp -f config/site-nginx.conf /etc/nginx/sites-enabled/site-nginx.conf
-  - sudo sed -e "s?%$WP_DEVELOP_DIR%?$(pwd)?g" --in-place /etc/nginx/sites-enabled/site-nginx.conf
+  #- sudo cp -f config/site-nginx.conf /etc/nginx/sites-enabled/site-nginx.conf
+  #- sudo sed -e "s?%$WP_DEVELOP_DIR%?$(pwd)?g" --in-place /etc/nginx/sites-enabled/site-nginx.conf
+  - sudo echo "server {
+    server_name wp_dev;
+    listen 8080;
+    root $WP_DEVELOP_DIR;
+    }
+}" > /etc/nginx/sites-enabled/site-nginx.conf
   - sudo service nginx start
   # Use the Git mirror of WordPress.
   - git clone --depth=1 --branch="$WP_VERSION" git://develop.git.wordpress.org/ $WP_DEVELOP_DIR
@@ -115,7 +124,7 @@ before_script:
   #create config file
   - wp core config --dbname=wordpress_test --dbuser=root
   #install wp
-  - wp core install
+  - wp core install --url=wp.dev
   #Install vip-scanner plugin
   - git clone --recursive  https://github.com/Automattic/vip-scanner.git $WP_DEVELOP_DIR/src/wp-content/plugins/vip-scanner
   # Install CodeSniffer for WordPress Coding Standards checks.
