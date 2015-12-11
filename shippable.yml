@@ -141,8 +141,6 @@ before_script:
   #- scripts/phpcs --config-set installed_paths ../wordpress-coding-standards/WordPress
   # Hop into themes directory.
   - cd $theme_dir
-  # Install grunt and others
-  - npm install
   #delete unneded files and folders
   #- rm -Rf scss
   #- rm -f .gitignore
@@ -180,7 +178,9 @@ notifications:
   email: false
 
 after_success:
-  #run some tasks and delete unneeded files and folders
+  #Install grunt, run some tasks and delete unneeded files and folders
+  - ls -la
+  - npm install
   - grunt
   - rm -Rf scss
   - rm -f .gitignore
