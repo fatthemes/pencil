@@ -17,11 +17,11 @@ php:
   # aliased to a recent 5.5.x version
   - "5.6"
   # aliased to a recent 5.5.x version
-  - "5.5"
+  #- "5.5"
   # aliased to a recent 5.4.x version
-  - "5.4"
+  #- "5.4"
   # aliased to a recent 5.3.x version
-  - "5.3"
+  #- "5.3"
   # Current $required_php_version for WordPress: 5.2.4 - not supported out of the box on Shippable
   #- "5.2"
 
@@ -145,6 +145,7 @@ before_script:
   - rm -f Gruntfile.js
   - rm -f composer.*
   - rm -f shippable.yml
+  - ls -la
   # After CodeSniffer install you should refresh your path.
   - phpenv rehash
   # check which php version is used
@@ -167,7 +168,8 @@ script:
   # --extensions: Only sniff PHP files.
   - $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php
   # Prepare for check with vip-scanner
-  - rm -f codesniffer.ruleset.xml
+  #- ls -la
+  #- rm -f codesniffer.ruleset.xml
   # Check with vip-scanner
   - wp vip-scanner scan-theme --theme=pencil --scan_type="Undefined Function Check"
 
