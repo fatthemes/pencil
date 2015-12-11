@@ -31,7 +31,7 @@ env:
   # Trunk
   # @link https://github.com/WordPress/WordPress
   - WP_VERSION=master WP_MULTISITE=0
-  - WP_VERSION=master WP_MULTISITE=1
+  #- WP_VERSION=master WP_MULTISITE=1
   # WordPress 4.4
   # @link https://github.com/WordPress/WordPress/tree/4.4-branch
   #- WP_VERSION=4.4 WP_MULTISITE=0
@@ -90,13 +90,14 @@ before_script:
   - sudo apt-get install nginx
   - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
   - ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
-  #- sudo cp -f config/site-nginx.conf /etc/nginx/sites-enabled/site-nginx.conf
-  #- sudo sed -e "s?%$WP_DEVELOP_DIR%?$(pwd)?g" --in-place /etc/nginx/sites-enabled/site-nginx.conf
+  - touch site-nginx.conf
   - echo "server {
     server_name wp_dev;
     listen 8080;
     root $WP_DEVELOP_DIR;
-    }" > /etc/nginx/sites-enabled/site-nginx.conf
+    }" > site-nginx.conf
+  - sudo cp -f site-nginx.conf /etc/nginx/sites-enabled/site-nginx.conf
+  #- sudo sed -e "s?%$WP_DEVELOP_DIR%?$(pwd)?g" --in-place /etc/nginx/sites-enabled/site-nginx.conf
   - sudo service nginx start
   # Use the Git mirror of WordPress.
   - git clone --depth=1 --branch="$WP_VERSION" git://develop.git.wordpress.org/ $WP_DEVELOP_DIR
