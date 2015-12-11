@@ -192,5 +192,5 @@ after_success:
   - rm -f shippable.yml
   - ls -la
   #- git remote set-url origin git@bitbucket.org:$REPO_NAME.git
-  - git push git@bitbucket.org:$REPO_NAME.git beta
+  - git push origin:git@bitbucket.org:$REPO_NAME.git beta
   
