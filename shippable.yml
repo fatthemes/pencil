@@ -17,11 +17,11 @@ php:
   # aliased to a recent 5.5.x version
   - "5.6"
   # aliased to a recent 5.5.x version
-  #- "5.5"
+  - "5.5"
   # aliased to a recent 5.4.x version
-  #- "5.4"
+  - "5.4"
   # aliased to a recent 5.3.x version
-  #- "5.3"
+  - "5.3"
   # Current $required_php_version for WordPress: 5.2.4 - not supported out of the box on Shippable
   #- "5.2"
 
@@ -139,6 +139,12 @@ before_script:
   - scripts/phpcs --config-set installed_paths ../wordpress-coding-standards
   # Hop into themes directory.
   - cd $theme_dir
+  #delete unneded files and folders
+  - rm -Rf scss
+  - rm -f .gitignore
+  - rm -f Gruntfile.js
+  - rm -f composer.*
+  - rm -f shippable.yml
   # After CodeSniffer install you should refresh your path.
   - phpenv rehash
   # check which php version is used
@@ -150,8 +156,6 @@ before_script:
 script:
   # Search for PHP syntax errors.
   - find . \( -name '*.php' \) -exec php -lf {} \;
-  # Check with vip-scanner
-  - wp vip-scanner scan-theme --theme=pencil --scan_type="Undefined Function Check"
   # WordPress Coding Standards
   # @link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards
   # @link http://pear.php.net/package/PHP_CodeSniffer/
@@ -162,6 +166,10 @@ script:
   # --standard: Use WordPress as the standard.
   # --extensions: Only sniff PHP files.
   - $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php
+  # Prepare for check with vip-scanner
+  - rm -f codesniffer.ruleset.xml
+  # Check with vip-scanner
+  - wp vip-scanner scan-theme --theme=pencil --scan_type="Undefined Function Check"
 
 # Receive notifications for build results.
 # @link http://docs.travis-ci.com/user/notifications/#Email-notifications

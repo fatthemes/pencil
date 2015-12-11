@@ -9,10 +9,10 @@
 
 get_header(); ?>
      <div class="row">
-	<div id="primary" class="content-area<?php echo ( empty (get_theme_mod( 'home_page_layout', 'masonry' ) ) ) ? ' col-md-12' : ' col-md-8'; ?>">
+	<div id="primary" class="content-area<?php echo ( empty( get_theme_mod( 'home_page_layout', 'masonry' ) ) ) ? ' col-md-12' : ' col-md-8'; ?>">
             <div class="pencil-page-intro">
                         <?php the_archive_title();
-                        //the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?>
+						// the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?>
             </div>
             
 		<main id="main" class="site-main row masonry-container" role="main">
@@ -44,6 +44,6 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php if ( ! empty (get_theme_mod( 'home_page_layout', 'masonry' ) ) ) { get_sidebar();} ?>
+<?php if ( ! empty( get_theme_mod( 'home_page_layout', 'masonry' ) ) ) { get_sidebar();} ?>
     </div><!-- .row -->
 <?php get_footer(); ?>

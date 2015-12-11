@@ -66,7 +66,7 @@ function pencil_setup() {
 	add_theme_support( 'post-formats', array(
 		'audio',
 		'video',
-		'gallery'
+		'gallery',
 	) );
 
 	// Set up the WordPress core custom background feature.
@@ -74,7 +74,7 @@ function pencil_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
-        
+
 }
 endif; // pencil_setup
 add_action( 'after_setup_theme', 'pencil_setup' );
@@ -169,45 +169,44 @@ endif;
  * Enqueue scripts and styles.
  */
 function pencil_scripts() {
-    
-        // Add custom fonts, used in the main stylesheet.
+
+		// Add custom fonts, used in the main stylesheet.
 	wp_enqueue_style( 'pencil-fonts', pencil_fonts_url(), array(), null );
-    
-        wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/font-awesome/css/font-awesome.min.css', array(), '4.4.0' );
-    
+
+		wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/font-awesome/css/font-awesome.min.css', array(), '4.4.0' );
+
 	wp_enqueue_style( 'pencil-style', get_stylesheet_uri() );
 
-	//wp_enqueue_script( 'pencil-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+	// wp_enqueue_script( 'pencil-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+		wp_enqueue_script( 'slick', get_template_directory_uri() . '/slick/slick.min.js', array( 'jquery' ), '20150828', true );
 
-        wp_enqueue_script( 'slick', get_template_directory_uri() . '/slick/slick.min.js', array('jquery'), '20150828', true );
-        
-        if ( ! is_404() && ! is_singular() && have_posts() ) { wp_enqueue_script( 'masonry' ); }
-        
-        if ( get_theme_mod( 'sticky_sidebar', 1 ) && is_active_sidebar( 'sidebar-1' ) ) { wp_enqueue_script( 'theia-sticky-sidebar', get_template_directory_uri() . '/js/theia-sticky-sidebar.min.js', array('jquery'), '1.2.2', true ); }
-        
-        if ( get_theme_mod( 'smooth_scroll', 1 ) ) { wp_enqueue_script( 'smooth-scroll', get_template_directory_uri() . '/js/smoothscroll.min.js', array('jquery'), '1.3.8', true ); }
-        
-        wp_enqueue_script( 'magnific-popup', get_template_directory_uri() . '/js/jquery.magnific-popup.min.js', array('jquery'), '20150829', true );
-        
-        wp_enqueue_script( 'pencil-scripts', get_template_directory_uri() . '/js/pencil.min.js', array( 'jquery' ), '20151021', true );
-        
-        wp_enqueue_script( 'pencil-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.min.js', array(), '20130115', true );
-        
-        // Preparing to pass variables to js -> used for loading more posts
-        global $wp_query;
-        $pencil_ajax_max_pages = $wp_query->max_num_pages;
-        $pencil_ajax_paged = ( get_query_var('paged') > 1 ) ? get_query_var('paged') : 1;
-        
-        // Passing theme options to pencil.js
-        wp_localize_script( 'pencil-scripts', 'pencil', array( 
-            'home_page_slider_img_number' => get_theme_mod('home_page_slider_img_number', 1 ),
-            'loadMoreText' => esc_html__('Load more posts', 'pencil'),
-            //'loadingText' => esc_html__('Loading posts...', 'pencil'),
-            'noMorePostsText' => esc_html__('No more posts to load', 'pencil'),
-            'startPage' => $pencil_ajax_paged,
-            'maxPages' => $pencil_ajax_max_pages,
-            'nextLink' => next_posts($pencil_ajax_max_pages, false)
-            ) );
+		if ( ! is_404() && ! is_singular() && have_posts() ) { wp_enqueue_script( 'masonry' ); }
+
+		if ( get_theme_mod( 'sticky_sidebar', 1 ) && is_active_sidebar( 'sidebar-1' ) ) { wp_enqueue_script( 'theia-sticky-sidebar', get_template_directory_uri() . '/js/theia-sticky-sidebar.min.js', array( 'jquery' ), '1.2.2', true ); }
+
+		if ( get_theme_mod( 'smooth_scroll', 1 ) ) { wp_enqueue_script( 'smooth-scroll', get_template_directory_uri() . '/js/smoothscroll.min.js', array( 'jquery' ), '1.3.8', true ); }
+
+		wp_enqueue_script( 'magnific-popup', get_template_directory_uri() . '/js/jquery.magnific-popup.min.js', array( 'jquery' ), '20150829', true );
+
+		wp_enqueue_script( 'pencil-scripts', get_template_directory_uri() . '/js/pencil.min.js', array( 'jquery' ), '20151021', true );
+
+		wp_enqueue_script( 'pencil-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.min.js', array(), '20130115', true );
+
+		// Preparing to pass variables to js -> used for loading more posts
+		global $wp_query;
+		$pencil_ajax_max_pages = $wp_query->max_num_pages;
+		$pencil_ajax_paged = ( get_query_var( 'paged' ) > 1 ) ? get_query_var( 'paged' ) : 1;
+
+		// Passing theme options to pencil.js
+		wp_localize_script( 'pencil-scripts', 'pencil', array(
+			'home_page_slider_img_number' => get_theme_mod( 'home_page_slider_img_number', 1 ),
+			'loadMoreText' => esc_html__( 'Load more posts', 'pencil' ),
+			// 'loadingText' => esc_html__('Loading posts...', 'pencil'),
+			'noMorePostsText' => esc_html__( 'No more posts to load', 'pencil' ),
+			'startPage' => $pencil_ajax_paged,
+			'maxPages' => $pencil_ajax_max_pages,
+			'nextLink' => next_posts( $pencil_ajax_max_pages, false ),
+			) );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -218,17 +217,15 @@ add_action( 'wp_enqueue_scripts', 'pencil_scripts' );
 /**
  * Implement the Custom Header feature.
  */
-//require get_template_directory() . '/inc/custom-header.php';
-
+// require get_template_directory() . '/inc/custom-header.php';
 /**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
 
 // Launch the Hybrid Core framework.
-//require_once get_template_directory() . '/hybrid-core/hybrid.php';
-//new Hybrid();
-
+// require_once get_template_directory() . '/hybrid-core/hybrid.php';
+// new Hybrid();
 /**
  * Hybrid Media Grabber for getting media from posts.
  */
@@ -242,18 +239,15 @@ require get_template_directory() . '/inc/extras.php';
 /**
  * Load Titan Framework embedder.
  */
-//require_once get_template_directory() . '/inc/titan-framework/titan-framework-embedder.php';
-
+// require_once get_template_directory() . '/inc/titan-framework/titan-framework-embedder.php';
 /**
  * Load Titan Framework options.
  */
-//require_once get_template_directory() . '/inc/titan-options.php';
-
+// require_once get_template_directory() . '/inc/titan-options.php';
 /**
  * Load Jetpack compatibility file.
  */
-//require get_template_directory() . '/inc/jetpack.php';
-
+// require get_template_directory() . '/inc/jetpack.php';
 /**
  * Customizer additions.
  */

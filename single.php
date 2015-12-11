@@ -9,7 +9,7 @@
 
 get_header(); ?>
 <div class="row">
-        <div id="primary" class="content-area col-md-8<?php if( ! get_theme_mod( 'single_page_sidebar', 1 ) ) { echo ' col-md-offset-2'; } ?>">
+        <div id="primary" class="content-area col-md-8<?php if ( ! get_theme_mod( 'single_page_sidebar', 1 ) ) { echo ' col-md-offset-2'; } ?>">
 		<main id="main" class="site-main row" role="main">
 
 		<?php while ( have_posts() ) : the_post(); ?>
@@ -32,16 +32,16 @@ get_header(); ?>
 			<?php get_template_part( 'template-parts/content-single', get_post_format() ); ?>
                     
 			<?php if ( get_theme_mod( 'single_post_navigation', 1 ) ) :
-                            
-                            the_post_navigation(
-                                    array(
-                                        'prev_text'          => '<div class="pencil-previous-article">' . esc_html__( 'Previous article', 'pencil' ) . '</div><div class="pencil-previous-article-title">%title</div>',
-                                        'next_text'          => '<div class="pencil-next-article">' . esc_html__( 'Next article', 'pencil' ) . '</div><div class="pencil-next-article-title">%title</div>',
-                                        //'screen_reader_text' => __( 'Post navigation' ),
-                                        )
-                            ); 
-                        
-                        endif; ?>
+
+							the_post_navigation(
+									array(
+										'prev_text'          => '<div class="pencil-previous-article">' . esc_html__( 'Previous article', 'pencil' ) . '</div><div class="pencil-previous-article-title">%title</div>',
+										'next_text'          => '<div class="pencil-next-article">' . esc_html__( 'Next article', 'pencil' ) . '</div><div class="pencil-next-article-title">%title</div>',
+										// 'screen_reader_text' => __( 'Post navigation' ),
+										)
+							);
+
+						endif; ?>
 
 			<?php
 				// If comments are open or we have at least one comment, load up the comment template.
@@ -54,6 +54,6 @@ get_header(); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
-<?php if( get_theme_mod( 'single_page_sidebar', 1 ) ) { get_sidebar(); } ?>
+<?php if ( get_theme_mod( 'single_page_sidebar', 1 ) ) { get_sidebar(); } ?>
 </div><!-- .row -->
 <?php get_footer(); ?>

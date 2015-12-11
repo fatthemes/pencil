@@ -9,13 +9,13 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('col-md-12 masonry'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'col-md-12 masonry' ); ?>>
 	<header class="entry-header row">
                 <?php if ( has_post_thumbnail() ) : ?>
                     
                     <div class="featured-image col-sm-6">
                         <a href="<?php esc_url( the_permalink() ); ?>" rel="bookmark">
-                        <?php the_post_thumbnail('medium'); ?>   
+                        <?php the_post_thumbnail( 'medium' ); ?>   
                         </a>  
                         <?php echo pencil_post_format_icon( get_the_ID() ); ?>
                         <div class="featured-image-cat">

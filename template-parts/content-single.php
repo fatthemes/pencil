@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('col-md-12'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'col-md-12' ); ?>>
     
         <header class="entry-header row">
                 
