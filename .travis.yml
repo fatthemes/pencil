@@ -196,8 +196,8 @@ after_success:
   - git status
   - git add --all
   - git status
-  - git commit -m "Shippable beta build"
+  - git commit -m "Shippable beta - build number $BUILD_NUMBER, job id $JOB_ID"
   - git checkout beta
-  - git rebase beta
+  - git merge alpha
   - git remote set-url origin git@bitbucket.org:$REPO_NAME.git
   - git push origin beta
