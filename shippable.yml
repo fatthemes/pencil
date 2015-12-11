@@ -176,3 +176,17 @@ script:
 # @link http://docs.travis-ci.com/user/notifications/#Email-notifications
 notifications:
   email: false
+
+after_success:
+  #run some tasks and delete unneeded files and folders
+  - grunt
+  - rm -Rf scss
+  - rm -f .gitignore
+  - rm -Rf .git
+  - rm -f Gruntfile.js
+  - rm -f composer.*
+  - rm -f package.*
+  - rm -f codesniffer.ruleset.xml
+  - rm -f shippable.yml
+  - ls -la
+  - git push pencil beta
