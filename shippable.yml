@@ -124,7 +124,7 @@ before_script:
   #create config file
   - wp core config --dbname=wordpress_test --dbuser=root
   #install wp
-  - wp core install --url=wp.dev
+  - wp core install --url=wp.dev --title="Local WordPress Dev" --admin_name=admin --admin_email="admin@local.dev" --admin_password="password"
   #Install vip-scanner plugin
   - git clone --recursive  https://github.com/Automattic/vip-scanner.git $WP_DEVELOP_DIR/src/wp-content/plugins/vip-scanner
   # Install CodeSniffer for WordPress Coding Standards checks.
