@@ -98,14 +98,16 @@ before_script:
   - sed -i "s/yourpasswordhere//" wp-tests-config.php
   # Create WordPress database.
   - mysql -e 'CREATE DATABASE wordpress_test;' -uroot
-  #Install vip-scanner plugin
-  - git clone --recursive  https://github.com/Automattic/vip-scanner.git $WP_DEVELOP_DIR/src/wp-content/plugins/vip-scanner
   #Install WP-CLI
   - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-  - php wp-cli.phar --info
+  #- php wp-cli.phar --info
   - chmod +x wp-cli.phar
   - sudo mv wp-cli.phar /usr/local/bin/wp
   - wp --info
+  #install wp database and config file
+  - wp core config --dbname=wordpress_test --dbuser=root
+  #Install vip-scanner plugin
+  - git clone --recursive  https://github.com/Automattic/vip-scanner.git $WP_DEVELOP_DIR/src/wp-content/plugins/vip-scanner
   # Install CodeSniffer for WordPress Coding Standards checks.
   - git clone https://github.com/squizlabs/PHP_CodeSniffer.git php-codesniffer
   # Install WordPress Coding Standards.
@@ -120,7 +122,7 @@ before_script:
   # After CodeSniffer install you should refresh your path.
   - phpenv rehash
   # check which php version is used
-  - php --version
+  #- php --version
 
 # Run test script commands.
 # Default is specific to project language.
