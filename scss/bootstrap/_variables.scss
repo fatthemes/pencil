@@ -125,7 +125,7 @@ $grid-gutter-width:          3.125rem; //1.875rem !default; // 30px
 $font-family-sans-serif:     "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $font-family-serif:          "Merriweather", Georgia, "Times New Roman", Times, serif !default;
 $font-family-monospace:      Menlo, Monaco, Consolas, "Courier New", monospace !default;
-$font-family-base:           $font-family-serif/*$font-family-sans-serif*/ !default;
+$font-family-base:           $font-family-serif/*$font-family-sans-serif*/;
 
 // Pixel value used to responsively scale all typography. Applied to the `<html>` element.
 $font-size-root:             16px !default;
@@ -155,7 +155,7 @@ $display4-weight:             300 !default;
 $line-height:                1.25 !default;
 
 $headings-margin-bottom:     ($spacer / 2) !default;
-$headings-font-family:       $font-family-sans-serif/*inherit*/ !default;
+$headings-font-family:       $font-family-sans-serif/*inherit*/;
 $headings-font-weight:       400 !default;
 $headings-line-height:       1.25 !default;
 $headings-color:             inherit !default;
