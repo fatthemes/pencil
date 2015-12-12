@@ -66,6 +66,19 @@ module.exports = function (grunt) {
                 files: {'style.css' : 'style.css'}
                 //files: {'rtl.css' : 'rtl.css'}
             }
+        },
+        jshint: {
+			options: grunt.file.readJSON('.jshintrc'),
+			grunt: {
+				src: ['Gruntfile.js']
+			},
+			themes: {
+				expand: true,
+				src: [
+					'js/*.js',
+					'*.js'
+				]
+			}
         }
     });
     
@@ -73,6 +86,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks( 'grunt-postcss' );
     grunt.loadNpmTasks( 'grunt-wp-css' );
     
-    grunt.registerTask('default', ['addtextdomain', 'makepot', 'postcss', 'wpcss']);
+    grunt.registerTask('default', ['addtextdomain', 'makepot', 'postcss', 'wpcss', 'jshint']);
     
 };

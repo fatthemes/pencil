@@ -162,10 +162,7 @@ script:
   # -n flag: Do not print warnings. (shortcut for --warning-severity=0)
   # --standard: Use WordPress as the standard.
   # --extensions: Only sniff PHP files.
-  #- $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php
-  - $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=WordPress --extensions=php
-  - $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=WordPress-Core --extensions=php
-  - $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=WordPress-Extra --extensions=php
+  - $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php
 
 # Receive notifications for build results.
 # @link http://docs.travis-ci.com/user/notifications/#Email-notifications
@@ -188,6 +185,7 @@ after_success:
   - rm -f package.*
   - rm -f codesniffer.ruleset.xml
   - rm -f .travis.yml
+  - rm -f .jshintrc
   - ls -la
   #- git status
   - git add --all
