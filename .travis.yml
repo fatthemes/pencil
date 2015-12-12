@@ -61,7 +61,7 @@ env:
   #fast_finish: true
 
 branches:
-  only:
+  except:
     - alpha
 
 # Use this to prepare the system to install prerequisites or dependencies.
