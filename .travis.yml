@@ -60,9 +60,9 @@ env:
     #- php: 7.1
   #fast_finish: true
 
-branches:
-  only:
-    - beta
+#branches:
+  #only:
+    #- beta
 
 # Use this to prepare the system to install prerequisites or dependencies.
 # e.g. sudo apt-get update.
@@ -205,4 +205,3 @@ after_success:
   #- git merge alpha
   #- git remote set-url origin git@bitbucket.org:$REPO_NAME.git
   #- git push origin beta
-  
