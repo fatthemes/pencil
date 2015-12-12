@@ -28,7 +28,7 @@ php:
 # Declare which versions of WordPress to test against.
 # Also declare whether or not to test in Multisite.
 env:
-  - BASE_BRANCH=beta
+  #- BASE_BRANCH=beta
   # Trunk
   # @link https://github.com/WordPress/WordPress
   - WP_VERSION=master WP_MULTISITE=0
