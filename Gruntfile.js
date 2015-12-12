@@ -67,25 +67,30 @@ module.exports = function (grunt) {
                 //files: {'rtl.css' : 'rtl.css'}
             }
         },
+        rtlcss: {
+            'default':{
+                target: 'style.css',
+                expand : true,
+                //dest   : '',
+                src    : 'rtl.css'
+            }
+          },
         jshint: {
-			options: grunt.file.readJSON('.jshintrc'),
-			grunt: {
-				src: ['Gruntfile.js']
-			},
-			themes: {
-				expand: true,
-				src: [
-					'js/*.js',
-					'*.js'
-				]
-			}
-        }
+            target: [
+                'js/pencil.js',
+                'js/customizer.js',
+                'js/navigation.js',
+                'js/skip-link-focus-fix.js'
+            ]
+            }
     });
     
     grunt.loadNpmTasks( 'grunt-wp-i18n' );
     grunt.loadNpmTasks( 'grunt-postcss' );
     grunt.loadNpmTasks( 'grunt-wp-css' );
+    grunt.loadNpmTasks( 'grunt-contrib-jshint' );
+    grunt.loadNpmTasks( 'grunt-rtlcss' );
     
-    grunt.registerTask('default', ['addtextdomain', 'makepot', 'postcss', 'wpcss', 'jshint']);
+    grunt.registerTask('default', ['addtextdomain', 'makepot', 'postcss', 'wpcss', 'rtlcss']);
     
 };

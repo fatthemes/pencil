@@ -45,12 +45,6 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 
 --------------------------------------------------------------*/
 
-
-/*--------------------------------------------------------------
-# Bootstrap
---------------------------------------------------------------*/
-
-/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
 	font-family: sans-serif;
 
@@ -414,6 +408,9 @@ body {
 	background-color: #fff;
 	font-family: "Merriweather", Georgia, "Times New Roman", Times, serif;
 	font-size: 16px;
+	font-size: 16px;
+	font-size: 16px;
+	font-size: 16px;
 	font-size: 1rem;
 	line-height: 1.25;
 }
@@ -433,11 +430,17 @@ h6,
 .featured-image-cat {
 	margin-top: 0;
 	margin-bottom: 8px;
+	margin-bottom: 8px;
+	margin-bottom: 8px;
+	margin-bottom: 8px;
 	margin-bottom: 0.5rem;
 }
 
 p {
 	margin-top: 0;
+	margin-bottom: 16px;
+	margin-bottom: 16px;
+	margin-bottom: 16px;
 	margin-bottom: 16px;
 	margin-bottom: 1rem;
 }
@@ -450,6 +453,9 @@ abbr[data-original-title] {
 
 address {
 	margin-bottom: 16px;
+	margin-bottom: 16px;
+	margin-bottom: 16px;
+	margin-bottom: 16px;
 	margin-bottom: 1rem;
 	font-style: normal;
 	line-height: inherit;
@@ -459,6 +465,9 @@ ol,
 ul,
 dl {
 	margin-top: 0;
+	margin-bottom: 16px;
+	margin-bottom: 16px;
+	margin-bottom: 16px;
 	margin-bottom: 16px;
 	margin-bottom: 1rem;
 }
@@ -476,11 +485,17 @@ dt {
 
 dd {
 	margin-bottom: 8px;
+	margin-bottom: 8px;
+	margin-bottom: 8px;
+	margin-bottom: 8px;
 	margin-bottom: 0.5rem;
 	margin-left: 0;
 }
 
 blockquote {
+	margin: 0 0 16px;
+	margin: 0 0 16px;
+	margin: 0 0 16px;
 	margin: 0 0 16px;
 	margin: 0 0 1rem;
 }
@@ -506,10 +521,16 @@ a:focus {
 pre {
 	margin-top: 0;
 	margin-bottom: 16px;
+	margin-bottom: 16px;
+	margin-bottom: 16px;
+	margin-bottom: 16px;
 	margin-bottom: 1rem;
 }
 
 figure {
+	margin: 0 0 16px;
+	margin: 0 0 16px;
+	margin: 0 0 16px;
 	margin: 0 0 16px;
 	margin: 0 0 1rem;
 }
@@ -528,7 +549,13 @@ table {
 
 caption {
 	padding-top: 12px;
+	padding-top: 12px;
+	padding-top: 12px;
+	padding-top: 12px;
 	padding-top: 0.75rem;
+	padding-bottom: 12px;
+	padding-bottom: 12px;
+	padding-bottom: 12px;
 	padding-bottom: 12px;
 	padding-bottom: 0.75rem;
 	caption-side: bottom;
@@ -542,6 +569,9 @@ th {
 
 label {
 	display: inline-block;
+	margin-bottom: 8px;
+	margin-bottom: 8px;
+	margin-bottom: 8px;
 	margin-bottom: 8px;
 	margin-bottom: 0.5rem;
 }
@@ -569,8 +599,14 @@ legend {
 	display: block;
 	width: 100%;
 	margin-bottom: 8px;
+	margin-bottom: 8px;
+	margin-bottom: 8px;
+	margin-bottom: 8px;
 	margin-bottom: 0.5rem;
 	padding: 0;
+	font-size: 24px;
+	font-size: 24px;
+	font-size: 24px;
 	font-size: 24px;
 	font-size: 1.5rem;
 	line-height: inherit;
@@ -623,6 +659,9 @@ h2,
 h3,
 .h3 {
 	margin-bottom: 16px;
+	margin-bottom: 16px;
+	margin-bottom: 16px;
+	margin-bottom: 16px;
 	margin-bottom: 1rem;
 }
 
@@ -641,12 +680,18 @@ h6,
 .featured-image-cat,
 .h6 {
 	margin-bottom: 16px;
+	margin-bottom: 16px;
+	margin-bottom: 16px;
+	margin-bottom: 16px;
 	margin-bottom: 1rem;
 }
 
 h1,
 .site-title,
 .h1 {
+	font-size: 30px;
+	font-size: 30px;
+	font-size: 30px;
 	font-size: 30px;
 	font-size: 1.875rem;
 	line-height: 1.25em;
@@ -657,12 +702,18 @@ h2,
 .pencil-page-intro,
 .h2 {
 	font-size: 24px;
+	font-size: 24px;
+	font-size: 24px;
+	font-size: 24px;
 	font-size: 1.5rem;
 	line-height: 1.15em;
 }
 
 h3,
 .h3 {
+	font-size: 22px;
+	font-size: 22px;
+	font-size: 22px;
 	font-size: 22px;
 	font-size: 1.375rem;
 	line-height: 1.125em;
@@ -673,6 +724,9 @@ h4,
 .mfp-bottom-bar,
 .shareaholic-canvas div.shareaholic-recommendations-header {
 	font-size: 18px;
+	font-size: 18px;
+	font-size: 18px;
+	font-size: 18px;
 	font-size: 1.125rem;
 	line-height: 1.1em;
 }
@@ -681,6 +735,9 @@ h5,
 .h5,
 .page-links,
 .shareaholic-canvas .recommendation-article-title {
+	font-size: 16px;
+	font-size: 16px;
+	font-size: 16px;
 	font-size: 16px;
 	font-size: 1rem;
 	line-height: 1.1em;
@@ -692,6 +749,9 @@ h6,
 .fat-wpp-image-cat,
 .featured-image-cat,
 .h6 {
+	font-size: 14px;
+	font-size: 14px;
+	font-size: 14px;
 	font-size: 14px;
 	font-size: 0.9rem;
 	line-height: 1.1em;
@@ -749,11 +809,17 @@ h6,
 
 .lead {
 	font-size: 20px;
+	font-size: 20px;
+	font-size: 20px;
+	font-size: 20px;
 	font-size: 1.25rem;
 	font-weight: 700;
 }
 
 .display-1 {
+	font-size: 56px;
+	font-size: 56px;
+	font-size: 56px;
 	font-size: 56px;
 	font-size: 3.5rem;
 	font-weight: 300;
@@ -761,11 +827,17 @@ h6,
 
 .display-2 {
 	font-size: 72px;
+	font-size: 72px;
+	font-size: 72px;
+	font-size: 72px;
 	font-size: 4.5rem;
 	font-weight: 300;
 }
 
 .display-3 {
+	font-size: 88px;
+	font-size: 88px;
+	font-size: 88px;
 	font-size: 88px;
 	font-size: 5.5rem;
 	font-weight: 300;
@@ -773,16 +845,28 @@ h6,
 
 .display-4 {
 	font-size: 96px;
+	font-size: 96px;
+	font-size: 96px;
+	font-size: 96px;
 	font-size: 6rem;
 	font-weight: 300;
 }
 
 hr {
 	margin-top: 32px;
+	margin-top: 32px;
+	margin-top: 32px;
+	margin-top: 32px;
 	margin-top: 2rem;
+	margin-bottom: 32px;
+	margin-bottom: 32px;
+	margin-bottom: 32px;
 	margin-bottom: 32px;
 	margin-bottom: 2rem;
 	border: 0;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
 	border-top: 1px solid rgba(0, 0, 0, 0.1);
 	border-top: 0.0625rem solid rgba(0, 0, 0, 0.1);
 }
@@ -820,7 +904,13 @@ mark,
 
 .dl-horizontal {
 	margin-right: -50px;
+	margin-right: -50px;
+	margin-right: -50px;
+	margin-right: -50px;
 	margin-right: -3.125rem;
+	margin-left: -50px;
+	margin-left: -50px;
+	margin-left: -50px;
 	margin-left: -50px;
 	margin-left: -3.125rem;
 }
@@ -844,10 +934,19 @@ mark,
 blockquote,
 q {
 	margin-bottom: 32px;
+	margin-bottom: 32px;
+	margin-bottom: 32px;
+	margin-bottom: 32px;
 	margin-bottom: 2rem;
+	padding: 16px 32px;
+	padding: 16px 32px;
+	padding: 16px 32px;
 	padding: 16px 32px;
 	padding: 1rem 2rem;
 	border-left: 1px solid #000;
+	font-size: 20px;
+	font-size: 20px;
+	font-size: 20px;
 	font-size: 20px;
 	font-size: 1.25rem;
 	font-style: italic;
@@ -883,8 +982,14 @@ q footer:before {
 
 .blockquote-reverse {
 	padding-right: 32px;
+	padding-right: 32px;
+	padding-right: 32px;
+	padding-right: 32px;
 	padding-right: 2rem;
 	padding-left: 0;
+	border-right: 4px solid #eceeef;
+	border-right: 4px solid #eceeef;
+	border-right: 4px solid #eceeef;
 	border-right: 4px solid #eceeef;
 	border-right: 0.25rem solid #eceeef;
 	border-left: 0;
@@ -904,6 +1009,9 @@ q footer:before {
 }
 
 .figure > img {
+	margin-bottom: 16px;
+	margin-bottom: 16px;
+	margin-bottom: 16px;
 	margin-bottom: 16px;
 	margin-bottom: 1rem;
 	line-height: 1;
@@ -926,6 +1034,9 @@ q footer:before {
 	max-width: 100%;
 	height: auto;
 	padding: 4px;
+	padding: 4px;
+	padding: 4px;
+	padding: 4px;
 	padding: 0.25rem;
 	border: 1px solid #ddd;
 	border-radius: 0.25rem;
@@ -947,6 +1058,9 @@ samp {
 
 code {
 	padding: 3px 6px;
+	padding: 3px 6px;
+	padding: 3px 6px;
+	padding: 3px 6px;
 	padding: 0.2rem 0.4rem;
 	color: #bd4147;
 	background-color: #f7f7f9;
@@ -954,6 +1068,9 @@ code {
 }
 
 kbd {
+	padding: 3px 6px;
+	padding: 3px 6px;
+	padding: 3px 6px;
 	padding: 3px 6px;
 	padding: 0.2rem 0.4rem;
 	color: #fff;
@@ -970,6 +1087,9 @@ kbd kbd {
 pre {
 	display: block;
 	margin-top: 0;
+	margin-bottom: 16px;
+	margin-bottom: 16px;
+	margin-bottom: 16px;
 	margin-bottom: 16px;
 	margin-bottom: 1rem;
 	color: #373a3c;
@@ -994,7 +1114,13 @@ pre code {
 	margin-right: auto;
 	margin-left: auto;
 	padding-right: 25px;
+	padding-right: 25px;
+	padding-right: 25px;
+	padding-right: 25px;
 	padding-right: 1.5625rem;
+	padding-left: 25px;
+	padding-left: 25px;
+	padding-left: 25px;
 	padding-left: 25px;
 	padding-left: 1.5625rem;
 }
@@ -1037,7 +1163,13 @@ pre code {
 	margin-right: auto;
 	margin-left: auto;
 	padding-right: 25px;
+	padding-right: 25px;
+	padding-right: 25px;
+	padding-right: 25px;
 	padding-right: 1.5625rem;
+	padding-left: 25px;
+	padding-left: 25px;
+	padding-left: 25px;
 	padding-left: 25px;
 	padding-left: 1.5625rem;
 }
@@ -1054,7 +1186,13 @@ pre code {
 
 .row {
 	margin-right: -25px;
+	margin-right: -25px;
+	margin-right: -25px;
+	margin-right: -25px;
 	margin-right: -1.5625rem;
+	margin-left: -25px;
+	margin-left: -25px;
+	margin-left: -25px;
 	margin-left: -25px;
 	margin-left: -1.5625rem;
 }
@@ -1133,7 +1271,13 @@ pre code {
 	position: relative;
 	min-height: 1px;
 	padding-right: 25px;
+	padding-right: 25px;
+	padding-right: 25px;
+	padding-right: 25px;
 	padding-right: 1.5625rem;
+	padding-left: 25px;
+	padding-left: 25px;
+	padding-left: 25px;
 	padding-left: 25px;
 	padding-left: 1.5625rem;
 }
@@ -2248,6 +2392,9 @@ table {
 	width: 100%;
 	max-width: 100%;
 	margin-bottom: 32px;
+	margin-bottom: 32px;
+	margin-bottom: 32px;
+	margin-bottom: 32px;
 	margin-bottom: 2rem;
 }
 
@@ -2255,6 +2402,9 @@ table {
 table th,
 .table td,
 table td {
+	padding: 12px;
+	padding: 12px;
+	padding: 12px;
 	padding: 12px;
 	padding: 0.75rem;
 	border-top: 1px solid #eceeef;
@@ -2282,6 +2432,9 @@ table table {
 
 .table-sm th,
 .table-sm td {
+	padding: 4px;
+	padding: 4px;
+	padding: 4px;
 	padding: 4px;
 	padding: 0.3rem;
 }
@@ -2457,12 +2610,21 @@ table table {
 	display: block;
 	width: 100%;
 	padding: 6px 12px;
+	padding: 6px 12px;
+	padding: 6px 12px;
+	padding: 6px 12px;
 	padding: 0.375rem 0.75rem;
+	border: 1px solid #ccc;
+	border: 1px solid #ccc;
+	border: 1px solid #ccc;
 	border: 1px solid #ccc;
 	border: 0.0625rem solid #ccc;
 	color: #55595c;
 	background-color: #fff;
 	background-image: none;
+	font-size: 16px;
+	font-size: 16px;
+	font-size: 16px;
 	font-size: 16px;
 	font-size: 1rem;
 	line-height: 1.25;
@@ -2518,6 +2680,9 @@ fieldset[disabled] .form-control {
 .form-control-label {
 	margin-bottom: 0;
 	padding: 7px 12px;
+	padding: 7px 12px;
+	padding: 7px 12px;
+	padding: 7px 12px;
 	padding: 0.4375rem 0.75rem;
 }
 
@@ -2554,10 +2719,19 @@ fieldset[disabled] .form-control {
 
 .form-control-static {
 	min-height: 34px;
+	min-height: 34px;
+	min-height: 34px;
+	min-height: 34px;
 	min-height: 2.125rem;
 	margin-bottom: 0;
 	padding-top: 7px;
+	padding-top: 7px;
+	padding-top: 7px;
+	padding-top: 7px;
 	padding-top: 0.4375rem;
+	padding-bottom: 7px;
+	padding-bottom: 7px;
+	padding-bottom: 7px;
 	padding-bottom: 7px;
 	padding-bottom: 0.4375rem;
 }
@@ -2570,8 +2744,14 @@ fieldset[disabled] .form-control {
 
 .form-control-sm {
 	padding: 4px 12px;
+	padding: 4px 12px;
+	padding: 4px 12px;
+	padding: 4px 12px;
 	padding: 0.275rem 0.75rem;
 	border-radius: 0.2rem;
+	font-size: 13px;
+	font-size: 13px;
+	font-size: 13px;
 	font-size: 13px;
 	font-size: 0.85rem;
 	line-height: 1.5;
@@ -2579,8 +2759,14 @@ fieldset[disabled] .form-control {
 
 .form-control-lg {
 	padding: 12px 20px;
+	padding: 12px 20px;
+	padding: 12px 20px;
+	padding: 12px 20px;
 	padding: 0.75rem 1.25rem;
 	border-radius: 0.3rem;
+	font-size: 20px;
+	font-size: 20px;
+	font-size: 20px;
 	font-size: 20px;
 	font-size: 1.25rem;
 	line-height: 1.33333;
@@ -2595,12 +2781,18 @@ fieldset[disabled] .form-control {
 	display: block;
 	position: relative;
 	margin-bottom: 24px;
+	margin-bottom: 24px;
+	margin-bottom: 24px;
+	margin-bottom: 24px;
 	margin-bottom: 1.5rem;
 }
 
 .radio label,
 .checkbox label {
 	margin-bottom: 0;
+	padding-left: 20px;
+	padding-left: 20px;
+	padding-left: 20px;
 	padding-left: 20px;
 	padding-left: 1.25rem;
 	font-weight: normal;
@@ -2618,13 +2810,22 @@ fieldset[disabled] .form-control {
 .checkbox-inline input[type="checkbox"] {
 	position: absolute;
 	margin-top: 4px;
+	margin-top: 4px;
+	margin-top: 4px;
+	margin-top: 4px;
 	margin-top: 0.25rem;
+	margin-left: -20px;
+	margin-left: -20px;
+	margin-left: -20px;
 	margin-left: -20px;
 	margin-left: -1.25rem;
 }
 
 .radio + .radio,
 .checkbox + .checkbox {
+	margin-top: -4px;
+	margin-top: -4px;
+	margin-top: -4px;
 	margin-top: -4px;
 	margin-top: -0.25rem;
 }
@@ -2635,6 +2836,9 @@ fieldset[disabled] .form-control {
 	position: relative;
 	margin-bottom: 0;
 	padding-left: 20px;
+	padding-left: 20px;
+	padding-left: 20px;
+	padding-left: 20px;
 	padding-left: 1.25rem;
 	font-weight: normal;
 	vertical-align: middle;
@@ -2644,6 +2848,9 @@ fieldset[disabled] .form-control {
 .radio-inline + .radio-inline,
 .checkbox-inline + .checkbox-inline {
 	margin-top: 0;
+	margin-left: 12px;
+	margin-left: 12px;
+	margin-left: 12px;
 	margin-left: 12px;
 	margin-left: 0.75rem;
 }
@@ -2675,8 +2882,14 @@ fieldset[disabled] .checkbox label {
 .form-control-warning,
 .form-control-error {
 	padding-right: 36px;
+	padding-right: 36px;
+	padding-right: 36px;
+	padding-right: 36px;
 	padding-right: 2.25rem;
 	background-repeat: no-repeat;
+	background-position: center right 8px;
+	background-position: center right 8px;
+	background-position: center right 8px;
 	background-position: center right 8px;
 	background-position: center right 0.53125rem;
 	background-size: 1.38125rem 1.38125rem;
@@ -2848,9 +3061,18 @@ input[type="submit"],
 #pencil-load-more input[type="submit"] {
 	display: inline-block;
 	padding: 12px 16px;
+	padding: 12px 16px;
+	padding: 12px 16px;
+	padding: 12px 16px;
 	padding: 0.75rem 1rem;
 	border: 1px solid transparent;
+	border: 1px solid transparent;
+	border: 1px solid transparent;
+	border: 1px solid transparent;
 	border: 0.0625rem solid transparent;
+	font-size: 16px;
+	font-size: 16px;
+	font-size: 16px;
 	font-size: 16px;
 	font-size: 1rem;
 	font-weight: 300;
@@ -3765,7 +3987,13 @@ fieldset[disabled] .btn-link:hover {
 
 .btn-lg {
 	padding: 12px 20px;
+	padding: 12px 20px;
+	padding: 12px 20px;
+	padding: 12px 20px;
 	padding: 0.75rem 1.25rem;
+	font-size: 20px;
+	font-size: 20px;
+	font-size: 20px;
 	font-size: 20px;
 	font-size: 1.25rem;
 	line-height: 1.33333;
@@ -3773,7 +4001,13 @@ fieldset[disabled] .btn-link:hover {
 
 .btn-sm {
 	padding: 4px 12px;
+	padding: 4px 12px;
+	padding: 4px 12px;
+	padding: 4px 12px;
 	padding: 0.25rem 0.75rem;
+	font-size: 13px;
+	font-size: 13px;
+	font-size: 13px;
 	font-size: 13px;
 	font-size: 0.85rem;
 	line-height: 1.5;
@@ -3794,11 +4028,6 @@ input[type="button"].btn-block {
 	width: 100%;
 }
 
-
-/*--------------------------------------------------------------
-# Typography
---------------------------------------------------------------*/
-
 body,
 button,
 input,
@@ -3806,6 +4035,9 @@ select,
 textarea {
 	color: #404040;
 	font-family: "Merriweather", Georgia, "Times New Roman", Times, serif;
+	font-size: 16px;
+	font-size: 16px;
+	font-size: 16px;
 	font-size: 16px;
 	font-size: 16px;
 	font-size: 1rem;
@@ -3923,6 +4155,9 @@ pre {
 	font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 	font-size: 15px;
 	font-size: 15px;
+	font-size: 15px;
+	font-size: 15px;
+	font-size: 15px;
 	font-size: 0.9375rem;
 	line-height: 1.6;
 }
@@ -3932,6 +4167,9 @@ kbd,
 tt,
 var {
 	font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+	font-size: 15px;
+	font-size: 15px;
+	font-size: 15px;
 	font-size: 15px;
 	font-size: 15px;
 	font-size: 0.9375rem;
@@ -3952,11 +4190,6 @@ ins {
 big {
 	font-size: 125%;
 }
-
-
-/*--------------------------------------------------------------
-# Elements
---------------------------------------------------------------*/
 
 html {
 	box-sizing: border-box;
@@ -4037,6 +4270,9 @@ figure {
 	margin-top: 1em;
 	margin-bottom: 1em;
 	font-size: 16px;
+	font-size: 16px;
+	font-size: 16px;
+	font-size: 16px;
 	font-size: 1rem;
 	text-align: right;
 }
@@ -4082,11 +4318,6 @@ figure {
 	outline: transparent;
 }
 
-
-/*--------------------------------------------------------------
-# Forms
---------------------------------------------------------------*/
-
 button,
 input[type="button"],
 input[type="reset"],
@@ -4097,6 +4328,9 @@ input[type="submit"],
 #pencil-load-more input[type="reset"],
 #pencil-load-more input[type="submit"] {
 	font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	font-size: 14px;
+	font-size: 14px;
 	font-size: 14px;
 	font-size: 0.875rem;
 	font-weight: 300;
@@ -4168,30 +4402,6 @@ textarea {
 # Navigation
 --------------------------------------------------------------*/
 
-
-/*--------------------------------------------------------------
-## Links
---------------------------------------------------------------*/
-
-/*a {
-	color: $color__link;
-
-	&:visited {
-		color: $color__link-visited;
-	}
-	&:hover,
-	&:focus,
-	&:active {
-		color: $color__link-hover;
-	}
-	&:focus {
-		outline: thin dotted;
-	}
-	&:hover,
-	&:active {
-		outline: 0;
-	}
-}*/
 h1 a,
 .site-title a,
 h2 a,
@@ -4215,16 +4425,14 @@ h6 a,
 	font-weight: 700;
 }
 
-
-/*--------------------------------------------------------------
-## Menus
---------------------------------------------------------------*/
-
 .main-navigation {
 	display: block;
 	float: left;
 	clear: both;
 	width: 100%;
+	font-size: 12px;
+	font-size: 12px;
+	font-size: 12px;
 	font-size: 12px;
 	font-size: 0.75rem;
 	font-weight: 700;
@@ -4303,6 +4511,9 @@ h6 a,
 
 .menu-toggle {
 	font-size: 12px;
+	font-size: 12px;
+	font-size: 12px;
+	font-size: 12px;
 	font-size: 0.75rem;
 	font-weight: 700;
 	letter-spacing: 0.05em;
@@ -4344,8 +4555,6 @@ h6 a,
 	background-color: #000;
 }
 
-/* Small menu. */
-/*.menu-toggle,*/
 .main-navigation.toggled ul {
 	display: block;
 }
@@ -4448,7 +4657,6 @@ h6 a,
 	text-align: right;
 }
 
-/* Social area in menu*/
 .nav-func {
 	float: right;
 	text-align: right;
@@ -4520,10 +4728,16 @@ nav {
 
 .nav-previous {
 	padding-right: 25px;
+	padding-right: 25px;
+	padding-right: 25px;
+	padding-right: 25px;
 	padding-right: 1.5625rem;
 }
 
 .nav-next {
+	padding-left: 25px;
+	padding-left: 25px;
+	padding-left: 25px;
 	padding-left: 25px;
 	padding-left: 1.5625rem;
 }
@@ -4532,12 +4746,6 @@ nav {
 	text-align: center;
 }
 
-
-/*--------------------------------------------------------------
-# Accessibility
---------------------------------------------------------------*/
-
-/* Text meant only for screen readers. */
 .screen-reader-text {
 	overflow: hidden;
 	clip: rect(1px, 1px, 1px, 1px);
@@ -4563,6 +4771,9 @@ nav {
 	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
 	font-size: 14px;
 	font-size: 14px;
+	font-size: 14px;
+	font-size: 14px;
+	font-size: 14px;
 	font-size: 0.875rem;
 	font-weight: bold;
 	line-height: normal;
@@ -4570,14 +4781,12 @@ nav {
 	/* Above WP toolbar. */
 }
 
-
-/*--------------------------------------------------------------
-# Alignments
---------------------------------------------------------------*/
-
 .alignleft {
 	display: inline;
 	float: left;
+	margin-right: 12px;
+	margin-right: 12px;
+	margin-right: 12px;
 	margin-right: 12px;
 	margin-right: 0.75rem;
 }
@@ -4585,6 +4794,9 @@ nav {
 .alignright {
 	display: inline;
 	float: right;
+	margin-left: 12px;
+	margin-left: 12px;
+	margin-left: 12px;
 	margin-left: 12px;
 	margin-left: 0.75rem;
 }
@@ -4599,13 +4811,11 @@ nav {
 .alignright,
 .aligncenter {
 	margin-bottom: 8px;
+	margin-bottom: 8px;
+	margin-bottom: 8px;
+	margin-bottom: 8px;
 	margin-bottom: 0.5rem;
 }
-
-
-/*--------------------------------------------------------------
-# Clearings
---------------------------------------------------------------*/
 
 .clear:before,
 .clear:after,
@@ -4632,12 +4842,10 @@ nav {
 	clear: both;
 }
 
-
-/*--------------------------------------------------------------
-# Widgets
---------------------------------------------------------------*/
-
 .widget {
+	margin: 0 0 50px;
+	margin: 0 0 50px;
+	margin: 0 0 50px;
 	margin: 0 0 50px;
 	margin: 0 0 3.125rem;
 	font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -4663,8 +4871,14 @@ nav {
 .comments-title,
 .comment-reply-title {
 	margin-bottom: 25px;
+	margin-bottom: 25px;
+	margin-bottom: 25px;
+	margin-bottom: 25px;
 	margin-bottom: 1.5625rem;
 	border-bottom: solid 1px #000;
+	font-size: 12px;
+	font-size: 12px;
+	font-size: 12px;
 	font-size: 12px;
 	font-size: 0.75rem;
 	font-weight: 700;
@@ -4672,7 +4886,6 @@ nav {
 	text-transform: uppercase;
 }
 
-/* Search widget. */
 .widget_search .search-submit {
 	display: none;
 }
@@ -4689,16 +4902,6 @@ nav {
 .widget_recent_entries a {
 	border: 0 transparent;
 }
-
-
-/*--------------------------------------------------------------
-# Content
---------------------------------------------------------------*/
-
-
-/*--------------------------------------------------------------
-## Posts and pages
---------------------------------------------------------------*/
 
 .sticky {
 	display: block;
@@ -4722,6 +4925,9 @@ nav {
 .single .entry-meta,
 .page .entry-meta {
 	padding-right: 6px;
+	padding-right: 6px;
+	padding-right: 6px;
+	padding-right: 6px;
 	padding-right: 0.39062rem;
 	text-align: right;
 }
@@ -4730,10 +4936,19 @@ nav {
 .entry-meta .posted-on {
 	margin: 0;
 	padding-top: 6px;
+	padding-top: 6px;
+	padding-top: 6px;
+	padding-top: 6px;
 	padding-top: 0.375rem;
+	padding-bottom: 6px;
+	padding-bottom: 6px;
+	padding-bottom: 6px;
 	padding-bottom: 6px;
 	padding-bottom: 0.375rem;
 	font-family: "Roboto", sans-serif;
+	font-size: 12px;
+	font-size: 12px;
+	font-size: 12px;
 	font-size: 12px;
 	font-size: 0.75rem;
 }
@@ -4748,6 +4963,9 @@ nav {
 .page .entry-meta .byline,
 .page .entry-meta .posted-on {
 	display: block;
+	font-size: 11px;
+	font-size: 11px;
+	font-size: 11px;
 	font-size: 11px;
 	font-size: 0.7rem;
 	font-weight: 700;
@@ -4785,6 +5003,9 @@ nav {
 
 .site-content {
 	padding-top: 50px;
+	padding-top: 50px;
+	padding-top: 50px;
+	padding-top: 50px;
 	padding-top: 3.125rem;
 }
 
@@ -4793,6 +5014,9 @@ nav {
 .page article,
 .archive article,
 .search article {
+	padding-bottom: 37px;
+	padding-bottom: 37px;
+	padding-bottom: 37px;
 	padding-bottom: 37px;
 	padding-bottom: 2.34375rem;
 }
@@ -4923,6 +5147,9 @@ nav {
 
 .content-area {
 	padding-bottom: 50px;
+	padding-bottom: 50px;
+	padding-bottom: 50px;
+	padding-bottom: 50px;
 	padding-bottom: 3.125rem;
 }
 
@@ -4995,6 +5222,9 @@ nav {
 .pencil-post-format-icon {
 	position: absolute;
 	right: 25px;
+	right: 25px;
+	right: 25px;
+	right: 25px;
 	right: 1.5625rem;
 	padding: 0 0.75em;
 	background-color: #fff;
@@ -5056,20 +5286,10 @@ nav {
 	margin-bottom: 1em;
 }
 
-
-/*--------------------------------------------------------------
-## Asides
---------------------------------------------------------------*/
-
 .blog .format-aside .entry-title,
 .archive .format-aside .entry-title {
 	display: none;
 }
-
-
-/*--------------------------------------------------------------
-## Comments
---------------------------------------------------------------*/
 
 .comments-area ul {
 	list-style: none;
@@ -5082,6 +5302,9 @@ nav {
 
 .comments-title,
 .comment-reply-title {
+	margin-bottom: 16px;
+	margin-bottom: 16px;
+	margin-bottom: 16px;
 	margin-bottom: 16px;
 	margin-bottom: 1rem;
 }
@@ -5139,6 +5362,12 @@ nav {
 	align-items: center;
 	-ms-flex-align: center;
 	-webkit-flex-direction: column;
+	-webkit-flex-direction: column;
+	-webkit-flex-direction: column;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	-ms-flex-direction: column;
+	-ms-flex-direction: column;
 	-ms-flex-direction: column;
 	-ms-flex-pack: left;
 	-webkit-justify-content: left;
@@ -5149,6 +5378,9 @@ nav {
 .comment-form-author,
 .comment-form-email,
 .comment-form-ur {
+	padding: 25px 0 0 0;
+	padding: 25px 0 0 0;
+	padding: 25px 0 0 0;
 	padding: 25px 0 0 0;
 	padding: 1.5625rem 0 0 0;
 }
@@ -5211,16 +5443,6 @@ article.comment {
 	padding-bottom: 1em;
 }
 
-
-/*--------------------------------------------------------------
-# Infinite scroll
---------------------------------------------------------------*/
-
-
-/*--------------------------------------------------------------
-# Media
---------------------------------------------------------------*/
-
 .page-content .wp-smiley,
 .entry-content .wp-smiley,
 .comment-content .wp-smiley {
@@ -5230,17 +5452,11 @@ article.comment {
 	border: none;
 }
 
-/* Make sure embeds and iframes fit their containers. */
 embed,
 iframe,
 object {
 	max-width: 100%;
 }
-
-
-/*--------------------------------------------------------------
-## Captions
---------------------------------------------------------------*/
 
 .wp-caption {
 	max-width: 100%;
@@ -5263,11 +5479,6 @@ object {
 .wp-caption-text:focus {
 	border: 0 transparent;
 }
-
-
-/*--------------------------------------------------------------
-## Galleries
---------------------------------------------------------------*/
 
 .gallery {
 	margin-bottom: 1.5em;
@@ -5324,11 +5535,6 @@ object {
 	width: 100%;
 }
 
-
-/*--------------------------------------------------------------
-# External assets
---------------------------------------------------------------*/
-
 .fat-wpp-image-cat,
 .featured-image-cat {
 	display: inline-block;
@@ -5345,6 +5551,9 @@ object {
 }
 
 .fat-wpp-list > li {
+	margin: 0 0 25px;
+	margin: 0 0 25px;
+	margin: 0 0 25px;
 	margin: 0 0 25px;
 	margin: 0 0 1.5625rem;
 	padding: 0.5em;
@@ -5380,11 +5589,9 @@ object {
 	right: 0;
 }
 
-/* Slider */
 .slick-slider {
 	display: block;
 	position: relative;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -5492,7 +5699,6 @@ object {
 	font-style: normal;
 }
 
-/* Arrows */
 .slick-prev,
 .slick-next {
 	display: block;
@@ -5580,7 +5786,6 @@ object {
 	content: "←";
 }
 
-/* Dots */
 .slick-slider {
 	background: #fff url("slick/ajax-loader.gif") center center no-repeat;
 }
@@ -5703,7 +5908,6 @@ object {
 	-ms-flex-align: center;
 }
 
-/* Magnific Popup CSS */
 .mfp-bg {
 	overflow: hidden;
 	position: fixed;
@@ -6021,7 +6225,6 @@ button::-moz-focus-inner {
 	box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
 }
 
-/* Main image in popup */
 img.mfp-img {
 	display: block;
 	box-sizing: border-box;
@@ -6033,7 +6236,6 @@ img.mfp-img {
 	line-height: 0;
 }
 
-/* The shadow behind the image */
 .mfp-figure {
 	line-height: 0;
 }
@@ -6089,9 +6291,6 @@ img.mfp-img {
 }
 
 @media screen and (max-width: 800px) and (orientation: landscape), screen and (max-height: 300px) {
-	/**
-       * Remove all paddings around the image on small screen
-       */
 	.mfp-img-mobile .mfp-image-holder {
 		padding-right: 0;
 		padding-left: 0;
