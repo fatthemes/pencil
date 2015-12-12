@@ -195,7 +195,6 @@ after_success:
   #- git status
   - git commit -m "Build number $BUILD_NUMBER, build url $BUILD_URL"
   - git checkout beta
-  - git merge --force alpha
+  - git merge alpha
   - git remote set-url origin git@bitbucket.org:$REPO_NAME.git
   - git push origin beta
-  
