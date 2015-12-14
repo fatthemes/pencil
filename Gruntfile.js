@@ -13,7 +13,8 @@ module.exports = function (grunt) {
                     '*.php',
                     '**/*.php',
                     '!node_modules/**',
-                    '!tests/**'
+                    '!tests/**',
+                    '!vendor/**'
                 ]}
             }
         },
@@ -88,6 +89,7 @@ module.exports = function (grunt) {
                 '!*.min.js',
                 '!**/*.min.js',
                 '!node_modules/**',
+                '!vendor/**',
                 '!tests/**',
                 '!Gruntfile.js',
                 '!jquery.magnific-popup',
