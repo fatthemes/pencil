@@ -92,10 +92,10 @@ module.exports = function (grunt) {
                 '!vendor/**',
                 '!tests/**',
                 '!Gruntfile.js',
-                '!jquery.magnific-popup',
-                '!smoothscroll',
-                '!theia-sticky-sidebar',
-                '!slick'
+                '!**/jquery.magnific-popup.js',
+                '!**/smoothscroll.js',
+                '!**/theia-sticky-sidebar.js',
+                '!**/slick.js'
             ]
             }
     });
