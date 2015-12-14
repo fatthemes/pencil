@@ -89,7 +89,11 @@ module.exports = function (grunt) {
                 '!**/*.min.js',
                 '!node_modules/**',
                 '!tests/**',
-                '!Gruntfile.js'
+                '!Gruntfile.js',
+                '!jquery.magnific-popup',
+                '!smoothscroll',
+                '!theia-sticky-sidebar',
+                '!slick'
             ]
             }
     });
