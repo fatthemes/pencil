@@ -71,17 +71,10 @@ if ( ! function_exists( 'pencil_posted_on' ) ) :
  */
 function pencil_posted_on() {
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-	/*
- if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-	}*/
 
 	$time_string = sprintf( $time_string,
 		esc_attr( get_the_date( 'c' ) ),
 		human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) )
-				// esc_html( get_the_date() )//,
-		// esc_attr( get_the_modified_date( 'c' ) ),
-		// esc_html( get_the_modified_date() )
 	);
 
 	$posted_on = sprintf(
@@ -119,7 +112,7 @@ function pencil_entry_footer() {
 		// if ( $categories_list && pencil_categorized_blog() ) {
 		// printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'pencil' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 		// }
-		/* translators: used between list items, there is a space after the comma */
+		// Translators: used between list items, there is a space after the comma.
 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'pencil' ) );
 		if ( $tags_list ) {
 			printf( '<span class="tags-links">' . esc_html__( 'Tagged: %1$s', 'pencil' ) . '</span>', $tags_list ); // WPCS: XSS OK.
@@ -276,12 +269,17 @@ add_action( 'edit_category', 'pencil_category_transient_flusher' );
 add_action( 'save_post',     'pencil_category_transient_flusher' );
 
 if ( ! function_exists( 'pencil_comment' ) ) :
+    
 /**
+ * 
  * Template for comments and pingbacks.
  *
  * Used as a callback by wp_list_comments() for displaying the comments.
  *
  * @since pencil 1.0
+ * @param type $comment
+ * @param type $args
+ * @param type $depth
  */
 function pencil_comment( $comment, $args, $depth ) {
 		$GLOBALS['comment'] = $comment;
@@ -321,13 +319,19 @@ function pencil_comment( $comment, $args, $depth ) {
             </article><!-- #comment-## -->
         <?php
 }
-endif; // ends check for pencil_comment()
+endif; // Ends check for pencil_comment().
 
 if ( ! function_exists( 'pencil_comments_fields' ) ) :
 
+/**
+ * Comments function.
+ * 
+ * @param array $fields
+ * @return string
+ */
 function pencil_comments_fields( $fields ) {
 
-		$commenter = wp_get_current_commenter();
+	$commenter = wp_get_current_commenter();
 	// $user = wp_get_current_user();
 	// $user_identity = $user->exists() ? $user->display_name : '';
 	if ( ! isset( $args['format'] ) ) {
@@ -339,7 +343,7 @@ function pencil_comments_fields( $fields ) {
 	$html5    = 'html5' === $args['format'];
 
 		$fields   = array(
-		'author' => '<div class="comment-fields"><p class="comment-form-author">' . '<label for="author">' . esc_html__( 'Name', 'pencil' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
+		'author' => '<div class="comment-fields"><p class="comment-form-author"><label for="author">' . esc_html__( 'Name', 'pencil' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
 		            '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '"' . $aria_req . $html_req . '" placeholder="' . esc_html__( 'Name', 'pencil' ) .'" /></p>',
 		'email'  => '<p class="comment-form-email"><label for="email">' . esc_html__( 'Email', 'pencil' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
 		            '<input id="email" name="email" ' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_email'] ) . '" aria-describedby="email-notes"' . $aria_req . $html_req  . '" placeholder="' . esc_html__( 'Email', 'pencil' ) .'" /></p>',
@@ -352,7 +356,7 @@ return $fields;
 add_filter( 'comment_form_default_fields','pencil_comments_fields' );
 endif;
 
-/*
+/**
  * Gets the excerpt using the post ID outside the loop.
  *
  * @author      Withers David
@@ -378,7 +382,7 @@ function pencil_get_excerpt_by_id( $post_id ) {
 }
 
 if ( ! function_exists( 'pencil_custom_popular_posts_html_list' ) ) :
-/*
+/**
  * Builds custom HTML
  *
  * With this function, I can alter WPP's HTML output from my theme's functions.php.
@@ -391,84 +395,10 @@ if ( ! function_exists( 'pencil_custom_popular_posts_html_list' ) ) :
 function pencil_custom_popular_posts_html_list( $mostpopular, $instance ) {
 	$output = '<ul class="fat-wpp-list">';
 
-	// loop the array of popular posts objects
+	// Loop the array of popular posts objects.
 	foreach ( $mostpopular as $popular ) {
 		// var_dump($popular->id);
-/*
-         $stats = array(); // placeholder for the stats tag
-
-        // Comment count option active, display comments
-        if ( $instance['stats_tag']['comment_count'] ) {
-            // display text in singular or plural, according to comments count
-            $stats[] = '<span class="wpp-comments">' . sprintf(
-                _n('1 comment', '%s comments', $popular->comment_count, 'wordpress-popular-posts'),
-                number_format_i18n($popular->comment_count)
-            ) . '</span>';
-        }
-
-        // Pageviews option checked, display views
-        if ( $instance['stats_tag']['views'] ) {
-
-            // If sorting posts by average views
-            if ($instance['order_by'] == 'avg') {
-                // display text in singular or plural, according to views count
-                $stats[] = '<span class="wpp-views">' . sprintf(
-                    _n('1 view per day', '%s views per day', intval($popular->pageviews), 'wordpress-popular-posts'),
-                    number_format_i18n($popular->pageviews, 2)
-                ) . '</span>';
-            } else { // Sorting posts by views
-                // display text in singular or plural, according to views count
-                $stats[] = '<span class="wpp-views">' . sprintf(
-                    _n('1 view', '%s views', intval($popular->pageviews), 'wordpress-popular-posts'),
-                    number_format_i18n($popular->pageviews)
-                ) . '</span>';
-            }
-        }
-*/
-	/*
-        // Author option checked
-        if ($instance['stats_tag']['author']) {
-            $author = get_the_author_meta('display_name', $popular->uid);
-            $display_name = '<a href="' . get_author_posts_url($popular->uid) . '">' . $author . '</a>';
-            $stats[] = '<span class="wpp-author">' . sprintf(__('by %s', 'wordpress-popular-posts'), $display_name). '</span>';
-        }
-
-        // Date option checked
-        if ($instance['stats_tag']['date']['active']) {
-            $date = date_i18n($instance['stats_tag']['date']['format'], strtotime($popular->date));
-            $stats[] = '<span class="wpp-date">' . sprintf(__('posted on %s', 'wordpress-popular-posts'), $date) . '</span>';
-        }
-*/
-		// Category option checked
-	   /*
-  if ($instance['stats_tag']['category']) {
-            $post_cat = get_the_category($popular->id);
-            $post_cat = (isset($post_cat[0]))
-              ? '<a href="' . get_category_link($post_cat[0]->term_id) . '">' . $post_cat[0]->cat_name . '</a>'
-              : '';
-
-            if ($post_cat != '') {
-                $stats[] = '<span class="wpp-category">' . sprintf(__('%s', 'wordpress-popular-posts'), $post_cat) . '</span>';
-            }
-        }*/
-/*
-        // Build stats tag
-        if ( !empty($stats) ) {
-            $stats = '<div class="wpp-stats">' . join( ' | ', $stats ) . '</div>';
-        }
-
-        $excerpt = ''; // Excerpt placeholder
-
-        // Excerpt option checked, build excerpt tag
-        if ($instance['post-excerpt']['active']) {
-
-            $excerpt = pencil_get_excerpt_by_id( $popular->id );
-            if ( !empty($excerpt) ) {
-                $excerpt = '<div class="wpp-excerpt">' . $excerpt . '</div>';
-            }
-
-        }
-*/
+            
 		$post_cat = get_the_category_list( esc_html__( ' &#x2f; ', 'pencil' ), '', $popular->id );
 
 		$thumb = get_the_post_thumbnail( $popular->id, 'medium' );
@@ -533,64 +463,18 @@ function pencil_media_content() {
 }
 endif;
 
-/**
- * Adds a meta box to the post editing screen
- */
-/*
- function pencil_custom_meta() {
-    add_meta_box( 'pencil_meta_slider', __( 'Featured Post', 'pencil' ), 'pencil_meta_slider_callback', 'post', 'side' );
-}
-add_action( 'add_meta_boxes', 'pencil_custom_meta' );
-*/
-/**
- * Outputs the content of the meta box
- */
-/*
- function pencil_meta_slider_callback( $post ) {
-    wp_nonce_field( basename( __FILE__ ), 'pencil_slider_meta_nonce' );
-    $pencil_meta_slider_stored_meta = get_post_meta( $post->ID );
-    ?>
-    <div class="prfx-row-content">
-        <label for="pencil-meta-slider-checkbox">
-            <input type="checkbox" name="pencil-meta-slider-checkbox" id="pencil-meta-slider-checkbox" value="1" <?php if ( isset ( $pencil_meta_slider_stored_meta['pencil-meta-slider-checkbox'] ) ) checked( $pencil_meta_slider_stored_meta['pencil-meta-slider-checkbox'][0], '1' ); ?> />
-            <?php _e( 'Display in Slider on Home Page ', 'pencil' )?>
-        </label>
-    </div>
-
-    <?php
-}
-*/
-/**
- * Saves the custom meta input
- */
-/*
- function pencil_custom_meta_save( $post_id ) {
-
-    // Checks save status
-    $is_autosave = wp_is_post_autosave( $post_id );
-    $is_revision = wp_is_post_revision( $post_id );
-    $is_valid_nonce = ( isset( $_POST[ 'pencil_slider_meta_nonce' ] ) && wp_verify_nonce( $_POST[ 'pencil_slider_meta_nonce' ], basename( __FILE__ ) ) ) ? 'true' : 'false';
-
-    // Exits script depending on save status
-    if ( $is_autosave || $is_revision || !$is_valid_nonce ) {
-        return;
-    }
-
-    // Checks for input and saves
-if( isset( $_POST[ 'pencil-meta-slider-checkbox' ] ) ) {
-    update_post_meta( $post_id, 'pencil-meta-slider-checkbox', '1' );
-} else {
-    update_post_meta( $post_id, 'pencil-meta-slider-checkbox', '' );
-}
-
-}
-add_action( 'save_post', 'pencil_custom_meta_save' );
-*/
-
 if ( ! function_exists( 'pencil_gallery_shortcode' ) ) :
 
+/**
+ * Function for modify gallery shortcode
+ * 
+ * @param type $output
+ * @param array $atts
+ * @param type $instance
+ * @return type
+ */
 function pencil_gallery_shortcode( $output = '', $atts, $instance ) {
-	$return = $output; // fallback
+	$return = $output; // Fallback.
 
 	$atts = array( 'size' => 'medium' );
 
@@ -601,7 +485,8 @@ add_filter( 'post_gallery', 'pencil_gallery_shortcode', 10, 3 );
 endif;
 
 if ( ! function_exists( 'pencil_post_format_icon' ) ) :
-/*
+
+/**
  * Function for getting post format icon
  */
 function pencil_post_format_icon( $post_id ) {
@@ -618,11 +503,11 @@ function pencil_post_format_icon( $post_id ) {
 
 		} else {
 
-				if ( $format === 'audio' ) {
+				if ( 'audio' === $format ) {
 					return '<div class="pencil-post-format-icon"><span class="fa fa-music"></span></div>';
-				} elseif ( $format === 'video' ) {
+				} elseif ( 'video' === $format ) {
 					return '<div class="pencil-post-format-icon"><span class="fa fa-video-camera"></span></div>';
-				} elseif ( $format === 'gallery' ) {
+				} elseif ( 'gallery' === $format ) {
 					return '<div class="pencil-post-format-icon"><span class="fa fa-camera"></span></div>';
 				}
 		}

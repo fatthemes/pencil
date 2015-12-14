@@ -161,7 +161,7 @@ before_script:
 # All commands must exit with code 0 on success. Anything else is considered failure.
 script:
   # Check with vip-scanner (only informational)
-  - wp vip-scanner scan-theme --theme=whenever --scan_type="Undefined Function Check"
+  - wp vip-scanner scan-theme --theme=$theme_slug --scan_type="Undefined Function Check"
   # Search for PHP syntax errors.
   - find . \( -name '*.php' -not -path "*node_modules*" \) -exec php -lf {} \;
   # Checking withe jshint
