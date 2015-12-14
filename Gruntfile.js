@@ -79,13 +79,14 @@ module.exports = function (grunt) {
             //options: grunt.file.readJSON('.jshintrc'),
             target: [
                 '*.js',
-                '*/*.js',
+                '**/*.js',
                 //'js/*.js',
                 //'js/pencil.js',
                 //'js/customizer.js',
                 //'js/navigation.js',
                 //'js/skip-link-focus-fix.js'
                 '!*.min.js',
+                '!**/*.min.js',
             ]
             }
     });
