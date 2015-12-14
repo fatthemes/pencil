@@ -170,7 +170,7 @@ endif;
  */
 function pencil_scripts() {
 
-                //Add custom fonts, used in the main stylesheet.
+                // Add custom fonts, used in the main stylesheet.
                 wp_enqueue_style( 'pencil-fonts', pencil_fonts_url(), array(), null );
 
 		wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/font-awesome/css/font-awesome.min.css', array(), '4.4.0' );

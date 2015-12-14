@@ -102,7 +102,7 @@ function pencil_customize_register( $wp_customize ) {
 			),
 		) );
 
-		//Section Single Page.
+		// Section Single Page.
 		$wp_customize->add_section( 'single_page', array(
 			'title'          => esc_html__( 'Single Post', 'pencil' ),
 				'priority'       => 1010,
@@ -131,7 +131,7 @@ function pencil_customize_register( $wp_customize ) {
 		'type'    => 'checkbox',
 		) );
 
-		//Social icons.
+		// Social icons.
 		$wp_customize->add_section( 'social_icons', array(
 			'title'          => esc_html__( 'Social Icons', 'pencil' ),
 				'priority'       => 1020,
@@ -193,7 +193,7 @@ function pencil_customize_register( $wp_customize ) {
 		'type'    => 'text',
 		) );
 
-		//Footer text.
+		// Footer text.
 		$wp_customize->add_section( 'footer', array(
 			'title'          => esc_html__( 'Footer', 'pencil' ),
 				'priority'       => 1030,
@@ -211,7 +211,7 @@ function pencil_customize_register( $wp_customize ) {
 		'type'    => 'textarea',
 		) );
 
-		//Section - "other settings".
+		// Section - "other settings".
 		$wp_customize->add_section( 'other_settings', array(
 			'title'          => esc_html__( 'Advanced', 'pencil' ),
 				'priority'       => 1040,
@@ -262,8 +262,8 @@ function pencil_customize_preview_js() {
 add_action( 'customize_preview_init', 'pencil_customize_preview_js' );
 
 /**
- * sanitize checkbox
- * 
+ * Sanitize checkbox
+ *
  * @param type $value
  * @return boolean
  */
@@ -275,7 +275,7 @@ function pencil_sanitize_checkbox( $value ) {
 
 /**
  * Sanitize select home_page_layout.
- * 
+ *
  * @param type $value
  * @return string
  */
@@ -285,9 +285,9 @@ function pencil_sanitize_select_home_page_layout( $value ) {
 	}
 }
 
- /**
+/**
  * Sanitize select.
- * 
+ *
  * @param type $value
  * @return string
  */
