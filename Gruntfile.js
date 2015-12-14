@@ -87,6 +87,9 @@ module.exports = function (grunt) {
                 //'js/skip-link-focus-fix.js'
                 '!*.min.js',
                 '!**/*.min.js',
+                '!node_modules/**',
+                '!tests/**',
+                '!Gruntfile.js'
             ]
             }
     });
