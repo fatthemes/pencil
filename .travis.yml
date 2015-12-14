@@ -92,7 +92,7 @@ before_script:
   - mkdir -p $WP_DEVELOP_DIR
   #install nginx
   - sudo apt-get update
-  #- sudo apt-get install nodejs-legacy
+  - sudo apt-get install mysql
   #- sudo apt-get install nginx
   #- sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
   #- ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
