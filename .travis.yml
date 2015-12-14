@@ -92,19 +92,20 @@ before_script:
   - mkdir -p $WP_DEVELOP_DIR
   #install nginx
   - sudo apt-get update
-  - sudo apt-get install nginx
-  - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
-  - ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
-  - touch site-nginx.conf
-  - echo "server {
-    server_name wp_dev;
-    listen 8080;
-    root $WP_DEVELOP_DIR;
-    }" > site-nginx.conf
-  - sudo cp -f site-nginx.conf /etc/nginx/sites-enabled/site-nginx.conf
-  - rm -f site-nginx.conf
+  #- sudo apt-get install nodejs-legacy
+  #- sudo apt-get install nginx
+  #- sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
+  #- ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
+  #- touch site-nginx.conf
+  #- echo "server {
+  #  server_name wp_dev;
+  #  listen 8080;
+  #  root $WP_DEVELOP_DIR;
+  #  }" > site-nginx.conf
+  #- sudo cp -f site-nginx.conf /etc/nginx/sites-enabled/site-nginx.conf
+  #- rm -f site-nginx.conf
   #- sudo sed -e "s?%$WP_DEVELOP_DIR%?$(pwd)?g" --in-place /etc/nginx/sites-enabled/site-nginx.conf
-  - sudo service nginx start
+  #- sudo service nginx start
   # Use the Git mirror of WordPress.
   - git clone --depth=1 --branch="$WP_VERSION" git://develop.git.wordpress.org/ $WP_DEVELOP_DIR
   # Set up theme information.
@@ -122,18 +123,18 @@ before_script:
   # Create WordPress database.
   - mysql -e 'CREATE DATABASE wordpress_test;' -uroot
   #Install WP-CLI
-  - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+  #- curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
   #- php wp-cli.phar --info
-  - chmod +x wp-cli.phar
-  - sudo mv wp-cli.phar /usr/local/bin/wp
+  #- chmod +x wp-cli.phar
+  #- sudo mv wp-cli.phar /usr/local/bin/wp
   #- wp --info
   #create config file
-  - wp core config --dbname=wordpress_test --dbuser=root
+  #- wp core config --dbname=wordpress_test --dbuser=root
   #install wp
-  - wp core install --url=wp.dev --title="Local WordPress Dev" --admin_name=admin --admin_email="admin@local.dev" --admin_password="password"
+  #- wp core install --url=wp.dev --title="Local WordPress Dev" --admin_name=admin --admin_email="admin@local.dev" --admin_password="password"
   #Install and activate vip-scanner plugin
-  - git clone --recursive  https://github.com/Automattic/vip-scanner.git $WP_DEVELOP_DIR/src/wp-content/plugins/vip-scanner
-  - wp plugin activate vip-scanner
+  #- git clone --recursive  https://github.com/Automattic/vip-scanner.git $WP_DEVELOP_DIR/src/wp-content/plugins/vip-scanner
+  #- wp plugin activate vip-scanner
   # Install CodeSniffer for WordPress Coding Standards checks.
   - git clone https://github.com/squizlabs/PHP_CodeSniffer.git php-codesniffer
   # Install WordPress Coding Standards.
@@ -147,9 +148,10 @@ before_script:
   # Hop into themes directory.
   - cd $theme_dir
   # run npm install
-  - npm install
+  #- npm install
+  - npm install -g jshint
   # Run some grunt build tasks
-  - grunt
+  #- grunt
   # After CodeSniffer install you should refresh your path.
   - phpenv rehash
   # check which php version is used
@@ -159,11 +161,11 @@ before_script:
 # All commands must exit with code 0 on success. Anything else is considered failure.
 script:
   # Check with vip-scanner (only informational)
-  - wp vip-scanner scan-theme --theme=pencil --scan_type="Undefined Function Check"
+  #- wp vip-scanner scan-theme --theme=whenever --scan_type="Undefined Function Check"
   # Search for PHP syntax errors.
-  - find . \( -name '*.php' \) -exec php -lf {} \;
+  - find . \( -name '*.php' -not -path "*node_modules*" \) -exec php -lf {} \;
   # Checking withe jshint
-  - grunt jshint
+  - jshint
   # WordPress Coding Standards
   # @link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards
   # @link http://pear.php.net/package/PHP_CodeSniffer/
@@ -173,7 +175,7 @@ script:
   # -n flag: Do not print warnings. (shortcut for --warning-severity=0)
   # --standard: Use WordPress as the standard.
   # --extensions: Only sniff PHP files.
-  #- $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php
+  #- $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php --ignore=*/node_modules/*
 
 # Receive notifications for build results.
 # @link http://docs.travis-ci.com/user/notifications/#Email-notifications
@@ -205,4 +207,3 @@ after_success:
   #- git merge alpha
   #- git remote set-url origin git@bitbucket.org:$REPO_NAME.git
   #- git push origin beta
-  
