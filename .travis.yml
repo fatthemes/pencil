@@ -149,7 +149,7 @@ before_script:
   - cd $theme_dir
   # run npm install
   #- npm install
-  - npm install grunt jshint
+  - npm install
   # Run some grunt build tasks
   #- grunt
   # After CodeSniffer install you should refresh your path.
