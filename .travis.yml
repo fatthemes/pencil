@@ -92,7 +92,7 @@ before_script:
   - mkdir -p $WP_DEVELOP_DIR
   #install nginx
   - sudo apt-get update
-  - sudo apt-get install mysql
+  #- sudo apt-get install mysql
   #- sudo apt-get install nginx
   #- sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
   #- ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
@@ -123,18 +123,18 @@ before_script:
   # Create WordPress database.
   - mysql -e 'CREATE DATABASE wordpress_test;' -uroot
   #Install WP-CLI
-  #- curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-  #- php wp-cli.phar --info
-  #- chmod +x wp-cli.phar
-  #- sudo mv wp-cli.phar /usr/local/bin/wp
-  #- wp --info
+  - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+  - php wp-cli.phar --info
+  - chmod +x wp-cli.phar
+  - sudo mv wp-cli.phar /usr/local/bin/wp
+  - wp --info
   #create config file
-  #- wp core config --dbname=wordpress_test --dbuser=root
+  - wp core config --dbname=wordpress_test --dbuser=root
   #install wp
-  #- wp core install --url=wp.dev --title="Local WordPress Dev" --admin_name=admin --admin_email="admin@local.dev" --admin_password="password"
+  - wp core install --url=wp.dev --title="Local WordPress Dev" --admin_name=admin --admin_email="admin@local.dev" --admin_password="password"
   #Install and activate vip-scanner plugin
-  #- git clone --recursive  https://github.com/Automattic/vip-scanner.git $WP_DEVELOP_DIR/src/wp-content/plugins/vip-scanner
-  #- wp plugin activate vip-scanner
+  - git clone --recursive  https://github.com/Automattic/vip-scanner.git $WP_DEVELOP_DIR/src/wp-content/plugins/vip-scanner
+  - wp plugin activate vip-scanner
   # Install CodeSniffer for WordPress Coding Standards checks.
   - git clone https://github.com/squizlabs/PHP_CodeSniffer.git php-codesniffer
   # Install WordPress Coding Standards.
@@ -151,7 +151,7 @@ before_script:
   #- npm install
   - npm install
   # Run some grunt build tasks
-  #- grunt
+  - grunt
   # After CodeSniffer install you should refresh your path.
   - phpenv rehash
   # check which php version is used
@@ -161,7 +161,7 @@ before_script:
 # All commands must exit with code 0 on success. Anything else is considered failure.
 script:
   # Check with vip-scanner (only informational)
-  #- wp vip-scanner scan-theme --theme=whenever --scan_type="Undefined Function Check"
+  - wp vip-scanner scan-theme --theme=whenever --scan_type="Undefined Function Check"
   # Search for PHP syntax errors.
   - find . \( -name '*.php' -not -path "*node_modules*" \) -exec php -lf {} \;
   # Checking withe jshint
@@ -175,7 +175,7 @@ script:
   # -n flag: Do not print warnings. (shortcut for --warning-severity=0)
   # --standard: Use WordPress as the standard.
   # --extensions: Only sniff PHP files.
-  #- $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php --ignore=*/node_modules/*
+  - $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php --ignore=*/node_modules/*
 
 # Receive notifications for build results.
 # @link http://docs.travis-ci.com/user/notifications/#Email-notifications
