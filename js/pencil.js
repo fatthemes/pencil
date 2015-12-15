@@ -259,7 +259,7 @@ $('.gallery').each(function() {
 
 // Single Image
 $('a[href*=".jpg"], a[href*=".jpeg"], a[href*=".png"], a[href*=".gif"]').each(function(){
-	if ($(this).parents('.gallery').length == 0) { 
+	if ($(this).parents('.gallery').length === 0) { 
         	$(this).magnificPopup({
 		type:'image',
 		image: {

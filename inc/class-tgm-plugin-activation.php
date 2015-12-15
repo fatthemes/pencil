@@ -637,7 +637,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 
 			if ( 'themes.php' === $this->parent_slug ) {
 				$this->page_hook = call_user_func( 'add_theme_page', $args['page_title'], $args['menu_title'], $args['capability'], $args['menu_slug'], $args['function'] );
-			} 
+			}
 		}
 
 		/**

@@ -4,17 +4,17 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package whatever
+ * @package pencil
  */
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('col-md-12'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'col-md-12' ); ?>>
     
         <header class="entry-header row">
                 
                 <div class="entry-meta col-md-2 col-sm-3 col-xs-4">
-			<?php whatever_posted_on(); ?>
+			<?php pencil_posted_on(); ?>
 		</div><!-- .entry-meta -->
             
 		<?php the_title( '<h1 class="entry-title col-md-10 col-sm-9 col-xs-8">', '</h1>' ); ?>
@@ -36,14 +36,14 @@
 		<?php the_content(); ?>
 		<?php /*
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'whatever' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'pencil' ),
 				'after'  => '</div>',
 			) );
 		*/?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer col-md-12">
-		<?php whatever_entry_footer(); ?>
+		<?php pencil_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
         
         </div><!-- .row -->

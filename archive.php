@@ -9,10 +9,9 @@
 
 get_header(); ?>
      <div class="row">
-	<div id="primary" class="content-area<?php echo ( empty (get_theme_mod( 'home_page_layout', 'masonry' ) ) ) ? ' col-md-12' : ' col-md-8'; ?>">
+	<div id="primary" class="content-area<?php echo ( empty( get_theme_mod( 'home_page_layout', 'masonry' ) ) ) ? ' col-md-12' : ' col-md-8'; ?>">
             <div class="pencil-page-intro">
-                        <?php the_archive_title();
-                        //the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?>
+                        <?php the_archive_title(); ?>
             </div>
             
 		<main id="main" class="site-main row masonry-container" role="main">
@@ -21,8 +20,8 @@ get_header(); ?>
 
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
-                            <?php // if ( ! is_sticky() ) : ?>
 				<?php
+
 					/*
 					 * Include the Post-Format-specific template for the content.
 					 * If you want to override this in a child theme, then include a file
@@ -30,7 +29,6 @@ get_header(); ?>
 					 */
 					get_template_part( 'template-parts/content-home', get_theme_mod( 'home_page_layout', 'masonry' ) );
 				?>
-                            <?php // endif; ?>
 			<?php endwhile; ?>
 
 			<?php the_posts_navigation(); ?>
@@ -44,6 +42,6 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php if ( ! empty (get_theme_mod( 'home_page_layout', 'masonry' ) ) ) { get_sidebar();} ?>
+<?php if ( ! empty( get_theme_mod( 'home_page_layout', 'masonry' ) ) ) { get_sidebar();} ?>
     </div><!-- .row -->
 <?php get_footer(); ?>

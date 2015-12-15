@@ -13,7 +13,8 @@ module.exports = function (grunt) {
                     '*.php',
                     '**/*.php',
                     '!node_modules/**',
-                    '!tests/**'
+                    '!tests/**',
+                    '!vendor/**'
                 ]}
             }
         },
@@ -67,24 +68,44 @@ module.exports = function (grunt) {
                 //files: {'rtl.css' : 'rtl.css'}
             }
         },
-        
-        phpunit: {
-            classes: {
-                    dir: 'tests/php/'
-            },
-            options: {
-                    bin: 'vendor/bin/phpunit',
-                    bootstrap: 'tests/php/phpunit.php',
-                    colors: true
+        rtlcss: {
+            'default':{
+                target: 'style.css',
+                expand : true,
+                //dest   : '',
+                src    : 'rtl.css'
             }
-        }
+          },
+        jshint: {
+            //options: grunt.file.readJSON('.jshintrc'),
+            target: [
+                '*.js',
+                '**/*.js',
+                //'js/*.js',
+                //'js/pencil.js',
+                //'js/customizer.js',
+                //'js/navigation.js',
+                //'js/skip-link-focus-fix.js'
+                '!*.min.js',
+                '!**/*.min.js',
+                '!node_modules/**',
+                '!vendor/**',
+                '!tests/**',
+                '!Gruntfile.js',
+                '!**/jquery.magnific-popup.js',
+                '!**/smoothscroll.js',
+                '!**/theia-sticky-sidebar.js',
+                '!**/slick.js'
+            ]
+            }
     });
     
     grunt.loadNpmTasks( 'grunt-wp-i18n' );
     grunt.loadNpmTasks( 'grunt-postcss' );
     grunt.loadNpmTasks( 'grunt-wp-css' );
-    grunt.loadNpmTasks('grunt-phpunit');
+    grunt.loadNpmTasks( 'grunt-contrib-jshint' );
+    grunt.loadNpmTasks( 'grunt-rtlcss' );
     
-    grunt.registerTask('default', ['addtextdomain', 'makepot', 'postcss', 'wpcss', 'phpunit']);
+    grunt.registerTask('default', ['addtextdomain', 'makepot', 'postcss', 'wpcss', 'rtlcss']);
     
 };

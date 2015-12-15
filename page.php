@@ -19,7 +19,7 @@ get_header(); ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
-                            <article id="post-<?php the_ID(); ?>" <?php post_class('col-md-12'); ?>>
+                            <article id="post-<?php the_ID(); ?>" <?php post_class( 'col-md-12' ); ?>>
 
                                     <header class="entry-header">
 
@@ -31,11 +31,11 @@ get_header(); ?>
                                     <div class="entry-content">
                                             <?php the_content(); ?>
                                             <?php
-                                                    wp_link_pages( array(
-                                                            'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'pencil' ),
-                                                            'after'  => '</div>',
-                                                    ) );
-                                            ?>
+													wp_link_pages( array(
+															'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'pencil' ),
+															'after'  => '</div>',
+													) );
+											?>
                                     </div><!-- .entry-content -->
 
                                     <footer class="entry-footer">

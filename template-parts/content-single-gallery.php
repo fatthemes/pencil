@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('col-md-12'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'col-md-12' ); ?>>
     
         <!--<div class="category-list">
                 <?php echo get_the_category_list( esc_html__( ' &#x2f; ', 'pencil' ) );?>
