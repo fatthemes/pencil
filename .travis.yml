@@ -17,9 +17,9 @@ php:
   # aliased to a recent 5.5.x version
   - "5.6"
   # aliased to a recent 5.5.x version
-  #- "5.5"
+  - "5.5"
   # aliased to a recent 5.4.x version
-  #- "5.4"
+  - "5.4"
   # aliased to a recent 5.3.x version
   - "5.3"
   # Current $required_php_version for WordPress: 5.2.4 - not supported out of the box on Shippable
@@ -32,10 +32,10 @@ env:
   # Trunk
   # @link https://github.com/WordPress/WordPress
   - WP_VERSION=master WP_MULTISITE=0
-  #- WP_VERSION=master WP_MULTISITE=1
+  - WP_VERSION=master WP_MULTISITE=1
   # WordPress 4.4
   # @link https://github.com/WordPress/WordPress/tree/4.4-branch
-  #- WP_VERSION=4.4 WP_MULTISITE=0
+  - WP_VERSION=4.4 WP_MULTISITE=0
   #- WP_VERSION=4.4 WP_MULTISITE=1
   # WordPress 4.1
   # @link https://github.com/WordPress/WordPress/tree/4.1-branch
@@ -69,9 +69,9 @@ env:
 # Failures in this section will result in build status 'errored'.
 # before_install:
 
-addons:
-  hosts:
-    - wp.dev
+#addons:
+  #hosts:
+    #- wp.dev
 
   #firefox: "27.0"
 
@@ -91,21 +91,21 @@ before_script:
   - export WP_DEVELOP_DIR=/tmp/wordpress/
   - mkdir -p $WP_DEVELOP_DIR
   #install nginx
-  - sudo apt-get update
-  - sudo apt-get install mysql
-  - sudo apt-get install nginx
-  - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
-  - ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
-  - touch site-nginx.conf
-  - echo "server {
-    server_name wp_dev;
-    listen 8080;
-    root $WP_DEVELOP_DIR;
-    }" > site-nginx.conf
-  - sudo cp -f site-nginx.conf /etc/nginx/sites-enabled/site-nginx.conf
-  - rm -f site-nginx.conf
-  - sudo sed -e "s?%$WP_DEVELOP_DIR%?$(pwd)?g" --in-place /etc/nginx/sites-enabled/site-nginx.conf
-  - sudo service nginx start
+  #- sudo apt-get update
+  #- sudo apt-get install mysql
+  #- sudo apt-get install nginx
+  #- sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
+  #- ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
+  #- touch site-nginx.conf
+  #- echo "server {
+  #  server_name wp_dev;
+  #  listen 8080;
+  #  root $WP_DEVELOP_DIR;
+  #  }" > site-nginx.conf
+  #- sudo cp -f site-nginx.conf /etc/nginx/sites-enabled/site-nginx.conf
+  #- rm -f site-nginx.conf
+  #- sudo sed -e "s?%$WP_DEVELOP_DIR%?$(pwd)?g" --in-place /etc/nginx/sites-enabled/site-nginx.conf
+  #- sudo service nginx start
   # Use the Git mirror of WordPress.
   - git clone --depth=1 --branch="$WP_VERSION" git://develop.git.wordpress.org/ $WP_DEVELOP_DIR
   # Set up theme information.
@@ -123,18 +123,18 @@ before_script:
   # Create WordPress database.
   - mysql -e 'CREATE DATABASE wordpress_test;' -uroot
   #Install WP-CLI
-  - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-  - php wp-cli.phar --info
-  - chmod +x wp-cli.phar
-  - sudo mv wp-cli.phar /usr/local/bin/wp
-  - wp --info
+  #- curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+  #- php wp-cli.phar --info
+  #- chmod +x wp-cli.phar
+  #- sudo mv wp-cli.phar /usr/local/bin/wp
+  #- wp --info
   #create config file
-  - wp core config --dbname=wordpress_test --dbuser=root
+  #- wp core config --dbname=wordpress_test --dbuser=root
   #install wp
-  - wp core install --url=wp.dev --title="Local WordPress Dev" --admin_name=admin --admin_email="admin@local.dev" --admin_password="password"
+  #- wp core install --url=wp.dev --title="Local WordPress Dev" --admin_name=admin --admin_email="admin@local.dev" --admin_password="password"
   #Install and activate vip-scanner plugin
-  - git clone --recursive  https://github.com/Automattic/vip-scanner.git $WP_DEVELOP_DIR/src/wp-content/plugins/vip-scanner
-  - wp plugin activate vip-scanner
+  #- git clone --recursive  https://github.com/Automattic/vip-scanner.git $WP_DEVELOP_DIR/src/wp-content/plugins/vip-scanner
+  #- wp plugin activate vip-scanner
   # Install CodeSniffer for WordPress Coding Standards checks.
   - git clone https://github.com/squizlabs/PHP_CodeSniffer.git php-codesniffer
   # Install WordPress Coding Standards.
@@ -149,9 +149,9 @@ before_script:
   - cd $theme_dir
   # run npm install
   #- npm install
-  - npm install
+  - npm install grunt grunt-contrib-jshint
   # Run some grunt build tasks
-  - grunt
+  #- grunt
   # After CodeSniffer install you should refresh your path.
   - phpenv rehash
   # check which php version is used
@@ -161,7 +161,7 @@ before_script:
 # All commands must exit with code 0 on success. Anything else is considered failure.
 script:
   # Check with vip-scanner (only informational)
-  - wp vip-scanner scan-theme --theme=$theme_slug --scan_type="Undefined Function Check"
+  #- wp vip-scanner scan-theme --theme=$theme_slug --scan_type="Undefined Function Check"
   # Search for PHP syntax errors.
   - find . \( -name '*.php' -not -path "*node_modules*" \) -exec php -lf {} \;
   # Checking withe jshint
