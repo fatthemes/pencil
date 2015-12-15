@@ -93,7 +93,7 @@ function pencil_posted_on() {
 
 		} else {
 
-			echo '<span class="byline"> ' . $byline . '</span><span class="posted-on"> / ' . $posted_on . '</span>';
+			echo '<span class="byline"> ' . $byline . '</span><span class="posted-on"> / ' . $posted_on . '</span>'; // WPCS: XSS OK.
 
 		}
 }
@@ -106,12 +106,7 @@ if ( ! function_exists( 'pencil_entry_footer' ) ) :
 function pencil_entry_footer() {
 	// Hide category and tag text for pages.
 	if ( 'post' == get_post_type() ) {
-		/*
-  translators: used between list items, there is a space after the comma */
-		// $categories_list = get_the_category_list( esc_html__( ', ', 'pencil' ) );
-		// if ( $categories_list && pencil_categorized_blog() ) {
-		// printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'pencil' ) . '</span>', $categories_list ); // WPCS: XSS OK.
-		// }
+
 		// Translators: used between list items, there is a space after the comma.
 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'pencil' ) );
 		if ( $tags_list ) {
@@ -269,20 +264,20 @@ add_action( 'edit_category', 'pencil_category_transient_flusher' );
 add_action( 'save_post',     'pencil_category_transient_flusher' );
 
 if ( ! function_exists( 'pencil_comment' ) ) :
-    
+
 /**
- * 
+ *
  * Template for comments and pingbacks.
  *
  * Used as a callback by wp_list_comments() for displaying the comments.
  *
  * @since pencil 1.0
- * @param type $comment
- * @param type $args
- * @param type $depth
+ * @param type $comment comment.
+ * @param type $args comment args.
+ * @param type $depth comments depth.
  */
 function pencil_comment( $comment, $args, $depth ) {
-		$GLOBALS['comment'] = $comment;
+		// $GLOBALS['comment'] = $comment;
 		?>
         <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
             <article id="comment-<?php comment_ID(); ?>" class="comment">
@@ -291,7 +286,7 @@ function pencil_comment( $comment, $args, $depth ) {
                         <?php $avatar = get_avatar( $comment, $args['avatar_size'] ); ?>
                         <?php if ( ! empty( $avatar ) ) : ?>
                         <div class="comments-avatar">
-                        <?php echo $avatar; ?>
+                        <?php echo wp_kses_post( $avatar ); ?>
                         </div>    
                         <?php endif; ?>
                         <div class="comment-meta commentmetadata">
@@ -300,7 +295,7 @@ function pencil_comment( $comment, $args, $depth ) {
                             <a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><time pubdate datetime="<?php comment_time( 'c' ); ?>">
                             <?php
 							/* translators: 1: date, 2: time */
-							printf( esc_html__( '%s ago', 'pencil' ), human_time_diff( get_comment_time( 'U' ), current_time( 'timestamp' ) ) );                                    ?>
+							printf( esc_html__( '%s ago', 'pencil' ), esc_html__( human_time_diff( get_comment_time( 'U' ), current_time( 'timestamp' ) ) ) );                                   ?>
                             </time></a>
                             <span class="reply"><?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text' => 'REPLY', 'before' => ' &#8901; ' ) ) ); ?></span><!-- .reply -->
                             <?php edit_comment_link( __( 'Edit', 'pencil' ), ' &#8901; ' );
@@ -308,7 +303,7 @@ function pencil_comment( $comment, $args, $depth ) {
                         </div><!-- .comment-meta .commentmetadata -->
                     </div><!-- .comment-author .vcard -->
                     <?php if ( $comment->comment_approved == '0' ) : ?>
-                        <em><?php _e( 'Your comment is awaiting moderation.', 'pencil' ); ?></em>
+                        <em><?php esc_html_e( 'Your comment is awaiting moderation.', 'pencil' ); ?></em>
                         <br />
                     <?php endif; ?>
 
@@ -325,8 +320,8 @@ if ( ! function_exists( 'pencil_comments_fields' ) ) :
 
 /**
  * Comments function.
- * 
- * @param array $fields
+ *
+ * @param array $fields comment form fields.
  * @return string
  */
 function pencil_comments_fields( $fields ) {
@@ -361,14 +356,14 @@ endif;
  *
  * @author      Withers David
  * @link        http://uplifted.net/programming/wordpress-get-the-excerpt-automatically-using-the-post-id-outside-of-the-loop/
- * @param       int $post_id
+ * @param       int $post_id WordPres post ID.
  * @return      string
  */
 function pencil_get_excerpt_by_id( $post_id ) {
-	$the_post = get_post( $post_id ); // Gets post ID
-	$the_excerpt = $the_post->post_content; // Gets post_content to be used as a basis for the excerpt
-	$excerpt_length = 35; // Sets excerpt length by word count
-	$the_excerpt = strip_tags( strip_shortcodes( $the_excerpt ) ); // Strips tags and images
+	$the_post = get_post( $post_id ); // Gets post ID.
+	$the_excerpt = $the_post->post_content; // Gets post_content to be used as a basis for the excerpt.
+	$excerpt_length = 35; // Sets excerpt length by word count.
+	$the_excerpt = strip_tags( strip_shortcodes( $the_excerpt ) ); // Strips tags and images.
 	$words = explode( ' ', $the_excerpt, $excerpt_length + 1 );
 
 	if ( count( $words ) > $excerpt_length ) :
@@ -388,8 +383,8 @@ if ( ! function_exists( 'pencil_custom_popular_posts_html_list' ) ) :
  * With this function, I can alter WPP's HTML output from my theme's functions.php.
  * This way, the modification is permanent even if the plugin gets updated.
  *
- * @param   array   $mostpopular
- * @param   array   $instance
+ * @param   array $mostpopular list of popular posts.
+ * @param   array $instance popular posts instance.
  * @return  string
  */
 function pencil_custom_popular_posts_html_list( $mostpopular, $instance ) {
@@ -397,8 +392,7 @@ function pencil_custom_popular_posts_html_list( $mostpopular, $instance ) {
 
 	// Loop the array of popular posts objects.
 	foreach ( $mostpopular as $popular ) {
-		// var_dump($popular->id);
-            
+
 		$post_cat = get_the_category_list( esc_html__( ' &#x2f; ', 'pencil' ), '', $popular->id );
 
 		$thumb = get_the_post_thumbnail( $popular->id, 'medium' );
@@ -438,7 +432,7 @@ function pencil_gallery_content() {
 		$newcontent = preg_replace( $pattern, $replacement, $content, 1 );
 		$newcontent = apply_filters( 'the_content', $newcontent );
 		$newcontent = str_replace( ']]>', ']]&gt;', $newcontent );
-		echo $newcontent;
+		echo wp_kses_post( $newcontent );
 }
 endif;
 
@@ -459,7 +453,7 @@ function pencil_media_content() {
 
 		$newcontent = preg_replace( '#<(?P<tag>' . $tags . ')[^<]*?(?:>[\s\S]*?<\/(?P=tag)>|\s*\/>)#', $replacement, $content, 1 );
 
-		echo $newcontent;
+		echo wp_kses_post( $newcontent );
 }
 endif;
 
@@ -467,10 +461,10 @@ if ( ! function_exists( 'pencil_gallery_shortcode' ) ) :
 
 /**
  * Function for modify gallery shortcode
- * 
- * @param type $output
- * @param array $atts
- * @param type $instance
+ *
+ * @param type  $output gallery shortcode output.
+ * @param array $atts gallery shortcode attributes.
+ * @param type  $instance gallery shortcode ID(???).
  * @return type
  */
 function pencil_gallery_shortcode( $output = '', $atts, $instance ) {
@@ -488,6 +482,9 @@ if ( ! function_exists( 'pencil_post_format_icon' ) ) :
 
 /**
  * Function for getting post format icon
+ *
+ * @param type $post_id WordPress post ID.
+ * @return string
  */
 function pencil_post_format_icon( $post_id ) {
 

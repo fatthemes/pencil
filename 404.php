@@ -21,7 +21,7 @@ get_header(); ?>
                                 <h1>404</h1>
                             </div>
 				<div class="page-content">
-					<p><?php _e( '<span class="lead">It looks like nothing was found at this location.</span><br/>Maybe try a search?', 'pencil' ); ?></p>
+                                    <p><?php printf( '<span class="lead">%s</span><br/>%s', esc_html__( 'It looks like nothing was found at this location.', 'pencil' ), esc_html__( 'Maybe try a search?', 'pencil' ) ); ?></p>
 
 					<?php get_search_form(); ?>
 
