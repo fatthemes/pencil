@@ -8,7 +8,9 @@
 get_header(); ?>
 
     <div class="row">
-	<div id="primary" class="content-area<?php echo ( empty( get_theme_mod( 'home_page_layout', 'masonry' ) ) ) ? ' col-md-12' : ' col-md-8'; ?>">
+	<div id="primary" class="content-area<?php
+					$pencil_home_page_layout = get_theme_mod( 'home_page_layout', 'masonry' );
+					echo ( empty( $pencil_home_page_layout ) ) ? ' col-md-12' : ' col-md-8'; ?>">
             <div class="pencil-page-intro">
                         <?php echo esc_html__( 'Author posts', 'pencil' );?>
             </div>
@@ -40,8 +42,8 @@ get_header(); ?>
 
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
-                            <?php // if ( ! is_sticky() ) : ?>
 				<?php
+
 					/*
 					 * Include the Post-Format-specific template for the content.
 					 * If you want to override this in a child theme, then include a file
@@ -49,7 +51,6 @@ get_header(); ?>
 					 */
 					get_template_part( 'template-parts/content-home', get_theme_mod( 'home_page_layout', 'masonry' ) );
 				?>
-                            <?php // endif; ?>
 			<?php endwhile; ?>
 
 			<?php the_posts_navigation(); ?>

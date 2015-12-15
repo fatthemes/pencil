@@ -17,9 +17,9 @@
                         <a href="<?php esc_url( the_permalink() ); ?>" rel="bookmark">
                         <?php the_post_thumbnail( 'medium' ); ?>   
                         </a>  
-                        <?php echo pencil_post_format_icon( get_the_ID() ); ?>
+                        <?php echo wp_kses_post( pencil_post_format_icon( get_the_ID() ) ); ?>
                         <div class="featured-image-cat">
-                        <?php echo get_the_category_list( esc_html__( ' &#x2f; ', 'pencil' ) ); ?>
+                        <?php echo wp_kses_post( get_the_category_list( esc_html__( ' &#x2f; ', 'pencil' ) ) ); ?>
                         </div>
                     </div>
                     
@@ -36,9 +36,9 @@
                 <?php else : ?>
                 
                     <div class="title-meta-wrapper col-xs-12">
-                    <?php echo pencil_post_format_icon( get_the_ID() ); ?>
+                    <?php echo wp_kses_post( pencil_post_format_icon( get_the_ID() ) ); ?>
                     <div class="featured-image-cat">
-                        <?php echo get_the_category_list( esc_html__( ' &#x2f; ', 'pencil' ) ); ?>
+                        <?php echo wp_kses_post( get_the_category_list( esc_html__( ' &#x2f; ', 'pencil' ) ) ); ?>
                     </div>
                     <?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 

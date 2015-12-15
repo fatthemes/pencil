@@ -29,15 +29,16 @@
 		<div class="site-branding">
 			<?php if ( is_front_page() && is_home() ) : ?>
                     <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                        <?php if ( ! empty( get_theme_mod( 'header_logo' ) ) ) : ?>
-                            <img src="<?php echo get_theme_mod( 'header_logo' ); ?>" alt="<?php bloginfo( 'name' ); ?>" >
+                        <?php $pencil_header_logo = get_theme_mod( 'header_logo' );
+							if ( ! empty( $pencil_header_logo ) ) : ?>
+                            <img src="<?php echo esc_url( get_theme_mod( 'header_logo' ) ); ?>" alt="<?php bloginfo( 'name' ); ?>" >
                         <?php else : bloginfo( 'name' );
 endif; ?>
                     </a></h1>
 			<?php else : ?>
                     <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
                         <?php if ( ! empty( get_theme_mod( 'header_logo' ) ) ) : ?>
-                            <img src="<?php echo get_theme_mod( 'header_logo' ); ?>" alt="<?php bloginfo( 'name' ); ?>" >
+                            <img src="<?php echo esc_url( get_theme_mod( 'header_logo' ) ); ?>" alt="<?php bloginfo( 'name' ); ?>" >
                         <?php else : bloginfo( 'name' );
 endif; ?>
                     </a></p>
@@ -48,11 +49,11 @@ endif; ?>
                 <nav id="site-navigation" class="main-navigation" role="navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'pencil' ); ?></button>
                         <div class="nav-func">
-                        <?php if ( ! empty( get_theme_mod( 'social_icons_twitter' ) ) ) : ?><a href="<?php echo get_theme_mod( 'social_icons_twitter' ); ?>"><span class="fa fa-twitter fa-lg"></span></a><?php endif; ?>
-                        <?php if ( ! empty( get_theme_mod( 'social_icons_facebook' ) ) ) : ?><a href="<?php echo get_theme_mod( 'social_icons_facebook' ); ?>"><span class="fa fa-facebook fa-lg"></span></a><?php endif; ?>
-                        <?php if ( ! empty( get_theme_mod( 'social_icons_googleplus' ) ) ) : ?><a href="<?php echo get_theme_mod( 'social_icons_googleplus' ); ?>"><span class="fa fa-google-plus fa-lg"></span></a><?php endif; ?>
-                        <?php if ( ! empty( get_theme_mod( 'social_icons_instagram' ) ) ) : ?><a href="<?php echo get_theme_mod( 'social_icons_instagram' ); ?>"><span class="fa fa-instagram fa-lg"></span></a><?php endif; ?>
-                        <?php if ( ! empty( get_theme_mod( 'social_icons_pinterest' ) ) ) : ?><a href="<?php echo get_theme_mod( 'social_icons_pinterest' ); ?>"><span class="fa fa-pinterest fa-lg"></span></a><?php endif; ?>
+                        <?php if ( ! empty( get_theme_mod( 'social_icons_twitter' ) ) ) : ?><a href="<?php echo esc_url( get_theme_mod( 'social_icons_twitter' ) ); ?>"><span class="fa fa-twitter fa-lg"></span></a><?php endif; ?>
+                        <?php if ( ! empty( get_theme_mod( 'social_icons_facebook' ) ) ) : ?><a href="<?php echo esc_url( get_theme_mod( 'social_icons_facebook' ) ); ?>"><span class="fa fa-facebook fa-lg"></span></a><?php endif; ?>
+                        <?php if ( ! empty( get_theme_mod( 'social_icons_googleplus' ) ) ) : ?><a href="<?php echo esc_url( get_theme_mod( 'social_icons_googleplus' ) ); ?>"><span class="fa fa-google-plus fa-lg"></span></a><?php endif; ?>
+                        <?php if ( ! empty( get_theme_mod( 'social_icons_instagram' ) ) ) : ?><a href="<?php echo esc_url( get_theme_mod( 'social_icons_instagram' ) ); ?>"><span class="fa fa-instagram fa-lg"></span></a><?php endif; ?>
+                        <?php if ( ! empty( get_theme_mod( 'social_icons_pinterest' ) ) ) : ?><a href="<?php echo esc_url( get_theme_mod( 'social_icons_pinterest' ) ); ?>"><span class="fa fa-pinterest fa-lg"></span></a><?php endif; ?>
                         <button class="search-toggle fa fa-search"></button>
                         </div>
                         <div id="toggled-navbar-bg" >

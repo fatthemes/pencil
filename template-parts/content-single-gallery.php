@@ -12,7 +12,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'col-md-12' ); ?>>
     
         <!--<div class="category-list">
-                <?php echo get_the_category_list( esc_html__( ' &#x2f; ', 'pencil' ) );?>
+                <?php echo wp_kses_post( get_the_category_list( esc_html__( ' &#x2f; ', 'pencil' ) ) );?>
         </div>-->
     
         <header class="entry-header row">
@@ -27,7 +27,7 @@
         
         <div class="featured-media row">
                 <div class="featured-image col-md-12"> 
-                <?php echo hybrid_media_grabber( array( 'type' => 'gallery' ) ); ?>  
+                <?php echo wp_kses_post( hybrid_media_grabber( array( 'type' => 'gallery' ) ) ); ?>  
                 </div>
         </div>
         

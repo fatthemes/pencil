@@ -18,12 +18,12 @@
 
 		<?php elseif ( is_search() ) : ?>
 
-			<p><?php _e( '<span class="lead">Sorry, but nothing matched your search terms.</span><br/>Please try again with some different keywords.', 'pencil' ); ?></p>
+			<p><?php printf( '<span class="lead">%s</span><br/>%s', esc_html__( 'Sorry, but nothing matched your search terms.', 'pencil' ), esc_html__( 'Please try again with some different keywords.', 'pencil' ) ); ?></p>
 			<?php get_search_form(); ?>
 
 		<?php else : ?>
 
-			<p><?php _e( '<span class="lead">It seems we can&rsquo;t find what you&rsquo;re looking for.</span><br/>Perhaps searching can help.', 'pencil' ); ?></p>
+			<p><?php printf( '<span class="lead">%s</span><br/>%s', esc_html__( 'It seems we can&rsquo;t find what you&rsquo;re looking for.', 'pencil' ), esc_html__( 'Perhaps searching can help.', 'pencil' ) ); ?></p>
 			<?php get_search_form(); ?>
 
 		<?php endif; ?>

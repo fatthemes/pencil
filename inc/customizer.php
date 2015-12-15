@@ -262,9 +262,9 @@ function pencil_customize_preview_js() {
 add_action( 'customize_preview_init', 'pencil_customize_preview_js' );
 
 /**
- * Sanitize checkbox
+ * Sanitize checkbox.
  *
- * @param type $value
+ * @param type $value user input.
  * @return boolean
  */
 function pencil_sanitize_checkbox( $value ) {
@@ -276,7 +276,7 @@ function pencil_sanitize_checkbox( $value ) {
 /**
  * Sanitize select home_page_layout.
  *
- * @param type $value
+ * @param type $value user input.
  * @return string
  */
 function pencil_sanitize_select_home_page_layout( $value ) {
@@ -288,7 +288,7 @@ function pencil_sanitize_select_home_page_layout( $value ) {
 /**
  * Sanitize select.
  *
- * @param type $value
+ * @param type $value user input.
  * @return string
  */
 function pencil_sanitize_select_home_page_slider_img_size( $value ) {
