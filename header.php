@@ -29,7 +29,8 @@
 		<div class="site-branding">
 			<?php if ( is_front_page() && is_home() ) : ?>
                     <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                        <?php if ( ! empty( get_theme_mod( 'header_logo' ) ) ) : ?>
+                        <?php $pencil_header_logo = get_theme_mod( 'header_logo' );
+							if ( ! empty( $pencil_header_logo ) ) : ?>
                             <img src="<?php echo esc_url( get_theme_mod( 'header_logo' ) ); ?>" alt="<?php bloginfo( 'name' ); ?>" >
                         <?php else : bloginfo( 'name' );
 endif; ?>

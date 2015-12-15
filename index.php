@@ -14,7 +14,9 @@
 
 get_header(); ?>
      <div class="row">
-	<div id="primary" class="content-area<?php echo ( empty( get_theme_mod( 'home_page_layout', 'masonry' ) ) ) ? ' col-md-12' : ' col-md-8'; ?>">
+	<div id="primary" class="content-area<?php
+					$pencil_home_page_layout = get_theme_mod( 'home_page_layout', 'masonry' );
+					echo ( empty( $pencil_home_page_layout ) ) ? ' col-md-12' : ' col-md-8'; ?>">
             <div class="pencil-page-intro">
                         <?php echo esc_html__( 'Latest Posts', 'pencil' );?>
             </div>
