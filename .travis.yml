@@ -163,7 +163,7 @@ script:
   # Check with vip-scanner (only informational)
   #- wp vip-scanner scan-theme --theme=$theme_slug --scan_type="Undefined Function Check"
   # Search for PHP syntax errors.
-  - find . \( -name '*.php' -not -path "*node_modules*" \) -exec php -lf {} \;
+  - find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
   # Checking withe jshint
   - grunt jshint
   # WordPress Coding Standards
@@ -183,27 +183,3 @@ notifications:
   email: false
 
 after_success:
-  #- git config --global user.email "patryk.kachel@limestreet.pl"
-  #- git checkout alpha
-  # Run some grunt build tasks
-  #- ls -la
-  #- grunt
-  #- rm -Rf scss
-  #- rm -f .gitignore
-  #- rm -Rf .git
-  #- rm -Rf node_modules
-  #- rm -f Gruntfile.js
-  #- rm -f composer.*
-  #- rm -f package.*
-  #- rm -f codesniffer.ruleset.xml
-  #- rm -f .travis.yml
-  #- rm -f .jshintrc
-  #- ls -la
-  #- git status
-  #- git add --all
-  #- git status
-  #- git commit -m "Build number $BUILD_NUMBER, build url $BUILD_URL"
-  #- git checkout beta
-  #- git merge alpha
-  #- git remote set-url origin git@bitbucket.org:$REPO_NAME.git
-  #- git push origin beta

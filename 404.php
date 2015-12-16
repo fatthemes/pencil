@@ -34,6 +34,6 @@ get_header(); ?>
 		
 	</div><!-- #primary -->
 
-<?php if ( ! empty( get_theme_mod( 'home_page_layout', 'masonry' ) ) ) { get_sidebar(); } ?>
+<?php if ( ! empty( $pencil_home_page_layout ) ) { get_sidebar(); } ?>
     </div><!-- .row -->
 <?php get_footer(); ?>

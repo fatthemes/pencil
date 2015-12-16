@@ -22,12 +22,21 @@ get_header(); ?>
                     <?php if ( class_exists( 'UserSocialProfiles' ) ) : ?>
 
                     <div class="pencil-author-social-icons">
-                        <?php if ( ! empty( get_the_author_meta( 'user_url' ) ) ) : ?><a href="<?php the_author_meta( 'user_url' ) ?>"><span class="fa fa-external-link"></span></a><?php endif; ?>
-                        <?php if ( ! empty( get_the_author_meta( 'twitter' ) ) ) : ?><a href="<?php the_author_meta( 'twitter' ) ?>"><span class="fa fa-twitter"></span></a><?php endif; ?>
-                        <?php if ( ! empty( get_the_author_meta( 'facebook' ) ) ) : ?><a href="<?php the_author_meta( 'facebook' ) ?>"><span class="fa fa-facebook"></span></a><?php endif; ?>
-                        <?php if ( ! empty( get_the_author_meta( 'googleplus' ) ) ) : ?><a href="<?php the_author_meta( 'googleplus' ) ?>"><span class="fa fa-google-plus"></span></a><?php endif; ?>
-                        <?php if ( ! empty( get_the_author_meta( 'instagram' ) ) ) : ?><a href="<?php the_author_meta( 'instagram' ) ?>"><span class="fa fa-instagram"></span></a><?php endif; ?>
-                        <?php if ( ! empty( get_the_author_meta( 'pinterest' ) ) ) : ?><a href="<?php the_author_meta( 'pinterest' ) ?>"><span class="fa fa-pinterest"></span></a><?php endif; ?>
+                        <?php
+								$pencil_user_url = get_the_author_meta( 'user_url' );
+								$pencil_twitter_url = get_the_author_meta( 'twitter' );
+								$pencil_facebook_url = get_the_author_meta( 'facebook' );
+								$pencil_googleplus_url = get_the_author_meta( 'googleplus' );
+								$pencil_instagram_url = get_the_author_meta( 'instagram' );
+								$pencil_pinterest_url = get_the_author_meta( 'pinterest' );
+						?>
+                        
+                        <?php if ( ! empty( $pencil_user_url ) ) : ?><a href="<?php the_author_meta( 'user_url' ) ?>"><span class="fa fa-external-link"></span></a><?php endif; ?>
+                        <?php if ( ! empty( $pencil_twitter_url ) ) : ?><a href="<?php the_author_meta( 'twitter' ) ?>"><span class="fa fa-twitter"></span></a><?php endif; ?>
+                        <?php if ( ! empty( $pencil_facebook_url ) ) : ?><a href="<?php the_author_meta( 'facebook' ) ?>"><span class="fa fa-facebook"></span></a><?php endif; ?>
+                        <?php if ( ! empty( $pencil_googleplus_url ) ) : ?><a href="<?php the_author_meta( 'googleplus' ) ?>"><span class="fa fa-google-plus"></span></a><?php endif; ?>
+                        <?php if ( ! empty( $pencil_instagram_url ) ) : ?><a href="<?php the_author_meta( 'instagram' ) ?>"><span class="fa fa-instagram"></span></a><?php endif; ?>
+                        <?php if ( ! empty( $pencil_pinterest_url ) ) : ?><a href="<?php the_author_meta( 'pinterest' ) ?>"><span class="fa fa-pinterest"></span></a><?php endif; ?>
                     </div>
                     <?php endif; ?>
                 </div>
@@ -49,7 +58,7 @@ get_header(); ?>
 					 * If you want to override this in a child theme, then include a file
 					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 					 */
-					get_template_part( 'template-parts/content-home', get_theme_mod( 'home_page_layout', 'masonry' ) );
+					get_template_part( 'template-parts/content-home', $pencil_home_page_layout );
 				?>
 			<?php endwhile; ?>
 
@@ -64,6 +73,6 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php if ( ! empty( get_theme_mod( 'home_page_layout', 'masonry' ) ) ) { get_sidebar();} ?>
+<?php if ( ! empty( $pencil_home_page_layout ) ) { get_sidebar();} ?>
     </div><!-- .row -->
 <?php get_footer(); ?>
