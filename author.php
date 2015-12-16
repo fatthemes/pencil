@@ -58,7 +58,7 @@ get_header(); ?>
 					 * If you want to override this in a child theme, then include a file
 					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 					 */
-					get_template_part( 'template-parts/content-home', get_theme_mod( 'home_page_layout', 'masonry' ) );
+					get_template_part( 'template-parts/content-home', $pencil_home_page_layout );
 				?>
 			<?php endwhile; ?>
 
@@ -73,6 +73,6 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php if ( ! empty( get_theme_mod( 'home_page_layout', 'masonry' ) ) ) { get_sidebar();} ?>
+<?php if ( ! empty( $pencil_home_page_layout ) ) { get_sidebar();} ?>
     </div><!-- .row -->
 <?php get_footer(); ?>
