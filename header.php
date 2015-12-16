@@ -50,7 +50,7 @@ endif; ?>
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'pencil' ); ?></button>
                         <div class="nav-func">
                         <?php
-                        $pencil_social_icons_twitter = get_theme_mod( 'social_icons_twitter' );
+						$pencil_social_icons_twitter = get_theme_mod( 'social_icons_twitter' );
 			$pencil_social_icons_facebook = get_theme_mod( 'social_icons_facebook' );
 			$pencil_social_icons_googleplus = get_theme_mod( 'social_icons_googleplus' );
 			$pencil_social_icons_instagram = get_theme_mod( 'social_icons_instagram' );
@@ -60,7 +60,7 @@ endif; ?>
                         <?php if ( ! empty( $pencil_social_icons_facebook ) ) : ?><a href="<?php echo esc_url( $pencil_social_icons_facebook ); ?>"><span class="fa fa-facebook fa-lg"></span></a><?php endif; ?>
                         <?php if ( ! empty( $pencil_social_icons_googleplus ) ) : ?><a href="<?php echo esc_url( $pencil_social_icons_googleplus ); ?>"><span class="fa fa-google-plus fa-lg"></span></a><?php endif; ?>
                         <?php if ( ! empty( $pencil_social_icons_instagram ) ) : ?><a href="<?php echo esc_url( $pencil_social_icons_instagram ); ?>"><span class="fa fa-instagram fa-lg"></span></a><?php endif; ?>
-                        <?php if ( ! empty( $pencil_social_icons_pinterest ) ) : ?><a href="<?php echo esc_url( $pencil_social_icons_pinterest ) ; ?>"><span class="fa fa-pinterest fa-lg"></span></a><?php endif; ?>
+                        <?php if ( ! empty( $pencil_social_icons_pinterest ) ) : ?><a href="<?php echo esc_url( $pencil_social_icons_pinterest ); ?>"><span class="fa fa-pinterest fa-lg"></span></a><?php endif; ?>
                         <button class="search-toggle fa fa-search"></button>
                         </div>
                         <div id="toggled-navbar-bg" >
