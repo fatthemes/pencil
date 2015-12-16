@@ -27,23 +27,23 @@
 	<header id="masthead" class="site-header" role="banner">
             
 		<div class="site-branding">
-			<?php if ( is_front_page() && is_home() ) : ?>
+			<?php $pencil_header_logo = get_theme_mod( 'header_logo' );
+						if ( is_front_page() && is_home() ) : ?>
                     <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                        <?php $pencil_header_logo = get_theme_mod( 'header_logo' );
-							if ( ! empty( $pencil_header_logo ) ) : ?>
+                        <?php if ( ! empty( $pencil_header_logo ) ) : ?>
                             <img src="<?php echo esc_url( get_theme_mod( 'header_logo' ) ); ?>" alt="<?php bloginfo( 'name' ); ?>" >
                         <?php else : bloginfo( 'name' );
 endif; ?>
                     </a></h1>
 			<?php else : ?>
                     <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                        <?php if ( ! empty( get_theme_mod( 'header_logo' ) ) ) : ?>
+                        <?php if ( ! empty( $pencil_header_logo ) ) : ?>
                             <img src="<?php echo esc_url( get_theme_mod( 'header_logo' ) ); ?>" alt="<?php bloginfo( 'name' ); ?>" >
                         <?php else : bloginfo( 'name' );
 endif; ?>
                     </a></p>
 			<?php endif; ?>
-			<?php if ( empty( get_theme_mod( 'header_logo' ) ) ) : ?><p class="site-description"><?php bloginfo( 'description' ); ?></p><?php endif;?>
+			<?php if ( empty( $pencil_header_logo ) ) : ?><p class="site-description"><?php bloginfo( 'description' ); ?></p><?php endif;?>
 		</div><!-- .site-branding -->
                 
                 <nav id="site-navigation" class="main-navigation" role="navigation">
