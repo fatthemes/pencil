@@ -55,12 +55,12 @@ endif; ?>
 			$pencil_social_icons_googleplus = get_theme_mod( 'social_icons_googleplus' );
 			$pencil_social_icons_instagram = get_theme_mod( 'social_icons_instagram' );
 			$pencil_social_icons_pinterest = get_theme_mod( 'social_icons_pinterest' );
-						?>
-                        if ( ! empty( $pencil_social_icons_twitter ) ) : ?><a href="<?php echo esc_url( $pencil_social_icons_twitter ); ?>"><span class="fa fa-twitter fa-lg"></span></a><?php endif;
-                        if ( ! empty( $pencil_social_icons_facebook ) ) : ?><a href="<?php echo esc_url( $pencil_social_icons_facebook ); ?>"><span class="fa fa-facebook fa-lg"></span></a><?php endif;
-                        if ( ! empty( $pencil_social_icons_googleplus ) ) : ?><a href="<?php echo esc_url( $pencil_social_icons_googleplus ); ?>"><span class="fa fa-google-plus fa-lg"></span></a><?php endif;
-                        if ( ! empty( $pencil_social_icons_instagram ) ) : ?><a href="<?php echo esc_url( $pencil_social_icons_instagram ); ?>"><span class="fa fa-instagram fa-lg"></span></a><?php endif;
-                        if ( ! empty( $pencil_social_icons_pinterest ) ) : ?><a href="<?php echo $pencil_social_icons_pinterest ); ?>"><span class="fa fa-pinterest fa-lg"></span></a><?php endif;
+			?>			?>
+                        <?php if ( ! empty( $pencil_social_icons_twitter ) ) : ?><a href="<?php echo esc_url( $pencil_social_icons_twitter ); ?>"><span class="fa fa-twitter fa-lg"></span></a><?php endif; ?>
+                        <?php if ( ! empty( $pencil_social_icons_facebook ) ) : ?><a href="<?php echo esc_url( $pencil_social_icons_facebook ); ?>"><span class="fa fa-facebook fa-lg"></span></a><?php endif; ?>
+                        <?php if ( ! empty( $pencil_social_icons_googleplus ) ) : ?><a href="<?php echo esc_url( $pencil_social_icons_googleplus ); ?>"><span class="fa fa-google-plus fa-lg"></span></a><?php endif; ?>
+                        <?php if ( ! empty( $pencil_social_icons_instagram ) ) : ?><a href="<?php echo esc_url( $pencil_social_icons_instagram ); ?>"><span class="fa fa-instagram fa-lg"></span></a><?php endif; ?>
+                        <?php if ( ! empty( $pencil_social_icons_pinterest ) ) : ?><a href="<?php echo esc_url( $pencil_social_icons_pinterest ) ; ?>"><span class="fa fa-pinterest fa-lg"></span></a><?php endif; ?>
                         <button class="search-toggle fa fa-search"></button>
                         </div>
                         <div id="toggled-navbar-bg" >
