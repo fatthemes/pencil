@@ -17,9 +17,9 @@ php:
   # aliased to a recent 5.5.x version
   - "5.6"
   # aliased to a recent 5.5.x version
-  - "5.5"
+  #- "5.5"
   # aliased to a recent 5.4.x version
-  - "5.4"
+  #- "5.4"
   # aliased to a recent 5.3.x version
   - "5.3"
   # Current $required_php_version for WordPress: 5.2.4 - not supported out of the box on Shippable
@@ -35,7 +35,7 @@ env:
   - WP_VERSION=master WP_MULTISITE=1
   # WordPress 4.4
   # @link https://github.com/WordPress/WordPress/tree/4.4-branch
-  - WP_VERSION=4.4 WP_MULTISITE=0
+  #- WP_VERSION=4.4 WP_MULTISITE=0
   #- WP_VERSION=4.4 WP_MULTISITE=1
   # WordPress 4.1
   # @link https://github.com/WordPress/WordPress/tree/4.1-branch
