@@ -295,7 +295,7 @@ function pencil_comment( $comment, $args, $depth ) {
                             <a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><time pubdate datetime="<?php comment_time( 'c' ); ?>">
                             <?php
 							/* translators: 1: date, 2: time */
-							printf( esc_html__( '%s ago', 'pencil' ), esc_html__( human_time_diff( get_comment_time( 'U' ), current_time( 'timestamp' ) ) ) );                                   ?>
+							printf( esc_html__( '%s ago', 'pencil' ), esc_html__( human_time_diff( get_comment_time( 'U' ), current_time( 'pencil' ) ) ) );                                   ?>
                             </time></a>
                             <span class="reply"><?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text' => 'REPLY', 'before' => ' &#8901; ' ) ) ); ?></span><!-- .reply -->
                             <?php edit_comment_link( __( 'Edit', 'pencil' ), ' &#8901; ' );
