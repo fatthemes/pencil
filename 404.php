@@ -9,7 +9,9 @@
 
 get_header(); ?>
      <div class="row">
-	<div id="primary" class="content-area<?php echo ( empty( get_theme_mod( 'home_page_layout', 'masonry' ) ) ) ? ' col-md-12' : ' col-md-8'; ?>">
+	<div id="primary" class="content-area<?php
+					$pencil_home_page_layout = get_theme_mod( 'home_page_layout', 'masonry' );
+					echo ( empty( $pencil_home_page_layout ) ) ? ' col-md-12' : ' col-md-8'; ?>">
 
             <div class="pencil-page-intro">
                         <?php echo esc_html__( 'Error 404', 'pencil' ); ?>
@@ -21,7 +23,7 @@ get_header(); ?>
                                 <h1>404</h1>
                             </div>
 				<div class="page-content">
-					<p><?php _e( '<span class="lead">It looks like nothing was found at this location.</span><br/>Maybe try a search?', 'pencil' ); ?></p>
+                                    <p><?php printf( '<span class="lead">%s</span><br/>%s', esc_html__( 'It looks like nothing was found at this location.', 'pencil' ), esc_html__( 'Maybe try a search?', 'pencil' ) ); ?></p>
 
 					<?php get_search_form(); ?>
 
@@ -32,6 +34,6 @@ get_header(); ?>
 		
 	</div><!-- #primary -->
 
-<?php if ( ! empty( get_theme_mod( 'home_page_layout', 'masonry' ) ) ) { get_sidebar(); } ?>
+<?php if ( ! empty( $pencil_home_page_layout ) ) { get_sidebar(); } ?>
     </div><!-- .row -->
 <?php get_footer(); ?>
