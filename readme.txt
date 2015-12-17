@@ -1,7 +1,7 @@
-=== Parisienne ===
+=== Pencil ===
 
 Requires at least: 4.1
-Tested up to: 4.3.2
+Tested up to: 4.4
 
 == Installation ==
 
@@ -10,6 +10,10 @@ Tested up to: 4.3.2
 3. Click Activate to use your new theme right away.
 
 == Changelog ==
+
+= 1.0.2 - Dec 17 2015 =
+* empty() check improved for PHP < 5.5
+* output escaping improved
 
 = 1.0.1 - Nov 13 2015 =
 * Bug fix for empty get_avatar check
