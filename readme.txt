@@ -11,6 +11,9 @@ Tested up to: 4.4
 
 == Changelog ==
 
+= 1.0.3 - Dec 18 2015 =
+* avatar escaping in comments fixed
+
 = 1.0.2 - Dec 17 2015 =
 * empty() check improved for PHP < 5.5
 * output escaping improved
