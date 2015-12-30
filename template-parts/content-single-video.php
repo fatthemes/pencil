@@ -27,7 +27,7 @@
         
         <div class="featured-media row">
                 <div class="featured-image col-md-12"> 
-                <?php echo hybrid_media_grabber( array( 'type' => 'video' ) ); ?>
+                <?php echo hybrid_media_grabber( array( 'type' => 'video' ) ); // WPCS: XSS OK. ?>
                 </div>
         </div>
         
