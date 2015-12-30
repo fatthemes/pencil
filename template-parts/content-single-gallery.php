@@ -27,7 +27,7 @@
         
         <div class="featured-media row">
                 <div class="featured-image col-md-12"> 
-                <?php echo wp_kses_post( hybrid_media_grabber( array( 'type' => 'gallery' ) ) ); ?>  
+                <?php echo hybrid_media_grabber( array( 'type' => 'gallery' ) ); // WPCS: XSS OK. ?>  
                 </div>
         </div>
         
