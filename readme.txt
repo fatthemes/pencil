@@ -11,6 +11,9 @@ Tested up to: 4.4
 
 == Changelog ==
 
+= 1.0.4 - Dec 30 2015 =
+* audio/video post formats display issue resolved
+
 = 1.0.3 - Dec 18 2015 =
 * avatar escaping in comments fixed
 
