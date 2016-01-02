@@ -218,7 +218,7 @@ script:
   #- php -v
   # Checking withe jshint
   #- grunt jshint
-  - jshint --verbose
+  - jshint
   # WordPress Coding Standards
   # @link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards
   # @link http://pear.php.net/package/PHP_CodeSniffer/
@@ -231,6 +231,8 @@ script:
   - $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php --ignore=*/node_modules/*,*/vendor/*,class-tgm-plugin-activation.php,class-media-grabber.php
 
 after_script:
+  - ls
+  - cd
   - ls
   #- rm -Rf $WP_DEVELOP_DIR
 
