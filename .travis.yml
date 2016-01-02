@@ -11,7 +11,7 @@
 # @link http://about.travis-ci.org/docs/user/languages/php/
 language: php
 
-build_image: limestreet/wp-tests
+build_image: limestreet/wp-tests:0.1
 
 # Declare versions of PHP to use. Use one decimal max.
 php:
