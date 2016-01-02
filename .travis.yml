@@ -4,6 +4,9 @@
 # For use with the Fattheme's WordPress themes.
 # @link 
 
+#shippable/docker image cache enabled
+cache: true
+
 # Declare project language.
 # @link http://about.travis-ci.org/docs/user/languages/php/
 language: php
@@ -17,11 +20,11 @@ php:
   # aliased to a recent 5.5.x version
   #- "5.6"
   # aliased to a recent 5.5.x version
-  - "5.5"
+  #- "5.5"
   # aliased to a recent 5.4.x version
   #- "5.4"
   # aliased to a recent 5.3.x version
-  #- "5.3"
+  - "5.3"
   # Current $required_php_version for WordPress: 5.2.4 - not supported out of the box on Shippable
   #- "5.2"
 
@@ -87,12 +90,12 @@ before_install:
   #- phpbrew update
   #- phpbrew known --old
   #- phpbrew install http://museum.php.net/php5/php-5.2.4.tar.bz2
-  - phpbrew install 5.3
+  #- phpbrew install 5.3
   #- phpbrew install 5.4
   #- phpbrew install 5.5
   #- phpbrew install 5.6
   - phpbrew install 7.0
-  - phpbrew install 7.1
+  #- phpbrew install 7.1
   
 #addons:
   #hosts:
@@ -188,13 +191,17 @@ script:
   # Check with vip-scanner (only informational)
   #- wp vip-scanner scan-theme --theme=$theme_slug --scan_type="Undefined Function Check"
   # Search for PHP syntax errors.
-  - phpbrew use 5.3
+  #- phpbrew use 5.3
+  - php -v
   - find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
   - phpbrew use 7.0
+  - php -v
   - find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
-  - phpbrew use 7.1
-  - find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
+  #- phpbrew use 7.1
+  #- php -v
+  #- find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
   - phpbrew off
+  - php -v
   # Checking withe jshint
   - grunt jshint
   # WordPress Coding Standards
