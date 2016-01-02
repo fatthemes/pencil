@@ -230,10 +230,10 @@ script:
   # --extensions: Only sniff PHP files.
   - $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php --ignore=*/node_modules/*,*/vendor/*,class-tgm-plugin-activation.php,class-media-grabber.php
 
-after_script:
-  - ls
-  - cd
-  - ls
+#after_script:
+  #- ls
+  #- cd
+  #- ls
   #- rm -Rf $WP_DEVELOP_DIR
 
 # Receive notifications for build results.
