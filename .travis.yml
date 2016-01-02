@@ -94,7 +94,7 @@ before_install:
   #- phpbrew install 5.4
   #- phpbrew install 5.5
   #- phpbrew install 5.6
-  - phpbrew install 7.0
+  - phpbrew install 7.0.1
   #- phpbrew install 7.1
   
 #addons:
@@ -194,7 +194,7 @@ script:
   #- phpbrew use 5.3
   - php -v
   - find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
-  - phpbrew use 7.0
+  - phpbrew use php-7.0.1
   - php -v
   - find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
   #- phpbrew use 7.1
