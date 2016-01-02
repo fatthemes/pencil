@@ -5,7 +5,7 @@
 # @link 
 
 #shippable/docker image cache enabled
-cache: true
+#cache: true
 
 # Declare project language.
 # @link http://about.travis-ci.org/docs/user/languages/php/
@@ -18,7 +18,7 @@ php:
   # aliased to a recent 5.5.x version
   #- "7.0"
   # aliased to a recent 5.5.x version
-  #- "5.6"
+  - "5.6"
   # aliased to a recent 5.5.x version
   #- "5.5"
   # aliased to a recent 5.4.x version
@@ -81,11 +81,11 @@ before_install:
   #- sudo apt-get install -y libicu-dev
   #- sudo apt-get install -y libmhash-dev libmhash2
   #- sudo apt-get install -y libmcrypt-dev libmcrypt4
-  - curl -L -O https://github.com/phpbrew/phpbrew/raw/master/phpbrew
-  - chmod +x phpbrew
-  - sudo mv phpbrew /usr/bin/phpbrew
-  - phpbrew init
-  - source ~/.phpbrew/bashrc
+  #- curl -L -O https://github.com/phpbrew/phpbrew/raw/master/phpbrew
+  #- chmod +x phpbrew
+  #- sudo mv phpbrew /usr/bin/phpbrew
+  #- phpbrew init
+  #- source ~/.phpbrew/bashrc
   #- phpbrew known
   #- phpbrew update
   #- phpbrew known --old
@@ -94,7 +94,7 @@ before_install:
   #- phpbrew install 5.4
   #- phpbrew install 5.5
   #- phpbrew install 5.6
-  - phpbrew install 7.0
+  #- phpbrew install 7.0
   #- phpbrew install 7.1
   
 #addons:
@@ -192,16 +192,16 @@ script:
   #- wp vip-scanner scan-theme --theme=$theme_slug --scan_type="Undefined Function Check"
   # Search for PHP syntax errors.
   #- phpbrew use 5.3
-  - php -v
+  #- php -v
   - find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
-  - phpbrew use php-7.0
-  - php -v
-  - find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
+  #- phpbrew use php-7.0
+  #- php -v
+  #- find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
   #- phpbrew use 7.1
   #- php -v
   #- find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
-  - phpbrew off
-  - php -v
+  #- phpbrew off
+  #- php -v
   # Checking withe jshint
   - grunt jshint
   # WordPress Coding Standards
