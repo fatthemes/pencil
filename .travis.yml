@@ -5,7 +5,7 @@
 # @link 
 
 #shippable/docker image cache enabled
-#cache: true
+cache: true
 
 # Declare project language.
 # @link http://about.travis-ci.org/docs/user/languages/php/
@@ -18,11 +18,11 @@ php:
   # aliased to a recent 5.5.x version
   #- "7.1"
   # aliased to a recent 5.5.x version
-  - "7.0"
+  #- "7.0"
   # aliased to a recent 5.5.x version
   #- "5.6"
   # aliased to a recent 5.5.x version
-  #- "5.5"
+  - "5.5"
   # aliased to a recent 5.4.x version
   #- "5.4"
   # aliased to a recent 5.3.x version
@@ -37,7 +37,7 @@ env:
   # Trunk
   # @link https://github.com/WordPress/WordPress
   - WP_VERSION=master WP_MULTISITE=0
-  #- WP_VERSION=master WP_MULTISITE=1
+  - WP_VERSION=master WP_MULTISITE=1
   # WordPress 4.4
   # @link https://github.com/WordPress/WordPress/tree/4.4-branch
   #- WP_VERSION=4.4 WP_MULTISITE=0
@@ -186,6 +186,7 @@ before_script:
   # After CodeSniffer install you should refresh your path.
   #- phpenv rehash
   # check which php version is used
+  - php -v
 
 # Run test script commands.
 # Default is specific to project language.
@@ -194,9 +195,13 @@ script:
   # Check with vip-scanner (only informational)
   #- wp vip-scanner scan-theme --theme=$theme_slug --scan_type="Undefined Function Check"
   # Search for PHP syntax errors.
-  #- phpbrew use 5.3
+  # default ubuntu php version
+  - find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
+  # oldest available php version
+  - phpbrew use 5.3
   - php -v
-  #- find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
+  - find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
+  # newest php version
   - phpbrew use php-7.0
   - php -v
   - find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
