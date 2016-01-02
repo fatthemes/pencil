@@ -1,0 +1,10 @@
+*.min.js
+**/*.min.js
+node_modules/**
+vendor/**
+tests/**
+Gruntfile.js
+**/jquery.magnific-popup.js
+**/smoothscroll.js
+**/theia-sticky-sidebar.js
+**/slick.js
