@@ -87,10 +87,10 @@ before_install:
   #- phpbrew update
   #- phpbrew known --old
   - phpbrew install http://museum.php.net/php5/php-5.2.4.tar.bz2
-  - phpbrew install 5.3
-  - phpbrew install 5.4
-  - phpbrew install 5.5
-  - phpbrew install 5.6
+  #- phpbrew install 5.3
+  #- phpbrew install 5.4
+  #- phpbrew install 5.5
+  #- phpbrew install 5.6
   - phpbrew install 7.0
   
 #addons:
@@ -187,7 +187,7 @@ script:
   # Check with vip-scanner (only informational)
   #- wp vip-scanner scan-theme --theme=$theme_slug --scan_type="Undefined Function Check"
   # Search for PHP syntax errors.
-  - phpbrew use 5.3
+  - phpbrew use 5.2
   - find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
   - phpbrew use 7.0
   - find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
