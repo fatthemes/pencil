@@ -76,9 +76,10 @@ before_install:
   # start mysql
   - service mysql start
   # install jshint
-  - npm install -g jshint
+  #- npm install -g jshint
   # init phpbrew
   - phpbrew init
+  - phpbrew list
   #install phpbrew
   #- sudo apt-get update
   #- sudo apt-get build-dep php5
