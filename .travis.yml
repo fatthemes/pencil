@@ -79,6 +79,7 @@ before_install:
   #- npm install -g jshint
   # init phpbrew
   - phpbrew init
+  - source ~/.phpbrew/bashrc
   - phpbrew list
   #install phpbrew
   #- sudo apt-get update
