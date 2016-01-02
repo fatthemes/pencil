@@ -35,7 +35,7 @@ env:
   # Trunk
   # @link https://github.com/WordPress/WordPress
   - WP_VERSION=master WP_MULTISITE=0
-  #- WP_VERSION=master WP_MULTISITE=1
+  - WP_VERSION=master WP_MULTISITE=1
   # WordPress 4.4
   # @link https://github.com/WordPress/WordPress/tree/4.4-branch
   #- WP_VERSION=4.4 WP_MULTISITE=0
@@ -94,7 +94,7 @@ before_install:
   #- phpbrew install 5.4
   #- phpbrew install 5.5
   #- phpbrew install 5.6
-  - phpbrew install 7.0.1
+  - phpbrew install 7.0
   #- phpbrew install 7.1
   
 #addons:
@@ -194,7 +194,7 @@ script:
   #- phpbrew use 5.3
   - php -v
   - find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
-  - phpbrew use php-7.0.1
+  - phpbrew use php-7.0
   - php -v
   - find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
   #- phpbrew use 7.1
