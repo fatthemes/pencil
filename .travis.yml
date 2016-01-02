@@ -86,7 +86,7 @@ before_install:
   #- phpbrew known
   #- phpbrew update
   #- phpbrew known --old
-  - phpbrew install museum.php.net/php5/php-5.2.4.tar.bz2
+  - phpbrew install http://museum.php.net/php5/php-5.2.4.tar.bz2
   - phpbrew install 5.3
   - phpbrew install 5.4
   - phpbrew install 5.5
