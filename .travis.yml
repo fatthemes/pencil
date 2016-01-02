@@ -32,7 +32,7 @@ env:
   # Trunk
   # @link https://github.com/WordPress/WordPress
   - WP_VERSION=master WP_MULTISITE=0
-  - WP_VERSION=master WP_MULTISITE=1
+  #- WP_VERSION=master WP_MULTISITE=1
   # WordPress 4.4
   # @link https://github.com/WordPress/WordPress/tree/4.4-branch
   #- WP_VERSION=4.4 WP_MULTISITE=0
@@ -96,8 +96,15 @@ before_script:
   - sudo mv phpbrew /usr/bin/phpbrew
   - phpbrew init
   - source ~/.phpbrew/bashrc
-  - phpbrew known
+  #- phpbrew known
+  - phpbrew update
   - phpbrew known --old
+  - phpbrew install --old 5.2.4
+  - phpbrew install 5.3
+  - phpbrew install 5.4
+  - phpbrew install 5.5
+  - phpbrew install 5.6
+  - phpbrew install 7.0
   #install nginx
   #- sudo apt-get update
   #- sudo apt-get install mysql
@@ -171,7 +178,11 @@ script:
   # Check with vip-scanner (only informational)
   #- wp vip-scanner scan-theme --theme=$theme_slug --scan_type="Undefined Function Check"
   # Search for PHP syntax errors.
+  - phpbrew use 5.3
   - find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
+  - phpbrew use 7.0
+  - find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
+  - phpbrew off
   # Checking withe jshint
   - grunt jshint
   # WordPress Coding Standards
