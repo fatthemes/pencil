@@ -97,9 +97,9 @@ before_script:
   - phpbrew init
   - source ~/.phpbrew/bashrc
   #- phpbrew known
-  - phpbrew update
+  #- phpbrew update
   - phpbrew known --old
-  - phpbrew install --old 5.2.4
+  #- phpbrew install --old 5.2.4
   - phpbrew install 5.3
   - phpbrew install 5.4
   - phpbrew install 5.5
