@@ -5,7 +5,7 @@
 # @link 
 
 #shippable/docker image cache enabled
-#cache: true
+cache: true
 
 # Declare project language.
 # @link http://about.travis-ci.org/docs/user/languages/php/
@@ -41,7 +41,7 @@ env:
   # WordPress 4.4
   # @link https://github.com/WordPress/WordPress/tree/4.4-branch
   #- WP_VERSION=4.4 WP_MULTISITE=0
-  #- WP_VERSION=4.4 WP_MULTISITE=1
+  - WP_VERSION=4.4 WP_MULTISITE=1
   # WordPress 4.1
   # @link https://github.com/WordPress/WordPress/tree/4.1-branch
   #- WP_VERSION=4.1 WP_MULTISITE=0
@@ -231,12 +231,12 @@ script:
   - $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php --ignore=*/node_modules/*,*/vendor/*,class-tgm-plugin-activation.php,class-media-grabber.php
 
 after_script:
-  - ls
+  #- ls
   - cd
-  - ls
-  - ls $WP_DEVELOP_DIR
+  #- ls
+  #- ls $WP_DEVELOP_DIR
   - rm -Rf $WP_DEVELOP_DIR
-  - ls
+  #- ls
 
 # Receive notifications for build results.
 # @link http://docs.travis-ci.com/user/notifications/#Email-notifications
