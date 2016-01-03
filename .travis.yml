@@ -5,7 +5,7 @@
 # @link 
 
 #shippable/docker image cache enabled
-cache: true
+#cache: true
 
 # Declare project language.
 # @link http://about.travis-ci.org/docs/user/languages/php/
@@ -213,6 +213,7 @@ after_script:
   #- ls
   #- ls $WP_DEVELOP_DIR
   - rm -Rf $WP_DEVELOP_DIR
+  - mysql -e 'DROP DATABASE wordpress_test;' -uroot
   #- ls
 
 # Receive notifications for build results.
