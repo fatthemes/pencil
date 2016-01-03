@@ -41,7 +41,7 @@ env:
   # WordPress 4.4
   # @link https://github.com/WordPress/WordPress/tree/4.4-branch
   - WP_VERSION=4.4 WP_MULTISITE=0
-  - WP_VERSION=4.4 WP_MULTISITE=1
+  #- WP_VERSION=4.4 WP_MULTISITE=1
   # WordPress 4.1
   # @link https://github.com/WordPress/WordPress/tree/4.1-branch
   #- WP_VERSION=4.1 WP_MULTISITE=0
