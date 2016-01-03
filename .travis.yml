@@ -5,7 +5,7 @@
 # @link 
 
 #shippable/docker image cache enabled
-cache: true
+#cache: true
 
 # Declare project language.
 # @link http://about.travis-ci.org/docs/user/languages/php/
@@ -40,7 +40,7 @@ env:
   - WP_VERSION=master WP_MULTISITE=1
   # WordPress 4.4
   # @link https://github.com/WordPress/WordPress/tree/4.4-branch
-  #- WP_VERSION=4.4 WP_MULTISITE=0
+  - WP_VERSION=4.4 WP_MULTISITE=0
   - WP_VERSION=4.4 WP_MULTISITE=1
   # WordPress 4.1
   # @link https://github.com/WordPress/WordPress/tree/4.1-branch
@@ -209,11 +209,11 @@ script:
 
 after_script:
   #- ls
-  - cd
+  #- cd
   #- ls
   #- ls $WP_DEVELOP_DIR
-  - rm -Rf $WP_DEVELOP_DIR
-  - mysql -e 'DROP DATABASE wordpress_test;' -uroot
+  #- rm -Rf $WP_DEVELOP_DIR
+  #- mysql -e 'DROP DATABASE wordpress_test;' -uroot
   #- ls
 
 # Receive notifications for build results.
