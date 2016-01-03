@@ -4,9 +4,14 @@
 # For use with the Fattheme's WordPress themes.
 # @link 
 
+#shippable/docker image cache enabled
+#cache: true
+
 # Declare project language.
 # @link http://about.travis-ci.org/docs/user/languages/php/
 language: php
+
+build_image: limestreet/wp-tests:latest
 
 # Declare versions of PHP to use. Use one decimal max.
 php:
@@ -15,13 +20,13 @@ php:
   # aliased to a recent 5.5.x version
   #- "7.0"
   # aliased to a recent 5.5.x version
-  - "5.6"
+  #- "5.6"
   # aliased to a recent 5.5.x version
-  #- "5.5"
+  - "5.5"
   # aliased to a recent 5.4.x version
   #- "5.4"
   # aliased to a recent 5.3.x version
-  - "5.3"
+  #- "5.3"
   # Current $required_php_version for WordPress: 5.2.4 - not supported out of the box on Shippable
   #- "5.2"
 
@@ -35,7 +40,7 @@ env:
   - WP_VERSION=master WP_MULTISITE=1
   # WordPress 4.4
   # @link https://github.com/WordPress/WordPress/tree/4.4-branch
-  #- WP_VERSION=4.4 WP_MULTISITE=0
+  - WP_VERSION=4.4 WP_MULTISITE=0
   #- WP_VERSION=4.4 WP_MULTISITE=1
   # WordPress 4.1
   # @link https://github.com/WordPress/WordPress/tree/4.1-branch
@@ -67,8 +72,17 @@ env:
 # Use this to prepare the system to install prerequisites or dependencies.
 # e.g. sudo apt-get update.
 # Failures in this section will result in build status 'errored'.
-# before_install:
+before_install:
+  # start mysql
+  - service mysql start
+  # install jshint
+  #- npm install -g jshint
+  # init phpbrew
+  - phpbrew init
+  - source ~/.phpbrew/bashrc
+  - phpbrew list
 
+  
 #addons:
   #hosts:
     #- wp.dev
@@ -149,12 +163,13 @@ before_script:
   - cd $theme_dir
   # run npm install
   #- npm install
-  - npm install
+  #- npm install -g jshint
   # Run some grunt build tasks
   #- grunt
   # After CodeSniffer install you should refresh your path.
-  - phpenv rehash
+  #- phpenv rehash
   # check which php version is used
+  #- php -v
 
 # Run test script commands.
 # Default is specific to project language.
@@ -163,9 +178,24 @@ script:
   # Check with vip-scanner (only informational)
   #- wp vip-scanner scan-theme --theme=$theme_slug --scan_type="Undefined Function Check"
   # Search for PHP syntax errors.
+  # default ubuntu php version
   - find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
-  # Checking withe jshint
-  - grunt jshint
+  # oldest available php version
+  - phpbrew use php-5.3.29
+  #- php -v
+  - find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
+  # newest php version
+  - phpbrew use php-7.0.1
+  #- php -v
+  - find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
+  #- phpbrew use 7.1
+  #- php -v
+  #- find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
+  - phpbrew off
+  #- php -v
+  # Checking with jshint
+  #- grunt jshint
+  #- jshint .
   # WordPress Coding Standards
   # @link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards
   # @link http://pear.php.net/package/PHP_CodeSniffer/
@@ -177,9 +207,16 @@ script:
   # --extensions: Only sniff PHP files.
   - $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php --ignore=*/node_modules/*,*/vendor/*,class-tgm-plugin-activation.php,class-media-grabber.php
 
+after_script:
+  #- ls
+  #- cd
+  #- ls
+  #- ls $WP_DEVELOP_DIR
+  #- rm -Rf $WP_DEVELOP_DIR
+  #- mysql -e 'DROP DATABASE wordpress_test;' -uroot
+  #- ls
+
 # Receive notifications for build results.
 # @link http://docs.travis-ci.com/user/notifications/#Email-notifications
 notifications:
   email: false
-
-after_success:
