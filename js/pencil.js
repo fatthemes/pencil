@@ -94,16 +94,16 @@ $(document).ready(function($) {
   var $pencilContainer = $('.masonry-container');
    
   if (typeof Masonry === 'function'){
-    imagesLoaded( document.querySelector('.masonry-container'), function( instance ) {
-    $(function(){
+    //imagesLoaded( document.querySelector('.masonry-container'), function( instance ) {
+    //$(function(){
 
       $pencilContainer.imagesLoaded(function(){
         $pencilContainer.masonry({
           itemSelector: '.masonry'
         });
       });
-    });
-  });
+    //});
+  //});
   }
     
         // The number of the next page to load (/page/x/).
