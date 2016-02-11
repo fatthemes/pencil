@@ -289,9 +289,9 @@ var stickyMenuTop = $pencilSiteNavigation.offset().top;
 var stickyMenu = function(){
 var scrollTop = $(window).scrollTop();
 if (scrollTop > stickyMenuTop) { 
-    $pencilSiteNavigation.css({'position': 'fixed', 'top': '0', 'z-index': '1000', 'background-color': '#fff', 'box-shadow': '0 1px 4px #ccc'});
+    $pencilSiteNavigation.css({'position': 'fixed', 'top': '0', 'z-index': '1000', 'box-shadow': '0 1px 4px #ccc'});
 } else {
-    $pencilSiteNavigation.css({'position': '', 'top': '', 'z-index': '', 'background-color': '', 'box-shadow': 'none'});
+    $pencilSiteNavigation.css({'position': '', 'top': '', 'z-index': '', 'box-shadow': 'none'});
 }
 };
 
