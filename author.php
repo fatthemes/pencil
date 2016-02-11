@@ -4,7 +4,7 @@
  *
  * @package pencil
  */
-;
+
 get_header(); ?>
 
     <div class="row">
