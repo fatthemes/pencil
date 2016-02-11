@@ -1,7 +1,7 @@
 === Pencil ===
 
 Requires at least: 4.1
-Tested up to: 4.4
+Tested up to: 4.4.2
 
 == Installation ==
 
@@ -10,6 +10,11 @@ Tested up to: 4.4
 3. Click Activate to use your new theme right away.
 
 == Changelog ==
+
+= 1.0.5 - Feb 11 2015 =
+* Fixed: hidden class .byline
+* Fixed: menu background color
+* Fixed: footer text not allowing html
 
 = 1.0.4 - Dec 30 2015 =
 * audio/video post formats display issue resolved
