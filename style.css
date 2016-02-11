@@ -5,7 +5,7 @@ Theme URI: http://fatthemes.com/pencil
 Author: Fat Themes
 Author URI: http://fatthemes.com
 Description: Really nice and simple personal blog/magazine theme
-Version: 1.0.4
+Version: 1.0.5
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: pencil
@@ -2885,7 +2885,8 @@ h1 a, .site-title a, h2 a, .category-list a, .pencil-page-intro a, h3 a, h4 a, h
   width: 100%;
   font-size: .75rem;
   font-weight: 700;
-  letter-spacing: .05em; }
+  letter-spacing: .05em;
+  background-color: #fff; }
   .main-navigation ul {
     display: none;
     list-style: none;
@@ -3217,6 +3218,7 @@ nav {
 
 .single .byline,
 .page .byline,
+.blog .byline,
 .group-blog .byline {
   display: inline; }
 

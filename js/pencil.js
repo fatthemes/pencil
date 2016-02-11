@@ -94,16 +94,16 @@ $(document).ready(function($) {
   var $pencilContainer = $('.masonry-container');
    
   if (typeof Masonry === 'function'){
-    imagesLoaded( document.querySelector('.masonry-container'), function( instance ) {
-    $(function(){
+    //imagesLoaded( document.querySelector('.masonry-container'), function( instance ) {
+    //$(function(){
 
       $pencilContainer.imagesLoaded(function(){
         $pencilContainer.masonry({
           itemSelector: '.masonry'
         });
       });
-    });
-  });
+    //});
+  //});
   }
     
         // The number of the next page to load (/page/x/).
@@ -289,9 +289,9 @@ var stickyMenuTop = $pencilSiteNavigation.offset().top;
 var stickyMenu = function(){
 var scrollTop = $(window).scrollTop();
 if (scrollTop > stickyMenuTop) { 
-    $pencilSiteNavigation.css({'position': 'fixed', 'top': '0', 'z-index': '1000', 'background-color': '#fff', 'box-shadow': '0 1px 4px #ccc'});
+    $pencilSiteNavigation.css({'position': 'fixed', 'top': '0', 'z-index': '1000', 'box-shadow': '0 1px 4px #ccc'});
 } else {
-    $pencilSiteNavigation.css({'position': '', 'top': '', 'z-index': '', 'background-color': '', 'box-shadow': 'none'});
+    $pencilSiteNavigation.css({'position': '', 'top': '', 'z-index': '', 'box-shadow': 'none'});
 }
 };
 
