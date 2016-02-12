@@ -21,8 +21,8 @@
 </div><!-- #page -->
 
 <div class="pencil-search-panel">
-    <button class="pencil-search-panel-close"><span class="fa fa-close"></span></button>
-    <?php get_search_form(); ?>
+	<button class="pencil-search-panel-close"><span class="fa fa-close"></span></button>
+	<?php get_search_form(); ?>
 </div>
 <?php wp_footer(); ?>
 

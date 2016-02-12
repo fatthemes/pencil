@@ -8,14 +8,14 @@
  */
 
 get_header(); ?>
-     <div class="row">
+	 <div class="row">
 	<div id="primary" class="content-area<?php
 					$pencil_home_page_layout = get_theme_mod( 'home_page_layout', 'masonry' );
 					echo ( empty( $pencil_home_page_layout ) ) ? ' col-md-12' : ' col-md-8'; ?>">
-            <div class="pencil-page-intro">
-                        <?php the_archive_title(); ?>
-            </div>
-            
+			<div class="pencil-page-intro">
+						<?php the_archive_title(); ?>
+			</div>
+			
 		<main id="main" class="site-main row masonry-container" role="main">
 
 		<?php if ( have_posts() ) : ?>
@@ -45,5 +45,5 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 <?php if ( ! empty( $pencil_home_page_layout ) ) { get_sidebar();} ?>
-    </div><!-- .row -->
+	</div><!-- .row -->
 <?php get_footer(); ?>

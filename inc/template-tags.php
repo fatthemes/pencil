@@ -279,40 +279,40 @@ if ( ! function_exists( 'pencil_comment' ) ) :
 function pencil_comment( $comment, $args, $depth ) {
 		// $GLOBALS['comment'] = $comment;
 		?>
-        <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
-            <article id="comment-<?php comment_ID(); ?>" class="comment">
-                <footer>
-                    <div class="comment-author vcard">
-                        <?php $avatar = get_avatar( $comment, $args['avatar_size'] ); ?>
-                        <?php if ( ! empty( $avatar ) ) : ?>
-                        <div class="comments-avatar">
-                        <?php echo wp_kses_post( $avatar ); ?>
-                        </div>    
-                        <?php endif; ?>
-                        <div class="comment-meta commentmetadata">
-                            <?php printf( sprintf( '<cite class="fn"><b>%s</b></cite>', get_comment_author_link() ) ); ?>
-                            <br />
-                            <a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><time pubdate datetime="<?php comment_time( 'c' ); ?>">
-                            <?php
+		<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+			<article id="comment-<?php comment_ID(); ?>" class="comment">
+				<footer>
+					<div class="comment-author vcard">
+						<?php $avatar = get_avatar( $comment, $args['avatar_size'] ); ?>
+						<?php if ( ! empty( $avatar ) ) : ?>
+						<div class="comments-avatar">
+						<?php echo wp_kses_post( $avatar ); ?>
+						</div>    
+						<?php endif; ?>
+						<div class="comment-meta commentmetadata">
+							<?php printf( sprintf( '<cite class="fn"><b>%s</b></cite>', get_comment_author_link() ) ); ?>
+							<br />
+							<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><time pubdate datetime="<?php comment_time( 'c' ); ?>">
+							<?php
 							/* translators: 1: date, 2: time */
 							printf( esc_html__( '%s ago', 'pencil' ), esc_html( human_time_diff( get_comment_time( 'U' ), current_time( 'timestamp' ) ) ) );                                   ?>
-                            </time></a>
-                            <span class="reply"><?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text' => 'REPLY', 'before' => ' &#8901; ' ) ) ); ?></span><!-- .reply -->
-                            <?php edit_comment_link( __( 'Edit', 'pencil' ), ' &#8901; ' );
+							</time></a>
+							<span class="reply"><?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text' => 'REPLY', 'before' => ' &#8901; ' ) ) ); ?></span><!-- .reply -->
+							<?php edit_comment_link( __( 'Edit', 'pencil' ), ' &#8901; ' );
 							?>
-                        </div><!-- .comment-meta .commentmetadata -->
-                    </div><!-- .comment-author .vcard -->
-                    <?php if ( $comment->comment_approved == '0' ) : ?>
-                        <em><?php esc_html_e( 'Your comment is awaiting moderation.', 'pencil' ); ?></em>
-                        <br />
-                    <?php endif; ?>
+						</div><!-- .comment-meta .commentmetadata -->
+					</div><!-- .comment-author .vcard -->
+					<?php if ( '0' == $comment->comment_approved ) : ?>
+						<em><?php esc_html_e( 'Your comment is awaiting moderation.', 'pencil' ); ?></em>
+						<br />
+					<?php endif; ?>
 
-                </footer>
+				</footer>
 
-                <div class="comment-content"><?php comment_text(); ?></div>
+				<div class="comment-content"><?php comment_text(); ?></div>
 
-            </article><!-- #comment-## -->
-        <?php
+			</article><!-- #comment-## -->
+		<?php
 }
 endif; // Ends check for pencil_comment().
 

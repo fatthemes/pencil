@@ -1,6 +1,7 @@
 <?php
 /**
  * Library for activating dependent plugins
+ *
  * @package    TGM-Plugin-Activation
  * @author     Thomas Griffin <thomasgriffinmedia.com> and Gary Jones <gamajo.com>
  * @copyright  Copyright (c) 2014, Thomas Griffin

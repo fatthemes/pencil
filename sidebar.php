@@ -13,7 +13,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 ?>
 
 <div id="secondary" class="widget-area col-md-4" role="complementary">
-    <div class="theiaStickySidebar">
+	<div class="theiaStickySidebar">
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
-    </div>
+	</div>
 </div><!-- #secondary -->

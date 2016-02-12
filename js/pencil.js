@@ -79,13 +79,13 @@
 
 
 (function($){
-     "use strict";
+     'use strict';
 
 $(document).ready(function($) {
    
    var $pencilSecondary = $('#secondary');
    
-  if(typeof $.fn.theiaStickySidebar == 'function'){
+  if(typeof $.fn.theiaStickySidebar === 'function'){
       $pencilSecondary.theiaStickySidebar({
         additionalMarginTop: 52 //Number(pencilCustomScript.fatNavbarHeight)
       });
@@ -107,10 +107,10 @@ $(document).ready(function($) {
   }
     
         // The number of the next page to load (/page/x/).
-	var pageNum = parseInt(pencil.startPage) + 1;
+	var pageNum = parseInt(pencil.startPage, 10) + 1;
  
 	// The maximum number of pages the current query can return.
-	var max = parseInt(pencil.maxPages);
+	var max = parseInt(pencil.maxPages, 10);
  
 	// The link of the next page of posts.
 	var nextLink = pencil.nextLink;
@@ -149,12 +149,12 @@ $pencilLoadMore.click(function() {
                     dataType: 'html',
                     success: function(response) {
                         
-                result = $(response).find('.masonry');
+                var result = $(response).find('.masonry');
 
 		if (typeof Masonry === 'function'){
 
                     //var $container = $('.masonry-container');
-                    var result = $( result ).css({ opacity: 0 });
+                    result = $( result ).css({ opacity: 0 });
 
                     $pencilContainer.append( result ).imagesLoaded(function(){
                         result.animate({ opacity: 1 });
@@ -365,7 +365,7 @@ var pencilMenuOnHide = function() {
 
 var pencilWidth = $(window).width();
 $(window).resize(function(){
-   if($(this).width() != pencilWidth){
+   if($(this).width() !== pencilWidth){
       location.reload();
    }
 });
