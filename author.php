@@ -7,22 +7,22 @@
 
 get_header(); ?>
 
-    <div class="row">
+	<div class="row">
 	<div id="primary" class="content-area<?php
 					$pencil_home_page_layout = get_theme_mod( 'home_page_layout', 'masonry' );
 					echo ( empty( $pencil_home_page_layout ) ) ? ' col-md-12' : ' col-md-8'; ?>">
-            <div class="pencil-page-intro">
-                        <?php echo esc_html__( 'Author posts', 'pencil' );?>
-            </div>
-            <div class="row about-author">
-                <div class="col-md-4 author-avatar-wrapper">
-                    <div class="author-avatar">
-                        <?php echo get_avatar( get_the_author_meta( 'ID' ), 204 ) ?>
-                    </div>
-                    <?php if ( class_exists( 'UserSocialProfiles' ) ) : ?>
+			<div class="pencil-page-intro">
+						<?php echo esc_html__( 'Author posts', 'pencil' );?>
+			</div>
+			<div class="row about-author">
+				<div class="col-md-4 author-avatar-wrapper">
+					<div class="author-avatar">
+						<?php echo get_avatar( get_the_author_meta( 'ID' ), 204 ) ?>
+					</div>
+					<?php if ( class_exists( 'UserSocialProfiles' ) ) : ?>
 
-                    <div class="pencil-author-social-icons">
-                        <?php
+					<div class="pencil-author-social-icons">
+						<?php
 								$pencil_user_url = get_the_author_meta( 'user_url' );
 								$pencil_twitter_url = get_the_author_meta( 'twitter' );
 								$pencil_facebook_url = get_the_author_meta( 'facebook' );
@@ -30,21 +30,21 @@ get_header(); ?>
 								$pencil_instagram_url = get_the_author_meta( 'instagram' );
 								$pencil_pinterest_url = get_the_author_meta( 'pinterest' );
 						?>
-                        
-                        <?php if ( ! empty( $pencil_user_url ) ) : ?><a href="<?php the_author_meta( 'user_url' ) ?>"><span class="fa fa-external-link"></span></a><?php endif; ?>
-                        <?php if ( ! empty( $pencil_twitter_url ) ) : ?><a href="<?php the_author_meta( 'twitter' ) ?>"><span class="fa fa-twitter"></span></a><?php endif; ?>
-                        <?php if ( ! empty( $pencil_facebook_url ) ) : ?><a href="<?php the_author_meta( 'facebook' ) ?>"><span class="fa fa-facebook"></span></a><?php endif; ?>
-                        <?php if ( ! empty( $pencil_googleplus_url ) ) : ?><a href="<?php the_author_meta( 'googleplus' ) ?>"><span class="fa fa-google-plus"></span></a><?php endif; ?>
-                        <?php if ( ! empty( $pencil_instagram_url ) ) : ?><a href="<?php the_author_meta( 'instagram' ) ?>"><span class="fa fa-instagram"></span></a><?php endif; ?>
-                        <?php if ( ! empty( $pencil_pinterest_url ) ) : ?><a href="<?php the_author_meta( 'pinterest' ) ?>"><span class="fa fa-pinterest"></span></a><?php endif; ?>
-                    </div>
-                    <?php endif; ?>
-                </div>
-                <div class="col-md-8">
-                    <h3><?php echo esc_html( get_the_author_meta( 'display_name' ) ) ?></h3>
-                    <p><?php echo esc_html( get_the_author_meta( 'description' ) ) ?></p>
-                </div>
-            </div>
+						
+						<?php if ( ! empty( $pencil_user_url ) ) : ?><a href="<?php the_author_meta( 'user_url' ) ?>"><span class="fa fa-external-link"></span></a><?php endif; ?>
+						<?php if ( ! empty( $pencil_twitter_url ) ) : ?><a href="<?php the_author_meta( 'twitter' ) ?>"><span class="fa fa-twitter"></span></a><?php endif; ?>
+						<?php if ( ! empty( $pencil_facebook_url ) ) : ?><a href="<?php the_author_meta( 'facebook' ) ?>"><span class="fa fa-facebook"></span></a><?php endif; ?>
+						<?php if ( ! empty( $pencil_googleplus_url ) ) : ?><a href="<?php the_author_meta( 'googleplus' ) ?>"><span class="fa fa-google-plus"></span></a><?php endif; ?>
+						<?php if ( ! empty( $pencil_instagram_url ) ) : ?><a href="<?php the_author_meta( 'instagram' ) ?>"><span class="fa fa-instagram"></span></a><?php endif; ?>
+						<?php if ( ! empty( $pencil_pinterest_url ) ) : ?><a href="<?php the_author_meta( 'pinterest' ) ?>"><span class="fa fa-pinterest"></span></a><?php endif; ?>
+					</div>
+					<?php endif; ?>
+				</div>
+				<div class="col-md-8">
+					<h3><?php echo esc_html( get_the_author_meta( 'display_name' ) ) ?></h3>
+					<p><?php echo esc_html( get_the_author_meta( 'description' ) ) ?></p>
+				</div>
+			</div>
 		<main id="main" class="site-main row masonry-container" role="main">
 
 		<?php if ( have_posts() ) : ?>
@@ -74,5 +74,5 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 <?php if ( ! empty( $pencil_home_page_layout ) ) { get_sidebar();} ?>
-    </div><!-- .row -->
+	</div><!-- .row -->
 <?php get_footer(); ?>

@@ -1,0 +1,420 @@
+
+FILE: /home/patryk/public_html/alpha/wp-content/themes/pencil/sidebar.php
+--------------------------------------------------------------------------------
+FOUND 12 ERROR(S) AND 2 WARNING(S) AFFECTING 6 LINE(S)
+--------------------------------------------------------------------------------
+  5 | WARNING | Line exceeds 85 characters; contains 88 characters
+  5 | ERROR   | The @link tag is in the wrong order; the tag follows @version
+  5 | ERROR   | @link tag comment indented incorrectly; expected 4 spaces but
+    |         | found 1
+  7 | ERROR   | Package name "pencil" is not valid; consider "Pencil" instead
+  8 | WARNING | PHP version not specified
+  8 | ERROR   | Missing @category tag in file comment
+  8 | ERROR   | Missing @author tag in file comment
+  8 | ERROR   | Missing @license tag in file comment
+ 10 | ERROR   | Space after opening parenthesis of function call prohibited
+ 10 | ERROR   | Space before closing parenthesis of function call prohibited
+ 11 | ERROR   | Spaces must be used to indent lines; tabs are not allowed
+ 11 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 1
+ 17 | ERROR   | Space after opening parenthesis of function call prohibited
+ 17 | ERROR   | Space before closing parenthesis of function call prohibited
+--------------------------------------------------------------------------------
+
+
+FILE: /home/patryk/public_html/alpha/wp-content/themes/pencil/comments.php
+--------------------------------------------------------------------------------
+FOUND 99 ERROR(S) AND 16 WARNING(S) AFFECTING 47 LINE(S)
+--------------------------------------------------------------------------------
+  5 | WARNING | Line exceeds 85 characters; contains 98 characters
+  8 | ERROR   | The @link tag is in the wrong order; the tag follows @version
+  8 | ERROR   | @link tag comment indented incorrectly; expected 4 spaces but
+    |         | found 1
+ 10 | ERROR   | Package name "pencil" is not valid; consider "Pencil" instead
+ 11 | WARNING | PHP version not specified
+ 11 | ERROR   | Missing @category tag in file comment
+ 11 | ERROR   | Missing @author tag in file comment
+ 11 | ERROR   | Missing @license tag in file comment
+ 19 | ERROR   | Spaces must be used to indent lines; tabs are not allowed
+ 19 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 1
+ 28 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 2
+ 30 | ERROR   | Spaces must be used to indent lines; tabs are not allowed
+ 30 | ERROR   | Opening parenthesis of a multi-line function call must be the
+    |         | last content on the line
+ 31 | ERROR   | Multi-line function call not indented correctly; expected 8
+    |         | spaces but found 5
+ 31 | ERROR   | Spaces must be used to indent lines; tabs are not allowed
+ 31 | ERROR   | Space after opening parenthesis of function call prohibited
+ 31 | ERROR   | Space after opening parenthesis of function call prohibited
+ 31 | ERROR   | Space before closing parenthesis of function call prohibited
+ 31 | ERROR   | Space before closing parenthesis of function call prohibited
+ 31 | WARNING | Line exceeds 85 characters; contains 104 characters
+ 32 | ERROR   | Multi-line function call not indented correctly; expected 8
+    |         | spaces but found 5
+ 32 | ERROR   | Spaces must be used to indent lines; tabs are not allowed
+ 32 | ERROR   | Space after opening parenthesis of function call prohibited
+ 32 | ERROR   | Space before closing parenthesis of function call prohibited
+ 33 | ERROR   | Multi-line function call not indented correctly; expected 8
+    |         | spaces but found 5
+ 33 | ERROR   | Spaces must be used to indent lines; tabs are not allowed
+ 34 | ERROR   | Spaces must be used to indent lines; tabs are not allowed
+ 35 | ERROR   | Spaces must be used to indent lines; tabs are not allowed
+ 35 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 3
+ 36 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 2
+ 38 | ERROR   | Line indented incorrectly; expected 4 spaces, found 0
+ 38 | ERROR   | Space after opening parenthesis of function call prohibited
+ 38 | ERROR   | Space before closing parenthesis of function call prohibited
+ 38 | WARNING | Line exceeds 85 characters; contains 125 characters
+ 39 | WARNING | Line exceeds 85 characters; contains 86 characters
+ 39 | ERROR   | Line indented incorrectly; expected at least 8 spaces, found 2
+ 40 | ERROR   | Line indented incorrectly; expected at least 8 spaces, found 3
+ 40 | ERROR   | Space after opening parenthesis of function call prohibited
+ 40 | ERROR   | Space before closing parenthesis of function call prohibited
+ 40 | WARNING | Line exceeds 85 characters; contains 93 characters
+ 41 | ERROR   | Line indented incorrectly; expected at least 8 spaces, found 3
+ 43 | ERROR   | Line indented incorrectly; expected at least 8 spaces, found 4
+ 43 | ERROR   | Space after opening parenthesis of function call prohibited
+ 43 | ERROR   | Space after opening parenthesis of function call prohibited
+ 43 | ERROR   | Space before closing parenthesis of function call prohibited
+ 43 | ERROR   | Space before closing parenthesis of function call prohibited
+ 43 | WARNING | Line exceeds 85 characters; contains 112 characters
+ 44 | ERROR   | Line indented incorrectly; expected at least 8 spaces, found 4
+ 44 | ERROR   | Space after opening parenthesis of function call prohibited
+ 44 | ERROR   | Space after opening parenthesis of function call prohibited
+ 44 | ERROR   | Space before closing parenthesis of function call prohibited
+ 44 | ERROR   | Space before closing parenthesis of function call prohibited
+ 44 | WARNING | Line exceeds 85 characters; contains 104 characters
+ 46 | ERROR   | Line indented incorrectly; expected at least 8 spaces, found 3
+ 47 | ERROR   | Line indented incorrectly; expected at least 8 spaces, found 2
+ 48 | ERROR   | Closing brace must be on a line by itself
+ 50 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 2
+ 52 | ERROR   | Spaces must be used to indent lines; tabs are not allowed
+ 52 | ERROR   | Opening parenthesis of a multi-line function call must be the
+    |         | last content on the line
+ 53 | ERROR   | Spaces must be used to indent lines; tabs are not allowed
+ 54 | ERROR   | Spaces must be used to indent lines; tabs are not allowed
+ 55 | ERROR   | Spaces must be used to indent lines; tabs are not allowed
+ 56 | ERROR   | Spaces must be used to indent lines; tabs are not allowed
+ 57 | ERROR   | Spaces must be used to indent lines; tabs are not allowed
+ 57 | ERROR   | Closing parenthesis of a multi-line function call must be on a
+    |         | line by itself
+ 58 | ERROR   | Spaces must be used to indent lines; tabs are not allowed
+ 58 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 3
+ 59 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 2
+ 61 | ERROR   | Line indented incorrectly; expected 4 spaces, found 0
+ 61 | ERROR   | Space after opening parenthesis of function call prohibited
+ 61 | ERROR   | Space before closing parenthesis of function call prohibited
+ 61 | WARNING | Line exceeds 85 characters; contains 125 characters
+ 62 | WARNING | Line exceeds 85 characters; contains 86 characters
+ 62 | ERROR   | Line indented incorrectly; expected at least 8 spaces, found 2
+ 63 | ERROR   | Line indented incorrectly; expected at least 8 spaces, found 3
+ 63 | ERROR   | Space after opening parenthesis of function call prohibited
+ 63 | ERROR   | Space before closing parenthesis of function call prohibited
+ 63 | WARNING | Line exceeds 85 characters; contains 93 characters
+ 64 | ERROR   | Line indented incorrectly; expected at least 8 spaces, found 3
+ 66 | ERROR   | Line indented incorrectly; expected at least 8 spaces, found 4
+ 66 | ERROR   | Space after opening parenthesis of function call prohibited
+ 66 | ERROR   | Space after opening parenthesis of function call prohibited
+ 66 | ERROR   | Space before closing parenthesis of function call prohibited
+ 66 | ERROR   | Space before closing parenthesis of function call prohibited
+ 66 | WARNING | Line exceeds 85 characters; contains 112 characters
+ 67 | ERROR   | Line indented incorrectly; expected at least 8 spaces, found 4
+ 67 | ERROR   | Space after opening parenthesis of function call prohibited
+ 67 | ERROR   | Space after opening parenthesis of function call prohibited
+ 67 | ERROR   | Space before closing parenthesis of function call prohibited
+ 67 | ERROR   | Space before closing parenthesis of function call prohibited
+ 67 | WARNING | Line exceeds 85 characters; contains 104 characters
+ 69 | ERROR   | Line indented incorrectly; expected at least 8 spaces, found 3
+ 70 | ERROR   | Line indented incorrectly; expected at least 8 spaces, found 2
+ 71 | ERROR   | Closing brace must be on a line by itself
+ 73 | ERROR   | Closing brace must be on a line by itself
+ 76 | ERROR   | Spaces must be used to indent lines; tabs are not allowed
+ 76 | WARNING | Line exceeds 85 characters; contains 88 characters
+ 77 | ERROR   | Spaces must be used to indent lines; tabs are not allowed
+ 77 | ERROR   | Line indented incorrectly; expected 0 spaces, found 2
+ 77 | ERROR   | Space after opening parenthesis of function call prohibited
+ 77 | ERROR   | Space before closing parenthesis of function call prohibited
+ 77 | WARNING | Line exceeds 85 characters; contains 113 characters
+ 78 | ERROR   | Spaces must be used to indent lines; tabs are not allowed
+ 78 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 1
+ 79 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 2
+ 79 | ERROR   | Space after opening parenthesis of function call prohibited
+ 79 | ERROR   | Space before closing parenthesis of function call prohibited
+ 80 | ERROR   | Closing brace must be on a line by itself
+ 82 | ERROR   | Space after opening parenthesis of function call prohibited
+ 82 | ERROR   | Space after opening parenthesis of function call prohibited
+ 82 | ERROR   | Space before closing parenthesis of function call prohibited
+ 82 | ERROR   | Space after opening parenthesis of function call prohibited
+ 82 | ERROR   | Space before closing parenthesis of function call prohibited
+ 82 | ERROR   | Space before closing parenthesis of function call prohibited
+ 82 | WARNING | Line exceeds 85 characters; contains 348 characters
+--------------------------------------------------------------------------------
+
+
+FILE: .../node_modules/pa11y/node_modules/once/node_modules/wrappy/test/basic.js
+--------------------------------------------------------------------------------
+FOUND 0 ERROR(S) AND 1 WARNING(S) AFFECTING 1 LINE(S)
+--------------------------------------------------------------------------------
+ 8 | WARNING | Inline control structures are discouraged
+--------------------------------------------------------------------------------
+
+
+FILE: ...ncil/node_modules/pa11y/node_modules/once/node_modules/wrappy/wrappy.js
+--------------------------------------------------------------------------------
+FOUND 0 ERROR(S) AND 2 WARNING(S) AFFECTING 2 LINE(S)
+--------------------------------------------------------------------------------
+  8 | WARNING | Inline control structures are discouraged
+ 10 | WARNING | Inline control structures are discouraged
+--------------------------------------------------------------------------------
+
+
+FILE: ...a/wp-content/themes/pencil/node_modules/pa11y/node_modules/once/once.js
+--------------------------------------------------------------------------------
+FOUND 0 ERROR(S) AND 1 WARNING(S) AFFECTING 1 LINE(S)
+--------------------------------------------------------------------------------
+ 15 | WARNING | Inline control structures are discouraged
+--------------------------------------------------------------------------------
+
+
+FILE: ...ontent/themes/pencil/node_modules/pa11y/node_modules/async/lib/async.js
+--------------------------------------------------------------------------------
+FOUND 0 ERROR(S) AND 6 WARNING(S) AFFECTING 6 LINE(S)
+--------------------------------------------------------------------------------
+  43 | WARNING | Inline control structures are discouraged
+  51 | WARNING | Inline control structures are discouraged
+ 125 | WARNING | Inline control structures are discouraged
+ 433 | WARNING | Inline control structures are discouraged
+ 436 | WARNING | Inline control structures are discouraged
+ 516 | WARNING | Inline control structures are discouraged
+--------------------------------------------------------------------------------
+
+
+FILE: ...ontent/themes/pencil/node_modules/pa11y/node_modules/commander/index.js
+--------------------------------------------------------------------------------
+FOUND 0 ERROR(S) AND 19 WARNING(S) AFFECTING 19 LINE(S)
+--------------------------------------------------------------------------------
+  46 | WARNING | Inline control structures are discouraged
+ 175 | WARNING | Inline control structures are discouraged
+ 211 | WARNING | Inline control structures are discouraged
+ 278 | WARNING | Inline control structures are discouraged
+ 306 | WARNING | Inline control structures are discouraged
+ 383 | WARNING | Inline control structures are discouraged
+ 385 | WARNING | Inline control structures are discouraged
+ 395 | WARNING | Inline control structures are discouraged
+ 440 | WARNING | Inline control structures are discouraged
+ 481 | WARNING | Inline control structures are discouraged
+ 482 | WARNING | Inline control structures are discouraged
+ 684 | WARNING | Inline control structures are discouraged
+ 780 | WARNING | Inline control structures are discouraged
+ 814 | WARNING | Inline control structures are discouraged
+ 834 | WARNING | Inline control structures are discouraged
+ 848 | WARNING | Inline control structures are discouraged
+ 870 | WARNING | Inline control structures are discouraged
+ 927 | WARNING | Inline control structures are discouraged
+ 992 | WARNING | Inline control structures are discouraged
+--------------------------------------------------------------------------------
+
+
+FILE: ..._modules/chalk/node_modules/strip-ansi/node_modules/ansi-regex/index.js
+--------------------------------------------------------------------------------
+FOUND 1 ERROR(S) AFFECTING 1 LINE(S)
+--------------------------------------------------------------------------------
+ 3 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+--------------------------------------------------------------------------------
+
+
+FILE: .../node_modules/pa11y/node_modules/chalk/node_modules/strip-ansi/index.js
+--------------------------------------------------------------------------------
+FOUND 1 ERROR(S) AFFECTING 1 LINE(S)
+--------------------------------------------------------------------------------
+ 5 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+--------------------------------------------------------------------------------
+
+
+FILE: ...les/pa11y/node_modules/chalk/node_modules/escape-string-regexp/index.js
+--------------------------------------------------------------------------------
+FOUND 4 ERROR(S) AFFECTING 4 LINE(S)
+--------------------------------------------------------------------------------
+  6 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  7 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  8 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 10 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+--------------------------------------------------------------------------------
+
+
+FILE: ...node_modules/pa11y/node_modules/chalk/node_modules/ansi-styles/index.js
+--------------------------------------------------------------------------------
+FOUND 52 ERROR(S) AFFECTING 52 LINE(S)
+--------------------------------------------------------------------------------
+  4 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  5 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  6 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  7 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  8 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  9 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 10 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 11 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 12 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 13 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 14 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 15 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 16 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 17 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 18 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 19 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 20 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 21 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 22 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 23 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 24 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 25 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 26 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 27 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 28 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 29 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 30 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 31 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 32 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 33 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 34 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 35 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 36 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 38 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 39 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 41 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 42 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 44 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 45 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 47 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 48 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 49 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 50 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 51 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 53 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 54 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 55 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 56 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 57 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 59 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 63 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 64 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+--------------------------------------------------------------------------------
+
+
+FILE: ...de_modules/chalk/node_modules/has-ansi/node_modules/ansi-regex/index.js
+--------------------------------------------------------------------------------
+FOUND 1 ERROR(S) AFFECTING 1 LINE(S)
+--------------------------------------------------------------------------------
+ 3 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+--------------------------------------------------------------------------------
+
+
+FILE: ...e_modules/pa11y/node_modules/chalk/node_modules/supports-color/index.js
+--------------------------------------------------------------------------------
+FOUND 33 ERROR(S) AFFECTING 33 LINE(S)
+--------------------------------------------------------------------------------
+  6 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  7 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  8 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 12 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 13 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 14 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 16 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 17 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 18 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 19 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 20 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 22 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 23 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 24 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 25 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 26 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 27 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 29 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 30 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 31 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 33 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 34 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 35 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 37 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 38 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 39 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 41 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 42 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 43 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 45 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 46 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 47 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 49 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+--------------------------------------------------------------------------------
+
+
+FILE: ...wp-content/themes/pencil/node_modules/pa11y/node_modules/chalk/index.js
+--------------------------------------------------------------------------------
+FOUND 64 ERROR(S) AFFECTING 64 LINE(S)
+--------------------------------------------------------------------------------
+  11 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  12 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  17 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  21 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  23 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  24 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  26 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  27 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  28 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  29 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  30 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  31 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  33 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  39 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  40 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  41 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  43 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  44 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  45 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  46 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  47 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  48 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  50 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  54 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  55 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  56 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  57 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  59 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  60 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  61 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  62 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  63 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  64 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  66 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  67 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  68 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  70 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  71 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  73 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  74 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  75 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  76 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  77 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  78 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  79 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  81 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  82 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  84 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  85 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  86 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  87 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  88 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  90 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  91 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  93 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  97 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+  99 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 100 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 101 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 102 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 103 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 104 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 105 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+ 107 | ERROR | Spaces must be used to indent lines; tabs are not allowed
+--------------------------------------------------------------------------------
+
