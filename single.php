@@ -9,28 +9,28 @@
 
 get_header(); ?>
 <div class="row">
-        <div id="primary" class="content-area col-md-8<?php if ( ! get_theme_mod( 'single_page_sidebar', 1 ) ) { echo ' col-md-offset-2'; } ?>">
+		<div id="primary" class="content-area col-md-8<?php if ( ! get_theme_mod( 'single_page_sidebar', 1 ) ) { echo ' col-md-offset-2'; } ?>">
 		<main id="main" class="site-main row" role="main">
 
 		<?php while ( have_posts() ) : the_post(); ?>
-                    
-                    <?php if ( is_attachment() ) : ?>
-                    <div class="col-md-12">
-                        <div class="category-list">
-                            <?php echo esc_html__( 'Attachment page', 'pencil' );?>
-                        </div>
-                    </div>
-                    
-                    <?php elseif ( is_single() ) : ?>
-                    <div class="col-md-12">
-                        <div class="category-list">
-                            <?php echo wp_kses_post( get_the_category_list( esc_html__( ' &#x2f; ', 'pencil' ) ) );?>
-                        </div>
-                    </div>
-                    <?php endif; ?>
-                    
+					
+					<?php if ( is_attachment() ) : ?>
+					<div class="col-md-12">
+						<div class="category-list">
+							<?php echo esc_html__( 'Attachment page', 'pencil' );?>
+						</div>
+					</div>
+					
+					<?php elseif ( is_single() ) : ?>
+					<div class="col-md-12">
+						<div class="category-list">
+							<?php echo wp_kses_post( get_the_category_list( esc_html__( ' &#x2f; ', 'pencil' ) ) );?>
+						</div>
+					</div>
+					<?php endif; ?>
+					
 			<?php get_template_part( 'template-parts/content-single', get_post_format() ); ?>
-                    
+					
 			<?php if ( get_theme_mod( 'single_post_navigation', 1 ) ) :
 
 							the_post_navigation(
