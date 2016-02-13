@@ -19,10 +19,6 @@ php:
   - "5.5"
   # aliased to a recent 5.4.x version
   #- "5.4"
-  # aliased to a recent 5.3.x version
-  #- "5.3"
-  # Current $required_php_version for WordPress: 5.2.4 - not supported out of the box on Shippable
-  #- "5.2"
 
 # Declare which versions of WordPress to test against.
 # Also declare whether or not to test in Multisite.
@@ -32,24 +28,15 @@ env:
   # @link https://github.com/WordPress/WordPress
   - WP_VERSION=master WP_MULTISITE=0
   - WP_VERSION=master WP_MULTISITE=1
-  # WordPress 4.4
-  # @link https://github.com/WordPress/WordPress/tree/4.4-branch
-  #- WP_VERSION=4.4 WP_MULTISITE=0
-  #- WP_VERSION=4.4 WP_MULTISITE=1
   # WordPress 4.2
   # @link https://github.com/WordPress/WordPress/tree/4.2-branch
   - WP_VERSION=4.2 WP_MULTISITE=0
   #- WP_VERSION=4.1 WP_MULTISITE=1
 
-# Declare 5.6 beta in test matrix.
 # @link https://buddypress.trac.wordpress.org/ticket/5620
 # @link http://docs.travis-ci.com/user/build-configuration/
 #matrix:
   #include:
-    #- php: 5.2
-    #- php: 5.3
-    #- php: 5.4
-    #- php: 5.5
     #- php: 5.6
     #- php: 7.0
     #- php: 7.1
@@ -159,8 +146,6 @@ before_script:
   #- npm install -g jshint
   # Run some grunt build tasks
   #- grunt
-  # After CodeSniffer install you should refresh your path.
-  #- phpenv rehash
   # check which php version is used
   #- php -v
 
