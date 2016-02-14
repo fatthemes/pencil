@@ -183,13 +183,6 @@ script:
   - $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php --ignore=*/node_modules/*,*/vendor/*,class-tgm-plugin-activation.php,class-media-grabber.php
 
 after_script:
-  #- ls
-  #- cd
-  #- ls
-  #- ls $WP_DEVELOP_DIR
-  #- rm -Rf $WP_DEVELOP_DIR
-  #- mysql -e 'DROP DATABASE wordpress_test;' -uroot
-  #- ls
 
 # Receive notifications for build results.
 # @link http://docs.travis-ci.com/user/notifications/#Email-notifications
