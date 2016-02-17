@@ -60,20 +60,20 @@ before_install:
   #- sudo apt-get install nginx
   #- sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
   #- ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
-  - pa11y --ignore "warning;notice" http://localhost:8080 
-  - touch site-nginx.conf
-  - echo "server {
-    server_name wp_dev;
-    listen 8080;
-    root $WP_DEVELOP_DIR;
-    location / {
-    try_files $uri $uri/ /index.php?$args;
-    }
-    }" > site-nginx.conf
-  - cp -f site-nginx.conf /etc/nginx/sites-enabled/site-nginx.conf
-  - rm -f site-nginx.conf
-  - sed -e "s?%$WP_DEVELOP_DIR%?$(pwd)?g" --in-place /etc/nginx/sites-enabled/site-nginx.conf
-  - service nginx start
+  #- pa11y --ignore "warning;notice" http://localhost:8080 
+  #- touch site-nginx.conf
+  #- echo "server {
+  #  server_name wp_dev;
+  #  listen 8080;
+  #  root $WP_DEVELOP_DIR;
+  #  location / {
+  #  try_files $uri $uri/ /index.php?$args;
+  #  }
+  #  }" > site-nginx.conf
+  #- cp -f site-nginx.conf /etc/nginx/sites-enabled/site-nginx.conf
+  #- rm -f site-nginx.conf
+  #- sed -e "s?%$WP_DEVELOP_DIR%?$(pwd)?g" --in-place /etc/nginx/sites-enabled/site-nginx.conf
+  #- service nginx start
   # start mysql
   - service mysql start
   # install jshint
@@ -176,7 +176,7 @@ script:
   #- grunt jshint
   - jshint .
   # Checking with pa11y
-  - pa11y --ignore "warning;notice" http://localhost
+  #- pa11y --ignore "warning;notice" http://localhost
   # WordPress Coding Standards
   # @link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards
   # @link http://pear.php.net/package/PHP_CodeSniffer/
