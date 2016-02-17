@@ -176,7 +176,7 @@ script:
   #- grunt jshint
   - jshint .
   # Checking with pa11y
-  #- pa11y --ignore "warning;notice" http://localhost
+  - pa11y google.com
   # WordPress Coding Standards
   # @link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards
   # @link http://pear.php.net/package/PHP_CodeSniffer/
