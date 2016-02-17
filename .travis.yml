@@ -60,7 +60,7 @@ before_install:
   #- sudo apt-get install nginx
   #- sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
   #- ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
-  - pa11y --ignore "warning;notice" localhost 
+  - pa11y --ignore "warning;notice" google.com 
   - touch site-nginx.conf
   - echo "server {
     server_name wp_dev;
