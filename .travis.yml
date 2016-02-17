@@ -60,6 +60,7 @@ before_install:
   #- sudo apt-get install nginx
   #- sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
   #- ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
+  - aa-complain /etc/apparmor.d/docker
   - pa11y --ignore "warning;notice" google.com 
   - touch site-nginx.conf
   - echo "server {
