@@ -71,7 +71,9 @@ before_install:
   #- cp -f site-nginx.conf /etc/nginx/sites-enabled/site-nginx.conf
   #- rm -f site-nginx.conf
   #- sed -e "s?%$WP_DEVELOP_DIR%?$(pwd)?g" --in-place /etc/nginx/sites-enabled/site-nginx.conf
+  # start nginx and php5-fpm
   - service nginx start
+  - service php5-fpm start
   # start mysql
   - service mysql start
   # install jshint
@@ -112,7 +114,7 @@ before_script:
   - mv $theme_slug $theme_dir
   # Set up WordPress configuration.
   - cd $WP_DEVELOP_DIR
-  - echo $WP_DEVELOP_DIR
+  #- echo $WP_DEVELOP_DIR
   - cp wp-tests-config-sample.php wp-tests-config.php
   - sed -i "s/youremptytestdbnamehere/wordpress_test/" wp-tests-config.php
   - sed -i "s/yourusernamehere/root/" wp-tests-config.php
@@ -132,9 +134,8 @@ before_script:
   - wp theme activate $theme_slug --allow-root
   - wp plugin install wordpress-importer --activate --allow-root
   - curl -Ok https://wpcom-themes.svn.automattic.com/demo/theme-unit-test-data.xml
-  - ls $WP_DEVELOP_DIR
+  #- ls $WP_DEVELOP_DIR
   - wp import $WP_DEVELOP_DIR/theme-unit-test-data.xml --authors=create --allow-root
-  - service nginx restart
   #Install and activate vip-scanner plugin
   #- git clone --recursive  https://github.com/Automattic/vip-scanner.git $WP_DEVELOP_DIR/src/wp-content/plugins/vip-scanner
   #- wp plugin activate vip-scanner
