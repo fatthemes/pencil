@@ -131,7 +131,8 @@ before_script:
   - wp core install --url=wp.dev --title="Local WordPress Dev" --admin_name=admin --admin_email="admin@local.dev" --admin_password="password" --allow-root
   - wp theme activate $theme_slug --allow-root
   - wp plugin install wordpress-importer --activate --allow-root
-  - curl -Ok theme-unit-test-data.xml https://wpcom-themes.svn.automattic.com/demo/theme-unit-test-data.xml
+  - curl -Ok https://wpcom-themes.svn.automattic.com/demo/theme-unit-test-data.xml
+  - ls $WP_DEVELOP_DIR
   - wp import $WP_DEVELOP_DIR/theme-unit-test-data.xml --authors=create --allow-root
   #Install and activate vip-scanner plugin
   #- git clone --recursive  https://github.com/Automattic/vip-scanner.git $WP_DEVELOP_DIR/src/wp-content/plugins/vip-scanner
