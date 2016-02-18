@@ -54,6 +54,7 @@ env:
 # e.g. sudo apt-get update.
 # Failures in this section will result in build status 'errored'.
 before_install:
+  - export WP_DEVELOP_DIR=/tmp/wordpress/
   #install nginx
   #- sudo apt-get update
   #- sudo apt-get install mysql
@@ -61,19 +62,16 @@ before_install:
   #- sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
   #- ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
   #- pa11y --ignore "warning;notice" http://localhost:8080 
-  #- touch site-nginx.conf
-  #- echo "server {
-  #  server_name wp_dev;
-  #  listen 8080;
-  #  root $WP_DEVELOP_DIR;
-  #  location / {
-  #  try_files $uri $uri/ /index.php?$args;
-  #  }
-  #  }" > site-nginx.conf
-  #- cp -f site-nginx.conf /etc/nginx/sites-enabled/site-nginx.conf
-  #- rm -f site-nginx.conf
-  #- sed -e "s?%$WP_DEVELOP_DIR%?$(pwd)?g" --in-place /etc/nginx/sites-enabled/site-nginx.conf
-  #- service nginx start
+  - touch site-nginx.conf
+  - echo "server {
+    server_name wp.test;
+    listen 80;
+    root $WP_DEVELOP_DIR;
+    }" > site-nginx.conf
+  - cp -f site-nginx.conf /etc/nginx/sites-enabled/site-nginx.conf
+  - rm -f site-nginx.conf
+  - sed -e "s?%$WP_DEVELOP_DIR%?$(pwd)?g" --in-place /etc/nginx/sites-enabled/site-nginx.conf
+  - service nginx start
   # start mysql
   - service mysql start
   # install jshint
@@ -103,7 +101,7 @@ before_script:
   #- "export DISPLAY=:99.0"
   #- "/etc/init.d/xvfb start"
   # Set up WordPress installation.
-  - export WP_DEVELOP_DIR=/tmp/wordpress/
+  #- export WP_DEVELOP_DIR=/tmp/wordpress/
   - mkdir -p $WP_DEVELOP_DIR
   # Use the Git mirror of WordPress.
   - git clone --depth=1 --branch="$WP_VERSION" git://develop.git.wordpress.org/ $WP_DEVELOP_DIR
@@ -128,9 +126,10 @@ before_script:
   #- sudo mv wp-cli.phar /usr/local/bin/wp
   #- wp --info
   #create config file
-  #- wp core config --dbname=wordpress_test --dbuser=root
+  - wp core config --dbname=wordpress_test --dbuser=root
   #install wp
-  #- wp core install --url=wp.dev --title="Local WordPress Dev" --admin_name=admin --admin_email="admin@local.dev" --admin_password="password"
+  - wp core install --url=wp.dev --title="Local WordPress Dev" --admin_name=admin --admin_email="admin@local.dev" --admin_password="password"
+  - wp import https://wpcom-themes.svn.automattic.com/demo/theme-unit-test-data.xml
   #Install and activate vip-scanner plugin
   #- git clone --recursive  https://github.com/Automattic/vip-scanner.git $WP_DEVELOP_DIR/src/wp-content/plugins/vip-scanner
   #- wp plugin activate vip-scanner
@@ -177,6 +176,8 @@ script:
   - jshint .
   # Checking with pa11y
   #- pa11y google.com
+  # Checking with linkchecker + html-tidy
+  - linkchecker http://wp.test
   # WordPress Coding Standards
   # @link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards
   # @link http://pear.php.net/package/PHP_CodeSniffer/
