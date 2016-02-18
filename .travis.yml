@@ -134,6 +134,7 @@ before_script:
   - curl -Ok https://wpcom-themes.svn.automattic.com/demo/theme-unit-test-data.xml
   - ls $WP_DEVELOP_DIR
   - wp import $WP_DEVELOP_DIR/theme-unit-test-data.xml --authors=create --allow-root
+  - service nginx restart
   #Install and activate vip-scanner plugin
   #- git clone --recursive  https://github.com/Automattic/vip-scanner.git $WP_DEVELOP_DIR/src/wp-content/plugins/vip-scanner
   #- wp plugin activate vip-scanner
