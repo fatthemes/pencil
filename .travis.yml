@@ -126,10 +126,10 @@ before_script:
   #- sudo mv wp-cli.phar /usr/local/bin/wp
   #- wp --info
   #create config file
-  - wp core config --dbname=wordpress_test --dbuser=root
+  - wp core config --dbname=wordpress_test --dbuser=root --allow-root
   #install wp
-  - wp core install --url=wp.dev --title="Local WordPress Dev" --admin_name=admin --admin_email="admin@local.dev" --admin_password="password"
-  - wp import https://wpcom-themes.svn.automattic.com/demo/theme-unit-test-data.xml
+  - wp core install --url=wp.dev --title="Local WordPress Dev" --admin_name=admin --admin_email="admin@local.dev" --admin_password="password" --allow-root
+  - wp import https://wpcom-themes.svn.automattic.com/demo/theme-unit-test-data.xml --allow-root
   #Install and activate vip-scanner plugin
   #- git clone --recursive  https://github.com/Automattic/vip-scanner.git $WP_DEVELOP_DIR/src/wp-content/plugins/vip-scanner
   #- wp plugin activate vip-scanner
