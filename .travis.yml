@@ -193,7 +193,7 @@ script:
   # --extensions: Only sniff PHP files.
   - $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php --ignore=*/node_modules/*,*/vendor/*,class-tgm-plugin-activation.php,class-media-grabber.php
   # Checking with linkchecker + html-tidy
-  - linkchecker -r 0 --ignore-url=feed|rss|xmlrpc http://wp.dev/?s=page
+  - linkchecker -r 1 --ignore-url="feed|rss|xmlrpc" http://wp.dev/?s=page
 
 after_script:
 
