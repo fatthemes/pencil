@@ -212,7 +212,7 @@ notifications:
 
 after_success:
   - if [[ $BRANCH != beta  &&  $BRANCH != master ]]; then git checkout beta;fi
-  #- if [[ $BRANCH != beta ] && [ $BRANCH != master ]]; then git reset --hard;fi
-  #- if [[ $BRANCH != beta ] && [ $BRANCH != master ]]; then git clean -f;fi
-  #- if [[ $BRANCH != beta ] && [ $BRANCH != master ]]; then git merge $BRANCH;fi
-  #- if [[ $BRANCH != beta ] && [ $BRANCH != master ]]; then git push origin;fi
+  - if [[ $BRANCH != beta && $BRANCH != master ]]; then git reset --hard;fi
+  - if [[ $BRANCH != beta && $BRANCH != master ]]; then git clean -f;fi
+  - if [[ $BRANCH != beta && $BRANCH != master ]]; then git merge $BRANCH;fi
+  - if [[ $BRANCH != beta && $BRANCH != master ]]; then git push origin;fi
