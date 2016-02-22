@@ -49,6 +49,7 @@ module.exports = function (grunt) {
                 //require('pixrem')(), // add fallbacks for rem units
                 require('cssnext')(),
                 require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
+                require('postcss-discard-duplicates')(),
                 //require('cssnano')(), // minify the result
                 //require('rtlcss')() // right to left
               ]
