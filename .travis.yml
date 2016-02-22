@@ -211,10 +211,4 @@ notifications:
   email: false
 
 after_success:
-  - if [[ "$BRANCH" != "beta" ] && [ "$BRANCH" != "master" ]]; then 
-  - git checkout beta
-  - git reset --hard
-  - git clean -f
-  - git merge $BRANCH
-  - git push origin;
-  - fi
+  - if [[ "$BRANCH" != "beta" ] && [ "$BRANCH" != "master" ]]; then git checkout beta; git reset --hard; git clean -f; git merge $BRANCH; git push origin; fi
