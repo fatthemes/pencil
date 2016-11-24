@@ -467,7 +467,7 @@ if ( ! function_exists( 'pencil_gallery_shortcode' ) ) :
  * @param type  $instance gallery shortcode ID(???).
  * @return type
  */
-function pencil_gallery_shortcode( $output = '', $atts, $instance ) {
+function pencil_gallery_shortcode( $output = '', $atts ) {
 		// $return = $output; // Fallback.
 		$atts = array( 'size' => 'medium' );
 
