@@ -1,7 +1,7 @@
 === Pencil ===
 
 Requires at least: 4.1
-Tested up to: 4.4.2
+Tested up to: 4.6.1
 
 == Installation ==
 
@@ -11,7 +11,10 @@ Tested up to: 4.4.2
 
 == Changelog ==
 
-= 1.0.5 - Feb 11 2015 =
+= 1.1 - Nov 24 2016 =
+* Added: WP 4.6.1 compatibility
+
+= 1.0.5 - Feb 11 2016 =
 * Fixed: hidden class .byline
 * Fixed: menu background color
 * Fixed: footer text not allowing html
@@ -44,3 +47,4 @@ Tested up to: 4.4.2
 * Magnific Popup - v1.0.0 - Copyright (c) 2015 Dmitry Semenov. MIT license
 * Infinite Scroll - version 2.1.0 - Copyright 2011/12 Paul Irish & Luke Shumard. Licensed under the MIT license
 * Hybrid Media Grabber - Copyright (c) 2008 - 2015, Justin Tadlock. License - GPL 2.0
+* Screenshot images. License CC0 - https://unsplash.com
