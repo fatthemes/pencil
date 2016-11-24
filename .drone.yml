@@ -2,7 +2,7 @@ build:
   first:
     image: limestreet/test-image
     environment:
-    - WP_VERSION=4.5
+    - WP_VERSION=4.1
     - WP_VERSION1=master
     - WP_DEVELOP_DIR=/tmp/wp/
     - WP_DEVELOP_DIR1=/tmp/wp1/
@@ -149,15 +149,14 @@ build:
     - php -v
     - find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
     - jshint .
-    #- $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./phpcs.ruleset.xml --extensions=php --ignore=*/node_modules/*,*/vendor/*,class-tgm-plugin-activation.php,class-media-grabber.php --runtime-set testVersion 5.2-7.0
-    - $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./phpcs.ruleset.xml --extensions=php --ignore=*/node_modules/*,*/vendor/*,class-tgm-plugin-activation.php,class-media-grabber.php
+    #- $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./phpcs.ruleset.xml --extensions=php --ignore=*/node_modules/*,*/vendor/*,class-tgm-plugin-activation.php,class-media-grabber.php
     #- curl http://wp.test/hello-world/
     - phantomjs -v
     - casperjs --version
     #- curl http://wp.test/hello-world/
     - casperjs test casper-tests.js
     - cd $THEME_DIR
-    - rm -rf .git* .drone* .jshint* .netbeans* .travis* node_modules vendor tests Gruntfile.js casper-tests.js composer.* package.json *.ruleset.xml netbeans* *.rb *.tmp *.log Dockerfile
+    #- rm -rf .git* .drone* .jshint* .netbeans* .travis* node_modules vendor tests Gruntfile.js casper-tests.js composer.* package.json *.ruleset.xml netbeans* *.rb *.tmp *.log Dockerfile
     - wp vip-scanner scan-theme --theme=$THEME_SLUG --scan_type="Undefined Function Check" --allow-root
     when:
       branch: alpha
@@ -165,7 +164,7 @@ build:
   deploy:
     git_push:
       branch: beta
-      remote: git@bitbucket.org:fatthemes/louis-by-fat.git
+      remote: git@bitbucket.org:fatthemes/pencil.git
       force: true
       when:
         branch: alpha
