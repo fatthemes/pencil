@@ -1,6 +1,6 @@
 casper.test.begin('test 1', 4, function(test) {
     casper.start('http://wp.test/', function() {
-        test.assertResourceExists('louis.min.js');
+        test.assertResourceExists('pencil.min.js');
         test.assertTextDoesntExist('Warning:', 'No PHP Warnings');
         test.assertTextDoesntExist('Notice:', 'No PHP Notices');
         test.assertTextDoesntExist('Fatal error:', 'No PHP Fatal Errors');
