@@ -14,12 +14,12 @@ if ( ! function_exists( 'the_posts_navigation' ) ) :
  * @todo Remove this function when WordPress 4.3 is released.
  */
 function the_posts_navigation() {
-	// Don't print empty markup if there's only one page.
-	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
-		return;
-	}
-	?>
-	<nav class="navigation posts-navigation" role="navigation">
+		// Don't print empty markup if there's only one page.
+		if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
+			return;
+			}
+		?>
+		<nav class="navigation posts-navigation" role="navigation">
 		<h2 class="screen-reader-text"><?php esc_html_e( 'Posts navigation', 'pencil' ); ?></h2>
 		<div class="nav-links">
 
@@ -32,8 +32,8 @@ function the_posts_navigation() {
 			<?php endif; ?>
 
 		</div><!-- .nav-links -->
-	</nav><!-- .navigation -->
-	<?php
+		</nav><!-- .navigation -->
+		<?php
 }
 endif;
 
@@ -44,24 +44,24 @@ if ( ! function_exists( 'the_post_navigation' ) ) :
  * @todo Remove this function when WordPress 4.3 is released.
  */
 function the_post_navigation() {
-	// Don't print empty markup if there's nowhere to navigate.
-	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
-	$next     = get_adjacent_post( false, '', false );
+		// Don't print empty markup if there's nowhere to navigate.
+		$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
+		$next     = get_adjacent_post( false, '', false );
 
-	if ( ! $next && ! $previous ) {
-		return;
-	}
-	?>
-	<nav class="navigation post-navigation" role="navigation">
+		if ( ! $next && ! $previous ) {
+			return;
+			}
+		?>
+		<nav class="navigation post-navigation" role="navigation">
 		<h2 class="screen-reader-text"><?php esc_html_e( 'Post navigation', 'pencil' ); ?></h2>
 		<div class="nav-links">
 			<?php
 				previous_post_link( '<div class="nav-previous">%link</div>', '%title' );
 				next_post_link( '<div class="nav-next">%link</div>', '%title' );
 			?>
-		</div><!-- .nav-links -->
-	</nav><!-- .navigation -->
-	<?php
+			</div><!-- .nav-links -->
+			</nav><!-- .navigation -->
+			<?php
 }
 endif;
 
@@ -70,32 +70,32 @@ if ( ! function_exists( 'pencil_posted_on' ) ) :
  * Prints HTML with meta information for the current post-date/time and author.
  */
 function pencil_posted_on() {
-	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 
-	$time_string = sprintf( $time_string,
+		$time_string = sprintf( $time_string,
 		esc_attr( get_the_date( 'c' ) ),
 		human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) )
-	);
+			);
 
-	$posted_on = sprintf(
-		esc_html_x( '%s ago', 'post date', 'pencil' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-	);
+			$posted_on = sprintf(
+			esc_html_x( '%s ago', 'post date', 'pencil' ),
+			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+			);
 
-	$byline = sprintf(
-		esc_html_x( ' by %s', 'post author', 'pencil' ),
-		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-	);
+			$byline = sprintf(
+			esc_html_x( ' by %s', 'post author', 'pencil' ),
+			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+			);
 
-		if ( is_singular() ) {
+			if ( is_singular() ) {
 
-			echo '<div class="author-avatar">' . get_avatar( get_the_author_meta( 'ID' ) ) . '</div><span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
+				echo '<div class="author-avatar">' . get_avatar( get_the_author_meta( 'ID' ) ) . '</div><span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
 
-		} else {
+				} else {
 
-			echo '<span class="byline"> ' . $byline . '</span><span class="posted-on"> / ' . $posted_on . '</span>'; // WPCS: XSS OK.
+				echo '<span class="byline"> ' . $byline . '</span><span class="posted-on"> / ' . $posted_on . '</span>'; // WPCS: XSS OK.
 
-		}
+				}
 }
 endif;
 
@@ -104,23 +104,23 @@ if ( ! function_exists( 'pencil_entry_footer' ) ) :
  * Prints HTML with meta information for the categories, tags and comments.
  */
 function pencil_entry_footer() {
-	// Hide category and tag text for pages.
-	if ( 'post' == get_post_type() ) {
+		// Hide category and tag text for pages.
+		if ( 'post' == get_post_type() ) {
 
-		// Translators: used between list items, there is a space after the comma.
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'pencil' ) );
-		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged: %1$s', 'pencil' ) . '</span>', $tags_list ); // WPCS: XSS OK.
-		}
-	}
+			// Translators: used between list items, there is a space after the comma.
+			$tags_list = get_the_tag_list( '', esc_html__( ', ', 'pencil' ) );
+			if ( $tags_list ) {
+				printf( '<span class="tags-links">' . esc_html__( 'Tagged: %1$s', 'pencil' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			}
+			}
 
-	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<span class="comments-link">';
-		comments_popup_link( esc_html__( 'Leave a comment', 'pencil' ), esc_html__( '1 Comment', 'pencil' ), esc_html__( '% Comments', 'pencil' ) );
-		echo '</span>';
-	}
+		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+			echo '<span class="comments-link">';
+			comments_popup_link( esc_html__( 'Leave a comment', 'pencil' ), esc_html__( '1 Comment', 'pencil' ), esc_html__( '% Comments', 'pencil' ) );
+			echo '</span>';
+			}
 
-	edit_post_link( esc_html__( 'Edit', 'pencil' ), '<span class="edit-link">', '</span>' );
+		edit_post_link( esc_html__( 'Edit', 'pencil' ), '<span class="edit-link">', '</span>' );
 }
 endif;
 
@@ -136,58 +136,58 @@ if ( ! function_exists( 'the_archive_title' ) ) :
  * @param string $after  Optional. Content to append to the title. Default empty.
  */
 function the_archive_title( $before = '', $after = '' ) {
-	if ( is_category() ) {
-		$title = sprintf( esc_html__( 'Category: %s', 'pencil' ), single_cat_title( '', false ) );
-	} elseif ( is_tag() ) {
-		$title = sprintf( esc_html__( 'Tag: %s', 'pencil' ), single_tag_title( '', false ) );
-	} elseif ( is_author() ) {
-		$title = sprintf( esc_html__( 'Author: %s', 'pencil' ), '<span class="vcard">' . get_the_author() . '</span>' );
-	} elseif ( is_year() ) {
-		$title = sprintf( esc_html__( 'Year: %s', 'pencil' ), get_the_date( esc_html_x( 'Y', 'yearly archives date format', 'pencil' ) ) );
-	} elseif ( is_month() ) {
-		$title = sprintf( esc_html__( 'Month: %s', 'pencil' ), get_the_date( esc_html_x( 'F Y', 'monthly archives date format', 'pencil' ) ) );
-	} elseif ( is_day() ) {
-		$title = sprintf( esc_html__( 'Day: %s', 'pencil' ), get_the_date( esc_html_x( 'F j, Y', 'daily archives date format', 'pencil' ) ) );
-	} elseif ( is_tax( 'post_format' ) ) {
-		if ( is_tax( 'post_format', 'post-format-aside' ) ) {
-			$title = esc_html_x( 'Asides', 'post format archive title', 'pencil' );
-		} elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
-			$title = esc_html_x( 'Galleries', 'post format archive title', 'pencil' );
-		} elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
-			$title = esc_html_x( 'Images', 'post format archive title', 'pencil' );
-		} elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
-			$title = esc_html_x( 'Videos', 'post format archive title', 'pencil' );
-		} elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
-			$title = esc_html_x( 'Quotes', 'post format archive title', 'pencil' );
-		} elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
-			$title = esc_html_x( 'Links', 'post format archive title', 'pencil' );
-		} elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
-			$title = esc_html_x( 'Statuses', 'post format archive title', 'pencil' );
-		} elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
-			$title = esc_html_x( 'Audio', 'post format archive title', 'pencil' );
-		} elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
-			$title = esc_html_x( 'Chats', 'post format archive title', 'pencil' );
-		}
-	} elseif ( is_post_type_archive() ) {
-		$title = sprintf( esc_html__( 'Archives: %s', 'pencil' ), post_type_archive_title( '', false ) );
-	} elseif ( is_tax() ) {
-		$tax = get_taxonomy( get_queried_object()->taxonomy );
-		/* translators: 1: Taxonomy singular name, 2: Current taxonomy term */
-		$title = sprintf( esc_html__( '%1$s: %2$s', 'pencil' ), $tax->labels->singular_name, single_term_title( '', false ) );
-	} else {
-		$title = esc_html__( 'Archives', 'pencil' );
-	}
+		if ( is_category() ) {
+			$title = sprintf( esc_html__( 'Category: %s', 'pencil' ), single_cat_title( '', false ) );
+			} elseif ( is_tag() ) {
+			$title = sprintf( esc_html__( 'Tag: %s', 'pencil' ), single_tag_title( '', false ) );
+			} elseif ( is_author() ) {
+			$title = sprintf( esc_html__( 'Author: %s', 'pencil' ), '<span class="vcard">' . get_the_author() . '</span>' );
+			} elseif ( is_year() ) {
+			$title = sprintf( esc_html__( 'Year: %s', 'pencil' ), get_the_date( esc_html_x( 'Y', 'yearly archives date format', 'pencil' ) ) );
+			} elseif ( is_month() ) {
+			$title = sprintf( esc_html__( 'Month: %s', 'pencil' ), get_the_date( esc_html_x( 'F Y', 'monthly archives date format', 'pencil' ) ) );
+			} elseif ( is_day() ) {
+			$title = sprintf( esc_html__( 'Day: %s', 'pencil' ), get_the_date( esc_html_x( 'F j, Y', 'daily archives date format', 'pencil' ) ) );
+			} elseif ( is_tax( 'post_format' ) ) {
+			if ( is_tax( 'post_format', 'post-format-aside' ) ) {
+				$title = esc_html_x( 'Asides', 'post format archive title', 'pencil' );
+				} elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
+				$title = esc_html_x( 'Galleries', 'post format archive title', 'pencil' );
+				} elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
+				$title = esc_html_x( 'Images', 'post format archive title', 'pencil' );
+				} elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
+				$title = esc_html_x( 'Videos', 'post format archive title', 'pencil' );
+				} elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
+				$title = esc_html_x( 'Quotes', 'post format archive title', 'pencil' );
+				} elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
+				$title = esc_html_x( 'Links', 'post format archive title', 'pencil' );
+				} elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
+				$title = esc_html_x( 'Statuses', 'post format archive title', 'pencil' );
+				} elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
+				$title = esc_html_x( 'Audio', 'post format archive title', 'pencil' );
+				} elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
+				$title = esc_html_x( 'Chats', 'post format archive title', 'pencil' );
+				}
+			} elseif ( is_post_type_archive() ) {
+			$title = sprintf( esc_html__( 'Archives: %s', 'pencil' ), post_type_archive_title( '', false ) );
+			} elseif ( is_tax() ) {
+			$tax = get_taxonomy( get_queried_object()->taxonomy );
+			/* translators: 1: Taxonomy singular name, 2: Current taxonomy term */
+			$title = sprintf( esc_html__( '%1$s: %2$s', 'pencil' ), $tax->labels->singular_name, single_term_title( '', false ) );
+			} else {
+			$title = esc_html__( 'Archives', 'pencil' );
+			}// End if().
 
-	/**
+			/**
 	 * Filter the archive title.
 	 *
 	 * @param string $title Archive title to be displayed.
 	 */
-	$title = apply_filters( 'get_the_archive_title', $title );
+			$title = apply_filters( 'get_the_archive_title', $title );
 
-	if ( ! empty( $title ) ) {
-		echo $before . $title . $after;  // WPCS: XSS OK.
-	}
+			if ( ! empty( $title ) ) {
+			echo $before . $title . $after;  // WPCS: XSS OK.
+			}
 }
 endif;
 
@@ -203,18 +203,18 @@ if ( ! function_exists( 'the_archive_description' ) ) :
  * @param string $after  Optional. Content to append to the description. Default empty.
  */
 function the_archive_description( $before = '', $after = '' ) {
-	$description = apply_filters( 'get_the_archive_description', term_description() );
+		$description = apply_filters( 'get_the_archive_description', term_description() );
 
-	if ( ! empty( $description ) ) {
-		/**
+		if ( ! empty( $description ) ) {
+			/**
 		 * Filter the archive description.
 		 *
 		 * @see term_description()
 		 *
 		 * @param string $description Archive description to be displayed.
 		 */
-		echo $before . $description . $after;  // WPCS: XSS OK.
-	}
+			echo $before . $description . $after;  // WPCS: XSS OK.
+			}
 }
 endif;
 
@@ -225,28 +225,28 @@ if ( ! function_exists( 'pencil_categorized_blog' ) ) :
  * @return bool
  */
 function pencil_categorized_blog() {
-	if ( false === ( $all_the_cool_cats = get_transient( 'pencil_categories' ) ) ) {
-		// Create an array of all the categories that are attached to posts.
-		$all_the_cool_cats = get_categories( array(
+		if ( false === ( $all_the_cool_cats = get_transient( 'pencil_categories' ) ) ) {
+			// Create an array of all the categories that are attached to posts.
+			$all_the_cool_cats = get_categories( array(
 			'fields'     => 'ids',
 			'hide_empty' => 1,
 			// We only need to know if there is more than one category.
 			'number'     => 2,
-		) );
+			) );
 
-		// Count the number of categories that are attached to the posts.
-		$all_the_cool_cats = count( $all_the_cool_cats );
+			// Count the number of categories that are attached to the posts.
+			$all_the_cool_cats = count( $all_the_cool_cats );
 
-		set_transient( 'pencil_categories', $all_the_cool_cats );
-	}
+			set_transient( 'pencil_categories', $all_the_cool_cats );
+			}
 
-	if ( $all_the_cool_cats > 1 ) {
-		// This blog has more than 1 category so pencil_categorized_blog should return true.
-		return true;
-	} else {
-		// This blog has only 1 category so pencil_categorized_blog should return false.
-		return false;
-	}
+		if ( $all_the_cool_cats > 1 ) {
+			// This blog has more than 1 category so pencil_categorized_blog should return true.
+			return true;
+			} else {
+			// This blog has only 1 category so pencil_categorized_blog should return false.
+			return false;
+			}
 }
 endif;
 
@@ -296,23 +296,23 @@ function pencil_comment( $comment, $args, $depth ) {
 							<?php
 							/* translators: 1: date, 2: time */
 							printf( esc_html__( '%s ago', 'pencil' ), esc_html( human_time_diff( get_comment_time( 'U' ), current_time( 'timestamp' ) ) ) );                                   ?>
-							</time></a>
-							<span class="reply"><?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text' => 'REPLY', 'before' => ' &#8901; ' ) ) ); ?></span><!-- .reply -->
-							<?php edit_comment_link( __( 'Edit', 'pencil' ), ' &#8901; ' );
-							?>
-						</div><!-- .comment-meta .commentmetadata -->
-					</div><!-- .comment-author .vcard -->
-					<?php if ( '0' == $comment->comment_approved ) : ?>
+																																																</time></a>
+																																																<span class="reply"><?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text' => 'REPLY', 'before' => ' &#8901; ' ) ) ); ?></span><!-- .reply -->
+																																																<?php edit_comment_link( __( 'Edit', 'pencil' ), ' &#8901; ' );
+																																																?>
+																																																</div><!-- .comment-meta .commentmetadata -->
+																																																</div><!-- .comment-author .vcard -->
+																																																<?php if ( '0' == $comment->comment_approved ) : ?>
 						<em><?php esc_html_e( 'Your comment is awaiting moderation.', 'pencil' ); ?></em>
 						<br />
 					<?php endif; ?>
 
-				</footer>
+																																																</footer>
 
-				<div class="comment-content"><?php comment_text(); ?></div>
+																																																<div class="comment-content"><?php comment_text(); ?></div>
 
-			</article><!-- #comment-## -->
-		<?php
+																																																</article><!-- #comment-## -->
+																																																<?php
 }
 endif; // Ends check for pencil_comment().
 
@@ -326,27 +326,27 @@ if ( ! function_exists( 'pencil_comments_fields' ) ) :
  */
 function pencil_comments_fields( $fields ) {
 
-	$commenter = wp_get_current_commenter();
-	// $user = wp_get_current_user();
-	// $user_identity = $user->exists() ? $user->display_name : '';
-	if ( ! isset( $args['format'] ) ) {
-		$args['format'] = current_theme_supports( 'html5', 'comment-form' ) ? 'html5' : 'xhtml'; }
+		$commenter = wp_get_current_commenter();
+		// $user = wp_get_current_user();
+		// $user_identity = $user->exists() ? $user->display_name : '';
+		if ( ! isset( $args['format'] ) ) {
+			$args['format'] = current_theme_supports( 'html5', 'comment-form' ) ? 'html5' : 'xhtml'; }
 
-	$req      = get_option( 'require_name_email' );
-	$aria_req = ( $req ? ' aria-required="true"' : '' );
-	$html_req = ( $req ? ' required="required"' : '' );
-	$html5    = 'html5' === $args['format'];
+		$req      = get_option( 'require_name_email' );
+		$aria_req = ( $req ? ' aria-required="true"' : '' );
+		$html_req = ( $req ? ' required="required"' : '' );
+		$html5    = 'html5' === $args['format'];
 
 		$fields   = array(
 		'author' => '<div class="comment-fields"><p class="comment-form-author"><label for="author">' . esc_html__( 'Name', 'pencil' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
-		            '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '"' . $aria_req . $html_req . ' placeholder="' . esc_html__( 'Name', 'pencil' ) .'" /></p>',
+		            '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '"' . $aria_req . $html_req . ' placeholder="' . esc_html__( 'Name', 'pencil' ) . '" /></p>',
 		'email'  => '<p class="comment-form-email"><label for="email">' . esc_html__( 'Email', 'pencil' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
-		            '<input id="email" name="email" ' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_email'] ) . '"' . $aria_req . $html_req  . ' placeholder="' . esc_html__( 'Email', 'pencil' ) .'" /></p>',
+		            '<input id="email" name="email" ' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_email'] ) . '"' . $aria_req . $html_req . ' placeholder="' . esc_html__( 'Email', 'pencil' ) . '" /></p>',
 		'url'    => '<p class="comment-form-ur"><label for="url">' . esc_html__( 'Website', 'pencil' ) . '</label> ' .
-		            '<input id="url" name="url" ' . ( $html5 ? 'type="url"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_url'] ) . '" placeholder="' . esc_html__( 'Website', 'pencil' ) .'" /></p></div>',
-		);
+		            '<input id="url" name="url" ' . ( $html5 ? 'type="url"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_url'] ) . '" placeholder="' . esc_html__( 'Website', 'pencil' ) . '" /></p></div>',
+			);
 
-return $fields;
+			return $fields;
 }
 add_filter( 'comment_form_default_fields','pencil_comments_fields' );
 endif;
@@ -388,32 +388,32 @@ if ( ! function_exists( 'pencil_custom_popular_posts_html_list' ) ) :
  * @return  string
  */
 function pencil_custom_popular_posts_html_list( $mostpopular, $instance ) {
-	$output = '<ul class="fat-wpp-list">';
+		$output = '<ul class="fat-wpp-list">';
 
-	// Loop the array of popular posts objects.
-	foreach ( $mostpopular as $popular ) {
+		// Loop the array of popular posts objects.
+		foreach ( $mostpopular as $popular ) {
 
-		$post_cat = get_the_category_list( esc_html__( ' &#x2f; ', 'pencil' ), '', $popular->id );
+			$post_cat = get_the_category_list( esc_html__( ' &#x2f; ', 'pencil' ), '', $popular->id );
 
-		$thumb = get_the_post_thumbnail( $popular->id, 'medium' );
+			$thumb = get_the_post_thumbnail( $popular->id, 'medium' );
 
-		$output .= '<li>';
-		$output .= ( ! empty( $thumb )) ? '<div class="fat-wpp-image"><a href="' . esc_url( get_the_permalink( $popular->id ) ) . '" title="' . esc_attr( $popular->title ) . '">' /* . pencil_post_format_icon( $popular->id ) */ . $thumb . '</a>' : '';
-		$output .= pencil_post_format_icon( $popular->id ) . '<div class="fat-wpp-image-cat">'. $post_cat .'</div>';
-		$output .= ( ! empty( $thumb )) ? '</div>' : '';
-		$output .= '<h2 class="entry-title"><a href="' . esc_url( get_the_permalink( $popular->id ) ) . '" title="' . esc_attr( $popular->title ) . '">' . $popular->title . '</a></h2>';
-		// $output .= ( ! empty ($stats)) ? $stats : "";
-		// $output .= $excerpt;
-		$output .= '</li>';
+			$output .= '<li>';
+			$output .= ( ! empty( $thumb )) ? '<div class="fat-wpp-image"><a href="' . esc_url( get_the_permalink( $popular->id ) ) . '" title="' . esc_attr( $popular->title ) . '">' /* . pencil_post_format_icon( $popular->id ) */ . $thumb . '</a>' : '';
+			$output .= pencil_post_format_icon( $popular->id ) . '<div class="fat-wpp-image-cat">' . $post_cat . '</div>';
+			$output .= ( ! empty( $thumb )) ? '</div>' : '';
+			$output .= '<h2 class="entry-title"><a href="' . esc_url( get_the_permalink( $popular->id ) ) . '" title="' . esc_attr( $popular->title ) . '">' . $popular->title . '</a></h2>';
+			// $output .= ( ! empty ($stats)) ? $stats : "";
+			// $output .= $excerpt;
+			$output .= '</li>';
 
-	}
+			}
 
-	$output .= '</ul>';
+		$output .= '</ul>';
 
-	return $output;
+		return $output;
 }
 if ( ! get_theme_mod( 'wpp_styling' ) ) {
-	add_filter( 'wpp_custom_html', 'pencil_custom_popular_posts_html_list', 10, 2 );
+		add_filter( 'wpp_custom_html', 'pencil_custom_popular_posts_html_list', 10, 2 );
 }
 endif;
 
@@ -468,11 +468,10 @@ if ( ! function_exists( 'pencil_gallery_shortcode' ) ) :
  * @return type
  */
 function pencil_gallery_shortcode( $output = '', $atts, $instance ) {
-	//$return = $output; // Fallback.
+		// $return = $output; // Fallback.
+		$atts = array( 'size' => 'medium' );
 
-	$atts = array( 'size' => 'medium' );
-
-	return $output;
+		return $output;
 }
 
 add_filter( 'post_gallery', 'pencil_gallery_shortcode', 10, 3 );
@@ -490,7 +489,7 @@ function pencil_post_format_icon( $post_id ) {
 
 		if ( empty( $post_id ) ) {
 			return;
-		}
+			}
 
 		$format = get_post_format( $post_id );
 
@@ -498,15 +497,15 @@ function pencil_post_format_icon( $post_id ) {
 
 				return;
 
-		} else {
+			} else {
 
-				if ( 'audio' === $format ) {
-					return '<div class="pencil-post-format-icon"><span class="fa fa-music"></span></div>';
+			if ( 'audio' === $format ) {
+				return '<div class="pencil-post-format-icon"><span class="fa fa-music"></span></div>';
 				} elseif ( 'video' === $format ) {
-					return '<div class="pencil-post-format-icon"><span class="fa fa-video-camera"></span></div>';
+				return '<div class="pencil-post-format-icon"><span class="fa fa-video-camera"></span></div>';
 				} elseif ( 'gallery' === $format ) {
-					return '<div class="pencil-post-format-icon"><span class="fa fa-camera"></span></div>';
+				return '<div class="pencil-post-format-icon"><span class="fa fa-camera"></span></div>';
 				}
-		}
+			}
 }
 endif;

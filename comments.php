@@ -76,9 +76,9 @@ if ( post_password_required() ) {
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 	?>
-		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'pencil' ); ?></p>
+	<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'pencil' ); ?></p>
 	<?php endif; ?>
 
-	<?php comment_form( array( 'comment_field' => '<p class="comment-form-comment"><label for="comment">' . esc_html__( 'Comment', 'pencil' ) . '</label> <textarea id="comment" name="comment" rows="1" aria-required="true" required="required" placeholder="' . esc_html__( 'Comment', 'pencil' ) .'" ></textarea></p>', 'comment_notes_before' => '' ) ) ?>
+	<?php comment_form( array( 'comment_field' => '<p class="comment-form-comment"><label for="comment">' . esc_html__( 'Comment', 'pencil' ) . '</label> <textarea id="comment" name="comment" rows="1" aria-required="true" required="required" placeholder="' . esc_html__( 'Comment', 'pencil' ) . '" ></textarea></p>', 'comment_notes_before' => '' ) ) ?>
 
 </div><!-- #comments -->
