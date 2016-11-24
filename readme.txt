@@ -13,6 +13,7 @@ Tested up to: 4.6.1
 
 = 1.1 - Nov 24 2016 =
 * Added: WP 4.6.1 compatibility
+* Fixed: pencil_gallery_shortcode() warning
 
 = 1.0.5 - Feb 11 2016 =
 * Fixed: hidden class .byline
