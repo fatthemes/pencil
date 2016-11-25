@@ -211,8 +211,10 @@ notifications:
   email: false
 
 after_success:
-  - if [[ $BRANCH != beta  &&  $BRANCH != master ]]; then git checkout beta;fi
-  - if [[ $BRANCH != beta && $BRANCH != master ]]; then git reset --hard;fi
-  - if [[ $BRANCH != beta && $BRANCH != master ]]; then git clean -f;fi
-  - if [[ $BRANCH != beta && $BRANCH != master ]]; then git merge $BRANCH;fi
-  - if [[ $BRANCH != beta && $BRANCH != master ]]; then git push origin;fi
+  - echo $BRANCH
+  - if [[ $BRANCH != beta && $BRANCH != stable ]]; then git checkout beta;fi
+  - if [[ $BRANCH != beta && $BRANCH != stable ]]; then git reset --hard;fi
+  - if [[ $BRANCH != beta && $BRANCH != stable ]]; then git clean -f;fi
+  - if [[ $BRANCH != beta && $BRANCH != stable ]]; then git merge $BRANCH;fi
+  - if [[ $BRANCH != beta && $BRANCH != stable ]]; then git push origin beta;fi
+  - if [[ $BRANCH != beta && $BRANCH != stable ]]; then git push origin :$BRANCH;fi
