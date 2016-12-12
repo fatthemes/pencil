@@ -1,7 +1,7 @@
 === Pencil ===
 
 Requires at least: 4.1
-Tested up to: 4.6.1
+Tested up to: 4.7
 
 == Installation ==
 
@@ -11,8 +11,8 @@ Tested up to: 4.6.1
 
 == Changelog ==
 
-= 1.1 - Nov 24 2016 =
-* Added: WP 4.6.1 compatibility
+= 1.1 - Dec 12 2016 =
+* Added: WP 4.7 compatibility
 * Fixed: pencil_gallery_shortcode() warning
 
 = 1.0.5 - Feb 11 2016 =
