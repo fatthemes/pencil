@@ -362,14 +362,14 @@ var pencilMenuOnHide = function() {
 };
     
 });
-
+/*
 var pencilWidth = $(window).width();
 $(window).resize(function(){
    if($(this).width() !== pencilWidth){
       location.reload();
    }
 });
-
+*/
 })(jQuery);
 
 //window.onresize = function(){ location.reload(); };
