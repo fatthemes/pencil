@@ -170,12 +170,14 @@ endif;
  */
 function pencil_scripts() {
 
-				// Add custom fonts, used in the main stylesheet.
-				wp_enqueue_style( 'pencil-fonts', pencil_fonts_url(), array(), null );
+		$pencil_theme_info = wp_get_theme();
+		
+		// Add custom fonts, used in the main stylesheet.
+		wp_enqueue_style( 'pencil-fonts', pencil_fonts_url(), array(), null );
 
 		wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/font-awesome/css/font-awesome.min.css', array(), '4.4.0' );
 
-				wp_enqueue_style( 'pencil-style', get_stylesheet_uri() );
+		wp_enqueue_style( 'pencil-style', get_stylesheet_uri(), array(), $pencil_theme_info->get( 'Version' )  );
 
 		wp_enqueue_script( 'slick', get_template_directory_uri() . '/slick/slick.min.js', array( 'jquery' ), '20150828', true );
 
@@ -187,7 +189,7 @@ function pencil_scripts() {
 
 		wp_enqueue_script( 'magnific-popup', get_template_directory_uri() . '/js/jquery.magnific-popup.min.js', array( 'jquery' ), '20150829', true );
 
-		wp_enqueue_script( 'pencil-scripts', get_template_directory_uri() . '/js/pencil.min.js', array( 'jquery' ), '20151021', true );
+		wp_enqueue_script( 'pencil-scripts', get_template_directory_uri() . '/js/pencil.min.js', array( 'jquery' ), $pencil_theme_info->get( 'Version' ), true );
 
 		wp_enqueue_script( 'pencil-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.min.js', array(), '20130115', true );
 

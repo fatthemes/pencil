@@ -11,6 +11,9 @@ Tested up to: 4.7
 
 == Changelog ==
 
+= 1.1.1 - Dec 21 2016 =
+* Fixed: reload on resize
+
 = 1.1 - Dec 12 2016 =
 * Added: WP 4.7 compatibility
 * Fixed: pencil_gallery_shortcode() warning
