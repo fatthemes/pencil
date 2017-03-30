@@ -26,7 +26,9 @@
 	</header><!-- .entry-header -->
 		<div class="featured-media row">
 				<div class="featured-image col-md-12">
-				<?php echo hybrid_media_grabber( array( 'type' => 'audio' ) ); // WPCS: XSS OK. ?>  
+				<?php echo hybrid_media_grabber( array( // WPCS: XSS OK.
+				    'type' => 'audio',
+				) ); ?>  
 				</div>
 		</div>
 		<div class="row">

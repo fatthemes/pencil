@@ -78,11 +78,13 @@ function pencil_posted_on() {
 			);
 
 			$posted_on = sprintf(
+			// Translators: months/hours/days.
 			esc_html_x( '%s ago', 'post date', 'pencil' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 			);
 
 			$byline = sprintf(
+			// Translators: Author.
 			esc_html_x( ' by %s', 'post author', 'pencil' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 			);
@@ -110,6 +112,7 @@ function pencil_entry_footer() {
 			// Translators: used between list items, there is a space after the comma.
 			$tags_list = get_the_tag_list( '', esc_html__( ', ', 'pencil' ) );
 			if ( $tags_list ) {
+				// Translators: Tags.
 				printf( '<span class="tags-links">' . esc_html__( 'Tagged: %1$s', 'pencil' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 			}
 			}
@@ -137,16 +140,22 @@ if ( ! function_exists( 'the_archive_title' ) ) :
  */
 function the_archive_title( $before = '', $after = '' ) {
 		if ( is_category() ) {
+			// Translators: Category.
 			$title = sprintf( esc_html__( 'Category: %s', 'pencil' ), single_cat_title( '', false ) );
 			} elseif ( is_tag() ) {
+			// Translators: Tag.
 			$title = sprintf( esc_html__( 'Tag: %s', 'pencil' ), single_tag_title( '', false ) );
 			} elseif ( is_author() ) {
+			// Translators: Author.
 			$title = sprintf( esc_html__( 'Author: %s', 'pencil' ), '<span class="vcard">' . get_the_author() . '</span>' );
 			} elseif ( is_year() ) {
+			// Translators: Year.
 			$title = sprintf( esc_html__( 'Year: %s', 'pencil' ), get_the_date( esc_html_x( 'Y', 'yearly archives date format', 'pencil' ) ) );
 			} elseif ( is_month() ) {
+			// Translators: Month.
 			$title = sprintf( esc_html__( 'Month: %s', 'pencil' ), get_the_date( esc_html_x( 'F Y', 'monthly archives date format', 'pencil' ) ) );
 			} elseif ( is_day() ) {
+			// Translators: Day.
 			$title = sprintf( esc_html__( 'Day: %s', 'pencil' ), get_the_date( esc_html_x( 'F j, Y', 'daily archives date format', 'pencil' ) ) );
 			} elseif ( is_tax( 'post_format' ) ) {
 			if ( is_tax( 'post_format', 'post-format-aside' ) ) {
@@ -169,6 +178,7 @@ function the_archive_title( $before = '', $after = '' ) {
 				$title = esc_html_x( 'Chats', 'post format archive title', 'pencil' );
 				}
 			} elseif ( is_post_type_archive() ) {
+			// Translators: Archive name.
 			$title = sprintf( esc_html__( 'Archives: %s', 'pencil' ), post_type_archive_title( '', false ) );
 			} elseif ( is_tax() ) {
 			$tax = get_taxonomy( get_queried_object()->taxonomy );
@@ -225,7 +235,8 @@ if ( ! function_exists( 'pencil_categorized_blog' ) ) :
  * @return bool
  */
 function pencil_categorized_blog() {
-		if ( false === ( $all_the_cool_cats = get_transient( 'pencil_categories' ) ) ) {
+		$all_the_cool_cats = get_transient( 'pencil_categories' );
+		if ( false === $all_the_cool_cats ) {
 			// Create an array of all the categories that are attached to posts.
 			$all_the_cool_cats = get_categories( array(
 			'fields'     => 'ids',
@@ -297,7 +308,12 @@ function pencil_comment( $comment, $args, $depth ) {
 							/* translators: 1: date, 2: time */
 							printf( esc_html__( '%s ago', 'pencil' ), esc_html( human_time_diff( get_comment_time( 'U' ), current_time( 'timestamp' ) ) ) );                                   ?>
 																																																</time></a>
-																																																<span class="reply"><?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text' => 'REPLY', 'before' => ' &#8901; ' ) ) ); ?></span><!-- .reply -->
+																																																<span class="reply"><?php comment_reply_link( array_merge( $args, array(
+																																																'depth' => $depth,
+																																																'max_depth' => $args['max_depth'],
+																																																'reply_text' => 'REPLY',
+																																																'before' => ' &#8901; ',
+) ) ); ?></span><!-- .reply -->
 																																																<?php edit_comment_link( __( 'Edit', 'pencil' ), ' &#8901; ' );
 																																																?>
 																																																</div><!-- .comment-meta .commentmetadata -->
@@ -425,6 +441,7 @@ if ( ! function_exists( 'pencil_gallery_content' ) ) :
  */
 function pencil_gallery_content() {
 
+		// Translators: Post title.
 		$content = get_the_content( sprintf( __( 'Read more %s <span class="meta-nav">&rarr;</span>', 'pencil' ), the_title( '<span class="screen-reader-text">"', '"</span>', false ) ) );
 		$pattern = '#\[gallery[^\]]*\]#';
 		$replacement = '';
@@ -443,6 +460,7 @@ if ( ! function_exists( 'pencil_media_content' ) ) :
  * @since pencil 1.0
  */
 function pencil_media_content() {
+		// Translators: Post title.
 		$content = get_the_content( sprintf( esc_html__( 'Read more %s <span class="meta-nav">&rarr;</span>', 'pencil' ), the_title( '<span class="screen-reader-text">"', '"</span>', false ) ) );
 		$content = apply_filters( 'the_content', $content );
 		$content = str_replace( ']]>', ']]&gt;', $content );
@@ -464,14 +482,15 @@ if ( ! function_exists( 'pencil_gallery_shortcode' ) ) :
  *
  * @param type  $output gallery shortcode output.
  * @param array $atts gallery shortcode attributes.
- * @param type  $instance gallery shortcode ID(???).
  * @return type
  */
 function pencil_gallery_shortcode( $output = '', $atts ) {
 		// $return = $output; // Fallback.
-		$atts = array( 'size' => 'medium' );
+		$atts = array(
+			'size' => 'medium',
+			);
 
-		return $output;
+			return $output;
 }
 
 add_filter( 'post_gallery', 'pencil_gallery_shortcode', 10, 3 );

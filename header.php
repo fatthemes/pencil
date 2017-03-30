@@ -34,8 +34,8 @@
 							<img src="<?php echo esc_url( get_theme_mod( 'header_logo' ) ); ?>" alt="<?php bloginfo( 'name' ); ?>" >
 						<?php else : bloginfo( 'name' );
 endif; ?>
-					</a></h1>
-			<?php else : ?>
+		</a></h1>
+<?php else : ?>
 					<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 						<?php if ( ! empty( $pencil_header_logo ) ) : ?>
 							<img src="<?php echo esc_url( get_theme_mod( 'header_logo' ) ); ?>" alt="<?php bloginfo( 'name' ); ?>" >
@@ -64,7 +64,12 @@ endif; ?>
 						<button class="search-toggle fa fa-search"></button>
 						</div>
 						<div id="toggled-navbar-bg" >
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'container_class' => 'primary-menu', 'menu_class' => 'primary-menu' ) ); ?>
+			<?php wp_nav_menu( array(
+	'theme_location' => 'primary',
+	'menu_id' => 'primary-menu',
+	'container_class' => 'primary-menu',
+	'menu_class' => 'primary-menu',
+) ); ?>
 						</div>
 		</nav><!-- #site-navigation -->
 
