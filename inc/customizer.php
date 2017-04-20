@@ -102,6 +102,23 @@ function pencil_customize_register( $wp_customize ) {
 			),
 		) );
 
+	$wp_customize->add_setting( 'home_page_slider_play_speed', array(
+		'default'        => 0,
+				'sanitize_callback' => 'absint',
+		) );
+
+	$wp_customize->add_control( 'home_page_slider_play_speed', array(
+		'label'   => esc_html__( 'Sliding speed of Home Page Slider (in ms)', 'pencil' ),
+		'section' => 'home_page',
+				'description'    => esc_html__( '0 to disable autoplay', 'pencil' ),
+		'type'    => 'number',
+				'input_attrs' => array(
+					'min'   => 0,
+					'max'   => 10000,
+					'step'  => 100,
+				),
+		) );
+	
 		// Section Single Page.
 		$wp_customize->add_section( 'single_page', array(
 			'title'          => esc_html__( 'Single Post', 'pencil' ),

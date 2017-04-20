@@ -197,10 +197,14 @@ function pencil_scripts() {
 		global $wp_query;
 		$pencil_ajax_max_pages = $wp_query->max_num_pages;
 		$pencil_ajax_paged = ( get_query_var( 'paged' ) > 1 ) ? get_query_var( 'paged' ) : 1;
-
+		$home_page_slider_play_speed = get_theme_mod( 'home_page_slider_play_speed', 0 );
+		$home_page_slider_autoplay = ( $home_page_slider_play_speed == 0 ) ? false : true;
+			
 		// Passing theme options to pencil.js.
 		wp_localize_script( 'pencil-scripts', 'pencil', array(
 			'home_page_slider_img_number' => get_theme_mod( 'home_page_slider_img_number', 1 ),
+			'home_page_slider_play_speed' => $home_page_slider_play_speed,
+			'home_page_slider_autoplay' => $home_page_slider_autoplay,
 			'loadMoreText' => esc_html__( 'Load more posts', 'pencil' ),
 			// 'loadingText' => esc_html__('Loading posts...', 'pencil'),
 			'noMorePostsText' => esc_html__( 'No more posts to load', 'pencil' ),

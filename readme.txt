@@ -1,7 +1,7 @@
 === Pencil ===
 
 Requires at least: 4.1
-Tested up to: 4.7.3
+Tested up to: 4.7.4
 
 == Installation ==
 
@@ -10,6 +10,9 @@ Tested up to: 4.7.3
 3. Click Activate to use your new theme right away.
 
 == Changelog ==
+
+= 1.1.2 - Apr 20 2017 =
+* Added: slider autoplay settings
 
 = 1.1.1 - Dec 21 2016 =
 * Fixed: reload on resize
