@@ -118,7 +118,7 @@ function pencil_customize_register( $wp_customize ) {
 					'step'  => 100,
 				),
 		) );
-	
+
 		// Section Single Page.
 		$wp_customize->add_section( 'single_page', array(
 			'title'          => esc_html__( 'Single Post', 'pencil' ),

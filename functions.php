@@ -198,8 +198,8 @@ function pencil_scripts() {
 		$pencil_ajax_max_pages = $wp_query->max_num_pages;
 		$pencil_ajax_paged = ( get_query_var( 'paged' ) > 1 ) ? get_query_var( 'paged' ) : 1;
 		$home_page_slider_play_speed = get_theme_mod( 'home_page_slider_play_speed', 0 );
-		$home_page_slider_autoplay = ( $home_page_slider_play_speed == 0 ) ? false : true;
-			
+		$home_page_slider_autoplay = ( 0 == $home_page_slider_play_speed ) ? false : true;
+
 		// Passing theme options to pencil.js.
 		wp_localize_script( 'pencil-scripts', 'pencil', array(
 			'home_page_slider_img_number' => get_theme_mod( 'home_page_slider_img_number', 1 ),

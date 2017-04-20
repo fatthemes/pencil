@@ -15,7 +15,7 @@
 		<?php if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
 
 			<p><?php // Translators: comments number.
-			    printf( wp_kses( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'pencil' ), array(
+				printf( wp_kses( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'pencil' ), array(
 	'a' => array(
 		'href' => array(),
 	),
