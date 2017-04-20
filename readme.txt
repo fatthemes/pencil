@@ -11,7 +11,7 @@ Tested up to: 4.7.4
 
 == Changelog ==
 
-= 1.1.2 - Apr 20 2017 =
+= 1.2 - Apr 20 2017 =
 * Added: slider autoplay settings
 
 = 1.1.1 - Dec 21 2016 =
