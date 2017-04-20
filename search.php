@@ -16,7 +16,8 @@ get_header(); ?>
 		<?php if ( have_posts() ) : ?>
 
 			<div class="pencil-page-intro">
-						<?php printf( esc_html__( 'Search Results for: %s', 'pencil' ), '<span>' . get_search_query() . '</span>' );?>
+			<?php // Translators: search term.
+				printf( esc_html__( 'Search Results for: %s', 'pencil' ), '<span>' . get_search_query() . '</span>' );?>
 			</div>
 		<main id="main" class="site-main row masonry-container" role="main">
 			

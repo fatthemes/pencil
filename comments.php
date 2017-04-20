@@ -28,7 +28,8 @@ if ( post_password_required() ) {
 		<h2 class="comments-title">
 			<?php
 				printf( // WPCS: XSS OK.
-					esc_html( _nx( '1 Comment', '%1$s Comments', get_comments_number(), 'comments title', 'pencil' ) ),
+					// Translators: comments number.
+					esc_html( _nx( '%1$s Comment', '%1$s Comments', get_comments_number(), 'comments title', 'pencil' ) ),
 					number_format_i18n( get_comments_number() ),
 					'<span>' . get_the_title() . '</span>'
 				);
@@ -79,6 +80,9 @@ if ( post_password_required() ) {
 	<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'pencil' ); ?></p>
 	<?php endif; ?>
 
-	<?php comment_form( array( 'comment_field' => '<p class="comment-form-comment"><label for="comment">' . esc_html__( 'Comment', 'pencil' ) . '</label> <textarea id="comment" name="comment" rows="1" aria-required="true" required="required" placeholder="' . esc_html__( 'Comment', 'pencil' ) . '" ></textarea></p>', 'comment_notes_before' => '' ) ) ?>
+	<?php comment_form( array(
+	'comment_field' => '<p class="comment-form-comment"><label for="comment">' . esc_html__( 'Comment', 'pencil' ) . '</label> <textarea id="comment" name="comment" rows="1" aria-required="true" required="required" placeholder="' . esc_html__( 'Comment', 'pencil' ) . '" ></textarea></p>',
+	'comment_notes_before' => '',
+) ) ?>
 
 </div><!-- #comments -->

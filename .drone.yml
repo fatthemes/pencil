@@ -1,171 +1,67 @@
 build:
-  first:
-    image: limestreet/test-image
+  codetest:
+    image: limestreet/php-cli
     environment:
-    - WP_VERSION=4.1
-    - WP_VERSION1=master
-    - WP_DEVELOP_DIR=/tmp/wp/
-    - WP_DEVELOP_DIR1=/tmp/wp1/
+      - PHPCS_DIR=/tmp/phpcs
+      - SNIFFS_DIR=/tmp/sniffs
     commands:
-    - printenv
-    #- echo $DRONE
-    - echo $DRONE_REPO
-    - echo $DRONE_BRANCH
-    - echo $DRONE_COMMIT
-    - echo $DRONE_DIR
-    - echo $DRONE_BUILD_NUMBER
-    - echo $DRONE_PULL_REQUEST
-    - echo $DRONE_JOB_NUMBER
-    - echo $DRONE_TAG
-    - THEME_SLUG=$(basename $(pwd))
-    - THEME_LOW=`echo "$THEME_SLUG" | sed 's/-by-fat//'`
-    - THEME_NAME=`echo "$THEME_LOW" | sed 's/\b\w/\U&/'`
-    #- export WP_DEVELOP_DIR
-    #- export $WP_DEVELOP_DIR1
-    #- export $THEME_SLUG
-    #- export $THEME_LOW
-    #- export $THEME_NAME
-    - echo "127.0.1.1  wp.test" >> /etc/hosts
-    - echo "127.0.2.1  wp1.test" >> /etc/hosts
-    - touch site-nginx.conf
-    - echo "server {
-        server_name wp.test;
-        listen 80;
-        root $WP_DEVELOP_DIR/src;
-        index index.php;
-        location / {
-            try_files \$uri \$uri/ /index.php?\$args;
-        }
-        location ~ \.php$ {
-            include snippets/fastcgi-php.conf;
-            fastcgi_pass unix:/run/php/php7.0-fpm.sock;
-        }
-     }
-     server {
-        server_name wp1.test;
-        listen 80;
-        root $WP_DEVELOP_DIR1/src;
-        index index.php;
-        location / {
-            try_files \$uri \$uri/ /index.php?\$args;
-        }
-        location ~ \.php$ {
-            include snippets/fastcgi-php.conf;
-            fastcgi_pass unix:/run/php/php7.0-fpm.sock;
-        }
-      }" > site-nginx.conf
-    - cp -f site-nginx.conf /etc/nginx/sites-enabled/site-nginx.conf
-    - cat /etc/nginx/sites-enabled/site-nginx.conf
-    - rm -f site-nginx.conf
-    - sed -i "s/daemon off;/#daemon off;/" /etc/nginx/nginx.conf
-    - service nginx start
-    - service php7.0-fpm start
-    - service mysql start
-    - service mysql status
-    - service php7.0-fpm status
-    - service nginx status
-    - echo $THEME_LOW
-    - sed -i "s/THEME_LOW/$THEME_LOW/g" ./casper-tests.js
-    #- sed -i "s/THEME_SLUG/$THEME_SLUG/g" ./.docker/plugins.txt
-    #- sed -i "s/WP_VERSION/$WP_VERSION/g" ./Dockerfile
-    #- sed -i "s/THEME_SLUG/$THEME_SLUG/g" ./Dockerfile
-    - mkdir -p $WP_DEVELOP_DIR
-    - mkdir -p $WP_DEVELOP_DIR1
-    
-    - git clone --depth=1 --branch="$WP_VERSION" git://develop.git.wordpress.org/ $WP_DEVELOP_DIR
-    - git clone --depth=1 --branch="$WP_VERSION1" git://develop.git.wordpress.org/ $WP_DEVELOP_DIR1
-    #- theme_slug=$(basename $(pwd))
-    - THEME_DIR=$WP_DEVELOP_DIR/src/wp-content/themes/$THEME_SLUG
-    - THEME_DIR1=$WP_DEVELOP_DIR1/src/wp-content/themes/$THEME_SLUG
-    - cd ..
-    - ls -la
-    - cp -r $THEME_SLUG $THEME_DIR
-    - cp -r $THEME_SLUG $THEME_DIR1
-    - echo $PWD
-    - cd $THEME_SLUG
-    #- git fetch
-    #- git checkout -b beta
-    - git reset --hard
-    
-    - cd $WP_DEVELOP_DIR
-    - cp wp-tests-config-sample.php wp-tests-config.php
-    - sed -i "s/youremptytestdbnamehere/wordpress_test/" wp-tests-config.php
-    - sed -i "s/yourusernamehere/root/" wp-tests-config.php
-    - sed -i "s/yourpasswordhere//" wp-tests-config.php
-    - mysql -e 'CREATE DATABASE wordpress_test;' -uroot
-    - wp cli update --yes --allow-root;
-    - wp core config --dbname=wordpress_test --dbuser=root --allow-root # --extra-php <<PHP define( 'WP_DEBUG', true ); PHP
-    - wp core install --url=wp.test --title="Local WordPress" --admin_name=admin --admin_email="admin@local.dev" --admin_password="password" --allow-root
-    - wp theme activate $THEME_SLUG --allow-root
-    - wp rewrite structure '/%postname%/' --allow-root
-    - git clone --recursive  https://github.com/Automattic/vip-scanner.git $WP_DEVELOP_DIR/src/wp-content/plugins/vip-scanner
-    - wp plugin activate vip-scanner --allow-root
-    - git clone https://github.com/squizlabs/PHP_CodeSniffer.git php-codesniffer
-    - git clone https://github.com/WPTRT/WordPress-Coding-Standards.git wordpress-coding-standards
-    #- git clone -b master --depth 1 https://github.com/wimg/PHPCompatibility.git wordpress-coding-standards/PHPCompatibility
-    - cd php-codesniffer
-    - scripts/phpcs --config-set installed_paths ../wordpress-coding-standards
-    - ls -la
-    - phpunit --version
-    - phpunit --group themes
-    
-    - cd $WP_DEVELOP_DIR1
-    - cp wp-tests-config-sample.php wp-tests-config.php
-    - sed -i "s/youremptytestdbnamehere/wordpress_test1/" wp-tests-config.php
-    - sed -i "s/yourusernamehere/root/" wp-tests-config.php
-    - sed -i "s/yourpasswordhere//" wp-tests-config.php
-    # Create WordPress database.
-    - mysql -e 'CREATE DATABASE wordpress_test1;' -uroot
-    ## update wp-cli
-    - wp cli update --nightly --yes --allow-root;
-    #create config file
-    - wp core config --dbname=wordpress_test1 --dbuser=root --allow-root # --extra-php <<PHP define( 'WP_DEBUG', true ); PHP
-    #install wp
-    - wp core install --url=wp1.test --title="Local WordPress" --admin_name=admin --admin_email="admin@local.dev" --admin_password="password" --allow-root
-    - wp theme activate $THEME_SLUG --allow-root
-    - wp rewrite structure '/%postname%/' --allow-root
-    #- cd $THEME_DIR1
-    - ls -la
-    #- npm install
-    #- grunt
-    #- grunt phpunit
-    - phpunit --version
-    - phpunit --group themes
-    #- phpunit --group ms-files
-    #- phpunit --group ajax
-    #- $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./phpcs.ruleset.xml --extensions=php --ignore=*/node_modules/*,*/vendor/*,class-tgm-plugin-activation.php,class-media-grabber.php
-    #- wp plugin install wordpress-importer --activate --allow-root
-    #- curl -Ok https://wpcom-themes.svn.automattic.com/demo/theme-unit-test-data.xml
-    #- ls $WP_DEVELOP_DIR
-    #- wp import $WP_DEVELOP_DIR/theme-unit-test-data.xml --authors=create --allow-root
-    
-    # Hop into themes directory.
-    - cd $THEME_DIR
-    - npm install
-    - grunt
-    # Search for PHP syntax errors.
-    - /opt/source/php-5.2.17/bin/php -v
-    - find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" -not -path "*php-codesniffer*" \) -print0 | xargs -0 -n1 /opt/source/php-5.2.17/bin/php -lf
-    - php -v
-    - find . \( -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" \) -print0 | xargs -0 -n1 php -lf
-    - jshint .
-    #- $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./phpcs.ruleset.xml --extensions=php --ignore=*/node_modules/*,*/vendor/*,class-tgm-plugin-activation.php,class-media-grabber.php
-    #- curl http://wp.test/hello-world/
-    - phantomjs -v
-    - casperjs --version
-    #- curl http://wp.test/hello-world/
-    - casperjs test casper-tests.js
-    - cd $THEME_DIR
-    #- rm -rf .git* .drone* .jshint* .netbeans* .travis* node_modules vendor tests Gruntfile.js casper-tests.js composer.* package.json *.ruleset.xml netbeans* *.rb *.tmp *.log Dockerfile
-    - wp vip-scanner scan-theme --theme=$THEME_SLUG --scan_type="Undefined Function Check" --allow-root
+      - echo "codetest"
+      - git clone -b master --depth 1 https://github.com/squizlabs/PHP_CodeSniffer.git $PHPCS_DIR
+      - git clone -b master --depth 1 https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git $SNIFFS_DIR
+      - git clone -b master --depth 1 https://github.com/wimg/PHPCompatibility.git $SNIFFS_DIR/PHPCompatibility
+      - $PHPCS_DIR/scripts/phpcs --config-set installed_paths $SNIFFS_DIR
+      - $PHPCS_DIR/scripts/phpcs -p -s -v -n . --standard=./phpcs.ruleset.xml --extensions=php --ignore=*/node_modules/*,*/vendor/*,class-tgm-plugin-activation.php,class-media-grabber.php
+      - jshint .
+      - php -v
+      - find -L . -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" -not -path "*php-codesniffer*" -not -path ".*" -print0 | xargs -0 -n 1 -P 4 php -l
+      - /opt/source/php-5.2.17/bin/php -v
+      - find -L . -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" -not -path "*php-codesniffer*" -not -path ".*" -print0 | xargs -0 -n 1 -P 4 /opt/source/php-5.2.17/bin/php -l
     when:
-      branch: alpha
-    
-  deploy:
-    git_push:
-      branch: beta
-      remote: git@bitbucket.org:fatthemes/pencil.git
-      force: true
-      when:
-        branch: alpha
-        #success: true
+      #event: push
+      branch: "!dev"
+      
+  wptest:
+    image: limestreet/apache-php-7
+    environment:
+      - WP_VERSION=master
+      - WP_DEVELOP_DIR=/tmp/wp
+    commands:
+      - echo "wptest"
+      - php -v
+      - find -L . -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" -not -path "*php-codesniffer*" -not -path ".*" -print0 | xargs -0 -n 1 -P 4 php -l
+      - THEME_SLUG=$(basename $(pwd))
+      - mkdir -p $WP_DEVELOP_DIR
+      - git clone --depth=1 --branch="$WP_VERSION" git://develop.git.wordpress.org/ $WP_DEVELOP_DIR
+      - THEME_DIR=$WP_DEVELOP_DIR/src/wp-content/themes
+      - cd ..
+      - cp -r $THEME_SLUG $THEME_DIR
+      - cd $WP_DEVELOP_DIR
+      - cp wp-tests-config-sample.php wp-tests-config.php
+      - sed -i "s/localhost/127.0.0.1:3306/" wp-tests-config.php
+      - sed -i "s/youremptytestdbnamehere/wordpress_test/" wp-tests-config.php
+      - sed -i "s/yourusernamehere/wp/" wp-tests-config.php
+      - sed -i "s/yourpasswordhere/wp/" wp-tests-config.php
+      - wp cli update --yes --allow-root
+      - wp core config --dbhost=127.0.0.1:3306 --dbname=wordpress_test --dbuser=wp --dbpass=wp --allow-root # --extra-php <<PHP define( 'WP_DEBUG', true ); PHP
+      - wp core install --url=wp.test --title="Local WordPress" --admin_name=admin --admin_email="admin@local.dev" --admin_password="password" --allow-root
+      - wp theme activate $THEME_SLUG --allow-root
+      - wp tgmpa-plugin install --all --activate --allow-root
+      - wp theme activate twentyseventeen --allow-root
+      - wp theme activate $THEME_SLUG --allow-root
+      - wp rewrite structure '/%postname%/' --allow-root
+      - phpunit --version
+      - phpunit --group themes
+
+    when:
+      #event: push
+      branch: "!dev"
+  
+compose:
+  database:
+    image: mysql:5.6
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_USER=wp
+      - MYSQL_PASSWORD=wp
+      - MYSQL_DATABASE=wordpress_test

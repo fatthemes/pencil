@@ -212,9 +212,9 @@ $('.format-gallery .gallery').slick({
 $('.pencil-featured-slider').slick({
   //dots: true,
   infinite: true,
-  //autoplay: true,
-  //autoplaySpeed: 5000,
-  speed: 1000,
+  autoplay: Boolean(pencil.home_page_slider_autoplay),
+  autoplaySpeed: Number(pencil.home_page_slider_play_speed),
+  speed: 3000,
   slidesToShow: Number(pencil.home_page_slider_img_number),
   slidesToScroll: 1,
   //centerMode: true,
