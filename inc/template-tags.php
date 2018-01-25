@@ -239,10 +239,10 @@ function pencil_categorized_blog() {
 		if ( false === $all_the_cool_cats ) {
 			// Create an array of all the categories that are attached to posts.
 			$all_the_cool_cats = get_categories( array(
-			'fields'     => 'ids',
-			'hide_empty' => 1,
-			// We only need to know if there is more than one category.
-			'number'     => 2,
+				'fields'     => 'ids',
+				'hide_empty' => 1,
+				// We only need to know if there is more than one category.
+				'number'     => 2,
 			) );
 
 			// Count the number of categories that are attached to the posts.
@@ -272,7 +272,7 @@ function pencil_category_transient_flusher() {
 	delete_transient( 'pencil_categories' );
 }
 add_action( 'edit_category', 'pencil_category_transient_flusher' );
-add_action( 'save_post',     'pencil_category_transient_flusher' );
+add_action( 'save_post', 'pencil_category_transient_flusher' );
 
 if ( ! function_exists( 'pencil_comment' ) ) :
 
@@ -306,29 +306,32 @@ function pencil_comment( $comment, $args, $depth ) {
 							<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><time pubdate datetime="<?php comment_time( 'c' ); ?>">
 							<?php
 							/* translators: 1: date, 2: time */
-							printf( esc_html__( '%s ago', 'pencil' ), esc_html( human_time_diff( get_comment_time( 'U' ), current_time( 'timestamp' ) ) ) );                                   ?>
-																																																</time></a>
-																																																<span class="reply"><?php comment_reply_link( array_merge( $args, array(
-																																																'depth' => $depth,
-																																																'max_depth' => $args['max_depth'],
-																																																'reply_text' => 'REPLY',
-																																																'before' => ' &#8901; ',
-) ) ); ?></span><!-- .reply -->
-																																																<?php edit_comment_link( __( 'Edit', 'pencil' ), ' &#8901; ' );
-																																																?>
-																																																</div><!-- .comment-meta .commentmetadata -->
-																																																</div><!-- .comment-author .vcard -->
-																																																<?php if ( '0' == $comment->comment_approved ) : ?>
+							printf( esc_html__( '%s ago', 'pencil' ), esc_html( human_time_diff( get_comment_time( 'U' ), current_time( 'timestamp' ) ) ) );
+							?>
+							</time></a>
+							<span class="reply">
+								<?php
+								comment_reply_link( array_merge( $args, array(
+									'depth' => $depth,
+									'max_depth' => $args['max_depth'],
+									'reply_text' => 'REPLY',
+									'before' => ' &#8901; ',
+								) ) );
+								?>
+							</span><!-- .reply -->
+							<?php
+								edit_comment_link( __( 'Edit', 'pencil' ), ' &#8901; ' );
+							?>
+						</div><!-- .comment-meta .commentmetadata -->
+					</div><!-- .comment-author .vcard -->
+					<?php if ( '0' == $comment->comment_approved ) : ?>
 						<em><?php esc_html_e( 'Your comment is awaiting moderation.', 'pencil' ); ?></em>
 						<br />
 					<?php endif; ?>
-
-																																																</footer>
-
-																																																<div class="comment-content"><?php comment_text(); ?></div>
-
-																																																</article><!-- #comment-## -->
-																																																<?php
+				</footer>
+				<div class="comment-content"><?php comment_text(); ?></div>
+			</article><!-- #comment-## -->
+		<?php
 }
 endif; // Ends check for pencil_comment().
 
@@ -354,17 +357,17 @@ function pencil_comments_fields( $fields ) {
 		$html5    = 'html5' === $args['format'];
 
 		$fields   = array(
-		'author' => '<div class="comment-fields"><p class="comment-form-author"><label for="author">' . esc_html__( 'Name', 'pencil' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
+			'author' => '<div class="comment-fields"><p class="comment-form-author"><label for="author">' . esc_html__( 'Name', 'pencil' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
 					'<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '"' . $aria_req . $html_req . ' placeholder="' . esc_html__( 'Name', 'pencil' ) . '" /></p>',
-		'email'  => '<p class="comment-form-email"><label for="email">' . esc_html__( 'Email', 'pencil' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
+			'email'  => '<p class="comment-form-email"><label for="email">' . esc_html__( 'Email', 'pencil' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
 					'<input id="email" name="email" ' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_email'] ) . '"' . $aria_req . $html_req . ' placeholder="' . esc_html__( 'Email', 'pencil' ) . '" /></p>',
-		'url'    => '<p class="comment-form-ur"><label for="url">' . esc_html__( 'Website', 'pencil' ) . '</label> ' .
+			'url'    => '<p class="comment-form-ur"><label for="url">' . esc_html__( 'Website', 'pencil' ) . '</label> ' .
 					'<input id="url" name="url" ' . ( $html5 ? 'type="url"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_url'] ) . '" placeholder="' . esc_html__( 'Website', 'pencil' ) . '" /></p></div>',
-			);
+		);
 
 			return $fields;
 }
-add_filter( 'comment_form_default_fields','pencil_comments_fields' );
+add_filter( 'comment_form_default_fields', 'pencil_comments_fields' );
 endif;
 
 /**
@@ -414,9 +417,9 @@ function pencil_custom_popular_posts_html_list( $mostpopular, $instance ) {
 			$thumb = get_the_post_thumbnail( $popular->id, 'medium' );
 
 			$output .= '<li>';
-			$output .= ( ! empty( $thumb )) ? '<div class="fat-wpp-image"><a href="' . esc_url( get_the_permalink( $popular->id ) ) . '" title="' . esc_attr( $popular->title ) . '">' /* . pencil_post_format_icon( $popular->id ) */ . $thumb . '</a>' : '';
+			$output .= ( ! empty( $thumb ) ) ? '<div class="fat-wpp-image"><a href="' . esc_url( get_the_permalink( $popular->id ) ) . '" title="' . esc_attr( $popular->title ) . '">' /* . pencil_post_format_icon( $popular->id ) */ . $thumb . '</a>' : '';
 			$output .= pencil_post_format_icon( $popular->id ) . '<div class="fat-wpp-image-cat">' . $post_cat . '</div>';
-			$output .= ( ! empty( $thumb )) ? '</div>' : '';
+			$output .= ( ! empty( $thumb ) ) ? '</div>' : '';
 			$output .= '<h2 class="entry-title"><a href="' . esc_url( get_the_permalink( $popular->id ) ) . '" title="' . esc_attr( $popular->title ) . '">' . $popular->title . '</a></h2>';
 			// $output .= ( ! empty ($stats)) ? $stats : "";
 			// $output .= $excerpt;
@@ -488,7 +491,7 @@ function pencil_gallery_shortcode( $output = '', $atts ) {
 		// $return = $output; // Fallback.
 		$atts = array(
 			'size' => 'medium',
-			);
+		);
 
 			return $output;
 }

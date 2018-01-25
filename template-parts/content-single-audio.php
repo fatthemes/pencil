@@ -12,7 +12,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'col-md-12' ); ?>>
 	
 		<!--<div class="category-list">
-				<?php echo wp_kses_post( get_the_category_list( esc_html__( ' &#x2f; ', 'pencil' ) ) );?>
+				<?php echo wp_kses_post( get_the_category_list( esc_html__( ' &#x2f; ', 'pencil' ) ) ); ?>
 		</div>-->
 	
 		<header class="entry-header row">
@@ -26,20 +26,27 @@
 	</header><!-- .entry-header -->
 		<div class="featured-media row">
 				<div class="featured-image col-md-12">
-				<?php echo hybrid_media_grabber( array( // WPCS: XSS OK.
-					'type' => 'audio',
-				) ); ?>  
-				</div>
+				<?php
+				echo hybrid_media_grabber( // WPCS: XSS OK.
+					 array(
+						 'type' => 'audio',
+					 )
+					);
+				?>
+
+								  </div>
 		</div>
 		<div class="row">
 		
 	<div class="entry-content col-md-10 col-md-push-2">
 		<?php pencil_media_content(); ?>
 		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'pencil' ),
-				'after'  => '</div>',
-			) );
+			wp_link_pages(
+				 array(
+					 'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'pencil' ),
+					 'after'  => '</div>',
+				 )
+				);
 		?>
 	</div><!-- .entry-content -->
 
