@@ -9,8 +9,6 @@
     "grunt-uncss": "^0.6.1",
     "grunt-wp-css": "^0.2.0",
     "grunt-wp-i18n": "^0.5.3",
-    "install": "^0.6.1",
-    "npm": "^3.8.5",
     "postcss-cssnext": "^2.5.2",
     "postcss-normalize": "^3.0.0"
   },
