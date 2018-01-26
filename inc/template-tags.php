@@ -531,3 +531,18 @@ function pencil_post_format_icon( $post_id ) {
 			}
 }
 endif;
+
+if ( ! function_exists( 'pencil_show_sticky' ) ) :
+
+/**
+ * Show sticky posts below slider depends on option
+ *
+ * @return bool
+ */
+function pencil_show_sticky() {
+	if ( is_sticky() && ! get_theme_mod( 'home_page_show_sticky', 0 ) ) {
+		return false;
+		}
+	return true;
+	}
+endif;
