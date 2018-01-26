@@ -1,7 +1,7 @@
 === Pencil ===
 
 Requires at least: 4.1
-Tested up to: 4.7.4
+Tested up to: 4.9.2
 
 == Installation ==
 
@@ -10,6 +10,10 @@ Tested up to: 4.7.4
 3. Click Activate to use your new theme right away.
 
 == Changelog ==
+
+= 1.3 - Jan 26 2018 =
+* Added: option to show sticky posts below slider on home page.
+* Added: YouTube social icon.
 
 = 1.2 - Apr 20 2017 =
 * Added: slider autoplay settings
