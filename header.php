@@ -66,6 +66,7 @@ endif;
 			$pencil_social_icons_googleplus = get_theme_mod( 'social_icons_googleplus' );
 			$pencil_social_icons_instagram = get_theme_mod( 'social_icons_instagram' );
 			$pencil_social_icons_pinterest = get_theme_mod( 'social_icons_pinterest' );
+			$pencil_social_icons_youtube = get_theme_mod( 'social_icons_youtube' );
 			?>
 						<?php
 						if ( ! empty( $pencil_social_icons_twitter ) ) :
@@ -87,6 +88,10 @@ endif;
 						if ( ! empty( $pencil_social_icons_pinterest ) ) :
 ?>
 <a href="<?php echo esc_url( $pencil_social_icons_pinterest ); ?>"><span class="fa fa-pinterest fa-lg"></span></a><?php endif; ?>
+						<?php
+						if ( ! empty( $pencil_social_icons_youtube ) ) :
+?>
+<a href="<?php echo esc_url( $pencil_social_icons_youtube ); ?>"><span class="fa fa-youtube fa-lg"></span></a><?php endif; ?>
 						<button class="search-toggle fa fa-search"></button>
 						</div>
 						<div id="toggled-navbar-bg" >

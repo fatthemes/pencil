@@ -269,6 +269,21 @@ function pencil_customize_register( $wp_customize ) {
 				 'type'    => 'text',
 			 )
 			);
+		
+		$wp_customize->add_setting(
+			 'social_icons_youtube', array(
+				 'default'        => '',
+				 'sanitize_callback' => 'esc_url_raw',
+			 )
+			);
+
+		$wp_customize->add_control(
+			 'social_icons_youtube', array(
+				 'label'   => esc_html__( 'YouTube', 'pencil' ),
+				 'section' => 'social_icons',
+				 'type'    => 'text',
+			 )
+			);
 
 		// Footer text.
 		$wp_customize->add_section(
