@@ -1,14 +1,24 @@
-build:
+pipeline:
+  database:
+    image: mariadb
+    detach: true
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass
+      - MYSQL_USER=wp
+      - MYSQL_PASSWORD=wp
+      - MYSQL_DATABASE=wordpress_test
+    when:
+      event: push
+
   codetest:
     image: limestreet/php-cli
     environment:
       - PHPCS_DIR=/tmp/phpcs
       - SNIFFS_DIR=/tmp/sniffs
     commands:
-      - echo "codetest"
-      - git clone -b master --depth 1 https://github.com/squizlabs/PHP_CodeSniffer.git $PHPCS_DIR
+      - git clone -b "2.9" --depth 1 https://github.com/squizlabs/PHP_CodeSniffer.git $PHPCS_DIR
       - git clone -b master --depth 1 https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git $SNIFFS_DIR
-      - git clone -b master --depth 1 https://github.com/wimg/PHPCompatibility.git $SNIFFS_DIR/PHPCompatibility
+      - git clone -b 7.1.5 --depth 1 https://github.com/wimg/PHPCompatibility.git $SNIFFS_DIR/PHPCompatibility
       - $PHPCS_DIR/scripts/phpcs --config-set installed_paths $SNIFFS_DIR
       - $PHPCS_DIR/scripts/phpcs -p -s -v -n . --standard=./phpcs.ruleset.xml --extensions=php --ignore=*/node_modules/*,*/vendor/*,class-tgm-plugin-activation.php,class-media-grabber.php
       - jshint .
@@ -17,16 +27,15 @@ build:
       - /opt/source/php-5.2.17/bin/php -v
       - find -L . -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" -not -path "*php-codesniffer*" -not -path ".*" -print0 | xargs -0 -n 1 -P 4 /opt/source/php-5.2.17/bin/php -l
     when:
-      #event: push
-      branch: "!dev"
-      
+      event: push
+
   wptest:
     image: limestreet/apache-php-7
     environment:
       - WP_VERSION=master
       - WP_DEVELOP_DIR=/tmp/wp
     commands:
-      - echo "wptest"
+      #- echo "wptest"
       - php -v
       - find -L . -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" -not -path "*php-codesniffer*" -not -path ".*" -print0 | xargs -0 -n 1 -P 4 php -l
       - THEME_SLUG=$(basename $(pwd))
@@ -37,31 +46,132 @@ build:
       - cp -r $THEME_SLUG $THEME_DIR
       - cd $WP_DEVELOP_DIR
       - cp wp-tests-config-sample.php wp-tests-config.php
-      - sed -i "s/localhost/127.0.0.1:3306/" wp-tests-config.php
+      - sed -i "s/localhost/database:3306/" wp-tests-config.php
       - sed -i "s/youremptytestdbnamehere/wordpress_test/" wp-tests-config.php
       - sed -i "s/yourusernamehere/wp/" wp-tests-config.php
       - sed -i "s/yourpasswordhere/wp/" wp-tests-config.php
       - wp cli update --yes --allow-root
-      - wp core config --dbhost=127.0.0.1:3306 --dbname=wordpress_test --dbuser=wp --dbpass=wp --allow-root # --extra-php <<PHP define( 'WP_DEBUG', true ); PHP
+      - wp core config --dbhost=database:3306 --dbname=wordpress_test --dbuser=wp --dbpass=wp --allow-root # --extra-php <<PHP define( 'WP_DEBUG', true ); PHP
       - wp core install --url=wp.test --title="Local WordPress" --admin_name=admin --admin_email="admin@local.dev" --admin_password="password" --allow-root
       - wp theme activate $THEME_SLUG --allow-root
       - wp tgmpa-plugin install --all --activate --allow-root
       - wp theme activate twentyseventeen --allow-root
       - wp theme activate $THEME_SLUG --allow-root
       - wp rewrite structure '/%postname%/' --allow-root
-      - phpunit --version
       - phpunit --group themes
-
     when:
-      #event: push
-      branch: "!dev"
-  
-compose:
-  database:
-    image: mysql:5.6
-    environment:
-      - MYSQL_ROOT_PASSWORD=pass
-      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-      - MYSQL_USER=wp
-      - MYSQL_PASSWORD=wp
-      - MYSQL_DATABASE=wordpress_test
+      event: push
+
+  push_to_dev:
+    image: limestreet/apache-php-7
+    commands:
+      #- $DRONE_TAG
+      - git config --global user.email "$DOCKER_EMAIL"
+      #- git reset --hard
+      #- git clean -f
+      - VERSION_LINE=$(grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?.*" $PWD/style.css)
+      #- echo $VERSION_LINE
+      - VERSION=$(echo $VERSION_LINE | grep -Po "\d\d?\.\d\d?\.?\d?\d?")
+      #- VERSION=`grep -Po "(\d\d?\.\d\d?\.\d\d?)" <<< "$VERSION_LINE"`
+      - sed -i "s/$VERSION_LINE/Version:\ $VERSION+build$DRONE_BUILD_NUMBER/" $PWD/scss/underscores/style.scss
+      - sed -i "s/$VERSION_LINE/Version:\ $VERSION+build$DRONE_BUILD_NUMBER/" $PWD/style.css
+      #- COMPOSER_THEME_VERSION_LINE=$(grep -Po '"version"\s?\s?:\s?\s?"\d\d?\.\d\d?\.\d\d?.*"' $PWD/composer.json)
+      #- echo $COMPOSER_THEME_VERSION_LINE
+      #- COMPOSER_THEME_VERSION=$(echo $COMPOSER_THEME_VERSION_LINE | grep -Po "(\d\d?\.\d\d?\.\d\d?)")
+    #- COMPOSER_THEME_VERSION=`grep -Po "(\d\d?\.\d\d?\.?\d?\d?)" <<< "$COMPOSER_THEME_VERSION_LINE"`
+      #- sed -i "s/$COMPOSER_THEME_VERSION_LINE/\"version\"\ :\ \"$COMPOSER_THEME_VERSION+build$DRONE_BUILD_NUMBER\"/" $PWD/composer.json
+      #- cat composer.json
+      #- git fetch
+      #- git status
+      - npm install --silent
+      - git add .
+    #- git status
+      - git commit -m "Drone build nr $DRONE_BUILD_NUMBER [CI SKIP]"
+      - git checkout -b dev
+      - git merge master
+      - git push origin dev --force
+    secrets: [ DOCKER_EMAIL ]
+    when:
+      event: push
+
+  performancetest:
+    image: limestreet/apache-php-7
+    commands:
+      #- ls -la
+      #- printenv
+      - THEME_SLUG=$DRONE_REPO_NAME
+      - THEME_LOW=`echo "$THEME_SLUG" | sed 's/-by-fat//'`
+      #- echo $THEME_LOW
+      #- echo $PWD
+      #- THEME_NAME=`echo "$THEME_LOW" | sed 's/\b\w/\U&/'`
+      #- npm install --silent
+      - sleep 15
+      - REMOTEURL="http://$THEME_LOW.dev.limestreet.pl/wp-content/themes/$THEME_SLUG/style.css"
+      #- echo $REMOTEURL
+      - REMOTEVERSION=$(curl $REMOTEURL | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?.*" | grep -Po "(\d\d?\.\d\d?\.?\d?\d?.*)")
+      - echo $REMOTEVERSION
+      - LOCALVERSION=$(cat style.css | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?.*" | grep -Po "(\d\d?\.\d\d?\.?\d?\d?.*)")
+      - echo $LOCALVERSION
+      - if [ $REMOTEVERSION != $LOCALVERSION ]; then echo "Wrong theme version - $REMOTEVERSION instead of $LOCALVERSION" && exit 1 ;fi
+      - sed -i "s/THEME_SLUG/$THEME_SLUG/g" ./Gruntfile.js
+      - sed -i "s/WEBPAGETEST_API_KEY/$WEBPAGETEST_API_KEY/g" ./Gruntfile.js
+      - sed -i "s/PAGESPEED_API_KEY/$PAGESPEED_API_KEY/g" ./Gruntfile.js
+      #- pa11y -V
+      #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/
+      #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/sample-page/
+      #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/?s=post
+      #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/?s=gergeafer
+      #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/gergeafer
+      #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/2013/01/10/markup-image-alignment/
+      #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/2013/01/11/markup-html-tags-and-formatting/
+      #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/category/aciform/
+      #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/2012/01/03/template-comments/
+      #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/author/patryk/
+      #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/tag/template/
+      - grunt pagespeed
+      - grunt perfbudget
+    secrets: [ WEBPAGETEST_API_KEY, PAGESPEED_API_KEY ]
+    when:
+      event: push
+
+  version_check_and_build:
+    image: limestreet/apache-php-7
+    commands:
+      - THEME_SLUG=$DRONE_REPO_NAME
+      - THEMEVERSION=$(cat style.css | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?" | grep -Po "(\d\d?\.\d\d?\.?\d?\d?)")
+      - REPOTAG=`echo "${DRONE_TAG}" | grep -Po "(\d\d?\.\d\d?\.?\d?\d?)")`
+      - echo $REPOTAG
+      - if [ $REPOTAG != $THEMEVERSION ]; then echo "Wrong theme/tag version - version from repo tag is $REPOTAG (${DRONE_TAG}) but theme version from style.css is $THEMEVERSION" && exit 1 ;fi
+      - apt-get update && apt-get install -y zip
+      - npm install --silent
+      - grunt
+      - rm -rf *.yml .drone.yml .g* .j* .n* scss node_modules vendor tests Gruntfile.js casper-tests.js package.json *.ruleset.xml nbproject *.rb *.tmp *.map *.log Dockerfile
+      - cd ..
+      - zip -FSr $THEME_SLUG.zip $THEME_SLUG
+      - mkdir -p $DRONE_REPO_NAME/dist
+      - cp $THEME_SLUG.zip $DRONE_REPO_NAME/dist/$THEME_SLUG.zip
+    when:
+      event: tag
+
+  github_release:
+    image: plugins/github-release
+    secrets: [ github_token ]
+    files: dist/*
+    prerelease: true
+    when:
+      event: tag
+      #branch:
+      #  - exclude: [master]
+
+#  trigger_fatthemes_build:
+#    image: plugins/downstream
+#    server: https://drone.limestreet.pl
+#    token: [ fatthemes_token ]
+#    fork: true
+#    repositories:
+#      - fatthemes/fatthemes.com
+#    when:
+#      event: tag
+
+branches:
+  exclude: [master]

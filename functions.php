@@ -43,37 +43,47 @@ function pencil_setup() {
 		add_theme_support( 'post-thumbnails' );
 
 		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus( array(
-		'primary' => esc_html__( 'Primary Menu', 'pencil' ),
-		) );
+		register_nav_menus(
+			 array(
+				 'primary' => esc_html__( 'Primary Menu', 'pencil' ),
+			 )
+			);
 
 			/*
 			 * Switch default core markup for search form, comment form, and comments
 			 * to output valid HTML5.
 			 */
-			add_theme_support( 'html5', array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-			) );
+			add_theme_support(
+				 'html5', array(
+					 'search-form',
+					 'comment-form',
+					 'comment-list',
+					 'gallery',
+					 'caption',
+				 )
+				);
 
 			/*
 			 * Enable support for Post Formats.
 			 * See https://developer.wordpress.org/themes/functionality/post-formats/
 			 */
-			add_theme_support( 'post-formats', array(
-			'audio',
-			'video',
-			'gallery',
-			) );
+			add_theme_support(
+				 'post-formats', array(
+					 'audio',
+					 'video',
+					 'gallery',
+				 )
+				);
 
 			// Set up the WordPress core custom background feature.
-			add_theme_support( 'custom-background', apply_filters( 'pencil_custom_background_args', array(
-			'default-color' => 'ffffff',
-			'default-image' => '',
-			) ) );
+			add_theme_support(
+				 'custom-background', apply_filters(
+				 'pencil_custom_background_args', array(
+					 'default-color' => 'ffffff',
+					 'default-image' => '',
+				 )
+				)
+				);
 
 }
 endif; // End of pencil_setup.
@@ -97,15 +107,17 @@ add_action( 'after_setup_theme', 'pencil_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function pencil_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'pencil' ),
-		'id'            => 'sidebar-1',
-		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+	register_sidebar(
+		 array(
+			 'name'          => esc_html__( 'Sidebar', 'pencil' ),
+			 'id'            => 'sidebar-1',
+			 'description'   => '',
+			 'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			 'after_widget'  => '</aside>',
+			 'before_title'  => '<h2 class="widget-title">',
+			 'after_title'   => '</h2>',
+		 )
+		);
 }
 add_action( 'widgets_init', 'pencil_widgets_init' );
 
@@ -155,10 +167,14 @@ function pencil_fonts_url() {
 			}
 
 			if ( $fonts ) {
-			$fonts_url = esc_url( add_query_arg( array(
-			'family' => urlencode( implode( '|', $fonts ) ),
-			'subset' => urlencode( $subsets ),
-			), 'https://fonts.googleapis.com/css' ) );
+			$fonts_url = esc_url(
+		 add_query_arg(
+		 array(
+			 'family' => urlencode( implode( '|', $fonts ) ),
+			 'subset' => urlencode( $subsets ),
+		 ), 'https://fonts.googleapis.com/css'
+			)
+		);
 			}
 
 			return $fonts_url;
@@ -181,11 +197,14 @@ function pencil_scripts() {
 
 		wp_enqueue_script( 'slick', get_template_directory_uri() . '/slick/slick.min.js', array( 'jquery' ), '20150828', true );
 
-		if ( ! is_404() && ! is_singular() && have_posts() ) { wp_enqueue_script( 'masonry' ); }
+		if ( ! is_404() && ! is_singular() && have_posts() ) {
+wp_enqueue_script( 'masonry' ); }
 
-		if ( get_theme_mod( 'sticky_sidebar', 1 ) && is_active_sidebar( 'sidebar-1' ) ) { wp_enqueue_script( 'theia-sticky-sidebar', get_template_directory_uri() . '/js/theia-sticky-sidebar.min.js', array( 'jquery' ), '1.2.2', true ); }
+		if ( get_theme_mod( 'sticky_sidebar', 1 ) && is_active_sidebar( 'sidebar-1' ) ) {
+wp_enqueue_script( 'theia-sticky-sidebar', get_template_directory_uri() . '/js/theia-sticky-sidebar.min.js', array( 'jquery' ), '1.2.2', true ); }
 
-		if ( get_theme_mod( 'smooth_scroll', 1 ) ) { wp_enqueue_script( 'smooth-scroll', get_template_directory_uri() . '/js/smoothscroll.min.js', array( 'jquery' ), '1.3.8', true ); }
+		if ( get_theme_mod( 'smooth_scroll', 1 ) ) {
+wp_enqueue_script( 'smooth-scroll', get_template_directory_uri() . '/js/smoothscroll.min.js', array( 'jquery' ), '1.3.8', true ); }
 
 		wp_enqueue_script( 'magnific-popup', get_template_directory_uri() . '/js/jquery.magnific-popup.min.js', array( 'jquery' ), '20150829', true );
 
@@ -201,17 +220,19 @@ function pencil_scripts() {
 		$home_page_slider_autoplay = ( 0 == $home_page_slider_play_speed ) ? false : true;
 
 		// Passing theme options to pencil.js.
-		wp_localize_script( 'pencil-scripts', 'pencil', array(
-			'home_page_slider_img_number' => get_theme_mod( 'home_page_slider_img_number', 1 ),
-			'home_page_slider_play_speed' => $home_page_slider_play_speed,
-			'home_page_slider_autoplay' => $home_page_slider_autoplay,
-			'loadMoreText' => esc_html__( 'Load more posts', 'pencil' ),
-			// 'loadingText' => esc_html__('Loading posts...', 'pencil'),
-			'noMorePostsText' => esc_html__( 'No more posts to load', 'pencil' ),
-			'startPage' => $pencil_ajax_paged,
-			'maxPages' => $pencil_ajax_max_pages,
-			'nextLink' => next_posts( $pencil_ajax_max_pages, false ),
-			) );
+		wp_localize_script(
+			 'pencil-scripts', 'pencil', array(
+				 'home_page_slider_img_number' => get_theme_mod( 'home_page_slider_img_number', 1 ),
+				 'home_page_slider_play_speed' => $home_page_slider_play_speed,
+				 'home_page_slider_autoplay' => $home_page_slider_autoplay,
+				 'loadMoreText' => esc_html__( 'Load more posts', 'pencil' ),
+				 // 'loadingText' => esc_html__('Loading posts...', 'pencil'),
+				 'noMorePostsText' => esc_html__( 'No more posts to load', 'pencil' ),
+				 'startPage' => $pencil_ajax_paged,
+				 'maxPages' => $pencil_ajax_max_pages,
+				 'nextLink' => next_posts( $pencil_ajax_max_pages, false ),
+			 )
+			);
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

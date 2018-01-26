@@ -22,8 +22,7 @@ if ( post_password_required() ) {
 
 <div id="comments" class="comments-area col-md-12">
 
-	<?php // You can start editing here -- including this comment! ?>
-
+	
 	<?php if ( have_comments() ) : ?>
 		<h2 class="comments-title">
 			<?php
@@ -50,12 +49,14 @@ if ( post_password_required() ) {
 
 		<ul class="comment-list">
 			<?php
-				wp_list_comments( array(
-					'style'      => 'ul',
-					'short_ping' => true,
-										'avatar_size' => '50',
-										'callback' => 'pencil_comment',
-				) );
+				wp_list_comments(
+					 array(
+						 'style'      => 'ul',
+						 'short_ping' => true,
+						 'avatar_size' => '50',
+						 'callback' => 'pencil_comment',
+					 )
+					);
 			?>
 		</ul><!-- .comment-list -->
 
@@ -80,9 +81,13 @@ if ( post_password_required() ) {
 	<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'pencil' ); ?></p>
 	<?php endif; ?>
 
-	<?php comment_form( array(
-	'comment_field' => '<p class="comment-form-comment"><label for="comment">' . esc_html__( 'Comment', 'pencil' ) . '</label> <textarea id="comment" name="comment" rows="1" aria-required="true" required="required" placeholder="' . esc_html__( 'Comment', 'pencil' ) . '" ></textarea></p>',
-	'comment_notes_before' => '',
-) ) ?>
+	<?php
+	comment_form(
+		 array(
+			 'comment_field' => '<p class="comment-form-comment"><label for="comment">' . esc_html__( 'Comment', 'pencil' ) . '</label> <textarea id="comment" name="comment" rows="1" aria-required="true" required="required" placeholder="' . esc_html__( 'Comment', 'pencil' ) . '" ></textarea></p>',
+			 'comment_notes_before' => '',
+		 )
+		)
+?>
 
 </div><!-- #comments -->

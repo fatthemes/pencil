@@ -12,22 +12,22 @@ $pencil_sticky_posts = get_option( 'sticky_posts' );
 if ( ! empty( $pencil_sticky_posts ) ) :
 
 	$pencil_slider_posts_array_args = array(
-			'posts_per_page'   => 99,
-			'offset'           => 0,
-			'category'         => '',
-			'category_name'    => '',
-			'orderby'          => 'date',
-			'order'            => 'DESC',
-			'include'          => $pencil_sticky_posts,
-			'exclude'          => '',
-			// 'meta_key'         => 'pencil-meta-slider-checkbox',
-			// 'meta_value'       => '1',
-			'post_type'        => 'post',
-			'post_mime_type'   => '',
-			'post_parent'      => '',
-			'author'	   => '',
-			'post_status'      => 'publish',
-			'suppress_filters' => true,
+		'posts_per_page'   => 99,
+		'offset'           => 0,
+		'category'         => '',
+		'category_name'    => '',
+		'orderby'          => 'date',
+		'order'            => 'DESC',
+		'include'          => $pencil_sticky_posts,
+		'exclude'          => '',
+		// 'meta_key'         => 'pencil-meta-slider-checkbox',
+		// 'meta_value'       => '1',
+		'post_type'        => 'post',
+		'post_mime_type'   => '',
+		'post_parent'      => '',
+		'author'       => '',
+		'post_status'      => 'publish',
+		'suppress_filters' => true,
 	);
 	$pencil_slider_posts_array = get_posts( $pencil_slider_posts_array_args ); ?>
 		<div class="container-fluid">
@@ -43,12 +43,12 @@ if ( ! empty( $pencil_sticky_posts ) ) :
 							
 							<div class="featured-image" style="background:#000 url(<?php echo esc_url( $pencil_wp_get_attachment_image_src[0] ); ?>) no-repeat center;background-size: cover;height:<?php echo absint( get_theme_mod( 'home_page_slider_height', 300 ) ); ?>px;">
 							<div class="pencil-featured-slider-title-wrapper">
-							<h2 class="pencil-featured-slider-header"><a href="<?php echo esc_url( get_permalink( $slide->ID ) ); ?>" rel="bookmark"><?php echo get_the_title( $slide->ID ) ?></a></h2>
+							<h2 class="pencil-featured-slider-header"><a href="<?php echo esc_url( get_permalink( $slide->ID ) ); ?>" rel="bookmark"><?php echo get_the_title( $slide->ID ); ?></a></h2>
 							</div>
 							</div>
 							<?php else : ?>
 							<div class="no-featured-image" style="height:<?php echo absint( get_theme_mod( 'home_page_slider_height', 300 ) ); ?>px;">
-							<h2 class="pencil-featured-slider-header"><a href="<?php echo esc_url( get_permalink( $slide->ID ) ); ?>" rel="bookmark"><?php echo get_the_title( $slide->ID ) ?></a></h2>
+							<h2 class="pencil-featured-slider-header"><a href="<?php echo esc_url( get_permalink( $slide->ID ) ); ?>" rel="bookmark"><?php echo get_the_title( $slide->ID ); ?></a></h2>
 							</div>
 							<?php endif; ?>
 						</div>
