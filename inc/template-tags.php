@@ -412,7 +412,7 @@ function pencil_custom_popular_posts_html_list( $mostpopular, $instance ) {
 		// Loop the array of popular posts objects.
 		foreach ( $mostpopular as $popular ) {
 
-			$post_cat = get_the_category_list( esc_html__( ' &#x2f; ', 'pencil' ), '', $popular->id );
+			$post_cat = get_the_category_list( __( ' &#x2f; ', 'pencil' ), '', $popular->id );
 
 			$thumb = get_the_post_thumbnail( $popular->id, 'medium' );
 

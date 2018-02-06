@@ -142,6 +142,7 @@ pipeline:
       - REPOTAG=`echo "${DRONE_TAG}" | grep -Po "(\d\d?\.\d\d?\.?\d?\d?)")`
       - echo $REPOTAG
       - if [ $REPOTAG != $THEMEVERSION ]; then echo "Wrong theme/tag version - version from repo tag is $REPOTAG (${DRONE_TAG}) but theme version from style.css is $THEMEVERSION" && exit 1 ;fi
+      - grep -q "\[$THEMEVERSION\]" $PWD/CHANGELOG.md
       - apt-get update && apt-get install -y zip
       - npm install --silent
       - grunt
@@ -157,21 +158,28 @@ pipeline:
     image: plugins/github-release
     secrets: [ github_token ]
     files: dist/*
-    prerelease: true
     when:
       event: tag
       #branch:
       #  - exclude: [master]
 
-#  trigger_fatthemes_build:
-#    image: plugins/downstream
-#    server: https://drone.limestreet.pl
-#    token: [ fatthemes_token ]
-#    fork: true
-#    repositories:
-#      - fatthemes/fatthemes.com
+#  notify:
+#    image: drillster/drone-email
+#    from: noreply@limestreet.pl
+#    recipients_only: true
+#    subject: "{{repo.name}} tagged: {{tag}}"
+#    body: "Link to repository: {{repo.link}}"
+#    secrets: [ email_username, email_password, email_host, email_recipients ]
 #    when:
-#      event: tag
+#    event: tag
+
+  slack:
+    image: plugins/slack
+    webhook: https://hooks.slack.com/services/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
+    channel: general
+    when:
+      status: [ success ]
+      event: tag
 
 branches:
   exclude: [master]
