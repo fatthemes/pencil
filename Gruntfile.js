@@ -105,8 +105,9 @@ module.exports = function (grunt) {
 	      timeout: '600',
 	      //repeatView: true,
 	      location: 'ec2-eu-central-1',
+	      connectivity: '3G',
 	      budget: {
-		visualComplete: '5000',
+		visualComplete: '3000',
 		render: '3000',
 		//requests: '100',
 		SpeedIndex: '3000'
