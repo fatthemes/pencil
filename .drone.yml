@@ -13,7 +13,9 @@ pipeline:
   changelog:
     image: limestreet/apache-php-7
     commands:
-      - CURRENT_WP_VERSION=`curl https://api.wordpress.org/core/version-check/1.7/`
+      - apt-get update && apt-get install -y jq
+      - CURRENT_WP_VERSION_API=`curl https://api.wordpress.org/core/version-check/1.7/ | jq '.["offers"][0].current'`
+      - CURRENT_WP_VERSION=`echo "$CURRENT_WP_VERSION_API" | sed 's/"//g'`
       - echo $CURRENT_WP_VERSION
       - TESTED_UP_TO_WP_VERSION_LINE=$(grep -Po "Tested\ up\ to:\s?\s?\d\d?\.\d\d?\.?\d?\d?.*" $PWD/readme.txt)
       - TESTED_UP_TO_WP_VERSION=$(echo $TESTED_UP_TO_WP_VERSION_LINE | grep -Po "\d\d?\.\d\d?\.?\d?\d?")
