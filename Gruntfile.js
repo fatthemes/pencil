@@ -104,12 +104,14 @@ module.exports = function (grunt) {
               key: 'WEBPAGETEST_API_KEY',
 	      timeout: '600',
 	      //repeatView: true,
-	      location: 'ec2-eu-central-1',
+	      //location: 'ec2-eu-central-1',
+	      location: 'Dulles_MotoG',
+	      connectivity: '3G',
 	      budget: {
-		visualComplete: '5000',
-		render: '3000',
+		visualComplete: '10000',
+		render: '5000',
 		//requests: '100',
-		SpeedIndex: '3000'
+		SpeedIndex: '5000'
 	      }
             }
           }
