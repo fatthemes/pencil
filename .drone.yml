@@ -160,9 +160,10 @@ pipeline:
       - THEME_SLUG=$DRONE_REPO_NAME
       - THEMEVERSION=$(cat style.css | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?.*" | grep -Po "(\d\d?\.\d\d?\.?\d?\d?.*)")
       - echo $THEMEVERSION
+      - $MAINTHEMEVERSION=`echo "$THEMEVERSION" | grep -Po "(\d\d?\.\d\d?\.?\d?\d?)")`
       - echo $TAG.$DRONE_BUILD_NUMBER
       - if [ $TAG.$DRONE_BUILD_NUMBER != $THEMEVERSION ]; then echo "Wrong theme/tag version - version from repo tag (+ build number) is $TAG.$DRONE_BUILD_NUMBER but theme version from style.css is $THEMEVERSION" && exit 1 ;fi
-      - grep -q "\[$THEMEVERSION\]" $PWD/CHANGELOG.md
+      - grep -q "\[$MAINTHEMEVERSION\]" $PWD/CHANGELOG.md
       - apt-get update && apt-get install -y zip
       - npm install --silent
       - grunt
