@@ -1,5 +1,8 @@
 # Change Log - Pencil
 
+= 1.3.2 - Feb 7 2018 =
+* Changed: Tested up to 4.9.4 (WordPress version)
+
 = 1.3.1 - Feb 6 2018 =
 * Fixed: PHP 7.2 compatibility.
 
