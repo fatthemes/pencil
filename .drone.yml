@@ -158,7 +158,8 @@ pipeline:
       - sed -i "s/$VERSION_LINE/Version:\ $TAG.$DRONE_BUILD_NUMBER/" $PWD/scss/underscores/style.scss
       - sed -i "s/$VERSION_LINE/Version:\ $TAG.$DRONE_BUILD_NUMBER/" $PWD/style.css
       - THEME_SLUG=$DRONE_REPO_NAME
-      - THEMEVERSION=$(cat style.css | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?" | grep -Po "(\d\d?\.\d\d?\.?\d?\d?)")
+      - THEMEVERSION=$(cat style.css | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?.*" | grep -Po "(\d\d?\.\d\d?\.?\d?\d?.*)")
+      - echo $THEMEVERSION
       - REPOTAG=$TAG
       - echo $REPOTAG
       - if [ $REPOTAG != $THEMEVERSION ]; then echo "Wrong theme/tag version - version from repo tag is $REPOTAG (${DRONE_TAG}) but theme version from style.css is $THEMEVERSION" && exit 1 ;fi
