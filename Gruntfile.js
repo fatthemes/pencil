@@ -107,10 +107,10 @@ module.exports = function (grunt) {
 	      location: 'ec2-eu-central-1',
 	      connectivity: '3G',
 	      budget: {
-		visualComplete: '3000',
+		visualComplete: '5000',
 		render: '3000',
 		//requests: '100',
-		SpeedIndex: '3000'
+		SpeedIndex: '4000'
 	      }
             }
           }
