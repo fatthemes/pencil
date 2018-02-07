@@ -10,6 +10,18 @@ pipeline:
     when:
       event: push
 
+  changelog:
+    image: limestreet/apache-php-7
+    commands:
+      - CURRENT_WP_VERSION=`curl https://api.wordpress.org/core/version-check/1.7/`
+      - echo $CURRENT_WP_VERSION
+      - TESTED_UP_TO_WP_VERSION_LINE=$(grep -Po "Tested\ up\ to:\s?\s?\d\d?\.\d\d?\.?\d?\d?.*" $PWD/readme.txt)
+      - TESTED_UP_TO_WP_VERSION=$(echo $TESTED_UP_TO_WP_VERSION_LINE | grep -Po "\d\d?\.\d\d?\.?\d?\d?")
+      - echo $TESTED_UP_TO_WP_VERSION
+      - if [ $TESTED_UP_TO_WP_VERSION != $CURRENT_WP_VERSION ]; then echo "Please test with latest WP version - $CURRENT_WP_VERSION instead of $TESTED_UP_TO_WP_VERSION" && exit 1 ;fi
+    when:
+      event: push
+
   codetest:
     image: limestreet/php-cli
     environment:
