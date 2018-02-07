@@ -104,7 +104,7 @@ module.exports = function (grunt) {
               key: 'WEBPAGETEST_API_KEY',
 	      timeout: '600',
 	      //repeatView: true,
-	      //location: 'ec2-eu-central-1',
+	      location: 'ec2-eu-central-1',
 	      budget: {
 		visualComplete: '5000',
 		render: '3000',
