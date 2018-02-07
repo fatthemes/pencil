@@ -141,12 +141,12 @@ pipeline:
       - VERSION_LINE=$(grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?.*" $PWD/style.css)
       #- echo $VERSION_LINE
       #- VERSION=$(echo $VERSION_LINE | grep -Po "\d\d?\.\d\d?\.?\d?\d?.*")
-      - sed -i "s/$VERSION_LINE/Version:\ TAG.$DRONE_BUILD_NUMBER/" $PWD/scss/underscores/style.scss
-      - sed -i "s/$VERSION_LINE/Version:\ TAG.$DRONE_BUILD_NUMBER/" $PWD/style.css
+      - sed -i "s/$VERSION_LINE/Version:\ $TAG.$DRONE_BUILD_NUMBER/" $PWD/scss/underscores/style.scss
+      - sed -i "s/$VERSION_LINE/Version:\ $TAG.$DRONE_BUILD_NUMBER/" $PWD/style.css
       - THEME_SLUG=$DRONE_REPO_NAME
       - THEMEVERSION=$(cat style.css | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?" | grep -Po "(\d\d?\.\d\d?\.?\d?\d?)")
       - REPOTAG=$TAG
-      #- echo $REPOTAG
+      - echo $REPOTAG
       - if [ $REPOTAG != $THEMEVERSION ]; then echo "Wrong theme/tag version - version from repo tag is $REPOTAG (${DRONE_TAG}) but theme version from style.css is $THEMEVERSION" && exit 1 ;fi
       - grep -q "\[$THEMEVERSION\]" $PWD/CHANGELOG.md
       - apt-get update && apt-get install -y zip
