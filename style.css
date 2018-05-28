@@ -3333,7 +3333,10 @@ nav {
   font-style: normal;
   text-transform: uppercase; }
 
-.comment-form label {
+.comment-form-comment label,
+.comment-form-author label,
+.comment-form-email label,
+.comment-form-ur label {
   display: none; }
 
 .comment-fields {
