@@ -34,7 +34,7 @@ pipeline:
       - git clone -b master --depth 1 https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git $SNIFFS_DIR
       - git clone -b 7.1.5 --depth 1 https://github.com/wimg/PHPCompatibility.git $SNIFFS_DIR/PHPCompatibility
       - $PHPCS_DIR/scripts/phpcs --config-set installed_paths $SNIFFS_DIR
-      - $PHPCS_DIR/scripts/phpcs -p -s -v -n . --standard=./phpcs.ruleset.xml --extensions=php --ignore=*/node_modules/*,*/vendor/*,class-tgm-plugin-activation.php,class-media-grabber.php
+      - $PHPCS_DIR/scripts/phpcs -p -s -v -n . --standard=./phpcs.ruleset.xml --extensions=php --ignore=*/node_modules/*,*/vendor/*,class-tgm-plugin-activation.php,class-media-grabber.php,get-the-image.php
       - jshint .
       - php -v
       - find -L . -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" -not -path "*php-codesniffer*" -not -path ".*" -print0 | xargs -0 -n 1 -P 4 php -l
@@ -76,38 +76,6 @@ pipeline:
     when:
       event: push
 
-  push_to_dev:
-    image: limestreet/apache-php-7
-    commands:
-      #- $DRONE_TAG
-      - git config --global user.email "$DOCKER_EMAIL"
-      #- git reset --hard
-      #- git clean -f
-      - VERSION_LINE=$(grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?.*" $PWD/style.css)
-      #- echo $VERSION_LINE
-      - VERSION=$(echo $VERSION_LINE | grep -Po "\d\d?\.\d\d?\.?\d?\d?")
-      #- VERSION=`grep -Po "(\d\d?\.\d\d?\.\d\d?)" <<< "$VERSION_LINE"`
-      - sed -i "s/$VERSION_LINE/Version:\ $VERSION+build$DRONE_BUILD_NUMBER/" $PWD/scss/underscores/style.scss
-      - sed -i "s/$VERSION_LINE/Version:\ $VERSION+build$DRONE_BUILD_NUMBER/" $PWD/style.css
-      #- COMPOSER_THEME_VERSION_LINE=$(grep -Po '"version"\s?\s?:\s?\s?"\d\d?\.\d\d?\.\d\d?.*"' $PWD/composer.json)
-      #- echo $COMPOSER_THEME_VERSION_LINE
-      #- COMPOSER_THEME_VERSION=$(echo $COMPOSER_THEME_VERSION_LINE | grep -Po "(\d\d?\.\d\d?\.\d\d?)")
-    #- COMPOSER_THEME_VERSION=`grep -Po "(\d\d?\.\d\d?\.?\d?\d?)" <<< "$COMPOSER_THEME_VERSION_LINE"`
-      #- sed -i "s/$COMPOSER_THEME_VERSION_LINE/\"version\"\ :\ \"$COMPOSER_THEME_VERSION+build$DRONE_BUILD_NUMBER\"/" $PWD/composer.json
-      #- cat composer.json
-      #- git fetch
-      #- git status
-      - npm install --silent
-      - git add .
-    #- git status
-      - git commit -m "Drone build nr $DRONE_BUILD_NUMBER [CI SKIP]"
-      - git checkout -b dev
-      - git merge master
-      - git push origin dev --force
-    secrets: [ DOCKER_EMAIL ]
-    when:
-      event: push
-
   performancetest:
     image: limestreet/apache-php-7
     commands:
@@ -115,19 +83,20 @@ pipeline:
       #- printenv
       - THEME_SLUG=$DRONE_REPO_NAME
       - THEME_LOW=`echo "$THEME_SLUG" | sed 's/-by-fat//'`
-      #- echo $THEME_LOW
+      - SUBDOMAIN=${THEME_LOW}0
+      - echo $SUBDOMAIN
       #- echo $PWD
       #- THEME_NAME=`echo "$THEME_LOW" | sed 's/\b\w/\U&/'`
-      #- npm install --silent
-      - sleep 15
-      - REMOTEURL="http://$THEME_LOW.dev.limestreet.pl/wp-content/themes/$THEME_SLUG/style.css"
+      - npm install --silent
+      #- sleep 15
+      - REMOTEURL="http://$SUBDOMAIN.dev.limestreet.pl/wp-content/themes/$THEME_SLUG/style.css"
       #- echo $REMOTEURL
-      - REMOTEVERSION=$(curl $REMOTEURL | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?.*" | grep -Po "(\d\d?\.\d\d?\.?\d?\d?.*)")
-      - echo $REMOTEVERSION
-      - LOCALVERSION=$(cat style.css | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?.*" | grep -Po "(\d\d?\.\d\d?\.?\d?\d?.*)")
-      - echo $LOCALVERSION
-      - if [ $REMOTEVERSION != $LOCALVERSION ]; then echo "Wrong theme version - $REMOTEVERSION instead of $LOCALVERSION" && exit 1 ;fi
-      - sed -i "s/THEME_SLUG/$THEME_SLUG/g" ./Gruntfile.js
+      #- REMOTEVERSION=$(curl $REMOTEURL | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?.*" | grep -Po "(\d\d?\.\d\d?\.?\d?\d?.*)")
+      #- echo $REMOTEVERSION
+      #- LOCALVERSION=$(cat style.css | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?.*" | grep -Po "(\d\d?\.\d\d?\.?\d?\d?.*)")
+      #- echo $LOCALVERSION
+      #- if [ $REMOTEVERSION != $LOCALVERSION ]; then echo "Wrong theme version - $REMOTEVERSION instead of $LOCALVERSION" && exit 1 ;fi
+      - sed -i "s/THEME_SLUG/$SUBDOMAIN/g" ./Gruntfile.js
       - sed -i "s/WEBPAGETEST_API_KEY/$WEBPAGETEST_API_KEY/g" ./Gruntfile.js
       - sed -i "s/PAGESPEED_API_KEY/$PAGESPEED_API_KEY/g" ./Gruntfile.js
       #- pa11y -V

@@ -45,9 +45,17 @@
 }
 
 .comment-form label {
-    display: none;
+    //display: none;
 }
 
+.comment-form-comment,
+.comment-form-author,
+.comment-form-email,
+.comment-form-ur {
+    label {
+	display:none;
+    }
+}
 
 .comment-fields {
     display: flex;
