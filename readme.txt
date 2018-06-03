@@ -21,3 +21,11 @@ Tested up to: 4.9.6
 * Infinite Scroll - version 2.1.0 - Copyright 2011/12 Paul Irish & Luke Shumard. Licensed under the MIT license
 * Hybrid Media Grabber - Copyright (c) 2008 - 2015, Justin Tadlock. License - GPL 2.0
 * Screenshot images. License CC0 - https://unsplash.com
+* Merriweather-Regular.ttf: Copyright 2016 The Merriweather Project Authors (https://github.com/EbenSorkin/Merriweather), with Reserved Font Name "Merriweather". SIL Open Font License, 1.1
+* Merriweather-Italic.ttf: Copyright 2016 The Merriweather Project Authors (https://github.com/EbenSorkin/Merriweather), with Reserved Font Name "Merriweather". SIL Open Font License, 1.1
+* Merriweather-Bold.ttf: Copyright 2016 The Merriweather Project Authors (https://github.com/EbenSorkin/Merriweather), with Reserved Font Name "Merriweather". SIL Open Font License, 1.1
+* Merriweather-BoldItalic.ttf: Copyright 2016 The Merriweather Project Authors (https://github.com/EbenSorkin/Merriweather), with Reserved Font Name "Merriweather". SIL Open Font License, 1.1
+* Roboto-Bold.ttf: Copyright 2011 Google Inc. All Rights Reserved. Apache License, version 2.0
+* Roboto-BoldItalic.ttf: Copyright 2011 Google Inc. All Rights Reserved. Apache License, version 2.0
+* Roboto-Regular.ttf: Copyright 2011 Google Inc. All Rights Reserved. Apache License, version 2.0
+* Roboto-Italic.ttf: Copyright 2011 Google Inc. All Rights Reserved. Apache License, version 2.0
