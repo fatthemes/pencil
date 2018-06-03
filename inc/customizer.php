@@ -377,6 +377,21 @@ function pencil_customize_register( $wp_customize ) {
 			'type' => 'checkbox',
 		)
 	);
+
+	$wp_customize->add_setting(
+		'load_google_fonts_from_google', array(
+			'default' => 1,
+			'sanitize_callback' => 'wp_validate_boolean',
+		)
+	);
+
+	$wp_customize->add_control(
+		'load_google_fonts_from_google', array(
+			'label' => esc_html__( 'Load fonts from Google servers', 'loose' ),
+			'section' => 'other_settings',
+			'type' => 'checkbox',
+		)
+	);
 }
 
 add_action( 'customize_register', 'pencil_customize_register' );

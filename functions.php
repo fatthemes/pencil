@@ -130,6 +130,10 @@ if ( ! function_exists( 'pencil_fonts_url' ) ) :
  * @return string Google fonts URL for the theme.
  */
 function pencil_fonts_url() {
+
+		if ( ! get_theme_mod( 'load_google_fonts_from_google', 1 ) ) {
+			return get_template_directory_uri() . '/fonts/fonts.css';
+		}
 		$fonts_url = '';
 		$fonts     = array();
 		$subsets   = 'latin,latin-ext';
