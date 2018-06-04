@@ -83,7 +83,8 @@ pipeline:
       #- printenv
       - THEME_SLUG=$DRONE_REPO_NAME
       - THEME_LOW=`echo "$THEME_SLUG" | sed 's/-by-fat//'`
-      - SUBDOMAIN=${THEME_LOW}0
+      - ZERO="0"
+      - SUBDOMAIN="$THEME_LOW$ZERO"
       - echo $SUBDOMAIN
       #- echo $PWD
       #- THEME_NAME=`echo "$THEME_LOW" | sed 's/\b\w/\U&/'`
