@@ -54,36 +54,40 @@ function pencil_setup() {
 			 * to output valid HTML5.
 			 */
 			add_theme_support(
-				 'html5', array(
-					 'search-form',
-					 'comment-form',
-					 'comment-list',
-					 'gallery',
-					 'caption',
-				 )
-				);
+				'html5',
+				array(
+					'search-form',
+					'comment-form',
+					'comment-list',
+					'gallery',
+					'caption',
+				)
+			);
 
 			/*
 			 * Enable support for Post Formats.
 			 * See https://developer.wordpress.org/themes/functionality/post-formats/
 			 */
 			add_theme_support(
-				 'post-formats', array(
-					 'audio',
-					 'video',
-					 'gallery',
-				 )
-				);
+				'post-formats',
+				array(
+					'audio',
+					'video',
+					'gallery',
+				)
+			);
 
 			// Set up the WordPress core custom background feature.
 			add_theme_support(
-				 'custom-background', apply_filters(
-				 'pencil_custom_background_args', array(
-					 'default-color' => 'ffffff',
-					 'default-image' => '',
-				 )
+				'custom-background',
+				apply_filters(
+					'pencil_custom_background_args',
+					array(
+						'default-color' => 'ffffff',
+						'default-image' => '',
+					)
 				)
-				);
+			);
 
 }
 endif; // End of pencil_setup.
@@ -133,7 +137,7 @@ function pencil_fonts_url() {
 
 		if ( ! get_theme_mod( 'load_google_fonts_from_google', 1 ) ) {
 			return get_template_directory_uri() . '/fonts/fonts.css';
-		}
+			}
 		$fonts_url = '';
 		$fonts     = array();
 		$subsets   = 'latin,latin-ext';
@@ -172,14 +176,15 @@ function pencil_fonts_url() {
 
 			if ( $fonts ) {
 			$fonts_url = esc_url(
-		 add_query_arg(
-		 array(
-			 'family' => urlencode( implode( '|', $fonts ) ),
-			 'subset' => urlencode( $subsets ),
-		 ), 'https://fonts.googleapis.com/css'
+		add_query_arg(
+		array(
+			'family' => urlencode( implode( '|', $fonts ) ),
+			'subset' => urlencode( $subsets ),
+		),
+		'https://fonts.googleapis.com/css'
 			)
 		);
-			}
+		}
 
 			return $fonts_url;
 }
@@ -193,7 +198,7 @@ function pencil_scripts() {
 		$pencil_theme_info = wp_get_theme();
 
 		// Add custom fonts, used in the main stylesheet.
-		wp_enqueue_style( 'pencil-fonts', pencil_fonts_url(), array(), null );
+		wp_enqueue_style( 'pencil-fonts', pencil_fonts_url(), array(), $pencil_theme_info->get( 'Version' ) );
 
 		wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/font-awesome/css/font-awesome.min.css', array(), '4.4.0' );
 
@@ -225,17 +230,19 @@ wp_enqueue_script( 'smooth-scroll', get_template_directory_uri() . '/js/smoothsc
 
 		// Passing theme options to pencil.js.
 		wp_localize_script(
-			 'pencil-scripts', 'pencil', array(
-				 'home_page_slider_img_number' => get_theme_mod( 'home_page_slider_img_number', 1 ),
-				 'home_page_slider_play_speed' => $home_page_slider_play_speed,
-				 'home_page_slider_autoplay' => $home_page_slider_autoplay,
-				 'loadMoreText' => esc_html__( 'Load more posts', 'pencil' ),
-				 // 'loadingText' => esc_html__('Loading posts...', 'pencil'),
-				 'noMorePostsText' => esc_html__( 'No more posts to load', 'pencil' ),
-				 'startPage' => $pencil_ajax_paged,
-				 'maxPages' => $pencil_ajax_max_pages,
-				 'nextLink' => next_posts( $pencil_ajax_max_pages, false ),
-			 )
+			 'pencil-scripts',
+			'pencil',
+			array(
+				'home_page_slider_img_number' => get_theme_mod( 'home_page_slider_img_number', 1 ),
+				'home_page_slider_play_speed' => $home_page_slider_play_speed,
+				'home_page_slider_autoplay' => $home_page_slider_autoplay,
+				'loadMoreText' => esc_html__( 'Load more posts', 'pencil' ),
+				// 'loadingText' => esc_html__('Loading posts...', 'pencil'),
+				'noMorePostsText' => esc_html__( 'No more posts to load', 'pencil' ),
+				'startPage' => $pencil_ajax_paged,
+				'maxPages' => $pencil_ajax_max_pages,
+				'nextLink' => next_posts( $pencil_ajax_max_pages, false ),
+			)
 			);
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
