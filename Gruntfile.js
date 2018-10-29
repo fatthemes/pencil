@@ -109,9 +109,9 @@ module.exports = function (grunt) {
 	      connectivity: '3G',
 	      budget: {
 		visualComplete: '10000',
-		render: '5000',
+		render: '10000',
 		//requests: '100',
-		SpeedIndex: '5000'
+		SpeedIndex: '10000'
 	      }
             }
           }

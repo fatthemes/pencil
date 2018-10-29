@@ -19,12 +19,14 @@
 				printf(
 					wp_kses(
 					// Translators: comments number.
-					__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'pencil' ), array(
-						'a' => array(
-							'href' => array(),
-						),
-					)
-					), esc_url( admin_url( 'post-new.php' ) )
+					__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'pencil' ),
+						array(
+							'a' => array(
+								'href' => array(),
+							),
+						)
+					),
+					esc_url( admin_url( 'post-new.php' ) )
 					);
 ?>
 </p>

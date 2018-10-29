@@ -14,11 +14,12 @@ if ( ! function_exists( 'pencil_jetpack_setup' ) ) :
  */
 function pencil_jetpack_setup() {
 		add_theme_support(
-			 'infinite-scroll', array(
-				 'container' => 'main',
-				 'render'    => 'pencil_infinite_scroll_render',
-				 'footer'    => false,
-			 )
+			 'infinite-scroll',
+			array(
+				'container' => 'main',
+				'render'    => 'pencil_infinite_scroll_render',
+				'footer'    => false,
+			)
 			);
 } // end function pencil_jetpack_setup
 add_action( 'after_setup_theme', 'pencil_jetpack_setup' );

@@ -72,7 +72,8 @@ if ( ! function_exists( 'pencil_posted_on' ) ) :
 function pencil_posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 
-		$time_string = sprintf( $time_string,
+		$time_string = sprintf(
+			 $time_string,
 		esc_attr( get_the_date( 'c' ) ),
 		human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) )
 			);
@@ -238,12 +239,14 @@ function pencil_categorized_blog() {
 		$all_the_cool_cats = get_transient( 'pencil_categories' );
 		if ( false === $all_the_cool_cats ) {
 			// Create an array of all the categories that are attached to posts.
-			$all_the_cool_cats = get_categories( array(
-				'fields'     => 'ids',
-				'hide_empty' => 1,
-				// We only need to know if there is more than one category.
-				'number'     => 2,
-			) );
+			$all_the_cool_cats = get_categories(
+				 array(
+					 'fields'     => 'ids',
+					 'hide_empty' => 1,
+					 // We only need to know if there is more than one category.
+					 'number'     => 2,
+				 )
+				);
 
 			// Count the number of categories that are attached to the posts.
 			$all_the_cool_cats = count( $all_the_cool_cats );
@@ -311,27 +314,32 @@ function pencil_comment( $comment, $args, $depth ) {
 							</time></a>
 							<span class="reply">
 								<?php
-								comment_reply_link( array_merge( $args, array(
-									'depth' => $depth,
-									'max_depth' => $args['max_depth'],
-									'reply_text' => 'REPLY',
-									'before' => ' &#8901; ',
-								) ) );
-								?>
-							</span><!-- .reply -->
-							<?php
-								edit_comment_link( __( 'Edit', 'pencil' ), ' &#8901; ' );
-							?>
-						</div><!-- .comment-meta .commentmetadata -->
-					</div><!-- .comment-author .vcard -->
-					<?php if ( '0' == $comment->comment_approved ) : ?>
+								comment_reply_link(
+									 array_merge(
+									 $args,
+									array(
+										'depth' => $depth,
+										'max_depth' => $args['max_depth'],
+										'reply_text' => 'REPLY',
+										'before' => ' &#8901; ',
+									)
+									)
+									);
+									?>
+									</span><!-- .reply -->
+									<?php
+									edit_comment_link( __( 'Edit', 'pencil' ), ' &#8901; ' );
+									?>
+									</div><!-- .comment-meta .commentmetadata -->
+									</div><!-- .comment-author .vcard -->
+									<?php if ( '0' == $comment->comment_approved ) : ?>
 						<em><?php esc_html_e( 'Your comment is awaiting moderation.', 'pencil' ); ?></em>
 						<br />
 					<?php endif; ?>
-				</footer>
-				<div class="comment-content"><?php comment_text(); ?></div>
-			</article><!-- #comment-## -->
-		<?php
+									</footer>
+									<div class="comment-content"><?php comment_text(); ?></div>
+									</article><!-- #comment-## -->
+									<?php
 }
 endif; // Ends check for pencil_comment().
 
@@ -540,9 +548,9 @@ if ( ! function_exists( 'pencil_show_sticky' ) ) :
  * @return bool
  */
 function pencil_show_sticky() {
-	if ( is_sticky() && ! get_theme_mod( 'home_page_show_sticky', 0 ) ) {
-		return false;
-		}
-	return true;
+		if ( is_sticky() && ! get_theme_mod( 'home_page_show_sticky', 0 ) ) {
+			return false;
+			}
+		return true;
 	}
 endif;

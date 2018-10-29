@@ -15,7 +15,7 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			<?php echo wp_kses_post( get_theme_mod( 'footer_text', '<a href="https://wordpress.org/">Proudly powered by WordPress</a><span class="sep"> | </span>Theme: Pencil by <a href="http://fatthemes.com">Fat</a>' ) ); ?>
+			<?php echo wp_kses_post( get_theme_mod( 'footer_text', '<a href="https://wordpress.org/">Proudly powered by WordPress</a><span class="sep"> | </span>Theme: Pencil by <a href="http://blogonyourown.com">BlogOnYourOwn.com</a>' ) ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
