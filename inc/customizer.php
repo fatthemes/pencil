@@ -333,7 +333,7 @@ function pencil_customize_register( $wp_customize ) {
 			'type' => 'text',
 		)
 	);
-	
+
 	$wp_customize->add_setting(
 		'social_icons_tumblr',
 		array(
