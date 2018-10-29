@@ -333,6 +333,23 @@ function pencil_customize_register( $wp_customize ) {
 			'type' => 'text',
 		)
 	);
+	
+	$wp_customize->add_setting(
+		'social_icons_tumblr',
+		array(
+			'default' => '',
+			'sanitize_callback' => 'esc_url_raw',
+		)
+	);
+
+	$wp_customize->add_control(
+		'social_icons_tumblr',
+		array(
+			'label' => esc_html__( 'Tumblr', 'pencil' ),
+			'section' => 'social_icons',
+			'type' => 'text',
+		)
+	);
 
 	// Footer text.
 	$wp_customize->add_section(

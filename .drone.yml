@@ -122,26 +122,30 @@ pipeline:
     image: limestreet/apache-php-7
     commands:
       - TAG=`echo "$DRONE_TAG" | sed 's/^v//'`
+      - echo $TAG
       - VERSION_LINE=$(grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?.*" $PWD/style.css)
       #- echo $VERSION_LINE
-      #- VERSION=$(echo $VERSION_LINE | grep -Po "\d\d?\.\d\d?\.?\d?\d?.*")
-      - sed -i "s/$VERSION_LINE/Version:\ $TAG.$DRONE_BUILD_NUMBER/" $PWD/scss/underscores/style.scss
-      - sed -i "s/$VERSION_LINE/Version:\ $TAG.$DRONE_BUILD_NUMBER/" $PWD/style.css
-      - THEME_SLUG=$DRONE_REPO_NAME
-      - THEMEVERSION=$(cat style.css | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?.*" | grep -Po "(\d\d?\.\d\d?\.?\d?\d?.*)")
-      - echo $THEMEVERSION
-      - MAINTHEMEVERSION=`echo "$THEMEVERSION" | grep -Po "(^\d\d?\.\d\d?\.?\d?\d?)"`
-      - echo $TAG.$DRONE_BUILD_NUMBER
-      - if [ $TAG.$DRONE_BUILD_NUMBER != $THEMEVERSION ]; then echo "Wrong theme/tag version - version from repo tag (+ build number) is $TAG.$DRONE_BUILD_NUMBER but theme version from style.css is $THEMEVERSION" && exit 1 ;fi
-      - grep -q "\[$MAINTHEMEVERSION\]" $PWD/CHANGELOG.md
+      - VERSION=$(echo $VERSION_LINE | grep -Po "\d\d?\.\d\d?\.?\d?\d?.*")
+      - echo $VERSION
+      - if [ $TAG != $VERSION ]; then echo "Wrong theme/tag version - version from repo tag is $TAG but theme version from style.css is $THEMEVERSION" && exit 1 ;fi
+      - grep -q "\[$VERSION\]" $PWD/CHANGELOG.md
+      - sed -i "s/$VERSION_LINE/Version:\ $VERSION.$DRONE_BUILD_NUMBER/" $PWD/scss/underscores/style.scss
+      - sed -i "s/$VERSION_LINE/Version:\ $VERSION.$DRONE_BUILD_NUMBER/" $PWD/style.css
+      #- THEME_SLUG=$DRONE_REPO_NAME
+      #- THEMEVERSION=$(cat style.css | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?.*" | grep -Po "(\d\d?\.\d\d?\.?\d?\d?.*)")
+      #- echo $THEMEVERSION
+      #- MAINTHEMEVERSION=`echo "$THEMEVERSION" | grep -Po "(^\d\d?\.\d\d?\.?\d?\d?)"`
+      #- echo $TAG.$DRONE_BUILD_NUMBER
+      #- if [ $TAG.$DRONE_BUILD_NUMBER != $THEMEVERSION ]; then echo "Wrong theme/tag version - version from repo tag (+ build number) is $TAG.$DRONE_BUILD_NUMBER but theme version from style.css is $THEMEVERSION" && exit 1 ;fi
+      #- grep -q "\[$MAINTHEMEVERSION\]" $PWD/CHANGELOG.md
       - apt-get update && apt-get install -y zip
       - npm install --silent
       - grunt
       - rm -rf *.yml .drone.yml .g* .j* .n* scss node_modules vendor tests Gruntfile.js casper-tests.js package.json *.ruleset.xml nbproject *.rb *.tmp *.map *.log Dockerfile
       - cd ..
-      - zip -FSr $THEME_SLUG.zip $THEME_SLUG
+      - zip -FSr $DRONE_REPO_NAME.zip $DRONE_REPO_NAME
       - mkdir -p $DRONE_REPO_NAME/dist
-      - cp $THEME_SLUG.zip $DRONE_REPO_NAME/dist/$THEME_SLUG.zip
+      - cp $DRONE_REPO_NAME.zip $DRONE_REPO_NAME/dist/$DRONE_REPO_NAME.zip
     when:
       event: tag
 

@@ -1,5 +1,14 @@
 # Change Log - Pencil
 
+## [1.3.5] - 2018-10-29
+
+### Added
+- tumblr in social icons
+
+### Changed
+- Tested up to 4.9.8 (WordPress version)
+
+
 ## [1.3.4] - 2018-06-03
 
 ### Added
