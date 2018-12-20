@@ -129,8 +129,8 @@ pipeline:
       - echo $VERSION
       - if [ $TAG != $VERSION ]; then echo "Wrong theme/tag version - version from repo tag is $TAG but theme version from style.css is $THEMEVERSION" && exit 1 ;fi
       - grep -q "\[$VERSION\]" $PWD/CHANGELOG.md
-      - sed -i "s/$VERSION_LINE/Version:\ $VERSION.$DRONE_BUILD_NUMBER/" $PWD/scss/underscores/style.scss
-      - sed -i "s/$VERSION_LINE/Version:\ $VERSION.$DRONE_BUILD_NUMBER/" $PWD/style.css
+      #- sed -i "s/$VERSION_LINE/Version:\ $VERSION.$DRONE_BUILD_NUMBER/" $PWD/scss/underscores/style.scss
+      #- sed -i "s/$VERSION_LINE/Version:\ $VERSION.$DRONE_BUILD_NUMBER/" $PWD/style.css
       #- THEME_SLUG=$DRONE_REPO_NAME
       #- THEMEVERSION=$(cat style.css | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?.*" | grep -Po "(\d\d?\.\d\d?\.?\d?\d?.*)")
       #- echo $THEMEVERSION
