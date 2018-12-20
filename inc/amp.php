@@ -2,17 +2,17 @@
 /**
  * AMP support
  *
- * @package loose
+ * @package pencil
  */
 
-add_action( 'amp_post_template_css', 'loose_amp_additional_css_styles' );
+add_action( 'amp_post_template_css', 'pencil_amp_additional_css_styles' );
 
 /**
  * Custom CSS for AMP.
  *
  * @param type $amp_template amp plugin template.
  */
-function loose_amp_additional_css_styles( $amp_template ) {
+function pencil_amp_additional_css_styles( $amp_template ) {
 	?>
 	body {
 		font-family: "Merriweather", Georgia, "Times New Roman", Times, serif;
