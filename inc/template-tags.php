@@ -315,7 +315,7 @@ function pencil_comment( $comment, $args, $depth ) {
 							<span class="reply">
 								<?php
 								comment_reply_link(
-									 array_merge(
+									array_merge(
 									 $args,
 									array(
 										'depth' => $depth,

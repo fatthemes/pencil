@@ -450,7 +450,7 @@ function pencil_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'load_google_fonts_from_google',
 		array(
-			'label' => esc_html__( 'Load fonts from Google servers', 'loose' ),
+			'label' => esc_html__( 'Load fonts from Google servers', 'pencil' ),
 			'section' => 'other_settings',
 			'type' => 'checkbox',
 		)

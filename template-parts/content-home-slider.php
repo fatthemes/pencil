@@ -43,12 +43,12 @@ if ( ! empty( $pencil_sticky_posts ) ) :
 							
 							<div class="featured-image" style="background:#000 url(<?php echo esc_url( $pencil_wp_get_attachment_image_src[0] ); ?>) no-repeat center;background-size: cover;height:<?php echo absint( get_theme_mod( 'home_page_slider_height', 300 ) ); ?>px;">
 							<div class="pencil-featured-slider-title-wrapper">
-							<h2 class="pencil-featured-slider-header"><a href="<?php echo esc_url( get_permalink( $slide->ID ) ); ?>" rel="bookmark"><?php echo get_the_title( $slide->ID ); ?></a></h2>
+							<h2 class="pencil-featured-slider-header"><a href="<?php the_permalink( $slide->ID ); ?>" rel="bookmark"><?php echo wp_kses_post( get_the_title( $slide->ID ) ); ?></a></h2>
 							</div>
 							</div>
 							<?php else : ?>
 							<div class="no-featured-image" style="height:<?php echo absint( get_theme_mod( 'home_page_slider_height', 300 ) ); ?>px;">
-							<h2 class="pencil-featured-slider-header"><a href="<?php echo esc_url( get_permalink( $slide->ID ) ); ?>" rel="bookmark"><?php echo get_the_title( $slide->ID ); ?></a></h2>
+							<h2 class="pencil-featured-slider-header"><a href="<?php the_permalink( $slide->ID ); ?>" rel="bookmark"><?php echo wp_kses_post( get_the_title( $slide->ID ) ); ?></a></h2>
 							</div>
 							<?php endif; ?>
 						</div>

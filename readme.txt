@@ -1,7 +1,7 @@
 === Pencil ===
 
 Requires at least: 4.1
-Tested up to: 4.9.8
+Tested up to: 5.0.2
 
 == Installation ==
 
