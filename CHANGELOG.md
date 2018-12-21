@@ -1,5 +1,10 @@
 # Change Log - Pencil
 
+## [1.4.1] - 2018-12-21
+
+### Fixed
+- excerpt length option not working
+
 ## [1.4] - 2018-12-20
 
 ### Added
