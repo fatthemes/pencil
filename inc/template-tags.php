@@ -554,3 +554,16 @@ function pencil_show_sticky() {
 		return true;
 	}
 endif;
+
+if ( ! function_exists( 'pencil_excerpt_length' ) ) :
+
+add_filter( 'excerpt_length', 'pencil_excerpt_length', 100 );
+/**
+ * Custom excerpt length
+ *
+ * @return int
+ */
+function pencil_excerpt_length() {
+	return get_theme_mod( 'excerpt_length', 55 );
+}
+endif;
