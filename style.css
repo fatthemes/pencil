@@ -2936,8 +2936,8 @@ nav {
 .toggled #toggled-navbar-bg > .primary-menu {
   width: 320px;
   max-width: 100%;
-  height: 100%;
-  overflow: hidden; }
+  max-height: 100%;
+  overflow: auto; }
 .toggled .primary-menu > .nav-menu {
   display: none;
   width: 105%;
