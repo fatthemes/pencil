@@ -13,7 +13,7 @@ get_header(); ?>
 	<?php
 					$pencil_home_page_layout = get_theme_mod( 'home_page_layout', 'masonry' );
 					echo ( empty( $pencil_home_page_layout ) ) ? ' col-md-12' : ' col-md-8';
-					?>
+	?>
 					">
 
 		<?php if ( have_posts() ) : ?>
@@ -22,15 +22,15 @@ get_header(); ?>
 			<?php
 			// Translators: search term.
 				printf( esc_html__( 'Search Results for: %s', 'pencil' ), '<span>' . get_search_query() . '</span>' );
-				?>
+			?>
 			</div>
 		<main id="main" class="site-main row masonry-container" role="main">
 			
 			<?php ;/* Start the Loop */ ?>
 			<?php
 			while ( have_posts() ) :
-the_post();
-?>
+				the_post();
+				?>
 
 				<?php
 
@@ -61,7 +61,7 @@ the_post();
 
 <?php
 if ( ! empty( $pencil_home_page_layout ) ) {
-get_sidebar();}
+	get_sidebar();}
 ?>
 	</div><!-- .row -->
 <?php get_footer(); ?>

@@ -1,5 +1,10 @@
 # Change Log - Pencil
 
+## [1.4.2] - 2019-02-05
+
+### Fixed
+- menu scrolling on mobile
+
 ## [1.4.1] - 2018-12-21
 
 ### Fixed

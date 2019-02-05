@@ -8,14 +8,14 @@
  */
 
 if ( ! function_exists( 'pencil_setup' ) ) :
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
- */
-function pencil_setup() {
+	/**
+	 * Sets up theme defaults and registers support for various WordPress features.
+	 *
+	 * Note that this function is hooked into the after_setup_theme hook, which
+	 * runs before the init hook. The init hook is too late for some features, such
+	 * as indicating support for post thumbnails.
+	 */
+	function pencil_setup() {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
@@ -44,10 +44,10 @@ function pencil_setup() {
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
-			 array(
-				 'primary' => esc_html__( 'Primary Menu', 'pencil' ),
-			 )
-			);
+			array(
+				'primary' => esc_html__( 'Primary Menu', 'pencil' ),
+			)
+		);
 
 			/*
 			 * Switch default core markup for search form, comment form, and comments
@@ -89,7 +89,7 @@ function pencil_setup() {
 				)
 			);
 
-}
+	}
 endif; // End of pencil_setup.
 add_action( 'after_setup_theme', 'pencil_setup' );
 
@@ -101,7 +101,7 @@ add_action( 'after_setup_theme', 'pencil_setup' );
  * @global int $content_width
  */
 function pencil_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'pencil_content_width', 720 );
+	$GLOBALS['content_width'] = apply_filters( 'pencil_content_width', 720 ); // WPCS: prefix ok.
 }
 add_action( 'after_setup_theme', 'pencil_content_width', 0 );
 
@@ -112,32 +112,32 @@ add_action( 'after_setup_theme', 'pencil_content_width', 0 );
  */
 function pencil_widgets_init() {
 	register_sidebar(
-		 array(
-			 'name'          => esc_html__( 'Sidebar', 'pencil' ),
-			 'id'            => 'sidebar-1',
-			 'description'   => '',
-			 'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-			 'after_widget'  => '</aside>',
-			 'before_title'  => '<h2 class="widget-title">',
-			 'after_title'   => '</h2>',
-		 )
-		);
+		array(
+			'name'          => esc_html__( 'Sidebar', 'pencil' ),
+			'id'            => 'sidebar-1',
+			'description'   => '',
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
 }
 add_action( 'widgets_init', 'pencil_widgets_init' );
 
 if ( ! function_exists( 'pencil_fonts_url' ) ) :
-/**
- * Register Google fonts for Twenty Fifteen.
- *
- * @since Twenty Fifteen 1.0
- *
- * @return string Google fonts URL for the theme.
- */
-function pencil_fonts_url() {
+	/**
+	 * Register Google fonts for Twenty Fifteen.
+	 *
+	 * @since Twenty Fifteen 1.0
+	 *
+	 * @return string Google fonts URL for the theme.
+	 */
+	function pencil_fonts_url() {
 
 		if ( ! get_theme_mod( 'load_google_fonts_from_google', 1 ) ) {
 			return get_template_directory_uri() . '/fonts/fonts.css';
-			}
+		}
 		$fonts_url = '';
 		$fonts     = array();
 		$subsets   = 'latin,latin-ext';
@@ -148,7 +148,7 @@ function pencil_fonts_url() {
 		 */
 		if ( 'off' !== _x( 'on', 'Noto Sans font: on or off', 'pencil' ) ) {
 			$fonts[] = 'Roboto:700,400,400italic,300';
-			}
+		}
 
 		/*
 		 * Translators: If there are characters in your language that are not supported
@@ -156,7 +156,7 @@ function pencil_fonts_url() {
 		 */
 		if ( 'off' !== _x( 'on', 'Noto Serif font: on or off', 'pencil' ) ) {
 			$fonts[] = 'Merriweather:700,700italic,400,400italic';
-			}
+		}
 
 		/*
 		 * Translators: To add an additional character subset specific to your language,
@@ -166,28 +166,28 @@ function pencil_fonts_url() {
 
 		if ( 'cyrillic' == $subset ) {
 			$subsets .= ',cyrillic,cyrillic-ext';
-			} elseif ( 'greek' == $subset ) {
+		} elseif ( 'greek' == $subset ) {
 			$subsets .= ',greek,greek-ext';
-			} elseif ( 'devanagari' == $subset ) {
+		} elseif ( 'devanagari' == $subset ) {
 			$subsets .= ',devanagari';
-			} elseif ( 'vietnamese' == $subset ) {
+		} elseif ( 'vietnamese' == $subset ) {
 			$subsets .= ',vietnamese';
-			}
+		}
 
-			if ( $fonts ) {
+		if ( $fonts ) {
 			$fonts_url = esc_url(
-		add_query_arg(
-		array(
-			'family' => urlencode( implode( '|', $fonts ) ),
-			'subset' => urlencode( $subsets ),
-		),
-		'https://fonts.googleapis.com/css'
-			)
-		);
+				add_query_arg(
+					array(
+						'family' => urlencode( implode( '|', $fonts ) ),
+						'subset' => urlencode( $subsets ),
+					),
+					'https://fonts.googleapis.com/css'
+				)
+			);
 		}
 
 			return $fonts_url;
-}
+	}
 endif;
 
 /**
@@ -206,14 +206,14 @@ function pencil_scripts() {
 
 		wp_enqueue_script( 'slick', get_template_directory_uri() . '/slick/slick.min.js', array( 'jquery' ), '20150828', true );
 
-		if ( ! is_404() && ! is_singular() && have_posts() ) {
-wp_enqueue_script( 'masonry' ); }
+	if ( ! is_404() && ! is_singular() && have_posts() ) {
+		wp_enqueue_script( 'masonry' ); }
 
-		if ( get_theme_mod( 'sticky_sidebar', 1 ) && is_active_sidebar( 'sidebar-1' ) ) {
-wp_enqueue_script( 'theia-sticky-sidebar', get_template_directory_uri() . '/js/theia-sticky-sidebar.min.js', array( 'jquery' ), '1.2.2', true ); }
+	if ( get_theme_mod( 'sticky_sidebar', 1 ) && is_active_sidebar( 'sidebar-1' ) ) {
+		wp_enqueue_script( 'theia-sticky-sidebar', get_template_directory_uri() . '/js/theia-sticky-sidebar.min.js', array( 'jquery' ), '1.2.2', true ); }
 
-		if ( get_theme_mod( 'smooth_scroll', 1 ) ) {
-wp_enqueue_script( 'smooth-scroll', get_template_directory_uri() . '/js/smoothscroll.min.js', array( 'jquery' ), '1.3.8', true ); }
+	if ( get_theme_mod( 'smooth_scroll', 1 ) ) {
+		wp_enqueue_script( 'smooth-scroll', get_template_directory_uri() . '/js/smoothscroll.min.js', array( 'jquery' ), '1.3.8', true ); }
 
 		wp_enqueue_script( 'magnific-popup', get_template_directory_uri() . '/js/jquery.magnific-popup.min.js', array( 'jquery' ), '20150829', true );
 
@@ -230,7 +230,7 @@ wp_enqueue_script( 'smooth-scroll', get_template_directory_uri() . '/js/smoothsc
 
 		// Passing theme options to pencil.js.
 		wp_localize_script(
-			 'pencil-scripts',
+			'pencil-scripts',
 			'pencil',
 			array(
 				'home_page_slider_img_number' => get_theme_mod( 'home_page_slider_img_number', 1 ),
@@ -243,7 +243,7 @@ wp_enqueue_script( 'smooth-scroll', get_template_directory_uri() . '/js/smoothsc
 				'maxPages' => $pencil_ajax_max_pages,
 				'nextLink' => next_posts( $pencil_ajax_max_pages, false ),
 			)
-			);
+		);
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

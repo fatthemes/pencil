@@ -27,7 +27,7 @@
 					 array(
 						 'type' => 'audio',
 					 )
-					);
+				);
 				?>
 
 								  </div>
@@ -38,12 +38,12 @@
 		<?php pencil_media_content(); ?>
 		<?php
 			wp_link_pages(
-				 array(
-					 'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'pencil' ),
-					 'after'  => '</div>',
-				 )
-				);
-		?>
+				array(
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'pencil' ),
+					'after'  => '</div>',
+				)
+			);
+			?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer col-md-12">

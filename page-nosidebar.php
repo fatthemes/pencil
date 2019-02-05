@@ -21,8 +21,8 @@ get_header(); ?>
 
 			<?php
 			while ( have_posts() ) :
-the_post();
-?>
+				the_post();
+				?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class( 'col-md-12' ); ?>>
 									<div class="row">
@@ -37,11 +37,11 @@ the_post();
 												<?php the_content(); ?>
 												<?php
 														wp_link_pages(
-															 array(
-																 'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'pencil' ),
-																 'after'  => '</div>',
-															 )
-															);
+															array(
+																'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'pencil' ),
+																'after'  => '</div>',
+															)
+														);
 												?>
 										</div><!-- .entry-content -->
 
@@ -55,7 +55,7 @@ the_post();
 
 				<?php
 					// If comments are open or we have at least one comment, load up the comment template.
-					if ( comments_open() || get_comments_number() ) :
+				if ( comments_open() || get_comments_number() ) :
 					comments_template();
 					endif;
 				?>

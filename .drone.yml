@@ -28,13 +28,18 @@ pipeline:
     image: limestreet/php-cli
     environment:
       - PHPCS_DIR=/tmp/phpcs
-      - SNIFFS_DIR=/tmp/sniffs
+      - WPCS_DIR=/tmp/sniffs/WordPress-Coding-Standards
+      - PHPCompatibility=/tmp/sniffs/PHPCompatibility
+      - PHPCompatibilityWP=/tmp/sniffs/PHPCompatibilityWP
+      - PHPCompatibilityParagonie=/tmp/sniffs/PHPCompatibilityParagonie
     commands:
-      - git clone -b "2.9" --depth 1 https://github.com/squizlabs/PHP_CodeSniffer.git $PHPCS_DIR
-      - git clone -b master --depth 1 https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git $SNIFFS_DIR
-      - git clone -b 7.1.5 --depth 1 https://github.com/wimg/PHPCompatibility.git $SNIFFS_DIR/PHPCompatibility
-      - $PHPCS_DIR/scripts/phpcs --config-set installed_paths $SNIFFS_DIR
-      - $PHPCS_DIR/scripts/phpcs -p -s -v -n . --standard=./phpcs.ruleset.xml --extensions=php --ignore=*/node_modules/*,*/vendor/*,class-tgm-plugin-activation.php,class-media-grabber.php,get-the-image.php
+      - git clone -b master --depth 1 https://github.com/squizlabs/PHP_CodeSniffer.git $PHPCS_DIR
+      - git clone -b master --depth 1 https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git $WPCS_DIR
+      - git clone -b master --depth 1 https://github.com/wimg/PHPCompatibility.git $PHPCompatibility
+      - git clone -b master --depth 1 https://github.com/PHPCompatibility/PHPCompatibilityWP.git $PHPCompatibilityWP
+      - git clone -b master --depth 1 https://github.com/PHPCompatibility/PHPCompatibilityParagonie $PHPCompatibilityParagonie
+      - $PHPCS_DIR/bin/phpcs --config-set installed_paths $WPCS_DIR,$PHPCompatibility,$PHPCompatibilityWP,$PHPCompatibilityParagonie
+      - $PHPCS_DIR/bin/phpcs -p -s -v -n . --standard=./phpcs.ruleset.xml --extensions=php --ignore=*/node_modules/*,*/vendor/*,class-tgm-plugin-activation.php,class-media-grabber.php,get-the-image.php
       - jshint .
       - php -v
       - find -L . -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" -not -path "*php-codesniffer*" -not -path ".*" -print0 | xargs -0 -n 1 -P 4 php -l
@@ -76,30 +81,30 @@ pipeline:
     when:
       event: push
 
-  performancetest:
-    image: limestreet/apache-php-7
-    commands:
+#  performancetest:
+#    image: limestreet/apache-php-7
+#    commands:
       #- ls -la
       #- printenv
-      - THEME_SLUG=$DRONE_REPO_NAME
-      - THEME_LOW=`echo "$THEME_SLUG" | sed 's/-by-fat//'`
-      - ZERO="0"
-      - SUBDOMAIN="$THEME_LOW$ZERO"
-      - echo $SUBDOMAIN
+#      - THEME_SLUG=$DRONE_REPO_NAME
+#      - THEME_LOW=`echo "$THEME_SLUG" | sed 's/-by-fat//'`
+#      - ZERO="0"
+#      - SUBDOMAIN="$THEME_LOW$ZERO"
+#      - echo $SUBDOMAIN
       #- echo $PWD
       #- THEME_NAME=`echo "$THEME_LOW" | sed 's/\b\w/\U&/'`
-      - npm install --silent
+#      - npm install --silent
       #- sleep 15
-      - REMOTEURL="http://$SUBDOMAIN.dev.limestreet.pl/wp-content/themes/$THEME_SLUG/style.css"
+#      - REMOTEURL="http://$SUBDOMAIN.dev.limestreet.pl/wp-content/themes/$THEME_SLUG/style.css"
       #- echo $REMOTEURL
       #- REMOTEVERSION=$(curl $REMOTEURL | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?.*" | grep -Po "(\d\d?\.\d\d?\.?\d?\d?.*)")
       #- echo $REMOTEVERSION
       #- LOCALVERSION=$(cat style.css | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?.*" | grep -Po "(\d\d?\.\d\d?\.?\d?\d?.*)")
       #- echo $LOCALVERSION
       #- if [ $REMOTEVERSION != $LOCALVERSION ]; then echo "Wrong theme version - $REMOTEVERSION instead of $LOCALVERSION" && exit 1 ;fi
-      - sed -i "s/THEME_SLUG/$SUBDOMAIN/g" ./Gruntfile.js
-      - sed -i "s/WEBPAGETEST_API_KEY/$WEBPAGETEST_API_KEY/g" ./Gruntfile.js
-      - sed -i "s/PAGESPEED_API_KEY/$PAGESPEED_API_KEY/g" ./Gruntfile.js
+#      - sed -i "s/THEME_SLUG/$SUBDOMAIN/g" ./Gruntfile.js
+#      - sed -i "s/WEBPAGETEST_API_KEY/$WEBPAGETEST_API_KEY/g" ./Gruntfile.js
+#      - sed -i "s/PAGESPEED_API_KEY/$PAGESPEED_API_KEY/g" ./Gruntfile.js
       #- pa11y -V
       #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/
       #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/sample-page/
@@ -112,11 +117,11 @@ pipeline:
       #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/2012/01/03/template-comments/
       #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/author/patryk/
       #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/tag/template/
-      - grunt pagespeed
-      - grunt perfbudget
-    secrets: [ WEBPAGETEST_API_KEY, PAGESPEED_API_KEY ]
-    when:
-      event: push
+#      - grunt pagespeed
+#      - grunt perfbudget
+#    secrets: [ WEBPAGETEST_API_KEY, PAGESPEED_API_KEY ]
+#    when:
+#      event: push
 
   version_check_and_build:
     image: limestreet/apache-php-7
@@ -137,11 +142,11 @@ pipeline:
       #- MAINTHEMEVERSION=`echo "$THEMEVERSION" | grep -Po "(^\d\d?\.\d\d?\.?\d?\d?)"`
       #- echo $TAG.$DRONE_BUILD_NUMBER
       #- if [ $TAG.$DRONE_BUILD_NUMBER != $THEMEVERSION ]; then echo "Wrong theme/tag version - version from repo tag (+ build number) is $TAG.$DRONE_BUILD_NUMBER but theme version from style.css is $THEMEVERSION" && exit 1 ;fi
-      #- grep -q "\[$MAINTHEMEVERSION\]" $PWD/CHANGELOG.md
+      - grep -q "\[$VERSION\]" $PWD/CHANGELOG.md
       - apt-get update && apt-get install -y zip
       - npm install --silent
       - grunt
-      - rm -rf *.yml .drone.yml .g* .j* .n* scss node_modules vendor tests Gruntfile.js casper-tests.js package.json *.ruleset.xml nbproject *.rb *.tmp *.map *.log Dockerfile
+      - rm -rf *.yml .drone.yml .g* .j* .n* .v* scss sass node_modules vendor tests Gruntfile.js casper-tests.js package.json *.ruleset.xml nbproject *.rb *.tmp *.map css/*.map *.log Dockerfile
       - cd ..
       - zip -FSr $DRONE_REPO_NAME.zip $DRONE_REPO_NAME
       - mkdir -p $DRONE_REPO_NAME/dist

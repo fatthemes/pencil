@@ -18,7 +18,7 @@ get_header(); ?>
 	<?php
 					$pencil_home_page_layout = get_theme_mod( 'home_page_layout', 'masonry' );
 					echo ( empty( $pencil_home_page_layout ) ) ? ' col-md-12' : ' col-md-8';
-					?>
+	?>
 					">
 			<div class="pencil-page-intro">
 						<?php echo esc_html__( 'Latest Posts', 'pencil' ); ?>
@@ -30,8 +30,8 @@ get_header(); ?>
 			<?php ;/* Start the Loop */ ?>
 			<?php
 			while ( have_posts() ) :
-the_post();
-?>
+				the_post();
+				?>
 				<?php
 				if ( pencil_show_sticky() ) :
 					/*
@@ -41,7 +41,7 @@ the_post();
 					 */
 					get_template_part( 'template-parts/content-home', get_theme_mod( 'home_page_layout', 'masonry' ) );
 				 endif;
-				 ?>
+				?>
 			<?php endwhile; ?>
 
 			<?php the_posts_navigation(); ?>
@@ -57,7 +57,7 @@ the_post();
 
 <?php
 if ( ! empty( $pencil_home_page_layout ) ) {
-get_sidebar();}
+	get_sidebar();}
 ?>
 	</div><!-- .row -->
 <?php get_footer(); ?>
