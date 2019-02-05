@@ -12,7 +12,7 @@ get_header(); ?>
 	<?php
 					$pencil_home_page_layout = get_theme_mod( 'home_page_layout', 'masonry' );
 					echo ( empty( $pencil_home_page_layout ) ) ? ' col-md-12' : ' col-md-8';
-					?>
+	?>
 					">
 			<div class="pencil-page-intro">
 						<?php echo esc_html__( 'Author posts', 'pencil' ); ?>
@@ -36,27 +36,27 @@ get_header(); ?>
 						
 						<?php
 						if ( ! empty( $pencil_user_url ) ) :
-?>
+							?>
 <a href="<?php the_author_meta( 'user_url' ); ?>"><span class="fa fa-external-link"></span></a><?php endif; ?>
 						<?php
 						if ( ! empty( $pencil_twitter_url ) ) :
-?>
+							?>
 <a href="<?php the_author_meta( 'twitter' ); ?>"><span class="fa fa-twitter"></span></a><?php endif; ?>
 						<?php
 						if ( ! empty( $pencil_facebook_url ) ) :
-?>
+							?>
 <a href="<?php the_author_meta( 'facebook' ); ?>"><span class="fa fa-facebook"></span></a><?php endif; ?>
 						<?php
 						if ( ! empty( $pencil_googleplus_url ) ) :
-?>
+							?>
 <a href="<?php the_author_meta( 'googleplus' ); ?>"><span class="fa fa-google-plus"></span></a><?php endif; ?>
 						<?php
 						if ( ! empty( $pencil_instagram_url ) ) :
-?>
+							?>
 <a href="<?php the_author_meta( 'instagram' ); ?>"><span class="fa fa-instagram"></span></a><?php endif; ?>
 						<?php
 						if ( ! empty( $pencil_pinterest_url ) ) :
-?>
+							?>
 <a href="<?php the_author_meta( 'pinterest' ); ?>"><span class="fa fa-pinterest"></span></a><?php endif; ?>
 					</div>
 					<?php endif; ?>
@@ -73,8 +73,8 @@ get_header(); ?>
 			<?php ;/* Start the Loop */ ?>
 			<?php
 			while ( have_posts() ) :
-the_post();
-?>
+				the_post();
+				?>
 				<?php
 
 					/*
@@ -99,7 +99,7 @@ the_post();
 
 <?php
 if ( ! empty( $pencil_home_page_layout ) ) {
-get_sidebar();}
+	get_sidebar();}
 ?>
 	</div><!-- .row -->
 <?php get_footer(); ?>

@@ -50,13 +50,13 @@ if ( post_password_required() ) {
 		<ul class="comment-list">
 			<?php
 				wp_list_comments(
-					 array(
-						 'style'      => 'ul',
-						 'short_ping' => true,
-						 'avatar_size' => '50',
-						 'callback' => 'pencil_comment',
-					 )
-					);
+					array(
+						'style'      => 'ul',
+						'short_ping' => true,
+						'avatar_size' => '50',
+						'callback' => 'pencil_comment',
+					)
+				);
 			?>
 		</ul><!-- .comment-list -->
 
@@ -76,18 +76,18 @@ if ( post_password_required() ) {
 
 	<?php
 		// If comments are closed and there are comments, let's leave a little note, shall we?
-		if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
-	?>
+	if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
+		?>
 	<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'pencil' ); ?></p>
 	<?php endif; ?>
 
 	<?php
 	comment_form(
-		 array(
-			 'comment_field' => '<p class="comment-form-comment"><label for="comment">' . esc_html__( 'Comment', 'pencil' ) . '</label> <textarea id="comment" name="comment" rows="1" aria-required="true" required="required" placeholder="' . esc_html__( 'Comment', 'pencil' ) . '" ></textarea></p>',
-			 'comment_notes_before' => '',
-		 )
+		array(
+			'comment_field' => '<p class="comment-form-comment"><label for="comment">' . esc_html__( 'Comment', 'pencil' ) . '</label> <textarea id="comment" name="comment" rows="1" aria-required="true" required="required" placeholder="' . esc_html__( 'Comment', 'pencil' ) . '" ></textarea></p>',
+			'comment_notes_before' => '',
 		)
-?>
+	)
+	?>
 
 </div><!-- #comments -->

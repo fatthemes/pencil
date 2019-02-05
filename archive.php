@@ -13,7 +13,7 @@ get_header(); ?>
 	<?php
 					$pencil_home_page_layout = get_theme_mod( 'home_page_layout', 'masonry' );
 					echo ( empty( $pencil_home_page_layout ) ) ? ' col-md-12' : ' col-md-8';
-					?>
+	?>
 					">
 			<div class="pencil-page-intro">
 						<?php the_archive_title(); ?>
@@ -50,7 +50,7 @@ get_header(); ?>
 
 <?php
 if ( ! empty( $pencil_home_page_layout ) ) {
-get_sidebar();}
+	get_sidebar();}
 ?>
 	</div><!-- .row -->
 <?php get_footer(); ?>
