@@ -364,7 +364,7 @@ function pencil_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'footer_text',
 		array(
-			'default' => '<a href="https://wordpress.org/">Proudly powered by WordPress</a><span class="sep"> | </span>Theme: Pencil by <a href="http://fatthemes.com">Fat</a>',
+			'default' => '<a href="https://wordpress.org/">Proudly powered by WordPress</a><span class="sep"> | </span>Theme: Pencil by <a href="https://blogonyourown.com/">BlogOnYourOwn</a>',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
