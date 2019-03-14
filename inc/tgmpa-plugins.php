@@ -33,13 +33,6 @@ function pencil_register_required_plugins() {
 			'required'  => false,
 		),
 
-		// Shareaholic from WordPress Plugin Repository.
-		array(
-			'name'      => 'Shareaholic | share buttons, related posts, social analytics & more',
-			'slug'      => 'shareaholic',
-			'required'  => false,
-		),
-
 		// User Social Profiles from WordPress Plugin Repository.
 		array(
 			'name'      => 'User Social Profiles',

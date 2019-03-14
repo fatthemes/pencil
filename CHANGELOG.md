@@ -1,5 +1,11 @@
 # Change Log - Pencil
 
+## [1.5] - 2019-03-14
+
+### Changed
+- Logo displaying handled now by core function `custom_logo()`
+- Shareaholic removed from recommended plugins
+
 ## [1.4.2] - 2019-02-05
 
 ### Fixed
