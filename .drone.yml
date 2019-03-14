@@ -173,13 +173,13 @@ pipeline:
 #    when:
 #    event: tag
 
-  slack:
-    image: plugins/slack
-    webhook: https://hooks.slack.com/services/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
-    channel: general
-    when:
-      status: [ success ]
-      event: tag
+#  slack:
+#    image: plugins/slack
+#    webhook: https://hooks.slack.com/services/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
+#    channel: general
+#    when:
+#      status: [ success ]
+#      event: tag
 
 branches:
   exclude: [master]

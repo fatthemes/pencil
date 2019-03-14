@@ -28,13 +28,13 @@
 			
 		<div class="site-branding">
 			<?php
-			$pencil_header_logo = get_theme_mod( 'header_logo' );
+			// $pencil_header_logo = get_theme_mod( 'header_logo' );
 			if ( is_front_page() && is_home() ) :
 				?>
 		<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-				<?php if ( ! empty( $pencil_header_logo ) ) : ?>
-							<img src="<?php echo esc_url( get_theme_mod( 'header_logo' ) ); ?>" alt="<?php bloginfo( 'name' ); ?>" >
-						<?php
+				<?php
+				if ( pencil_has_custom_logo() ) :
+							pencil_custom_logo();
 						else :
 							bloginfo( 'name' );
 endif;
@@ -42,9 +42,9 @@ endif;
 </a></h1>
 <?php else : ?>
 					<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-						<?php if ( ! empty( $pencil_header_logo ) ) : ?>
-							<img src="<?php echo esc_url( get_theme_mod( 'header_logo' ) ); ?>" alt="<?php bloginfo( 'name' ); ?>" >
-							<?php
+						<?php
+						if ( pencil_has_custom_logo() ) :
+							pencil_custom_logo();
 						else :
 							bloginfo( 'name' );
 endif;
@@ -52,7 +52,7 @@ endif;
 					</a></p>
 			<?php endif; ?>
 			<?php
-			if ( empty( $pencil_header_logo ) ) :
+			if ( ! pencil_has_custom_logo() ) :
 				?>
 <p class="site-description"><?php bloginfo( 'description' ); ?></p><?php endif; ?>
 		</div><!-- .site-branding -->

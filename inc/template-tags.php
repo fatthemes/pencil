@@ -408,3 +408,59 @@ if ( ! function_exists( 'pencil_excerpt_length' ) ) :
 		return get_theme_mod( 'excerpt_length', 55 );
 	}
 endif;
+
+if ( ! function_exists( 'pencil_custom_logo' ) ) :
+	/**
+	 * Display custom logo. And migrate from "header_logo" if needed.
+	 */
+	function pencil_custom_logo() {
+		if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) {
+			the_custom_logo();
+		} else {
+			$header_logo = get_theme_mod( 'header_logo' );
+			if ( ! empty( $header_logo ) ) {
+				?>
+				<img src="<?php echo esc_url( get_theme_mod( 'header_logo' ) ); ?>" alt="<?php bloginfo( 'name' ); ?>" >
+				<?php
+				$image_url = get_theme_mod( 'header_logo' );
+				$postid = attachment_url_to_postid( $image_url );
+				if ( ! $postid ) {
+					$postid = pencil_get_image_id( $image_url );
+				}
+				if ( $postid ) {
+					set_theme_mod( 'custom_logo', $postid );
+				}
+			}
+		}
+	}
+endif;
+
+if ( ! function_exists( 'pencil_has_custom_logo' ) ) :
+	/**
+	 * Checks if there is set up logo. Mostly for compatibility reason.
+	 *
+	 * @return boolean
+	 */
+	function pencil_has_custom_logo() {
+		$header_logo = get_theme_mod( 'header_logo' );
+		if ( ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) || ! empty( $header_logo ) ) {
+			return true;
+		}
+	}
+endif;
+
+if ( ! function_exists( 'pencil_get_image_id' ) ) :
+	/**
+	 * Thanks to: https://pippinsplugins.com/retrieve-attachment-id-from-image-url/
+	 * fallback to attachment_url_to_postid(), as it doesn't work properly on multisite installation.
+	 *
+	 * @global type $wpdb
+	 * @param type $url URL of the image to check.
+	 * @return int
+	 */
+	function pencil_get_image_id( $url ) {
+		global $wpdb;
+		$attachment = $wpdb->get_col( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE guid=%s;", $url ) );
+		return $attachment[0];
+	}
+endif;

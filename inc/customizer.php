@@ -15,25 +15,27 @@ function pencil_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
-	$wp_customize->add_setting(
-		'header_logo',
-		array(
-			'type' => 'theme_mod',
-			'sanitize_callback' => 'esc_url_raw',
-		)
-	);
-
-	$wp_customize->add_control(
-		new WP_Customize_Image_Control(
-			$wp_customize,
+	if ( function_exists( 'has_custom_logo' ) && ! has_custom_logo() ) {
+		$wp_customize->add_setting(
 			'header_logo',
 			array(
-				'label' => esc_html__( 'Header Logo', 'pencil' ),
-				'section' => 'title_tagline',
-				'priority' => 70,
+				'type' => 'theme_mod',
+				'sanitize_callback' => 'esc_url_raw',
 			)
-		)
-	);
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Image_Control(
+				$wp_customize,
+				'header_logo',
+				array(
+					'label' => esc_html__( 'Header Logo', 'pencil' ),
+					'section' => 'title_tagline',
+					'priority' => 70,
+				)
+			)
+		);
+	}
 
 	$wp_customize->add_section(
 		'home_page',
@@ -364,7 +366,7 @@ function pencil_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'footer_text',
 		array(
-			'default' => '<a href="https://wordpress.org/">Proudly powered by WordPress</a><span class="sep"> | </span>Theme: Pencil by <a href="http://fatthemes.com">Fat</a>',
+			'default' => '<a href="https://wordpress.org/">Proudly powered by WordPress</a><span class="sep"> | </span>Theme: Pencil by <a href="https://blogonyourown.com/">BlogOnYourOwn</a>',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
