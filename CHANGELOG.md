@@ -4,6 +4,8 @@
 
 ### Changed
 - Logo displaying handled now by core function `custom_logo()`
+
+### Removed
 - Shareaholic removed from recommended plugins
 
 ## [1.4.2] - 2019-02-05
