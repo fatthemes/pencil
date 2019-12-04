@@ -37,7 +37,7 @@ function pencil_customize_register( $wp_customize ) {
 		);
 	}
 
-	// Colors
+	// Colors.
 	$wp_customize->add_setting(
 		'quote_post_format_bg',
 		array(
@@ -100,8 +100,8 @@ function pencil_customize_register( $wp_customize ) {
 			)
 		)
 	);
-	
-	// blog/archive page settings
+
+	// blog/archive page settings.
 	$wp_customize->add_section(
 		'home_page',
 		array(

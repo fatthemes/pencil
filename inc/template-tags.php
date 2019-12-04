@@ -489,11 +489,13 @@ if ( ! function_exists( 'pencil_the_content' ) ) :
 	 * @return void
 	 */
 	function pencil_the_content() {
-		if ( has_post_format( 'aside' ) || has_post_format( 'link' ) || has_post_format( 'quote' ) || has_post_format( 'image' ) ) : ?>
+		if ( has_post_format( 'aside' ) || has_post_format( 'link' ) || has_post_format( 'quote' ) || has_post_format( 'image' ) ) :
+			?>
 			<div class="pencil-post-format-wrapper">
 				<?php the_content(); ?>
 			</div>
-		<?php endif;
+			<?php
+		endif;
 	}
 	endif;
 
@@ -508,7 +510,7 @@ if ( ! function_exists( 'pencil_entry_meta' ) ) :
 			?>
 			<div class="entry-meta">
 			<?php
-			if ( ! is_single() && ( has_post_format( 'link' ) || has_post_format( 'quote' ) || has_post_format( 'image' ) || has_post_format( 'aside' ) )  ) {
+			if ( ! is_single() && ( has_post_format( 'link' ) || has_post_format( 'quote' ) || has_post_format( 'image' ) || has_post_format( 'aside' ) ) ) {
 				echo '';
 			} else {
 				pencil_posted_on();
@@ -525,16 +527,16 @@ endif;
 	 */
 if ( ! function_exists( 'pencil_customize_css' ) ) :
 
-/**
- * Custom css header output
- */
-function pencil_customize_css() {
+	/**
+	 * Custom css header output
+	 */
+	function pencil_customize_css() {
 
-	$custom_css = '.home .post_format-post-format-quote .pencil-post-format-wrapper, .archive .post_format-post-format-quote .pencil-post-format-wrapper, .search .post_format-post-format-quote .pencil-post-format-wrapper, .single .post_format-post-format-quote blockquote,  .single .post_format-post-format-quote cite {background-color:' . esc_attr( get_theme_mod( 'quote_post_format_bg', '#ea4848' ) ) . ';}';
-	$custom_css .= '.home .post_format-post-format-link .pencil-post-format-wrapper, .archive .post_format-post-format-link .pencil-post-format-wrapper, .search .post_format-post-format-link .pencil-post-format-wrapper {background-color:' . esc_attr( get_theme_mod( 'link_post_format_bg', '#414244' ) ) . ';}';
-	$custom_css .= '.home .post_format-post-format-aside .pencil-post-format-wrapper, .archive .post_format-post-format-aside .pencil-post-format-wrapper, .search .post_format-post-format-aside .pencil-post-format-wrapper {background-color:' . esc_attr( get_theme_mod( 'aside_post_format_bg', '#f0efef' ) ) . ';}';
-	wp_add_inline_style( 'pencil-style', $custom_css );
-}
+		$custom_css = '.home .post_format-post-format-quote .pencil-post-format-wrapper, .archive .post_format-post-format-quote .pencil-post-format-wrapper, .search .post_format-post-format-quote .pencil-post-format-wrapper, .single .post_format-post-format-quote blockquote,  .single .post_format-post-format-quote cite {background-color:' . esc_attr( get_theme_mod( 'quote_post_format_bg', '#ea4848' ) ) . ';}';
+		$custom_css .= '.home .post_format-post-format-link .pencil-post-format-wrapper, .archive .post_format-post-format-link .pencil-post-format-wrapper, .search .post_format-post-format-link .pencil-post-format-wrapper {background-color:' . esc_attr( get_theme_mod( 'link_post_format_bg', '#414244' ) ) . ';}';
+		$custom_css .= '.home .post_format-post-format-aside .pencil-post-format-wrapper, .archive .post_format-post-format-aside .pencil-post-format-wrapper, .search .post_format-post-format-aside .pencil-post-format-wrapper {background-color:' . esc_attr( get_theme_mod( 'aside_post_format_bg', '#f0efef' ) ) . ';}';
+		wp_add_inline_style( 'pencil-style', $custom_css );
+	}
 endif;
 
 add_action( 'wp_enqueue_scripts', 'pencil_customize_css' );
