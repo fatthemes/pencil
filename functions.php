@@ -74,6 +74,10 @@ if ( ! function_exists( 'pencil_setup' ) ) :
 				'audio',
 				'video',
 				'gallery',
+				'quote',
+				'link',
+				'aside',
+				'image',
 			)
 		);
 
@@ -215,8 +219,9 @@ function pencil_scripts() {
 	if ( get_theme_mod( 'sticky_sidebar', 1 ) && is_active_sidebar( 'sidebar-1' ) ) {
 		wp_enqueue_script( 'theia-sticky-sidebar', get_template_directory_uri() . '/js/theia-sticky-sidebar.min.js', array( 'jquery' ), '1.2.2', true ); }
 
-	if ( get_theme_mod( 'smooth_scroll', 1 ) ) {
-		wp_enqueue_script( 'smooth-scroll', get_template_directory_uri() . '/js/smoothscroll.min.js', array( 'jquery' ), '1.3.8', true ); }
+	if ( get_theme_mod( 'smooth_scroll', 0 ) ) {
+		wp_enqueue_script( 'smooth-scroll', get_template_directory_uri() . '/js/smoothscroll.min.js', array( 'jquery' ), '1.3.8', true );
+	}
 
 		wp_enqueue_script( 'magnific-popup', get_template_directory_uri() . '/js/jquery.magnific-popup.min.js', array( 'jquery' ), '20150829', true );
 

@@ -37,6 +37,71 @@ function pencil_customize_register( $wp_customize ) {
 		);
 	}
 
+	// Colors
+	$wp_customize->add_setting(
+		'quote_post_format_bg',
+		array(
+			'type' => 'theme_mod',
+			'default' => '#ea4848',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'quote_post_format_bg',
+			array(
+				'label' => esc_html__( 'Quote Post Format Background Color', 'pencil' ),
+				'section' => 'colors',
+				'priority' => 110,
+			)
+		)
+	);
+
+	$wp_customize->add_setting(
+		'link_post_format_bg',
+		array(
+			'type' => 'theme_mod',
+			'default' => '#414244',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'link_post_format_bg',
+			array(
+				'label' => esc_html__( 'Link Post Format Background Color', 'pencil' ),
+				'section' => 'colors',
+				'priority' => 120,
+			)
+		)
+	);
+
+	$wp_customize->add_setting(
+		'aside_post_format_bg',
+		array(
+			'type' => 'theme_mod',
+			'default' => '#f0efef',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'aside_post_format_bg',
+			array(
+				'label' => esc_html__( 'Aside Post Format Background Color', 'pencil' ),
+				'section' => 'colors',
+				'priority' => 130,
+			)
+		)
+	);
+	
+	// blog/archive page settings
 	$wp_customize->add_section(
 		'home_page',
 		array(
