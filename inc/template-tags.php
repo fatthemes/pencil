@@ -365,9 +365,7 @@ if ( ! function_exists( 'pencil_post_format_icon' ) ) :
 		$format = get_post_format( $post_id );
 
 		if ( ! $format ) {
-
-				return;
-
+			return;
 		} else {
 
 			if ( 'audio' === $format ) {
@@ -376,6 +374,12 @@ if ( ! function_exists( 'pencil_post_format_icon' ) ) :
 				return '<div class="pencil-post-format-icon"><span class="fa fa-video-camera"></span></div>';
 			} elseif ( 'gallery' === $format ) {
 				return '<div class="pencil-post-format-icon"><span class="fa fa-camera"></span></div>';
+			} elseif ( 'image' === $format ) {
+				return '<div class="pencil-post-format-icon"><span class="fa fa-image"></span></div>';
+			} elseif ( 'quote' === $format ) {
+				return '<div class="pencil-post-format-icon"><span class="fa fa-quote-right"></span></div>';
+			} elseif ( 'link' === $format ) {
+				return '<div class="pencil-post-format-icon"><span class="fa fa-link"></span></div>';
 			}
 		}
 	}
@@ -464,3 +468,75 @@ if ( ! function_exists( 'pencil_get_image_id' ) ) :
 		return $attachment[0];
 	}
 endif;
+
+if ( ! function_exists( 'pencil_the_title' ) ) :
+	/**
+	 * Title wrapper function to handle multiple post formats.
+	 *
+	 * @return void
+	 */
+	function pencil_the_title() {
+		if ( ! has_post_format( 'aside' ) && ! has_post_format( 'link' ) && ! has_post_format( 'quote' ) && ! has_post_format( 'image' ) ) {
+			the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
+		}
+	}
+	endif;
+
+if ( ! function_exists( 'pencil_the_content' ) ) :
+	/**
+	 * Content wrapper function to handle multiple post formats.
+	 *
+	 * @return void
+	 */
+	function pencil_the_content() {
+		if ( has_post_format( 'aside' ) || has_post_format( 'link' ) || has_post_format( 'quote' ) || has_post_format( 'image' ) ) :
+			?>
+			<div class="pencil-post-format-wrapper">
+				<?php the_content(); ?>
+			</div>
+			<?php
+		endif;
+	}
+	endif;
+
+if ( ! function_exists( 'pencil_entry_meta' ) ) :
+	/**
+	 * Function to handle displaying entry meta section for multiple post formats.
+	 *
+	 * @return void
+	 */
+	function pencil_entry_meta() {
+		if ( 'post' == get_post_type() ) :
+			?>
+			<div class="entry-meta">
+			<?php
+			if ( ! is_single() && ( has_post_format( 'link' ) || has_post_format( 'quote' ) || has_post_format( 'image' ) || has_post_format( 'aside' ) ) ) {
+				echo '';
+			} else {
+				pencil_posted_on();
+			}
+			?>
+			</div><!-- .entry-meta -->
+			<?php
+		endif;
+	}
+endif;
+
+	/*
+	 * CSS output from customizer settings
+	 */
+if ( ! function_exists( 'pencil_customize_css' ) ) :
+
+	/**
+	 * Custom css header output
+	 */
+	function pencil_customize_css() {
+
+		$custom_css = '.home .post_format-post-format-quote .pencil-post-format-wrapper, .archive .post_format-post-format-quote .pencil-post-format-wrapper, .search .post_format-post-format-quote .pencil-post-format-wrapper, .single .post_format-post-format-quote blockquote,  .single .post_format-post-format-quote cite {background-color:' . esc_attr( get_theme_mod( 'quote_post_format_bg', '#ea4848' ) ) . ';}';
+		$custom_css .= '.home .post_format-post-format-link .pencil-post-format-wrapper, .archive .post_format-post-format-link .pencil-post-format-wrapper, .search .post_format-post-format-link .pencil-post-format-wrapper {background-color:' . esc_attr( get_theme_mod( 'link_post_format_bg', '#414244' ) ) . ';}';
+		$custom_css .= '.home .post_format-post-format-aside .pencil-post-format-wrapper, .archive .post_format-post-format-aside .pencil-post-format-wrapper, .search .post_format-post-format-aside .pencil-post-format-wrapper {background-color:' . esc_attr( get_theme_mod( 'aside_post_format_bg', '#f0efef' ) ) . ';}';
+		wp_add_inline_style( 'pencil-style', $custom_css );
+	}
+endif;
+
+add_action( 'wp_enqueue_scripts', 'pencil_customize_css' );

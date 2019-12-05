@@ -24,9 +24,9 @@
 				<div class="featured-image col-md-12">
 				<?php
 				echo hybrid_media_grabber( // WPCS: XSS OK.
-					 array(
-						 'type' => 'audio',
-					 )
+					array(
+						'type' => 'audio',
+					)
 				);
 				?>
 

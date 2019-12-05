@@ -120,6 +120,45 @@
     .post .featured-image img {
         margin-bottom: -1.5em;
     }
+    .entry-meta {
+	margin-bottom: 10px;
+    }
+    .post_format-post-format-quote {
+	.pencil-post-format-wrapper {
+	    padding: 20px;
+	}
+	blockquote {
+	    color: #ffffff;
+	    font-size: 1.25em;
+	    margin-left: auto;
+	}
+	cite {
+	    color: #ffffff;
+	    display: block;
+	    margin-top: 20px;
+	    text-align: right;
+	    font-size: .75em;
+	    a {
+		border-bottom-color: #ffffff;
+		color: #ffffff;
+	    }
+	}
+    }
+    .post_format-post-format-link {
+	.pencil-post-format-wrapper {	    
+	    padding: 40px 20px 20px;
+	    text-align: center;
+	    a {
+		color: #ffffff;
+		border-bottom-color: #ffffff;
+		font-size: 1.125em;
+		font-weight: 700;
+	    }
+	}
+    }
+    .post_format-post-format-aside .pencil-post-format-wrapper {
+	padding: 40px 20px 20px;
+    }
 }
 
 .featured-image-cat {

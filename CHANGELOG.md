@@ -1,5 +1,10 @@
 # Change Log - Pencil
 
+## [1.6] - 2019-12-05
+
+### Added
+- support for multiple post formats
+
 ## [1.5] - 2019-03-14
 
 ### Changed
