@@ -489,7 +489,7 @@ if ( ! function_exists( 'pencil_the_content' ) ) :
 	 * @return void
 	 */
 	function pencil_the_content() {
-		if ( has_post_format( 'aside' ) || has_post_format( 'link' ) || has_post_format( 'quote' ) || has_post_format( 'image' ) ) :
+		if ( has_post_format( 'aside' ) || has_post_format( 'link' ) || has_post_format( 'quote' ) ) :
 			?>
 			<div class="pencil-post-format-wrapper">
 				<?php the_content(); ?>
