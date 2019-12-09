@@ -1,5 +1,10 @@
 # Change Log - Pencil
 
+## [1.6.1] - 2019-12-09
+
+### Fixed
+- double image displayed in image post format when featured image set up
+
 ## [1.6] - 2019-12-05
 
 ### Added
