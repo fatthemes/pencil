@@ -12,7 +12,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'col-md-12 masonry' ); ?>>
 	<header class="entry-header row">
 		<?php if ( has_post_thumbnail() ) : ?>
-			<?php if (has_post_format( 'image' )) : ?>
+			<?php if ( has_post_format( 'image' ) ) : ?>
 				<div class="featured-image col-sm-12">
 					<a href="<?php esc_url( the_permalink() ); ?>" rel="bookmark">
 					<?php the_post_thumbnail( 'large' ); ?>   
