@@ -17,8 +17,8 @@ jobs:
     
       - name: Version Check And Build
         run: |
-          php "echo serialize(json_encode(${{ github }}));"
-          php "echo serialize(json_encode(${{ github.event }}));"
+          php -r "echo serialize(json_encode(${{ github }}));"
+          php -r "echo serialize(json_encode(${{ github.event }}));"
           echo ${{ github.event.release.upload_url }}
           TAG=$(echo ${{ github.event.release.tag_name }} | grep -Po "\d\d?\.\d\d?\.?\d?\d?")
           echo $TAG
