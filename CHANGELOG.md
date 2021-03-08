@@ -1,5 +1,10 @@
 # Change Log - Pencil
 
+## [1.6.2] - 2021-03-08
+
+### Fixed
+- focus when opening search panel
+
 ## [1.6.1] - 2019-12-09
 
 ### Fixed

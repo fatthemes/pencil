@@ -1,13 +1,13 @@
 === Pencil ===
 Contributors: limestreet, moniula
 Requires at least: 4.1
-Tested up to: 5.3
+Tested up to: 5.6.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: translation-ready, grid-layout, blog, news, left-sidebar, right-sidebar, custom-background, two-columns, three-columns, featured-images, full-width-template, post-formats, sticky-post, theme-options, threaded-comments
 
 
-Pencil WordPress Theme, Copyright 2015-2019, BlogOnYourOwn.com
+Pencil WordPress Theme, Copyright 2015-2021, BlogOnYourOwn.com
 Pencil is distributed under the terms of the GNU GPL v2 or later
 
 == Description ==

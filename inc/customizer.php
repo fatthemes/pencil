@@ -492,7 +492,7 @@ function pencil_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'smooth_scroll',
 		array(
-			'default' => true,
+			'default' => false,
 			'sanitize_callback' => 'pencil_sanitize_checkbox',
 		)
 	);
