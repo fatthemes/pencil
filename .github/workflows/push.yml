@@ -1,4 +1,4 @@
-name: Github Release and Docker Image Creation
+name: Basic Tests
 on: 
   push
 
