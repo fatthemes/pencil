@@ -21,7 +21,7 @@ jobs:
           TAG=`echo "$DRONE_TAG" | sed 's/^v//'`
           echo $TAG
           VERSION_LINE=$(grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?.*" $PWD/style.css)
-          VERSION=$(echo $VERSION_LINE | grep -Po "\d\d?\.\d\d?\.?\d?\d?.*")
+          VERSION=$(grep -Po "Version:\s?\s?(\d\d?\.\d\d?\.?\d?\d?).*" $PWD/style.css)
           echo $VERSION
           if [ $TAG != $VERSION ]; then echo "Wrong theme/tag version - version from repo tag is $TAG but theme version from style.css is $THEMEVERSION" && exit 1 ;fi
           grep -q "\[$VERSION\]" $PWD/CHANGELOG.md
