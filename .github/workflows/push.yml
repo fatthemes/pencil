@@ -23,7 +23,7 @@ jobs:
 
       - name: Check "Tested Up To"
         run: |
-          echo ${{ github.event }}
+          echo ${{ toJson(github) }}
           sudo apt-get update && sudo apt-get install -y jq
           CURRENT_WP_VERSION_API=`curl https://api.wordpress.org/core/version-check/1.7/ | jq '.["offers"][0].current'`
           CURRENT_WP_VERSION=`echo "$CURRENT_WP_VERSION_API" | sed 's/"//g'`
