@@ -1,0 +1,32 @@
+{
+    "telemetry.enableTelemetry": false,
+    "liveServer.settings.host": "blogonyourown.test",
+    "liveServer.settings.port": 5500,
+    //"liveServer.settings.root": "/html/",
+    "liveServer.settings.proxy": {
+        "enable": true,
+        "baseUri": "/",
+        "proxyUri": "http://blogonyourown.test:80"
+    },
+    "liveServer.settings.CustomBrowser": "chrome",
+    //"liveServer.settings.fullReload": true,
+    "liveServer.settings.useWebExt": true,
+    "liveSassCompile.settings.excludeList": [
+        "node_modules/**",
+        ".vscode/**",
+        "slick/**"
+      ],
+      "liveSassCompile.settings.formats": [
+        {
+          "format": "expanded",
+          //"extensionName": ".css",
+          //"savePath": "/html/themes/pencil",
+          "savePath": "/"
+        }
+      ],
+    "liveSassCompile.settings.autoprefix": [
+      //"last 2 versions",
+      "> 0.25%"
+    ],
+    "liveServer.settings.donotShowInfoMsg": true,
+}
