@@ -1,78 +1,82 @@
-# Copyright (C) 2015 Fat Themes
-# This file is distributed under the GNU General Public License v2 or later.
+# <!=Copyright (C) 2021 BlogOnYourOwn.com
+# This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Pencil 1.0.3\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2015-12-21 10:31:53+00:00\n"
+"Project-Id-Version: Pencil 1.6.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/pencil\n"
+"POT-Creation-Date: 2021-03-08 12:59:20+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: grunt-wp-i18n 0.5.3\n"
-"X-Poedit-KeywordsList: "
-"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
-"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
 "Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Country: United States\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: 404.php:17
+#: 404.php:20
 msgid "Error 404"
 msgstr ""
 
-#: 404.php:26
+#: 404.php:29
 msgid "It looks like nothing was found at this location."
 msgstr ""
 
-#: 404.php:26
+#: 404.php:29
 msgid "Maybe try a search?"
 msgstr ""
 
-#: author.php:15
+#: amp/footer.php:14
+msgid "Back to top"
+msgstr ""
+
+#: author.php:18
 msgid "Author posts"
 msgstr ""
 
-#: comments.php:40 comments.php:63
+#: comments.php:40 comments.php:65
 msgid "Comment navigation"
 msgstr ""
 
-#: comments.php:43 comments.php:66
+#: comments.php:43 comments.php:68
 msgid "Older Comments"
 msgstr ""
 
-#: comments.php:44 comments.php:67
+#: comments.php:44 comments.php:69
 msgid "Newer Comments"
 msgstr ""
 
-#: comments.php:79
+#: comments.php:81
 msgid "Comments are closed."
 msgstr ""
 
-#: comments.php:82
+#: comments.php:87
 msgid "Comment"
 msgstr ""
 
-#: functions.php:47
+#: functions.php:48
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:101
+#: functions.php:123
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:202
+#: functions.php:247
 msgid "Load more posts"
 msgstr ""
 
-#: functions.php:204
+#: functions.php:249
 msgid "No more posts to load"
 msgstr ""
 
@@ -80,33 +84,33 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: header.php:50
+#: header.php:61
 msgid "Menu"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:333 inc/tgmpa-plugins.php:65
+#: inc/class-tgm-plugin-activation.php:333
 msgid "Install Required Plugins"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:334 inc/tgmpa-plugins.php:66
+#: inc/class-tgm-plugin-activation.php:334
 msgid "Install Plugins"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:335 inc/tgmpa-plugins.php:67
+#: inc/class-tgm-plugin-activation.php:335
 msgid "Installing Plugin: %s"
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:336 inc/tgmpa-plugins.php:68
+#: inc/class-tgm-plugin-activation.php:336
 msgid "Something went wrong with the plugin API."
 msgstr ""
 
-#: inc/class-tgm-plugin-activation.php:337 inc/tgmpa-plugins.php:69
+#: inc/class-tgm-plugin-activation.php:337
 msgid "This theme requires the following plugin: %1$s."
 msgid_plural "This theme requires the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/class-tgm-plugin-activation.php:342 inc/tgmpa-plugins.php:70
+#: inc/class-tgm-plugin-activation.php:342
 msgid "This theme recommends the following plugin: %1$s."
 msgid_plural "This theme recommends the following plugins: %1$s."
 msgstr[0] ""
@@ -122,7 +126,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/class-tgm-plugin-activation.php:352 inc/tgmpa-plugins.php:75
+#: inc/class-tgm-plugin-activation.php:352
 msgid ""
 "The following plugin needs to be updated to its latest version to ensure "
 "maximum compatibility with this theme: %1$s."
@@ -148,13 +152,13 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/class-tgm-plugin-activation.php:367 inc/tgmpa-plugins.php:72
+#: inc/class-tgm-plugin-activation.php:367
 msgid "The following required plugin is currently inactive: %1$s."
 msgid_plural "The following required plugins are currently inactive: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/class-tgm-plugin-activation.php:372 inc/tgmpa-plugins.php:73
+#: inc/class-tgm-plugin-activation.php:372
 msgid "The following recommended plugin is currently inactive: %1$s."
 msgid_plural "The following recommended plugins are currently inactive: %1$s."
 msgstr[0] ""
@@ -170,7 +174,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/class-tgm-plugin-activation.php:382 inc/tgmpa-plugins.php:77
+#: inc/class-tgm-plugin-activation.php:382
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
 msgstr[0] ""
@@ -182,13 +186,13 @@ msgid_plural "Begin updating plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/class-tgm-plugin-activation.php:392 inc/tgmpa-plugins.php:78
+#: inc/class-tgm-plugin-activation.php:392
 msgid "Begin activating plugin"
 msgid_plural "Begin activating plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/class-tgm-plugin-activation.php:397 inc/tgmpa-plugins.php:79
+#: inc/class-tgm-plugin-activation.php:397
 msgid "Return to Required Plugins Installer"
 msgstr ""
 
@@ -197,7 +201,7 @@ msgid "Return to the dashboard"
 msgstr ""
 
 #: inc/class-tgm-plugin-activation.php:399
-#: inc/class-tgm-plugin-activation.php:3027 inc/tgmpa-plugins.php:80
+#: inc/class-tgm-plugin-activation.php:3027
 msgid "Plugin activated successfully."
 msgstr ""
 
@@ -466,348 +470,289 @@ msgstr ""
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: inc/customizer.php:24
+#: inc/customizer.php:32
 msgid "Header Logo"
 msgstr ""
 
-#: inc/customizer.php:30
-msgid "Home Page"
-msgstr ""
-
-#: inc/customizer.php:32
-msgid "Blog Home Page Settings"
-msgstr ""
-
-#: inc/customizer.php:42
-msgid "Blog Home Page Layout"
-msgstr ""
-
-#: inc/customizer.php:46
-msgid "Masonry + Sidebar"
-msgstr ""
-
-#: inc/customizer.php:47
-msgid "List + Sidebar"
-msgstr ""
-
-#: inc/customizer.php:48
-msgid "Masonry (No Sidebar)"
-msgstr ""
-
-#: inc/customizer.php:58
-msgid "Number of Images to Show in Slider"
+#: inc/customizer.php:55
+msgid "Quote Post Format Background Color"
 msgstr ""
 
 #: inc/customizer.php:76
+msgid "Link Post Format Background Color"
+msgstr ""
+
+#: inc/customizer.php:97
+msgid "Aside Post Format Background Color"
+msgstr ""
+
+#: inc/customizer.php:108
+msgid "Home Page"
+msgstr ""
+
+#: inc/customizer.php:110
+msgid "Blog Home Page Settings"
+msgstr ""
+
+#: inc/customizer.php:126
+msgid "Blog Home Page Layout"
+msgstr ""
+
+#: inc/customizer.php:130
+msgid "Masonry + Sidebar"
+msgstr ""
+
+#: inc/customizer.php:131
+msgid "List + Sidebar"
+msgstr ""
+
+#: inc/customizer.php:132
+msgid "Masonry (No Sidebar)"
+msgstr ""
+
+#: inc/customizer.php:148
+msgid "Number of Images to Show in Slider"
+msgstr ""
+
+#: inc/customizer.php:172
 msgid "Height of Home Page Slider"
 msgstr ""
 
-#: inc/customizer.php:78
+#: inc/customizer.php:174
 msgid "(in pixels)"
 msgstr ""
 
-#: inc/customizer.php:93
+#: inc/customizer.php:195
 msgid "Slider Image Size"
 msgstr ""
 
-#: inc/customizer.php:95
+#: inc/customizer.php:197
 msgid "From >Settings>Media"
 msgstr ""
 
-#: inc/customizer.php:98
+#: inc/customizer.php:200
 msgid "Thumbnail"
 msgstr ""
 
-#: inc/customizer.php:99
+#: inc/customizer.php:201
 msgid "Medium"
 msgstr ""
 
-#: inc/customizer.php:100
+#: inc/customizer.php:202
 msgid "Large"
 msgstr ""
 
-#: inc/customizer.php:101
+#: inc/customizer.php:203
 msgid "Full"
 msgstr ""
 
-#: inc/customizer.php:107
+#: inc/customizer.php:219
+msgid "Sliding speed of Home Page Slider (in ms)"
+msgstr ""
+
+#: inc/customizer.php:221
+msgid "0 to disable autoplay"
+msgstr ""
+
+#: inc/customizer.php:242
+msgid "Show Sticky Posts Below Slider"
+msgstr ""
+
+#: inc/customizer.php:252
 msgid "Single Post"
 msgstr ""
 
-#: inc/customizer.php:109
+#: inc/customizer.php:254
 msgid "Single Post Settings"
 msgstr ""
 
-#: inc/customizer.php:118
+#: inc/customizer.php:269
 msgid "Enable Sidebar"
 msgstr ""
 
-#: inc/customizer.php:129
+#: inc/customizer.php:286
 msgid "Enable Single Post Navigation"
 msgstr ""
 
-#: inc/customizer.php:136
+#: inc/customizer.php:296
 msgid "Social Icons"
 msgstr ""
 
-#: inc/customizer.php:138
+#: inc/customizer.php:298
 msgid "Links to social profiles in menu"
 msgstr ""
 
-#: inc/customizer.php:147
+#: inc/customizer.php:313
 msgid "Twitter"
 msgstr ""
 
-#: inc/customizer.php:158
+#: inc/customizer.php:330
 msgid "Facebook"
 msgstr ""
 
-#: inc/customizer.php:169
+#: inc/customizer.php:347
 msgid "Google Plus"
 msgstr ""
 
-#: inc/customizer.php:180
+#: inc/customizer.php:364
 msgid "Instagram"
 msgstr ""
 
-#: inc/customizer.php:191
+#: inc/customizer.php:381
 msgid "Pinterest"
 msgstr ""
 
-#: inc/customizer.php:198
+#: inc/customizer.php:398
+msgid "YouTube"
+msgstr ""
+
+#: inc/customizer.php:415
+msgid "Tumblr"
+msgstr ""
+
+#: inc/customizer.php:425
 msgid "Footer"
 msgstr ""
 
-#: inc/customizer.php:209
+#: inc/customizer.php:442
 msgid "Footer Text"
 msgstr ""
 
-#: inc/customizer.php:216
+#: inc/customizer.php:452
 msgid "Advanced"
 msgstr ""
 
-#: inc/customizer.php:218
+#: inc/customizer.php:454
 msgid "Advanced Settings"
 msgstr ""
 
-#: inc/customizer.php:227
+#: inc/customizer.php:469
 msgid "Enable WordPress Popular Posts Original Output (needs page refresh)"
 msgstr ""
 
-#: inc/customizer.php:238
+#: inc/customizer.php:486
 msgid "Enable Sticky Sidebar"
 msgstr ""
 
-#: inc/customizer.php:249
+#: inc/customizer.php:503
 msgid "Enable Smooth Scrolling"
 msgstr ""
 
-#: inc/extras.php:52
-msgid "Page %s"
-msgstr ""
-
-#: inc/template-tags.php:23
-msgid "Posts navigation"
-msgstr ""
-
-#: inc/template-tags.php:27
-msgid "Older posts"
-msgstr ""
-
-#: inc/template-tags.php:31
-msgid "Newer posts"
+#: inc/customizer.php:520
+msgid "Load fonts from Google servers"
 msgstr ""
 
 #: inc/template-tags.php:56
-msgid "Post navigation"
-msgstr ""
-
-#: inc/template-tags.php:111
 #. Translators: used between list items, there is a space after the comma.
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:113
+#: inc/template-tags.php:59
+#. Translators: Tags.
 msgid "Tagged: %1$s"
 msgstr ""
 
-#: inc/template-tags.php:119
+#: inc/template-tags.php:65
 msgid "Leave a comment"
 msgstr ""
 
-#: inc/template-tags.php:119
+#: inc/template-tags.php:65
 msgid "1 Comment"
 msgstr ""
 
-#: inc/template-tags.php:119
+#: inc/template-tags.php:65
 msgid "% Comments"
 msgstr ""
 
-#: inc/template-tags.php:123 inc/template-tags.php:301 page-nosidebar.php:44
-#: page.php:42
+#: inc/template-tags.php:69 inc/template-tags.php:172 page-nosidebar.php:49
+#: page.php:47
 msgid "Edit"
 msgstr ""
 
-#: inc/template-tags.php:140
-msgid "Category: %s"
-msgstr ""
-
-#: inc/template-tags.php:142
-msgid "Tag: %s"
-msgstr ""
-
-#: inc/template-tags.php:144
-msgid "Author: %s"
-msgstr ""
-
-#: inc/template-tags.php:146
-msgid "Year: %s"
-msgstr ""
-
-#: inc/template-tags.php:148
-msgid "Month: %s"
-msgstr ""
-
-#: inc/template-tags.php:150
-msgid "Day: %s"
-msgstr ""
-
-#: inc/template-tags.php:172
-msgid "Archives: %s"
-msgstr ""
-
-#: inc/template-tags.php:176
-#. translators: 1: Taxonomy singular name, 2: Current taxonomy term
-msgid "%1$s: %2$s"
-msgstr ""
-
-#: inc/template-tags.php:178
-msgid "Archives"
-msgstr ""
-
-#: inc/template-tags.php:298
+#: inc/template-tags.php:153
 #. translators: 1: date, 2: time
 msgid "%s ago"
 msgstr ""
 
-#: inc/template-tags.php:306
+#: inc/template-tags.php:177
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: inc/template-tags.php:341 inc/template-tags.php:342
+#: inc/template-tags.php:209 inc/template-tags.php:210
 msgid "Name"
 msgstr ""
 
-#: inc/template-tags.php:343 inc/template-tags.php:344
+#: inc/template-tags.php:211 inc/template-tags.php:212
 msgid "Email"
 msgstr ""
 
-#: inc/template-tags.php:345 inc/template-tags.php:346
+#: inc/template-tags.php:213 inc/template-tags.php:214
 msgid "Website"
 msgstr ""
 
-#: inc/template-tags.php:396 single.php:27
+#: inc/template-tags.php:264 single.php:35
 #: template-parts/content-home-list.php:22
-#: template-parts/content-home-list.php:41
+#: template-parts/content-home-list.php:32
+#: template-parts/content-home-list.php:50
 #: template-parts/content-home-masonry.php:23
-#: template-parts/content-home.php:24
-#: template-parts/content-single-audio.php:15
-#: template-parts/content-single-gallery.php:15
-#: template-parts/content-single-video.php:15
+#: template-parts/content-home.php:23
 msgid " &#x2f; "
 msgstr ""
 
-#: inc/template-tags.php:428 inc/template-tags.php:446
+#: inc/template-tags.php:297 inc/template-tags.php:316
+#. Translators: Post title.
 msgid "Read more %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: inc/tgmpa-plugins.php:71
-msgid ""
-"Sorry, but you do not have the correct permissions to install the %s "
-"plugin. Contact the administrator of this site for help on getting the "
-"plugin installed."
-msgid_plural ""
-"Sorry, but you do not have the correct permissions to install the %s "
-"plugins. Contact the administrator of this site for help on getting the "
-"plugins installed."
-msgstr[0] ""
-msgstr[1] ""
-
-#: inc/tgmpa-plugins.php:74
-msgid ""
-"Sorry, but you do not have the correct permissions to activate the %s "
-"plugin. Contact the administrator of this site for help on getting the "
-"plugin activated."
-msgid_plural ""
-"Sorry, but you do not have the correct permissions to activate the %s "
-"plugins. Contact the administrator of this site for help on getting the "
-"plugins activated."
-msgstr[0] ""
-msgstr[1] ""
-
-#: inc/tgmpa-plugins.php:76
-msgid ""
-"Sorry, but you do not have the correct permissions to update the %s plugin. "
-"Contact the administrator of this site for help on getting the plugin "
-"updated."
-msgid_plural ""
-"Sorry, but you do not have the correct permissions to update the %s "
-"plugins. Contact the administrator of this site for help on getting the "
-"plugins updated."
-msgstr[0] ""
-msgstr[1] ""
-
-#: inc/tgmpa-plugins.php:81
-msgid "All plugins installed and activated successfully. %s"
-msgstr ""
-
-#: index.php:21
+#: index.php:24
 msgid "Latest Posts"
 msgstr ""
 
-#: page-nosidebar.php:37 page.php:35 template-parts/content-single-audio.php:38
-#: template-parts/content-single-gallery.php:39
-#: template-parts/content-single-video.php:40
+#: page-nosidebar.php:41 page.php:39 template-parts/content-single-audio.php:42
+#: template-parts/content-single-gallery.php:43
+#: template-parts/content-single-video.php:43
 msgid "Pages:"
 msgstr ""
 
-#: search.php:19
+#: search.php:24
+#. Translators: search term.
 msgid "Search Results for: %s"
 msgstr ""
 
-#: search.php:43
+#: search.php:51
 msgid "Nothing Found"
 msgstr ""
 
-#: single.php:20
+#: single.php:28
 msgid "Attachment page"
 msgstr ""
 
-#: single.php:38
+#: single.php:47
 msgid "Previous article"
 msgstr ""
 
-#: single.php:39
+#: single.php:48
 msgid "Next article"
 msgstr ""
 
-#: template-parts/content-none.php:17
+#: template-parts/content-none.php:22
+#. Translators: comments number.
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: template-parts/content-none.php:21
+#: template-parts/content-none.php:36
 msgid "Sorry, but nothing matched your search terms."
 msgstr ""
 
-#: template-parts/content-none.php:21
+#: template-parts/content-none.php:36
 msgid "Please try again with some different keywords."
 msgstr ""
 
-#: template-parts/content-none.php:26
+#: template-parts/content-none.php:41
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for."
 msgstr ""
 
-#: template-parts/content-none.php:26
+#: template-parts/content-none.php:41
 msgid "Perhaps searching can help."
 msgstr ""
 
@@ -816,19 +761,32 @@ msgid "Pencil"
 msgstr ""
 
 #. Theme URI of the plugin/theme
-msgid "http://fatthemes.com/pencil"
+msgid "https://blogonyourown.com/themes/pencil/"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "Really nice and simple personal blog/magazine theme"
+msgid ""
+"Pencil is an amazing Simply & Clean WordPress Blog / Magazine Theme. It’s "
+"elegant and modern theme perfect for minimalist style lovers. Created to "
+"showcase your content in a clean, minimal way. Pencil is fast and "
+"well-coded design. It's the best choice to create a Beautiful & Powerful "
+"website. Suitable for all types of blog, magazine, newspaper. With Pencil "
+"WordPress Theme you can display your content in the best possible way, you "
+"can easy create your own unique layout and style. Pencil have many powerful "
+"features including: 3 Homepage Layouts, 4 Post Formats, 2 Page Layouts, "
+"Responsive Design (Bootstrap 4 based), Sticky Sidebar, Smooth Scrolling, "
+"Theme Options Easily Customized by Native WordPress Customizer (Live "
+"Preview) and much more. Support for AMP plugin. Tested with new block "
+"editor (Gutenberg). Pencil is easy to customize and well documented with "
+"great support and friendly help:)"
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Fat Themes"
+msgid "BlogOnYourOwn.com"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://fatthemes.com"
+msgid "https://blogonyourown.com"
 msgstr ""
 
 #. Template Name of the plugin/theme
@@ -836,20 +794,21 @@ msgid "No Sidebar"
 msgstr ""
 
 #: comments.php:31
+#. Translators: comments number.
 msgctxt "comments title"
-msgid "1 Comment"
+msgid "%1$s Comment"
 msgid_plural "%1$s Comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: functions.php:129
+#: functions.php:156
 #. Translators: If there are characters in your language that are not supported
 #. by Roboto, translate this to 'off'. Do not translate into your own language.
 msgctxt "Noto Sans font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:137
+#: functions.php:164
 #. Translators: If there are characters in your language that are not supported
 #. by Merriweather, translate this to 'off'. Do not translate into your own
 #. language.
@@ -857,7 +816,7 @@ msgctxt "Noto Serif font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:145
+#: functions.php:172
 #. Translators: To add an additional character subset specific to your
 #. language, translate this to 'greek', 'cyrillic', 'devanagari' or
 #. 'vietnamese'. Do not translate into your own language.
@@ -908,72 +867,14 @@ msgctxt "%2$s = plugin name in screen reader markup"
 msgid "Activate %2$s"
 msgstr ""
 
-#: inc/template-tags.php:81
+#: inc/template-tags.php:25
+#. Translators: months/hours/days.
 msgctxt "post date"
 msgid "%s ago"
 msgstr ""
 
-#: inc/template-tags.php:86
+#: inc/template-tags.php:31
+#. Translators: Author.
 msgctxt "post author"
 msgid " by %s"
-msgstr ""
-
-#: inc/template-tags.php:146
-msgctxt "yearly archives date format"
-msgid "Y"
-msgstr ""
-
-#: inc/template-tags.php:148
-msgctxt "monthly archives date format"
-msgid "F Y"
-msgstr ""
-
-#: inc/template-tags.php:150
-msgctxt "daily archives date format"
-msgid "F j, Y"
-msgstr ""
-
-#: inc/template-tags.php:153
-msgctxt "post format archive title"
-msgid "Asides"
-msgstr ""
-
-#: inc/template-tags.php:155
-msgctxt "post format archive title"
-msgid "Galleries"
-msgstr ""
-
-#: inc/template-tags.php:157
-msgctxt "post format archive title"
-msgid "Images"
-msgstr ""
-
-#: inc/template-tags.php:159
-msgctxt "post format archive title"
-msgid "Videos"
-msgstr ""
-
-#: inc/template-tags.php:161
-msgctxt "post format archive title"
-msgid "Quotes"
-msgstr ""
-
-#: inc/template-tags.php:163
-msgctxt "post format archive title"
-msgid "Links"
-msgstr ""
-
-#: inc/template-tags.php:165
-msgctxt "post format archive title"
-msgid "Statuses"
-msgstr ""
-
-#: inc/template-tags.php:167
-msgctxt "post format archive title"
-msgid "Audio"
-msgstr ""
-
-#: inc/template-tags.php:169
-msgctxt "post format archive title"
-msgid "Chats"
 msgstr ""
