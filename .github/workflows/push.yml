@@ -39,6 +39,7 @@ jobs:
           git clone -b master --depth 1 https://github.com/PHPCompatibility/PHPCompatibilityParagonie $PHPCompatibilityParagonie
           $PHPCS_DIR/bin/phpcs --config-set installed_paths $WPCS_DIR,$PHPCompatibility,$PHPCompatibilityWP,$PHPCompatibilityParagonie
           $PHPCS_DIR/bin/phpcs -p -s -v -n . --standard=./phpcs.ruleset.xml --extensions=php --ignore=*/node_modules/*,*/vendor/*,class-tgm-plugin-activation.php,class-media-grabber.php,get-the-image.php
+          sudo npm install -g jshint
           jshint .
           php -v
           find -L . -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" -not -path "*php-codesniffer*" -not -path ".*" -print0 | xargs -0 -n 1 -P 4 php -l
