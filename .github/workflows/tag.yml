@@ -17,6 +17,7 @@ jobs:
     
       - name: Version Check And Build
         run: |
+          echo ${{ github.event }}
           TAG=`echo "$DRONE_TAG" | sed 's/^v//'`
           echo $TAG
           VERSION_LINE=$(grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?.*" $PWD/style.css)
