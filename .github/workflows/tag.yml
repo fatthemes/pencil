@@ -1,8 +1,7 @@
 name: Theme release
-on: 
-  push:
-    tags:
-      - 'v*'
+on:
+  release:
+    types: [created]
 
 jobs:
   release-on-tag:
@@ -17,8 +16,6 @@ jobs:
     
       - name: Version Check And Build
         run: |
-          php -r "echo serialize(json_encode(${{ github }}));"
-          php -r "echo serialize(json_encode(${{ github.event }}));"
           echo ${{ github.event.release.upload_url }}
           TAG=$(echo ${{ github.event.release.tag_name }} | grep -Po "\d\d?\.\d\d?\.?\d?\d?")
           echo $TAG
