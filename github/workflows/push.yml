@@ -1,8 +1,6 @@
 name: Github Release and Docker Image Creation
 on: 
-  push:
-    branches:
-      - master
+  push
 
 jobs:
   release-on-push:
