@@ -31,8 +31,9 @@ jobs:
           grunt
           rm -rf *.yml .drone.yml .g* .j* .n* .v* scss sass node_modules vendor tests Gruntfile.js casper-tests.js package.json *.ruleset.xml nbproject *.rb *.tmp *.map css/*.map *.log Dockerfile
           echo ${{ github.ref }}
+          echo ${{ github.event.repository.name }}
           ls -la
-          zip -FSr ${{ github.ref }} ./*
+          zip -FSr ${{ github.event.repository.name }} ./*
     
       - name: Create Release
         id: create_release
