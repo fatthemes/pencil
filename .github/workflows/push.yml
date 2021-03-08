@@ -7,6 +7,12 @@ on:
 jobs:
   release-on-push:
     runs-on: ubuntu-20.04
+    env:
+      PHPCS_DIR: /tmp/phpcs
+      WPCS_DIR: /tmp/sniffs/WordPress-Coding-Standards
+      PHPCompatibility: /tmp/sniffs/PHPCompatibility
+      PHPCompatibilityWP: /tmp/sniffs/PHPCompatibilityWP
+      PHPCompatibilityParagonie: /tmp/sniffs/PHPCompatibilityParagonie
     steps:
       - uses: actions/checkout@v2
 
@@ -14,26 +20,6 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: 'latest'
-    
-      - name: Version Check And Build
-        run: |
-          TAG=`echo "$DRONE_TAG" | sed 's/^v//'`
-          echo $TAG
-          VERSION_LINE=$(grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?.*" $PWD/style.css)
-          VERSION=$(echo $VERSION_LINE | grep -Po "\d\d?\.\d\d?\.?\d?\d?.*")
-          echo $VERSION
-          if [ $TAG != $VERSION ]; then echo "Wrong theme/tag version - version from repo tag is $TAG but theme version from style.css is $THEMEVERSION" && exit 1 ;fi
-          grep -q "\[$VERSION\]" $PWD/CHANGELOG.md
-          grep -q "\[$VERSION\]" $PWD/CHANGELOG.md
-          sudo apt-get update && sudo apt-get install -y zip
-          sudo npm install grunt-cli -g --force
-          npm install --silent
-          grunt
-          rm -rf *.yml .drone.yml .g* .j* .n* .v* scss sass node_modules vendor tests Gruntfile.js casper-tests.js package.json *.ruleset.xml nbproject *.rb *.tmp *.map css/*.map *.log Dockerfile
-          echo ${{ github.ref }}
-          echo ${{ github.event.repository.name }}
-          ls -la
-          zip -FSr ${{ github.event.repository.name }} ./*
 
       - name: Check "Tested Up To"
         run: |
@@ -47,12 +33,6 @@ jobs:
           if [ $TESTED_UP_TO_WP_VERSION != $CURRENT_WP_VERSION ]; then echo "Please test with latest WP version - $CURRENT_WP_VERSION instead of $TESTED_UP_TO_WP_VERSION" && exit 1 ;fi
 
       - name: Codetest - latest PHP
-        env:
-          PHPCS_DIR: /tmp/phpcs
-          WPCS_DIR: /tmp/sniffs/WordPress-Coding-Standards
-          PHPCompatibility: /tmp/sniffs/PHPCompatibility
-          PHPCompatibilityWP: /tmp/sniffs/PHPCompatibilityWP
-          PHPCompatibilityParagonie: /tmp/sniffs/PHPCompatibilityParagonie
         run: |
           git clone -b master --depth 1 https://github.com/squizlabs/PHP_CodeSniffer.git $PHPCS_DIR
           git clone -b master --depth 1 https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git $WPCS_DIR
