@@ -1,10 +1,12 @@
 name: Basic Tests
 on: 
-  push
+  push:
+    branches-ignore:
+    - master
 
 jobs:
   release-on-push:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     env:
       PHPCS_DIR: /tmp/phpcs
       WPCS_DIR: /tmp/sniffs/WordPress-Coding-Standards
