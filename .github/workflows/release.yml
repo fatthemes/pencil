@@ -1,8 +1,7 @@
 name: Theme release
-on: 
-  push:
-    tags:
-      - 'v*'
+on:
+  release:
+    types: [created]
 
 jobs:
   release-on-tag:
