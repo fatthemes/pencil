@@ -16,7 +16,6 @@ jobs:
     
       - name: Version Check And Build
         run: |
-          echo ${{ github.event.release.upload_url }}
           TAG=$(echo ${{ github.event.release.tag_name }} | grep -Po "\d\d?\.\d\d?\.?\d?\d?")
           echo $TAG
           VERSION_LINE=$(grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?.*" $PWD/style.css)
@@ -29,7 +28,7 @@ jobs:
           sudo npm install grunt-cli -g --force
           npm install --silent
           grunt
-          rm -rf *.yml .drone.yml .g* .j* .n* .v* scss sass node_modules vendor tests Gruntfile.js casper-tests.js package.json *.ruleset.xml nbproject *.rb *.tmp *.map css/*.map *.log Dockerfile
+          rm -rf *.yml .drone.yml .g* .j* .n* .v* scss sass node_modules vendor tests Gruntfile.js casper-tests.js package.json *.ruleset.xml nbproject *.rb *.tmp *.map css/*.map slick/*.map *.log Dockerfile
           zip -FSr ${{ github.event.repository.name }} ./*
 
       - name: Upload Release Asset
