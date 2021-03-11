@@ -1,7 +1,7 @@
 === Pencil ===
 Contributors: limestreet, moniula
 Requires at least: 4.1
-Tested up to: 5.6.2
+Tested up to: 5.7
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: translation-ready, grid-layout, blog, news, left-sidebar, right-sidebar, custom-background, two-columns, three-columns, featured-images, full-width-template, post-formats, sticky-post, theme-options, threaded-comments
@@ -30,7 +30,7 @@ Pencil is an amazing Simply & Clean WordPress Blog / Magazine Theme. It’s eleg
 * Magnific Popup - v1.0.0 - Copyright (c) 2015 Dmitry Semenov. MIT license
 * Infinite Scroll - version 2.1.0 - Copyright 2011/12 Paul Irish & Luke Shumard. Licensed under the MIT license
 * Hybrid Media Grabber - Copyright (c) 2008 - 2015, Justin Tadlock. License - GPL 2.0
-* Screenshot images. License CC0 - https://unsplash.com
+* Screenshot images. License CC0 - by Monika Dziedzic (BlogOnYourOwn.com)
 * Merriweather-Regular.ttf: Copyright 2016 The Merriweather Project Authors (https://github.com/EbenSorkin/Merriweather), with Reserved Font Name "Merriweather". SIL Open Font License, 1.1
 * Merriweather-Italic.ttf: Copyright 2016 The Merriweather Project Authors (https://github.com/EbenSorkin/Merriweather), with Reserved Font Name "Merriweather". SIL Open Font License, 1.1
 * Merriweather-Bold.ttf: Copyright 2016 The Merriweather Project Authors (https://github.com/EbenSorkin/Merriweather), with Reserved Font Name "Merriweather". SIL Open Font License, 1.1
