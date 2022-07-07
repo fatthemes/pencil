@@ -3322,7 +3322,7 @@ img, figure {
   .post blockquote, .post q, .post .entry-content img.alignleft, .post .entry-content img.alignnone, .post .entry-content figure.alignleft, .post .entry-content figure.alignnone, .post .entry-content img.wp-block-image, .post .entry-content figure.wp-block-image {
     margin-left: -21.666%;
   }
-  .post .entry-content img.alignnone, .post .entry-content figure.alignnone,.post .entry-content img.wp-block-image, .post .entry-content figure.wp-block-image {
+  .post .entry-content img.alignnone, .post .entry-content figure.alignnone, .post .entry-content img.wp-block-image, .post .entry-content figure.wp-block-image {
     min-width: 121.666%;
   }
   .single blockquote, .single q, .page blockquote, .page q {
