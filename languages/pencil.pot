@@ -1,14 +1,14 @@
-# <!=Copyright (C) 2021 BlogOnYourOwn.com
+# <!=Copyright (C) 2022 BlogOnYourOwn.com
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Pencil 1.6.2\n"
+"Project-Id-Version: Pencil 1.6.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/pencil\n"
-"POT-Creation-Date: 2021-03-08 12:59:20+00:00\n"
+"POT-Creation-Date: 2022-07-13 10:50:40+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
@@ -80,11 +80,11 @@ msgstr ""
 msgid "No more posts to load"
 msgstr ""
 
-#: header.php:25
+#: header.php:26
 msgid "Skip to content"
 msgstr ""
 
-#: header.php:61
+#: header.php:62
 msgid "Menu"
 msgstr ""
 
