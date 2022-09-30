@@ -25,8 +25,9 @@ jobs:
           grep -q "\[$VERSION\]" $PWD/CHANGELOG.md
           grep -q "\[$VERSION\]" $PWD/CHANGELOG.md
           # sudo apt-get update && sudo apt-get install -y zip
+          ls -la
           npm install grunt-cli -g --force
-          # npm install --silent
+          npm install --silent
           # grunt
           # rm -rf *.yml .drone.yml .g* .j* .n* .v* scss sass node_modules vendor tests Gruntfile.js casper-tests.js package.json *.ruleset.xml nbproject *.rb *.tmp *.map css/*.map slick/*.map *.log Dockerfile
           # zip -FSr ${{ github.event.repository.name }} ./*
