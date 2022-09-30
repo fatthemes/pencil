@@ -1,5 +1,10 @@
 # Change Log - Pencil
 
+## [1.6.3] - 2022-09-30
+
+### Fixed
+- image alignment
+
 ## [1.6.2] - 2021-03-08
 
 ### Fixed
