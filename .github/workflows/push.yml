@@ -20,8 +20,6 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '7.4'
-        - name: Print PHP Version
-        run: php -v
 
       - name: Check "Tested Up To"
         run: |
