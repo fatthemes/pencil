@@ -39,7 +39,7 @@ jobs:
           find -L . -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" -not -path "*php-codesniffer*" -not -path ".*" -print0 | xargs -0 -n 1 -P 4 php -l
 
       - name: WP Coding Standards test - latest PHP
-        run: /vendor/bin/phpcs -p -s -v -n . --standard=./phpcs.ruleset.xml --extensions=php --ignore=*/node_modules/*,*/vendor/*,class-tgm-plugin-activation.php,class-media-grabber.php,get-the-image.php
+        run: ./vendor/bin/phpcs -p -s -v -n . --standard=./phpcs.ruleset.xml --extensions=php --ignore=*/node_modules/*,*/vendor/*,class-tgm-plugin-activation.php,class-media-grabber.php,get-the-image.php
           
       - name: Setup PHP 5.6.30
         uses: shivammathur/setup-php@v2
