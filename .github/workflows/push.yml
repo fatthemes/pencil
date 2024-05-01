@@ -36,7 +36,19 @@ jobs:
           echo $STYLE_TESTED_UP_TO_WP
           if [ $STYLE_TESTED_UP_TO_WP != $CURRENT_WP_VERSION ]; then echo "style.css - tested up to - use $CURRENT_WP_VERSION instead of $STYLE_TESTED_UP_TO_WP" && exit 1 ;fi
 
-      - name: Codetest - latest PHP
+      - name: Basic Code and Syntax Check - latest PHP
+        run: |
+          sudo npm install -g jshint
+          jshint .
+          php -v
+          find -L . -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" -not -path "*php-codesniffer*" -not -path ".*" -print0 | xargs -0 -n 1 -P 4 php -l
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+
+      - name: WP Coding Standards test - latest PHP
         run: |
           git clone -b master --depth 1 https://github.com/squizlabs/PHP_CodeSniffer.git $PHPCS_DIR
           git clone -b master --depth 1 https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git $WPCS_DIR
@@ -45,10 +57,6 @@ jobs:
           git clone -b master --depth 1 https://github.com/PHPCompatibility/PHPCompatibilityParagonie $PHPCompatibilityParagonie
           $PHPCS_DIR/bin/phpcs --config-set installed_paths $WPCS_DIR,$PHPCompatibility,$PHPCompatibilityWP,$PHPCompatibilityParagonie
           $PHPCS_DIR/bin/phpcs -p -s -v -n . --standard=./phpcs.ruleset.xml --extensions=php --ignore=*/node_modules/*,*/vendor/*,class-tgm-plugin-activation.php,class-media-grabber.php,get-the-image.php
-          sudo npm install -g jshint
-          jshint .
-          php -v
-          find -L . -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" -not -path "*php-codesniffer*" -not -path ".*" -print0 | xargs -0 -n 1 -P 4 php -l
           
       - name: Setup PHP 5.6.30
         uses: shivammathur/setup-php@v2
