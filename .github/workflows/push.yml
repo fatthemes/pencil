@@ -57,7 +57,8 @@ jobs:
           # git clone -b master --depth 1 https://github.com/PHPCompatibility/PHPCompatibilityWP.git $PHPCompatibilityWP
           # git clone -b master --depth 1 https://github.com/PHPCompatibility/PHPCompatibilityParagonie $PHPCompatibilityParagonie
           # $PHPCS_DIR/bin/phpcs --config-set installed_paths $WPCS_DIR,$PHPCompatibility,$PHPCompatibilityWP,$PHPCompatibilityParagonie
-          $PHPCS_DIR/bin/phpcs -p -s -v -n . --standard=./phpcs.ruleset.xml --extensions=php --ignore=*/node_modules/*,*/vendor/*,class-tgm-plugin-activation.php,class-media-grabber.php,get-the-image.php
+          ls -la ./vendor/bin
+          ./vendor/bin/phpcs -p -s -v -n . --standard=./phpcs.ruleset.xml --extensions=php --ignore=*/node_modules/*,*/vendor/*,class-tgm-plugin-activation.php,class-media-grabber.php,get-the-image.php
           
       - name: Setup PHP 5.6.30
         uses: shivammathur/setup-php@v2
