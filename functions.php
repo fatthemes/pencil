@@ -95,7 +95,6 @@ if ( ! function_exists( 'pencil_setup' ) ) :
 
 		// Enable support for Site Logo.
 		add_theme_support( 'custom-logo' );
-
 	}
 endif; // End of pencil_setup.
 add_action( 'after_setup_theme', 'pencil_setup' );

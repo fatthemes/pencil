@@ -12,7 +12,7 @@
 /**
  * Include the TGM_Plugin_Activation class.
  */
-require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
+require_once __DIR__ . '/class-tgm-plugin-activation.php';
 
 add_action( 'tgmpa_register', 'pencil_register_required_plugins' );
 /**
@@ -58,5 +58,4 @@ function pencil_register_required_plugins() {
 	);
 
 	tgmpa( $plugins, $config );
-
 }
