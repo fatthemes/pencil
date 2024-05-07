@@ -34,11 +34,11 @@ if ( ! function_exists( 'pencil_posted_on' ) ) :
 
 		if ( is_singular() ) {
 
-			echo '<div class="author-avatar">' . get_avatar( get_the_author_meta( 'ID' ) ) . '</div><span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
+			echo '<div class="author-avatar">' . get_avatar( get_the_author_meta( 'ID' ) ) . '</div><span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 		} else {
 
-			echo '<span class="byline"> ' . $byline . '</span><span class="posted-on"> / ' . $posted_on . '</span>'; // WPCS: XSS OK.
+			echo '<span class="byline"> ' . $byline . '</span><span class="posted-on"> / ' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 		}
 	}
@@ -56,7 +56,7 @@ if ( ! function_exists( 'pencil_entry_footer' ) ) :
 			$tags_list = get_the_tag_list( '', esc_html__( ', ', 'pencil' ) );
 			if ( $tags_list ) {
 				// Translators: Tags.
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged: %1$s', 'pencil' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+				printf( '<span class="tags-links">' . esc_html__( 'Tagged: %1$s', 'pencil' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
 
@@ -299,7 +299,7 @@ if ( ! function_exists( 'pencil_gallery_content' ) ) :
 		$replacement = '';
 
 		$newcontent = preg_replace( $pattern, $replacement, $content, 1 );
-		$newcontent = apply_filters( 'the_content', $newcontent ); // WPCS: prefix ok.
+		$newcontent = apply_filters( 'the_content', $newcontent ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 		$newcontent = str_replace( ']]>', ']]&gt;', $newcontent );
 		echo wp_kses_post( $newcontent );
 	}
@@ -314,7 +314,7 @@ if ( ! function_exists( 'pencil_media_content' ) ) :
 	function pencil_media_content() {
 		// Translators: Post title.
 		$content = get_the_content( sprintf( esc_html__( 'Read more %s <span class="meta-nav">&rarr;</span>', 'pencil' ), the_title( '<span class="screen-reader-text">"', '"</span>', false ) ) );
-		$content = apply_filters( 'the_content', $content ); // WPCS: prefix ok.
+		$content = apply_filters( 'the_content', $content ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 		$content = str_replace( ']]>', ']]&gt;', $content );
 
 		$tags = 'audio|video|object|embed|iframe|img';
@@ -366,21 +366,19 @@ if ( ! function_exists( 'pencil_post_format_icon' ) ) :
 
 		if ( ! $format ) {
 			return;
-		} else {
+		} elseif ( 'audio' === $format ) {
 
-			if ( 'audio' === $format ) {
 				return '<div class="pencil-post-format-icon"><span class="fa fa-music"></span></div>';
-			} elseif ( 'video' === $format ) {
-				return '<div class="pencil-post-format-icon"><span class="fa fa-video-camera"></span></div>';
-			} elseif ( 'gallery' === $format ) {
-				return '<div class="pencil-post-format-icon"><span class="fa fa-camera"></span></div>';
-			} elseif ( 'image' === $format ) {
-				return '<div class="pencil-post-format-icon"><span class="fa fa-image"></span></div>';
-			} elseif ( 'quote' === $format ) {
-				return '<div class="pencil-post-format-icon"><span class="fa fa-quote-right"></span></div>';
-			} elseif ( 'link' === $format ) {
-				return '<div class="pencil-post-format-icon"><span class="fa fa-link"></span></div>';
-			}
+		} elseif ( 'video' === $format ) {
+			return '<div class="pencil-post-format-icon"><span class="fa fa-video-camera"></span></div>';
+		} elseif ( 'gallery' === $format ) {
+			return '<div class="pencil-post-format-icon"><span class="fa fa-camera"></span></div>';
+		} elseif ( 'image' === $format ) {
+			return '<div class="pencil-post-format-icon"><span class="fa fa-image"></span></div>';
+		} elseif ( 'quote' === $format ) {
+			return '<div class="pencil-post-format-icon"><span class="fa fa-quote-right"></span></div>';
+		} elseif ( 'link' === $format ) {
+			return '<div class="pencil-post-format-icon"><span class="fa fa-link"></span></div>';
 		}
 	}
 endif;
