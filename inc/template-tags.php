@@ -327,27 +327,6 @@ if ( ! function_exists( 'pencil_media_content' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'pencil_gallery_shortcode' ) ) :
-
-	/**
-	 * Function for modify gallery shortcode
-	 *
-	 * @param type  $output gallery shortcode output.
-	 * @param array $atts gallery shortcode attributes.
-	 * @return type
-	 */
-	function pencil_gallery_shortcode( $output = '', $atts ) {
-		// $return = $output; // Fallback.
-		$atts = array(
-			'size' => 'medium',
-		);
-
-			return $output;
-	}
-
-	add_filter( 'post_gallery', 'pencil_gallery_shortcode', 10, 3 );
-endif;
-
 if ( ! function_exists( 'pencil_post_format_icon' ) ) :
 
 	/**
