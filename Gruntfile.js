@@ -44,7 +44,7 @@ module.exports = function (grunt) {
 
         postcss: {
             options: {
-              //map: true, // inline sourcemaps
+              // map: true, // inline sourcemaps
 
               processors: [
                 //require("postcss-import")(),
@@ -59,7 +59,7 @@ module.exports = function (grunt) {
               ]
             },
             dist: {
-              src: 'style.css'
+              sources: 'style.css'
             }
         },
 
