@@ -1,5 +1,11 @@
 # Change Log - Pencil
 
+## [1.7.0] - 2024-05-21
+
+### Changed
+- Tested up to 6.5.3 (WordPress version)
+- Code clean-up
+
 ## [1.6.4] - 2024-04-30
 
 ### Changed

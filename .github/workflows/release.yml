@@ -16,14 +16,15 @@ jobs:
     
       - name: Version Check And Build
         run: |
-          TAG=$(echo ${{ github.event.release.tag_name }} | grep -Po "\d\d?\.\d\d?\.?\d?\d?")
-          echo $TAG
-          VERSION_LINE=$(grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?.*" $PWD/style.css)
-          VERSION=$(echo $VERSION_LINE | grep -Po "\d\d?\.\d\d?\.?\d?\d?")
-          echo $VERSION
-          if [ $TAG != $VERSION ]; then echo "Wrong theme/tag version - version from repo tag is $TAG but theme version from style.css is $THEMEVERSION" && exit 1 ;fi
-          grep -q "\[$VERSION\]" $PWD/CHANGELOG.md
-          grep -q "\[$VERSION\]" $PWD/CHANGELOG.md
+          TAG=$(echo ${{ github.event.release.tag_name }} | grep -Po "\d\d?\.\d\d?\.?\d?\d?");
+          echo $TAG;
+          VERSION_LINE=$(grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?.*" $PWD/style.css);
+          VERSION=$(echo $VERSION_LINE | grep -Po "\d\d?\.\d\d?\.?\d?\d?");
+          echo $VERSION;
+          if [ $TAG != $VERSION ]; then echo "Wrong theme/tag version - version from repo tag is $TAG but theme version from style.css is $THEMEVERSION" && exit 1 ;fi;
+          echo "Checking changelog..."
+          grep -q "\[$VERSION\]" $PWD/CHANGELOG.md;
+          # grep -q "\[$VERSION\]" $PWD/CHANGELOG.md;
           # sudo apt-get update && sudo apt-get install -y zip
           # ls -la
           npm install grunt-cli -g --force
