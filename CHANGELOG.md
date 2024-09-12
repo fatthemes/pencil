@@ -1,5 +1,11 @@
 # Change Log - Pencil
 
+## [1.7.1] - 2024-09-12
+
+### Changed
+- Tested up to 6.6.2 (WordPress version)
+- improved support for block editor
+
 ## [1.7.0] - 2024-05-21
 
 ### Changed
