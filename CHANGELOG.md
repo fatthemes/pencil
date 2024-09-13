@@ -4,7 +4,6 @@
 
 ### Changed
 - Removed `theme.json` to resolve conflicts with block editor styles.
-- Tested up to WordPress version 6.6.2.
 
 ## [1.7.1] - 2024-09-12
 
