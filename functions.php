@@ -287,3 +287,10 @@ require_once get_template_directory() . '/inc/tgmpa-plugins.php';
  * AMP.
  */
 require_once get_template_directory() . '/inc/amp.php';
+
+/**
+ * WooCommerce compatibility, only when WooCommerce is active.
+ */
+if ( class_exists( 'WooCommerce' ) ) {
+	require get_template_directory() . '/inc/woocommerce.php';
+}

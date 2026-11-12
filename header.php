@@ -99,7 +99,7 @@ if ( ! empty( $pencil_social_icons_tumblr ) ) :
 	?>
 <a href="<?php echo esc_url( $pencil_social_icons_tumblr ); ?>"><span class="fa fa-tumblr fa-lg"></span></a><?php endif; ?>
 						<button class="search-toggle fa fa-search"></button>
-						</div>
+						<?php do_action( 'pencil_nav_func_end' ); ?></div>
 						<div id="toggled-navbar-bg" >
 			<?php
 			wp_nav_menu(

@@ -102,7 +102,8 @@
      * Replace the traditional navigation with our own,
      * but only if there is at least one page of new posts to load.
      */
-    if (pageNum <= max) {
+    // WooCommerce pages keep WooCommerce's own pagination.
+    if (pageNum <= max && !$('body').hasClass('woocommerce')) {
       // Insert the "More Posts" link.
       $('#primary').append('<p id="pencil-load-more"><a class="btn btn-secondary" href="#">' + pencil.loadMoreText + '</a></p>');
 
@@ -221,7 +222,8 @@
 
       // Single Image
       $('a[href*=".jpg"], a[href*=".jpeg"], a[href*=".png"], a[href*=".gif"]').each(function () {
-        if ($(this).parents('.gallery').length === 0) {
+        // WooCommerce opens product gallery images in its own lightbox.
+        if ($(this).parents('.gallery').length === 0 && $(this).parents('.woocommerce-product-gallery').length === 0) {
           $(this).magnificPopup({
             type: 'image',
             image: {

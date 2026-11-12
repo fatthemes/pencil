@@ -39,6 +39,13 @@ function pencil_register_required_plugins() {
 			'slug'      => 'user-social-profiles',
 			'required'  => false,
 		),
+
+		// WooCommerce from WordPress Plugin Repository.
+		array(
+			'name'     => 'WooCommerce',
+			'slug'     => 'woocommerce',
+			'required' => false,
+		),
 	);
 	/**
 	 * Array of configuration settings. Amend each line as needed.
