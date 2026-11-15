@@ -145,7 +145,7 @@ if ( ! function_exists( 'pencil_comment' ) ) :
 						</div>    
 						<?php endif; ?>
 						<div class="comment-meta commentmetadata">
-							<?php printf( sprintf( '<cite class="fn"><b>%s</b></cite>', get_comment_author_link() ) ); ?>
+							<?php printf( '<cite class="fn"><b>%s</b></cite>', get_comment_author_link() ); ?>
 							<br />
 							<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><time pubdate datetime="<?php comment_time( 'c' ); ?>">
 							<?php

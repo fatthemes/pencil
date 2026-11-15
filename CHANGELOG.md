@@ -8,6 +8,8 @@
 - Existing shops will be restyled: shop, cart, checkout and account pages no longer show the blog sidebar
 - Fixed product images opening in two lightboxes
 - Fixed "Load more" appearing on shop pages
+- Fixed a crash when a commenter's name or website contains a "%" sign
+- The search panel now closes with the Escape key and keeps keyboard focus
 
 ## [1.7.2] - 2024-09-13
 

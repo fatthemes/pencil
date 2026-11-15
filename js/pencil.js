@@ -239,12 +239,43 @@
 
     // Top search panel
     var $pencilSearchPanel = $('.pencil-search-panel');
-    $('.search-toggle').click(function () {
-      $pencilSearchPanel.slideToggle(0).css('z-index', '1001');
-      $('.search-field').focus();
-    });
-    $('.pencil-search-panel-close').click(function () {
+    var $pencilSearchToggle = $('.search-toggle').attr('aria-expanded', 'false');
+    var closeSearchPanel = function () {
       $pencilSearchPanel.slideToggle(0).css('z-index', '');
+      $pencilSearchToggle.attr('aria-expanded', 'false').focus();
+    };
+    $pencilSearchToggle.click(function () {
+      var opening = !$pencilSearchPanel.is(':visible');
+      $pencilSearchPanel.slideToggle(0).css('z-index', '1001');
+      $pencilSearchToggle.attr('aria-expanded', String(opening));
+      if (opening) {
+        $pencilSearchPanel.find('.search-field').focus();
+      }
+    });
+    $('.pencil-search-panel-close').click(closeSearchPanel);
+    // Escape closes the open search panel and Tab keeps focus inside it.
+    $(document).keydown(function (event) {
+      if (!$pencilSearchPanel.is(':visible')) {
+        return;
+      }
+      if (event.key === 'Escape' || event.keyCode === 27) {
+        closeSearchPanel();
+      } else if (event.key === 'Tab' || event.keyCode === 9) {
+        var $focusable = $pencilSearchPanel.find('a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])').filter(':visible').not(':disabled');
+        var first = $focusable.get(0);
+        var last = $focusable.get(-1);
+        var inside = $.contains($pencilSearchPanel[0], document.activeElement);
+        if (!first) {
+          return;
+        }
+        if (event.shiftKey && (!inside || document.activeElement === first)) {
+          last.focus();
+          event.preventDefault();
+        } else if (!event.shiftKey && (!inside || document.activeElement === last)) {
+          first.focus();
+          event.preventDefault();
+        }
+      }
     });
 
     //Sticky menu
